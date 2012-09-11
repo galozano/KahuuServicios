@@ -1,0 +1,36 @@
+Testsuite: kelgal.empleos.EmpleoControllerTests
+Tests run: 4, Failures: 1, Errors: 0, Time elapsed: 9.868 sec
+------------- Standard Output ---------------
+--Output from testBuscar--
+--Output from testProfile--
+--Output from testUsers--
+--Output from testIndex--
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+--Output from testBuscar--
+--Output from testProfile--
+--Output from testUsers--
+--Output from testIndex--
+------------- ---------------- ---------------
+
+Testcase: testBuscar took 5.271 sec
+Testcase: testProfile took 3.698 sec
+Testcase: testUsers took 0.454 sec
+	FAILED
+Assertion failed: 
+
+assert profile.save() != null
+       |       |      |
+       |       null   false
+       kelgal.empleos.Profile : null
+
+junit.framework.AssertionFailedError: Assertion failed: 
+
+assert profile.save() != null
+       |       |      |
+       |       null   false
+       kelgal.empleos.Profile : null
+
+	at kelgal.empleos.EmpleoControllerTests.testUsers(EmpleoControllerTests.groovy:35)
+
+Testcase: testIndex took 0.35 sec

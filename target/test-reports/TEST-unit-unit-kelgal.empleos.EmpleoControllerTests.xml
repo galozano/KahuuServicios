@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="1" hostname="localhost" name="kelgal.empleos.EmpleoControllerTests" tests="4" time="9.868" timestamp="2012-09-10T22:42:17">
+  <properties />
+  <testcase classname="kelgal.empleos.EmpleoControllerTests" name="testBuscar" time="5.271" />
+  <testcase classname="kelgal.empleos.EmpleoControllerTests" name="testProfile" time="3.698" />
+  <testcase classname="kelgal.empleos.EmpleoControllerTests" name="testUsers" time="0.454">
+    <failure message="Assertion failed: &#xa;&#xa;assert profile.save() != null&#xa;       |       |      |&#xa;       |       null   false&#xa;       kelgal.empleos.Profile : null&#xa;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Assertion failed: 
+
+assert profile.save() != null
+       |       |      |
+       |       null   false
+       kelgal.empleos.Profile : null
+
+	at kelgal.empleos.EmpleoControllerTests.testUsers(EmpleoControllerTests.groovy:35)
+</failure>
+  </testcase>
+  <testcase classname="kelgal.empleos.EmpleoControllerTests" name="testIndex" time="0.35" />
+  <system-out><![CDATA[--Output from testBuscar--
+--Output from testProfile--
+--Output from testUsers--
+--Output from testIndex--
+]]></system-out>
+  <system-err><![CDATA[--Output from testBuscar--
+--Output from testProfile--
+--Output from testUsers--
+--Output from testIndex--
+]]></system-err>
+</testsuite>
