@@ -1,50 +1,72 @@
+<%@page import="kelgal.empleos.Ciudad"%>
 <%@ page contentType="text/html;charset=US-ASCII"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
-<meta name="layout" content="main" />
+<meta name="layout" content="complete" />
 <title>Bienvenidos!</title>
-
 </head>
+
+<style type="text/css">
+
+
+
+</style>
 <body>
 	<div class="body">
 		<div id="page">
-			<div id="page-bgtop">	
-				<div id="sidebar">
-					<h1>Categorias</h1>
-					<ul>
-						<g:each in="${categoriasList}" var="categoriaInstance">
-							<li>
-								<g:link action="users" id="${categoriaInstance.id}"> ${fieldValue(bean: categoriaInstance, field: "nombre")}</g:link>					
-							</li>
-						</g:each>
-					</ul>
-				</div>				
-				<div class="content">
-					<h1>Bienvenidos</h1>
-					
+			<div id="page-index">		
+			
+				<div align="center">
+					<h2>Bienvenidos</h2>
+						<br/><br/>
 					<p>
-						Kahuu Servicios es un portal para buscar servicios en Cartagena!
-					</p>
-					<br/>
-					<p>
-						Ingresando tus datos en el formulario nosotros te inscribiremos a la p&aacutegina de Kahuu Servicios donde personas de barrios 
-						como Bocagrande, Castillogrande, Manga, etc. podr&aacuten consultar por diferentes categor&iacuteas o por nombre y buscarte en la base 
-						de datos para as&iacute poder llamarte y pedirte el servicio que t&uacute ofreces. 
-					</p>
-					<br/>
-					<p>
-						Lo mejor es que para ustedes, incribirte, es completamente GRATIS.<br/><br/>
-						Aprovecha esta oportunidad y inscr&iacutebete en la base de datos, solo te cuesta unos minutos. 
+						Kahuu Servicios es un portal para buscar servicios en Colombia!
 					</p>
 						<br/>
 					<p>
-						En estos momentos nuestros servicios no ofrecen la inscripci&oacuten  por la p&aacutegina, pero estamos trabajando en eso y pronto estar&aacute disponible.
-						Si quieres inscribirte a la base de datos por favor ll&aacutemanos al numero 320-572-1687 o env&iacuteanos un email a soporte@kelgal.com.
+						Lo mejor es que es completamente GRATIS.
 					</p>
+						<br/>
+					<p> Para incribirte puedes llamarnos al 320-572-1687 o enviarnos un correo a soporte@kelgal.com.
+					</p>
+						<br/><br/><br/>
+					<h3>Como Funciona: </h3>
+				</div>
+							
+				<div id="cuadroIzq">
+					<h3>Ofrecer un Servicio</h3>
+					<ul>			
+						<li>1. Ofrecer tu servicio en la p&aacute;gina.</li>
+						<li>2. Esperar a que te contacten.</li>
+						<li>3. Cuadrar con la persona para ofrecerle el servicio.</li>
+						<li>4. Obtener tu dinero por el servicio que ofreciste.</li>
+					</ul>
 					
-			
+
+				</div>
 				
+				<div id="cuadroDer">
+					<h3>Recibir un Servicio</h3>
+					<ul>
+						<li>1. Buscar un servicio que te interese.</li>
+						<li>2. Contactar a la persona del servicio.</li>
+						<li>3. Coordinar con &eacute;l para recibir el servicio que tu necesitas.</li>
+						<li>4. Pagarle a la persona por su servicio.</li>
+					</ul>
+				</div>
+		
+				<div align="center">
+					<p>
+						Ingresando a la p&aacute;gina de Kahuu Servicios usted acepta las Politicas de Privacidad y T&eacute;rminos y Condiciones
+						de Kahuu Servicios.
+					</p>
+					<br/>
+					<g:select id="ciudad.id" name="ciudad.nombre" from="${kelgal.empleos.Ciudad.list()}" optionKey="nombre"  optionValue="nombre" value="${profileInstance?.ciudad?.nombre}" class="many-to-one"/>
+								
+					<div id="ingresarBoton">
+						<g:link controller="empleo" action="users" id="1">Ingresar</g:link>
+					</div>
 				</div>
 				<!-- end #content -->
 				<div style="clear: both;">&nbsp;</div>

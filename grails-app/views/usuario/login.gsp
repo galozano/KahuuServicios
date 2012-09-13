@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="layout" content="main" />
-<title>Login</title>
+<title>Ingresar</title>
 </head>
 <body>
 	<div class="body">
@@ -24,16 +24,14 @@
 				</g:if>
 				<g:form action="handleLogin">
 					<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'email', 'error')} required">
-						<label for="email"> <g:message code="user.email.label"
-								default="Email" />
-						</label>
+						<label for="email"> <g:message code="user.email.label" default="Email" /></label>
 						<g:field type="email" name="email" value="${userInstance?.email}" />
 					</div>
 	
 					<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'password', 'error')} required">
 						<label for="password"> <g:message code="user.password.label" default="Password" /></label>
 						<g:passwordField name="password"  value="${userInstance?.password}" />
-					</div>
+					</div> Olvid&eacute; mi clave
 					
 					<g:submitButton name="create" class="save" value="Iniciar" />
 				</g:form>

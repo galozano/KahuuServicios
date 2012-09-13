@@ -32,6 +32,8 @@
 	<div class="nav">
 		<ul>
 			<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+			<li><g:link >Como Funciona</g:link></li>
+			<li><g:link>Contactenos</g:link></li>
 			<li><div id="searchLargo">
 			<g:form name="searchForm" url="[controller:'empleo',action:'buscar']">
 				<div>

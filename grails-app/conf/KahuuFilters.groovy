@@ -3,13 +3,13 @@ class KahuuFilters
  {
 	def filters = 
 	{
-	       loginCheck(controller: 'empleo|usuario', action: '*', invert:true) 
+	       loginCheck(controller: 'empleo|admin', action: '*', invert:true) 
 		   {
 	           before = 
 			   {
-	              if (!session.user && !actionName.equals('login') && !actionName.equals('handleLogin')) 
+	              if (!session.admin) 
 				  {
-	                  redirect(controller:"usuario", action: 'login');
+	                  redirect(controller:"admin", action: 'login');
 	                  return false;
 	               }
 	           }

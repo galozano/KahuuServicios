@@ -199,6 +199,12 @@ img {
 	background-image: url(../images/skin/database_add.png);
 }
 
+.nav #derecha
+{
+	float:right;
+}
+
+
 /* CREATE/EDIT FORMS AND SHOW PAGES */
 
 fieldset,
@@ -702,6 +708,41 @@ li {
 {
 	
 }
+
+
+#cuadroIzq {
+	float:left;
+	margin-left: 100px;
+	margin-top: 20px;
+}
+
+#cuadroDer {
+	padding-bottom: 20px;
+	margin-left: 500px;
+	margin-top: 20px;
+}
+
+#cuadroIzq ul
+{
+	margin-top: 10px;
+}
+
+#cuadroDer ul
+{
+	margin-top: 10px;
+}
+
+#page-index 
+{
+	padding: 10px;
+	
+}
+
+#ingresarBoton {
+	margin-top: 20px;
+}
+
+
 
 
 

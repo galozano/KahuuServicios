@@ -2,7 +2,6 @@ package kelgal.empleos
 
 class UsuarioController 
 {
-
     def index() { }
 	
 	def login( ) 
@@ -43,23 +42,31 @@ class UsuarioController
 	
 	def register()
 	{
-		render(view: "createAccount");
+		if(!session.user)
+		{	
+			render(view: "crearCuenta");
+		}
+		else
+		{
+			redirect(controller:'empleo', action:'index')
+		}
 	}
 
-	def handleRegistration() 
+	def handleRegistration( ) 
 	{
-		def user = new User(params);
+		def user = new User(nombre:params.nombre, email:params.email, password:params.password, fechaCreado: new Date());
 		
 		if (params.password != params.confirm) 
 		{
-			flash.message = "The passwords you entered do not match."
+			flash.message = "Las constrase&ntilde;as no son iguales."
 			redirect(action:register)
 		}
 		else 
 		{
-			user.password = params.password.encodeAsPassword()
-			if (user.save()) {
-				redirect(controller:'topic', action:'list')
+			user.password = params.password.encode()
+			if (user.save()) 
+			{
+				redirect(controller:'empleo', action:'index')
 			}
 			else
 			{
