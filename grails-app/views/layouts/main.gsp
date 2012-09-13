@@ -43,9 +43,10 @@
 			</li>
 		</ul>	
 	</div>
-	
 	<g:layoutBody />
-	<div class="footer" role="contentinfo"></div>
+	<div class="footer" role="contentinfo">
+		<div align="center">COPYRIGHT (C) 2012 SERVICIOSKAHUU.COM. TODOS LOS DERECHOS RESERVADOS</div>
+	</div>
 	<div id="spinner" class="spinner" style="display: none;">
 		<g:message code="spinner.alt" default="Loading&hellip;" />
 	</div>

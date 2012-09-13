@@ -59,8 +59,7 @@ class EmpleoControllerTests
 		Categorias categoria = new Categorias(nombre:"Primera");
 		Referencia referencia = new Referencia(nombre:"Ref1");
 		Ciudad ciudad = new Ciudad(nombre:"Cartagena");
-		  
-		
+		  	
 		def profile = new Profile(nombre:"Gus",usuario:"gus",estadoUsuario:false,fechaCreado:new Date() ,password:"hola", celular:"3205721687", descripcion:"decripcion", ciudad:ciudad, image: new byte[10]);
 		profile.addToReferencias(referencia);
 		profile.addToCategorias(categoria);

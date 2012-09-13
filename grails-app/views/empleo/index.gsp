@@ -39,9 +39,8 @@
 					</p>
 						<br/>
 					<p>
-						En estos momentos nuestros servicios no ofrecen la inscripci&oacuten  por la p&aacutegina pero estamos trabajando en eso y pronto estar&aacute disponible.
-						Si quieres inscribirte a la base de datos por favor ll&aacutemanos al numero 320-572-1687 o env&iacuteanos un email a soporte@kelgal.com 
-						con tus datos (nombre, celular, categor&iacuteas, referencia, descripci&oacuten).
+						En estos momentos nuestros servicios no ofrecen la inscripci&oacuten  por la p&aacutegina, pero estamos trabajando en eso y pronto estar&aacute disponible.
+						Si quieres inscribirte a la base de datos por favor ll&aacutemanos al numero 320-572-1687 o env&iacuteanos un email a soporte@kelgal.com.
 					</p>
 					
 			

@@ -38,7 +38,7 @@
 					</div>
 					<div class="box-content">
 						<p>
-							<g:fieldValue bean="${profileInstance}" field="descripcion"/>
+							${profileInstance.descripcion}
 						</p>
 					</div>
 				</div>

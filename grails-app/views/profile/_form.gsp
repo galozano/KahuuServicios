@@ -26,12 +26,36 @@
 	<input type="file" id="image" name="image" />
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'email', 'error')} ">
+	<label for="email">
+		<g:message code="profile.email.label" default="Email" />
+		
+	</label>
+	<g:field type="email" name="email" value="${profileInstance?.email}"/>
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'celular', 'error')} ">
 	<label for="celular">
 		<g:message code="profile.celular.label" default="Celular" />
 		
 	</label>
 	<g:textField name="celular" value="${profileInstance?.celular}"/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'celular2', 'error')} ">
+	<label for="celular2">
+		<g:message code="profile.celular2.label" default="Celular2" />
+		
+	</label>
+	<g:textField name="celular2" value="${profileInstance?.celular2}"/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'certificado', 'error')} required">
+	<label for="certificado">
+		<g:message code="profile.certificado.label" default="Certificado" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="certificado" name="certificado.id" from="${kelgal.empleos.Certificado.list()}" optionKey="id" required="" value="${profileInstance?.certificado?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'ciudad', 'error')} required">

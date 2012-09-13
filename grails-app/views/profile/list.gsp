@@ -28,13 +28,13 @@
 					
 						<g:sortableColumn property="image" title="${message(code: 'profile.image.label', default: 'Image')}" />
 					
+						<g:sortableColumn property="email" title="${message(code: 'profile.email.label', default: 'Email')}" />
+					
 						<g:sortableColumn property="celular" title="${message(code: 'profile.celular.label', default: 'Celular')}" />
 					
-						<th><g:message code="profile.ciudad.label" default="Ciudad" /></th>
+						<g:sortableColumn property="celular2" title="${message(code: 'profile.celular2.label', default: 'Celular2')}" />
 					
-						<g:sortableColumn property="descripcion" title="${message(code: 'profile.descripcion.label', default: 'Descripcion')}" />
-					
-						<g:sortableColumn property="estadoUsuario" title="${message(code: 'profile.estadoUsuario.label', default: 'Estado Usuario')}" />
+						<th><g:message code="profile.certificado.label" default="Certificado" /></th>
 					
 					</tr>
 				</thead>
@@ -46,13 +46,13 @@
 					
 						<td>${fieldValue(bean: profileInstance, field: "image")}</td>
 					
+						<td>${fieldValue(bean: profileInstance, field: "email")}</td>
+					
 						<td>${fieldValue(bean: profileInstance, field: "celular")}</td>
 					
-						<td>${fieldValue(bean: profileInstance, field: "ciudad")}</td>
+						<td>${fieldValue(bean: profileInstance, field: "celular2")}</td>
 					
-						<td>${fieldValue(bean: profileInstance, field: "descripcion")}</td>
-					
-						<td><g:formatBoolean boolean="${profileInstance.estadoUsuario}" /></td>
+						<td>${fieldValue(bean: profileInstance, field: "certificado")}</td>
 					
 					</tr>
 				</g:each>

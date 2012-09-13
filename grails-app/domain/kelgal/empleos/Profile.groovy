@@ -11,15 +11,21 @@ class Profile
 	
 	String password;
 	
+	String email;
+	
 	Date fechaCreado;
 	
 	boolean estadoUsuario;
 	
 	String celular;
 	
+	String celular2;
+	
 	String descripcion;
 	
 	Ciudad ciudad;
+	
+	Certificado certificado;
 	
 	byte[] image;
 		
@@ -30,5 +36,6 @@ class Profile
 		categorias  lazy:false
 		usuario unique:true;
 		image maxSize:1000000;
+		email email:true
     }
 }

@@ -41,21 +41,14 @@ class UsuarioController
 		}
 	}
 	
-	def createaccount( )
+	def register()
 	{
 		render(view: "createAccount");
 	}
 
-
-
-	def register()
-	{
-		
-	}
-
 	def handleRegistration() 
 	{
-		def user = new User(params)
+		def user = new User(params);
 		
 		if (params.password != params.confirm) 
 		{

@@ -50,11 +50,38 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${profileInstance?.email}">
+				<li class="fieldcontain">
+					<span id="email-label" class="property-label"><g:message code="profile.email.label" default="Email" /></span>
+					
+						<span class="property-value" aria-labelledby="email-label"><g:fieldValue bean="${profileInstance}" field="email"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${profileInstance?.celular}">
 				<li class="fieldcontain">
 					<span id="celular-label" class="property-label"><g:message code="profile.celular.label" default="Celular" /></span>
 					
 						<span class="property-value" aria-labelledby="celular-label"><g:fieldValue bean="${profileInstance}" field="celular"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${profileInstance?.celular2}">
+				<li class="fieldcontain">
+					<span id="celular2-label" class="property-label"><g:message code="profile.celular2.label" default="Celular2" /></span>
+					
+						<span class="property-value" aria-labelledby="celular2-label"><g:fieldValue bean="${profileInstance}" field="celular2"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${profileInstance?.certificado}">
+				<li class="fieldcontain">
+					<span id="certificado-label" class="property-label"><g:message code="profile.certificado.label" default="Certificado" /></span>
+					
+						<span class="property-value" aria-labelledby="certificado-label"><g:link controller="certificado" action="show" id="${profileInstance?.certificado?.id}">${profileInstance?.certificado?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
