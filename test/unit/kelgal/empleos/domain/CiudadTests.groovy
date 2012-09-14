@@ -1,16 +1,12 @@
-package kelgal.empleos
+package kelgal.empleos.domain
 
-
-
-
-import grails.test.mixin.*
-import org.junit.*
+import kelgal.empleos.Ciudad
 
 /**
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
  */
-@TestFor(Profile)
-class ProfileTests {
+@TestFor(Ciudad)
+class CiudadTests {
 
     void testSomething() {
        fail "Implement me"

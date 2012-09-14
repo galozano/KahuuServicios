@@ -1,4 +1,7 @@
-package kelgal.empleos
+package kelgal.empleo.auto
+
+import kelgal.empleo.auto.ReferenciaController;
+import kelgal.empleos.Referencia
 
 
 

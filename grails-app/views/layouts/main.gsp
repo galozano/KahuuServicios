@@ -34,14 +34,15 @@
 			<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 			<li><g:link >Como Funciona</g:link></li>
 			<li><g:link>Contactenos</g:link></li>
-			<li><div id="searchLargo">
-			<g:form name="searchForm" url="[controller:'empleo',action:'buscar']">
-				<div>
-					<g:textField name="buscador" value="nombre,descripción" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" />
-					<g:submitButton name="buscar"  value="Buscar"/>
+			<li>
+				<div id="searchLargo">
+					<g:form name="searchForm" url="[controller:'empleo',action:'buscar']">
+						<div>
+							<g:textField name="buscador" value="nombre,descripción" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" />
+							<g:submitButton name="buscar"  value="Buscar"/>
+						</div>
+					</g:form>
 				</div>
-			</g:form>
-			</div>
 			</li>
 		</ul>	
 	</div>

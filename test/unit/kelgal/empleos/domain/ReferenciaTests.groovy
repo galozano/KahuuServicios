@@ -1,4 +1,4 @@
-package kelgal.empleos
+package kelgal.empleos.domain
 
 
 

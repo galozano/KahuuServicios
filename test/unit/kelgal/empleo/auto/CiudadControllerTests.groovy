@@ -1,10 +1,14 @@
-package kelgal.empleos
+package kelgal.empleo.auto
+
+import kelgal.empleo.auto.CiudadController;
+import kelgal.empleos.Ciudad
 
 
 @TestFor(CiudadController)
 @Mock(Ciudad)
 class CiudadControllerTests {
 
+	
     def populateValidParams(params) {
         assert params != null
         // TODO: Populate valid properties like...

@@ -1,4 +1,6 @@
-package kelgal.empleos
+package kelgal.empleo.auto
+
+import kelgal.empleos.Categorias;
 
 import org.springframework.dao.DataIntegrityViolationException
 

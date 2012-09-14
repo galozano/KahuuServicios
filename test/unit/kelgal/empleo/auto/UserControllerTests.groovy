@@ -1,6 +1,9 @@
-package kelgal.empleos
+package kelgal.empleo.auto
 
 
+
+import kelgal.empleo.auto.UserController;
+import kelgal.empleos.User;
 
 import org.junit.*
 import grails.test.mixin.*

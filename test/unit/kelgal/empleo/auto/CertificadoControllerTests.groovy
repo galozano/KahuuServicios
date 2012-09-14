@@ -1,6 +1,9 @@
-package kelgal.empleos
+package kelgal.empleo.auto
 
 
+
+import kelgal.empleo.auto.CertificadoController;
+import kelgal.empleos.Certificado;
 
 import org.junit.*
 import grails.test.mixin.*

@@ -1,4 +1,7 @@
-package kelgal.empleos
+package kelgal.empleo.auto
+
+import kelgal.empleo.auto.CategoriasController;
+import kelgal.empleos.Categorias
 
 
 
@@ -6,6 +9,7 @@ package kelgal.empleos
 @Mock(Categorias)
 class CategoriasControllerTests {
 
+	
     def populateValidParams(params) {
         assert params != null
         // TODO: Populate valid properties like...
