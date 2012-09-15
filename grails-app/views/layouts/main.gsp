@@ -31,14 +31,13 @@
 	</div>
 	<div class="nav">
 		<ul>
-			<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-			<li><g:link >Como Funciona</g:link></li>
-			<li><g:link>Contactenos</g:link></li>
+			<li><g:link class="home" controller="empleo" action="users" id="1"><g:message code="default.home.label"/></g:link> </li> 
+			<li><g:link class="contact">Contactenos</g:link></li>
 			<li>
 				<div id="searchLargo">
 					<g:form name="searchForm" url="[controller:'empleo',action:'buscar']">
 						<div>
-							<g:textField name="buscador" value="nombre,descripción" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" />
+							<g:textField  class="input_buscador" name="buscador" value="busca tu servicio..." onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" />
 							<g:submitButton name="buscar"  value="Buscar"/>
 						</div>
 					</g:form>
@@ -48,6 +47,7 @@
 	</div>
 	<g:layoutBody />
 	<div class="footer" role="contentinfo">
+		<div align="center">Usar este sitio web implica la aceptacion de los <g:link>T&eacute;rminos y Condiciones</g:link> y <g:link>Politicas de Privacidad</g:link> de Kahuu Servicios</div>
 		<div align="center">COPYRIGHT (C) 2012 SERVICIOSKAHUU.COM. TODOS LOS DERECHOS RESERVADOS</div>
 	</div>
 	<div id="spinner" class="spinner" style="display: none;">

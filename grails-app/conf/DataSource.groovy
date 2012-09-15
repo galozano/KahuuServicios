@@ -32,11 +32,11 @@ environments {
         dataSource {
 			pooled = true
 			dbCreate = "update"
-			url = "jdbc:mysql://kelgal.com:3306/kahuu_servicios"
+			url = "jdbc:mysql://localhost:3306/kahuu_servicios"
 			driverClassName = "com.mysql.jdbc.Driver"
 			dialect = org.hibernate.dialect.MySQL5InnoDBDialect
 			username = "todos"
-			password = "112358"
+			password = "qazxsw23edc"
             pooled = true
             properties {
                maxActive = -1

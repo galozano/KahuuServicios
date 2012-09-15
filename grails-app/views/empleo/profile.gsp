@@ -62,13 +62,9 @@
 						</g:each>
 					</div>
 				</div>
-				
-				<div class="profile-box">
-					<p>
-						* Usando esta p&aacute;gina usted acepta las Politicas de Privacidad y los Terminos y Condiciones que Kahuu Servicios.
-					</p>
-				</div>
 			</div>
+			<!-- end #content -->
+			<div style="clear: both;">&nbsp;</div>
 		</div>
 	</div>
 </body>

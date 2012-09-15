@@ -1,5 +1,6 @@
 /* FONT STACK */
 body,
+
 input, select, textarea {
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
@@ -106,16 +107,16 @@ img {
 
 .footer {
 	background: #254673;
-	color: #000;
+	color: #FFF;
 	clear: both;
-	font-size: 0.8em;
+	font-size: 0.5em;
 	margin-top: 1.5em;
 	padding: 1em;
 	min-height: 1em;
 }
 
 .footer a {
-	color: #255b17;
+	color: #FFFFFF;
 }
 
 .spinner {
@@ -181,7 +182,7 @@ img {
 	text-decoration: underline;
 }
 
-.nav a.home, .nav a.list, .nav a.create {
+.nav a.home, .nav a.list, .nav a.create , .nav a.contact{
 	background-position: 0.7em center;
 	background-repeat: no-repeat;
 	text-indent: 25px;
@@ -197,6 +198,10 @@ img {
 
 .nav a.create {
 	background-image: url(../images/skin/database_add.png);
+}
+
+.nav a.contact {
+	background-image: url(../images/skin/contactus.png);
 }
 
 .nav #derecha
@@ -609,10 +614,16 @@ a.skip {
 	padding: 10px;
 }
 
+#sidebar li
+{
+	padding-top: 3px;
+}
+
 .content {
 	padding: 15px;
 	float: right;
 	width: 700px;
+	padding: 20px 15px 15px 15px;
 }
 
 .content h1 {
@@ -663,7 +674,7 @@ li {
 
 .post 
 {
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 	border-bottom: 1px dotted #E7E2DC;
 	height: 80px;
 }
@@ -742,6 +753,15 @@ li {
 	margin-top: 20px;
 }
 
+
+.input_buscador
+{
+	background-color: #fcfcfc;
+	border: 1px solid #cccccc;
+	font-size: 1em;
+	padding: 0.2em 0.4em;
+	width: 540px;
+}
 
 
 

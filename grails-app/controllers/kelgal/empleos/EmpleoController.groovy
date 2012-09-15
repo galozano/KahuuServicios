@@ -4,7 +4,7 @@ class EmpleoController
 {
     def index()
 	{				
-		render(view: "index", model: [categoriasList: Categorias.list()]);
+		render(view: "index", model: [categoriasList: Categorias.list(sort:'nombre')]);
     }
 		
 	def profile(Long id )
@@ -18,7 +18,7 @@ class EmpleoController
 			return;
 		}
 			
-		render(view: "profile", model:	[profileInstance: profileInstance, categoriasList: Categorias.list()] );
+		render(view: "profile", model:	[profileInstance: profileInstance, categoriasList: Categorias.list(sort:'nombre')] );
 	}
 	
 	def darFoto( )
@@ -38,7 +38,7 @@ class EmpleoController
 			order("nombre", "desc")
 		}
 		
-		render(view: "users",model:[profileInstanceList: results ,profileInstanceTotal:results.size(), categoriasList: Categorias.list()]);
+		render(view: "users",model:[profileInstanceList: results ,profileInstanceTotal:results.size(), categoriasList: Categorias.list(sort:'nombre')]);
 	}
 	
 	def users(Long id)
@@ -62,6 +62,6 @@ class EmpleoController
 			flash.message = message(code: 'default.not.found.message', args: [message(code: 'profile.label', default: 'Profile'), id]);
 		}
 		
-		render(view: "users",model:[profileInstanceList: results ,profileInstanceTotal:results.size(), categoriasList: Categorias.list()]);
+		render(view: "users",model:[profileInstanceList: results ,profileInstanceTotal:results.size(), categoriasList: Categorias.list(sort:'nombre')]);
 	}
 }

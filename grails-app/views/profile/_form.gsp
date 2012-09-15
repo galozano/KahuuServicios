@@ -7,7 +7,7 @@
 		<g:message code="profile.categorias.label" default="Categorias" />
 		
 	</label>
-	<g:select name="categorias" from="${kelgal.empleos.Categorias.list()}" multiple="multiple" optionKey="id" size="5" value="${profileInstance?.categorias*.id}" class="many-to-many"/>
+	<g:select name="categorias" from="${kelgal.empleos.Categorias.list()}" multiple="multiple" optionKey="id"  optionValue="nombre" size="5" value="${profileInstance?.categorias*.id}" class="many-to-many"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'usuario', 'error')} ">
@@ -55,7 +55,7 @@
 		<g:message code="profile.certificado.label" default="Certificado" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="certificado" name="certificado.id" from="${kelgal.empleos.Certificado.list()}" optionKey="id" required="" value="${profileInstance?.certificado?.id}" class="many-to-one"/>
+	<g:select id="certificado" name="certificado.id" from="${kelgal.empleos.Certificado.list()}" optionKey="id" optionValue="nombre" required="" value="${profileInstance?.certificado?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'ciudad', 'error')} required">
@@ -63,7 +63,7 @@
 		<g:message code="profile.ciudad.label" default="Ciudad" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="ciudad" name="ciudad.id" from="${kelgal.empleos.Ciudad.list()}" optionKey="id" required="" value="${profileInstance?.ciudad?.id}" class="many-to-one"/>
+	<g:select id="ciudad" name="ciudad.id" from="${kelgal.empleos.Ciudad.list()}" optionKey="id" optionValue="nombre" required="" value="${profileInstance?.ciudad?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'descripcion', 'error')} ">
@@ -87,7 +87,7 @@
 		<g:message code="profile.fechaCreado.label" default="Fecha Creado" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="fechaCreado" precision="day"  value="${profileInstance?.fechaCreado}"  />
+	<g:datePicker name="fechaCreado" precision="minute"  value="${profileInstance?.fechaCreado}"  />
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'nombre', 'error')} ">
@@ -111,6 +111,6 @@
 		<g:message code="profile.referencias.label" default="Referencias" />
 		
 	</label>
-	<g:select name="referencias" from="${kelgal.empleos.Referencia.list()}" multiple="multiple" optionKey="id" size="5" value="${profileInstance?.referencias*.id}" class="many-to-many"/>
+	<g:select name="referencias" from="${kelgal.empleos.Referencia.list()}" multiple="multiple" optionValue="nombre" optionKey="id" size="5" value="${profileInstance?.referencias*.id}" class="many-to-many"/>
 </div>
 

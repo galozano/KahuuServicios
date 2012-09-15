@@ -28,7 +28,7 @@
 						Lo mejor es que es completamente GRATIS.
 					</p>
 						<br/>
-					<p> Para incribirte puedes llamarnos al 320-572-1687 o enviarnos un correo a soporte@kelgal.com.
+					<p> Para incribirte puedes enviarnos un correo a soporte@kelgal.com.
 					</p>
 						<br/><br/><br/>
 					<h3>Como Funciona: </h3>
