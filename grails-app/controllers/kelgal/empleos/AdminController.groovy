@@ -30,7 +30,7 @@ class AdminController
 			}
 			else
 			{
-				flash.message = "Constrasena incorrecta con el email ${params.login}";
+				flash.message = "Constrasena incorrecta con el usuario ${params.login}";
 				redirect(action: "login");
 			}
 		}

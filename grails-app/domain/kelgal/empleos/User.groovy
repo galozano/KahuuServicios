@@ -8,6 +8,8 @@ class User
 	
 	String password;
 	
+	int puntos;
+		
 	Date fechaCreado;
 	
     static constraints = 

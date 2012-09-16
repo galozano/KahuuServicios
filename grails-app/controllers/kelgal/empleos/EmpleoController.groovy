@@ -34,7 +34,7 @@ class EmpleoController
 		def c = Profile.createCriteria()
 		def results = c.list {
 			ilike("nombre", "%" + params.buscador + "%")
-
+			
 			order("nombre", "desc")
 		}
 		

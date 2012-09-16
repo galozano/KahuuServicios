@@ -31,7 +31,7 @@ environments {
     production {
         dataSource {
 			pooled = true
-			dbCreate = "update"
+			dbCreate = "validate"
 			url = "jdbc:mysql://localhost:3306/kahuu_servicios"
 			driverClassName = "com.mysql.jdbc.Driver"
 			dialect = org.hibernate.dialect.MySQL5InnoDBDialect
