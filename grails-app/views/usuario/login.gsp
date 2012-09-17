@@ -8,33 +8,78 @@
 <body>
 	<div class="body">
 		<div id="page">
-			<div id="sidebar">
-				<h1>Categorias</h1>
-				<ul>
-					<g:each in="${categoriasList}" var="categoriaInstance">
-						<li><g:link action="users" id="${categoriaInstance.id}">
-								${fieldValue(bean: categoriaInstance, field: "nombre")}
-							</g:link></li>
-					</g:each>
+			<div class="page-bgtop">
+			
+			<g:hasErrors bean="${userInstance}">
+				<ul class="errors" role="alert">
+					<g:eachError bean="${userInstance}" var="error">
+					<li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
+					</g:eachError>
 				</ul>
-			</div>		
-			<div class="content">
+			</g:hasErrors>
+			
 				<g:if test="${flash.message}">
 					<div class="message" role="status">${flash.message}</div>
 				</g:if>
-				<g:form action="handleLogin">
-					<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'email', 'error')} required">
-						<label for="email"> <g:message code="user.email.label" default="Email" /></label>
-						<g:field type="email" name="email" value="${userInstance?.email}" />
-					</div>
+				
+				<div id="cuadroIzq">
+					<div><h2>Login</h2></div>
+					<g:form action="handleLogin">
+						<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'email', 'error')} required">
+							<label for="email"> <g:message code="user.email.label" default="Email" /></label>
+							<span class="required-indicator">*</span>
+							<g:field type="email" name="email" value="${userInstance?.email}" />
+						</div>
+		
+						<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'password', 'error')} required">
+							<label for="password">Constrase&ntilde;a</label>
+							<span class="required-indicator">*</span>
+							<g:passwordField name="password"  value="${userInstance?.password}" />
+						</div> 
+						
+						<g:link action="olvideClave">Olvid&eacute; mi clave</g:link>
+						
+						<fieldset class="buttons">
+							<g:submitButton name="create" class="save" value="Iniciar" />
+						</fieldset>
+					</g:form>
+				</div>
+				<div id="cuadroDer">
+					<div><h2>Inscr&iacute;bete</h2></div>
+					<g:form action="handleRegistration">
+						<div class="fieldcontain ${hasErrors(bean: userRegist, field: 'nombre', 'error')} required">
+							<label for="nombre"> <g:message code="user.nombre.label" default="Nombre" /></label>
+							<span class="required-indicator">*</span>
+							<g:textField name="nombre" value="${userRegist?.nombre}" />
+						</div>
+						
+						<div class="fieldcontain ${hasErrors(bean: userRegist, field: 'email', 'error')} required">
+							<label for="email"> <g:message code="user.email.label" default="Email" /></label>
+							<span class="required-indicator">*</span>
+							<g:field type="email" name="email" value="${userRegist?.email}" />
+						</div>
 	
-					<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'password', 'error')} required">
-						<label for="password"> <g:message code="user.password.label" default="Password" /></label>
-						<g:passwordField name="password"  value="${userInstance?.password}" />
-					</div> Olvid&eacute; mi clave
-					
-					<g:submitButton name="create" class="save" value="Iniciar" />
-				</g:form>
+						<div class="fieldcontain ${hasErrors(bean: userRegist, field: 'password', 'error')} required">
+							<label for="password">Constrase&ntilde;a</label>
+							<span class="required-indicator">*</span>
+							<g:passwordField name="password" value="${userRegist?.password}" />
+						</div>
+						
+						<div class="fieldcontain">
+							<label for="password">Confirmar Constrase&ntilde;a</label>
+							<span class="required-indicator">*</span>
+							<g:passwordField name="confirm" value="${userRegist?.password}" />
+						</div>
+						
+						<div class="fieldcontain">
+							<g:checkBox name="agree"/> Acepto las Pol&iacute;ticas de Privacidad y los T&eacute;rminos y Condiciones de Kahuu Servicios.
+						</div>
+						
+						<fieldset class="buttons">
+							<g:submitButton name="create" class="save" value="Crear Cuenta" />
+						</fieldset>
+					</g:form>			
+				</div>
 			</div>
 		</div>
 	</div>

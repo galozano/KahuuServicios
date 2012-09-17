@@ -1,14 +1,15 @@
 package kelgal.empleos
 
-
+import grails.test.mixin.*
+import org.junit.*
 
 /**
  * See the API for {@link grails.test.mixin.web.ControllerUnitTestMixin} for usage instructions
  */
 
-@TestFor(EmpleoController)
+@TestFor(PerfilController)
 @Mock([Profile,Categorias])
-class EmpleoControllerTests 
+class PerfilControllerTests 
 {	
 	void testIndex( )
 	{
@@ -24,18 +25,15 @@ class EmpleoControllerTests
 	void testUsers( )
 	{
 		Categorias categoria = new Categorias(nombre:"Primera");
-		Referencia referencia = new Referencia(nombre:"Ref1");
 		Ciudad ciudad = new Ciudad(nombre:"Cartagena");
 		Certificado cert = new Certificado(nombre:"Principal", nivel:1);
 		
 		def profile = new Profile(nombre:"Gustavo",usuario:"gus",password:"hola",email:"gus@gmail.com",certificado:cert, celular2:"3135851647", estadoUsuario:false,fechaCreado:new Date() ,celular:"3205721687", descripcion:"decripcion", ciudad:ciudad, image: new byte[10]);
-		profile.addToReferencias(referencia);
 		profile.addToCategorias(categoria);
 		
 		assert profile.save() != null;
 		
 		profile = new Profile(nombre:"Rafael",usuario:"Rafa",estadoUsuario:true,email:"rafa@gmail.com", certificado:cert, celular2:"3135851647",fechaCreado:new Date() ,password:"hola",celular:"3205721687", descripcion:"decripcion", ciudad:ciudad, image: new byte[1000]);
-		profile.addToReferencias(referencia);
 		profile.addToCategorias(categoria);
 		
 		assert profile.save() != null;
@@ -51,25 +49,18 @@ class EmpleoControllerTests
 	void testBuscar( )
 	{
 		Categorias categoria = new Categorias(nombre:"Primera");
-		Referencia referencia = new Referencia(nombre:"Ref1");
 		Ciudad ciudad = new Ciudad(nombre:"Cartagena");
 		Certificado cert = new Certificado(nombre:"Principal", nivel:1);
 		
 		def profile = new Profile(nombre:"Gustavo",usuario:"gus",password:"hola",email:"gus@gmail.com",certificado:cert, celular2:"3135851647", estadoUsuario:false,fechaCreado:new Date() ,celular:"3205721687", descripcion:"decripcion", ciudad:ciudad, image: new byte[10]);
-		profile.addToReferencias(referencia);
 		profile.addToCategorias(categoria);
 		
 		assert profile.save() != null;
 		
 		profile = new Profile(nombre:"Rafael",usuario:"Rafa",estadoUsuario:true,email:"rafa@gmail.com", certificado:cert, celular2:"3135851647",fechaCreado:new Date() ,password:"hola",celular:"3205721687", descripcion:"decripcion", ciudad:ciudad, image: new byte[1000]);
-		profile.addToReferencias(referencia);
 		profile.addToCategorias(categoria);
 		
-		assert profile.save() != null;
-		
-		
-		
-			
+		assert profile.save() != null;		
 	}
 	
 	void testProfile( )
@@ -81,13 +72,12 @@ class EmpleoControllerTests
 		
 		//Test normal
 		Categorias categoria = new Categorias(nombre:"Primera");
-		Referencia referencia = new Referencia(nombre:"Ref1");
 		Ciudad ciudad = new Ciudad(nombre:"Cartagena");
 		Certificado cert = new Certificado(nombre:"Principal", nivel:1);
-		  	
+		  		
 		def profile = new Profile(nombre:"Gus",usuario:"gus",email:"rafa@gmail.com", certificado:cert, celular2:"3135851647",estadoUsuario:false,fechaCreado:new Date() ,password:"hola", celular:"3205721687", descripcion:"decripcion", ciudad:ciudad, image: new byte[10]);
-		profile.addToReferencias(referencia);
 		profile.addToCategorias(categoria);
+		
 		
 		assert profile.save() != null;
 		

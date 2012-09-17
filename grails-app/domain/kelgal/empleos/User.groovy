@@ -12,13 +12,13 @@ class User
 		
 	Date fechaCreado;
 	
+	static hasMany = [reviews:Review];
+	
     static constraints = 
 	{
-		email email: true, unique: true	
-	}
-	
-	static mapping = 
-	{
-		tablePerHierarchy false
+		email email: true, unique: true, blank:false;
+		nombre blank:false;
+		password blank:false;
+		
 	}
 }

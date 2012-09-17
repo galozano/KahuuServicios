@@ -3,7 +3,7 @@ class KahuuFilters
  {
 	def filters = 
 	{
-	       loginCheck(controller: 'empleo|admin', action: '*', invert:true) 
+	       loginCheck(controller: 'kelgal.empleo.auto.*', action: '*') 
 		   {
 	           before = 
 			   {

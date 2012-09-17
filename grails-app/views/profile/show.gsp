@@ -59,11 +59,29 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${profileInstance?.nombre}">
+				<li class="fieldcontain">
+					<span id="nombre-label" class="property-label"><g:message code="profile.nombre.label" default="Nombre" /></span>
+					
+						<span class="property-value" aria-labelledby="nombre-label"><g:fieldValue bean="${profileInstance}" field="nombre"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${profileInstance?.celular}">
 				<li class="fieldcontain">
 					<span id="celular-label" class="property-label"><g:message code="profile.celular.label" default="Celular" /></span>
 					
 						<span class="property-value" aria-labelledby="celular-label"><g:fieldValue bean="${profileInstance}" field="celular"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${profileInstance?.descripcion}">
+				<li class="fieldcontain">
+					<span id="descripcion-label" class="property-label"><g:message code="profile.descripcion.label" default="Descripcion" /></span>
+					
+						<span class="property-value" aria-labelledby="descripcion-label"><g:fieldValue bean="${profileInstance}" field="descripcion"/></span>
 					
 				</li>
 				</g:if>
@@ -95,15 +113,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${profileInstance?.descripcion}">
-				<li class="fieldcontain">
-					<span id="descripcion-label" class="property-label"><g:message code="profile.descripcion.label" default="Descripcion" /></span>
-					
-						<span class="property-value" aria-labelledby="descripcion-label"><g:fieldValue bean="${profileInstance}" field="descripcion"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${profileInstance?.estadoUsuario}">
 				<li class="fieldcontain">
 					<span id="estadoUsuario-label" class="property-label"><g:message code="profile.estadoUsuario.label" default="Estado Usuario" /></span>
@@ -122,15 +131,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${profileInstance?.nombre}">
-				<li class="fieldcontain">
-					<span id="nombre-label" class="property-label"><g:message code="profile.nombre.label" default="Nombre" /></span>
-					
-						<span class="property-value" aria-labelledby="nombre-label"><g:fieldValue bean="${profileInstance}" field="nombre"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${profileInstance?.password}">
 				<li class="fieldcontain">
 					<span id="password-label" class="property-label"><g:message code="profile.password.label" default="Password" /></span>
@@ -140,13 +140,22 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${profileInstance?.referencias}">
+				<g:if test="${profileInstance?.reviews}">
 				<li class="fieldcontain">
-					<span id="referencias-label" class="property-label"><g:message code="profile.referencias.label" default="Referencias" /></span>
+					<span id="reviews-label" class="property-label"><g:message code="profile.reviews.label" default="Reviews" /></span>
 					
-						<g:each in="${profileInstance.referencias}" var="r">
-						<span class="property-value" aria-labelledby="referencias-label"><g:link controller="referencia" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
+						<g:each in="${profileInstance.reviews}" var="r">
+						<span class="property-value" aria-labelledby="reviews-label"><g:link controller="review" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
 						</g:each>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${profileInstance?.totalRating}">
+				<li class="fieldcontain">
+					<span id="totalRating-label" class="property-label"><g:message code="profile.totalRating.label" default="Total Rating" /></span>
+					
+						<span class="property-value" aria-labelledby="totalRating-label"><g:fieldValue bean="${profileInstance}" field="totalRating"/></span>
 					
 				</li>
 				</g:if>

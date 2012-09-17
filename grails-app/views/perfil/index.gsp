@@ -14,9 +14,7 @@
 </style>
 <body>
 	<div class="body">
-		<div id="page">
 			<div id="page-index">		
-			
 				<div align="center">
 					<h2>Bienvenidos</h2>
 						<br/><br/>
@@ -65,13 +63,12 @@
 					<g:select id="ciudad.id" name="ciudad.nombre" from="${kelgal.empleos.Ciudad.list()}" optionKey="nombre"  optionValue="nombre" value="${profileInstance?.ciudad?.nombre}" class="many-to-one"/>
 								
 					<div id="ingresarBoton">
-						<g:link controller="empleo" action="users" id="1">Ingresar</g:link>
+						<g:link controller="perfil" action="users" id="1">Continuar</g:link>
 					</div>
 				</div>
 				<!-- end #content -->
 				<div style="clear: both;">&nbsp;</div>
 			</div>
 		</div>
-	</div>
 </body>
 </html>

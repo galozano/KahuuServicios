@@ -7,7 +7,7 @@
 		<g:message code="profile.categorias.label" default="Categorias" />
 		
 	</label>
-	<g:select name="categorias" from="${kelgal.empleos.Categorias.list()}" multiple="multiple" optionKey="id"  optionValue="nombre" size="5" value="${profileInstance?.categorias*.id}" class="many-to-many"/>
+	<g:select name="categorias" from="${kelgal.empleos.Categorias.list()}" multiple="multiple" optionKey="id" size="5" value="${profileInstance?.categorias*.id}" class="many-to-many"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'usuario', 'error')} ">
@@ -34,12 +34,28 @@
 	<g:field type="email" name="email" value="${profileInstance?.email}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'celular', 'error')} ">
+<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'nombre', 'error')} required">
+	<label for="nombre">
+		<g:message code="profile.nombre.label" default="Nombre" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="nombre" required="" value="${profileInstance?.nombre}"/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'celular', 'error')} required">
 	<label for="celular">
 		<g:message code="profile.celular.label" default="Celular" />
-		
+		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="celular" value="${profileInstance?.celular}"/>
+	<g:textField name="celular" required="" value="${profileInstance?.celular}"/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'descripcion', 'error')} required">
+	<label for="descripcion">
+		<g:message code="profile.descripcion.label" default="Descripcion" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="descripcion" required="" value="${profileInstance?.descripcion}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'celular2', 'error')} ">
@@ -55,7 +71,7 @@
 		<g:message code="profile.certificado.label" default="Certificado" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="certificado" name="certificado.id" from="${kelgal.empleos.Certificado.list()}" optionKey="id" optionValue="nombre" required="" value="${profileInstance?.certificado?.id}" class="many-to-one"/>
+	<g:select id="certificado" name="certificado.id" from="${kelgal.empleos.Certificado.list()}" optionKey="id" required="" value="${profileInstance?.certificado?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'ciudad', 'error')} required">
@@ -63,15 +79,7 @@
 		<g:message code="profile.ciudad.label" default="Ciudad" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="ciudad" name="ciudad.id" from="${kelgal.empleos.Ciudad.list()}" optionKey="id" optionValue="nombre" required="" value="${profileInstance?.ciudad?.id}" class="many-to-one"/>
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'descripcion', 'error')} ">
-	<label for="descripcion">
-		<g:message code="profile.descripcion.label" default="Descripcion" />
-		
-	</label>
-	<g:textArea name="descripcion" value="${profileInstance?.descripcion}" rows="10" cols="40" ></g:textArea>
+	<g:select id="ciudad" name="ciudad.id" from="${kelgal.empleos.Ciudad.list()}" optionKey="id" required="" value="${profileInstance?.ciudad?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'estadoUsuario', 'error')} ">
@@ -87,15 +95,7 @@
 		<g:message code="profile.fechaCreado.label" default="Fecha Creado" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="fechaCreado" precision="minute"  value="${profileInstance?.fechaCreado}"  />
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'nombre', 'error')} ">
-	<label for="nombre">
-		<g:message code="profile.nombre.label" default="Nombre" />
-		
-	</label>
-	<g:textField name="nombre" value="${profileInstance?.nombre}"/>
+	<g:datePicker name="fechaCreado" precision="day"  value="${profileInstance?.fechaCreado}"  />
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'password', 'error')} ">
@@ -106,11 +106,28 @@
 	<g:textField name="password" value="${profileInstance?.password}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'referencias', 'error')} ">
-	<label for="referencias">
-		<g:message code="profile.referencias.label" default="Referencias" />
+<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'reviews', 'error')} ">
+	<label for="reviews">
+		<g:message code="profile.reviews.label" default="Reviews" />
 		
 	</label>
-	<g:select name="referencias" from="${kelgal.empleos.Referencia.list()}" multiple="multiple" optionValue="nombre" optionKey="id" size="5" value="${profileInstance?.referencias*.id}" class="many-to-many"/>
+	
+<ul class="one-to-many">
+<g:each in="${profileInstance?.reviews?}" var="r">
+    <li><g:link controller="review" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
+</g:each>
+<li class="add">
+<g:link controller="review" action="create" params="['profile.id': profileInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'review.label', default: 'Review')])}</g:link>
+</li>
+</ul>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'totalRating', 'error')} required">
+	<label for="totalRating">
+		<g:message code="profile.totalRating.label" default="Total Rating" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:field name="totalRating" type="number" value="${profileInstance.totalRating}" required=""/>
 </div>
 

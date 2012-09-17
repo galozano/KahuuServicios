@@ -1,4 +1,0 @@
---Output from testUsers--
---Output from testBuscar--
---Output from testProfile--
---Output from testIndex--

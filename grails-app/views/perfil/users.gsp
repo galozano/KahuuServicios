@@ -9,7 +9,6 @@
 <body>
 	<div class="body">
 		<div id="page">
-			<div id="page-bgtop">
 				<div id="sidebar">
 					<h1>Categor&iacuteas</h1>
 					<ul>
@@ -32,7 +31,11 @@
 							
 							<div class="title">
 								<g:link action="profile" id="${profileInstance.id}"> ${fieldValue(bean: profileInstance, field: "nombre")}</g:link>
+								<div class="rating">
+									<img src="${resource(dir: 'images/skin', file: 'stars-'+profileInstance.totalRating+'.png')}" /> &nbsp;(${profileInstance.reviews.size()} Comentarios)
+								</div>
 							</div>
+
 							<div style="clear: both;">&nbsp;</div>
 						</div>
 					</g:each>
@@ -40,7 +43,6 @@
 				<!-- end #content -->
 				<div style="clear: both;">&nbsp;</div>
 			</div>
-		</div>
 	</div>
 </body>
 </html>

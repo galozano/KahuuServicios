@@ -1,26 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-  <testsuite errors="0" failures="0" hostname="Gustavo-Lozanos-2.local" id="0" name="EmpleoControllerTests" package="kelgal.empleos" tests="4" time="5.418" timestamp="2012-09-14T16:40:50">
+  <testsuite errors="0" failures="1" hostname="Gustavo-Lozanos-2.local" id="0" name="UsuarioControllerTests" package="kelgal.empleos" tests="2" time="5.163" timestamp="2012-09-16T20:54:16">
       <properties />
 
-      <testcase classname="kelgal.empleos.EmpleoControllerTests" name="testUsers" time="4.826" />
+      <testcase classname="kelgal.empleos.UsuarioControllerTests" name="testHadleComentario" time="4.884" />
 
-      <testcase classname="kelgal.empleos.EmpleoControllerTests" name="testBuscar" time="0.206" />
+      <testcase classname="kelgal.empleos.UsuarioControllerTests" name="testSomething" time="0.251">
+          <failure message="junit.framework.AssertionFailedError: Implement me" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: junit.framework.AssertionFailedError: Implement me
+	at kelgal.empleos.UsuarioControllerTests.testSomething(UsuarioControllerTests.groovy:18)
+</failure>
 
-      <testcase classname="kelgal.empleos.EmpleoControllerTests" name="testProfile" time="0.155" />
+      </testcase>
 
-      <testcase classname="kelgal.empleos.EmpleoControllerTests" name="testIndex" time="0.19" />
-
-      <system-out><![CDATA[--Output from testUsers--
---Output from testBuscar--
---Output from testProfile--
---Output from testIndex--
+      <system-out><![CDATA[--Output from testHadleComentario--
+--Output from testSomething--
 ]]></system-out>
 
-      <system-err><![CDATA[--Output from testUsers--
---Output from testBuscar--
---Output from testProfile--
---Output from testIndex--
+      <system-err><![CDATA[--Output from testHadleComentario--
+--Output from testSomething--
 ]]></system-err>
 
   </testsuite>

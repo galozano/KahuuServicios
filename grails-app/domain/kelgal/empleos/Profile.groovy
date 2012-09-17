@@ -25,11 +25,13 @@ class Profile
 	
 	Ciudad ciudad;
 	
-	Certificado certificado;
-	
 	byte[] image;
+	
+	int totalRating;
+	
+	Certificado certificado;
 		
-	static hasMany = [referencias:Referencia,categorias: Categorias];
+	static hasMany = [categorias: Categorias,reviews:Review];
 	
     static constraints = 
 	{
@@ -37,5 +39,8 @@ class Profile
 		usuario unique:true;
 		image maxSize:1000000;
 		email email:true
+		nombre blank:false;
+		celular blank:false;
+		descripcion blank:false;
     }
 }

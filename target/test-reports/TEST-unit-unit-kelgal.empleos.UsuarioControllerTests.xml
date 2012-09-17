@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="1" hostname="Gustavo-Lozanos-2.local" name="kelgal.empleos.UsuarioControllerTests" tests="2" time="5.163" timestamp="2012-09-16T20:54:16">
+  <properties />
+  <testcase classname="kelgal.empleos.UsuarioControllerTests" name="testHadleComentario" time="4.884" />
+  <testcase classname="kelgal.empleos.UsuarioControllerTests" name="testSomething" time="0.251">
+    <failure message="junit.framework.AssertionFailedError: Implement me" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: junit.framework.AssertionFailedError: Implement me
+	at kelgal.empleos.UsuarioControllerTests.testSomething(UsuarioControllerTests.groovy:18)
+</failure>
+  </testcase>
+  <system-out><![CDATA[--Output from testHadleComentario--
+--Output from testSomething--
+]]></system-out>
+  <system-err><![CDATA[--Output from testHadleComentario--
+--Output from testSomething--
+]]></system-err>
+</testsuite>

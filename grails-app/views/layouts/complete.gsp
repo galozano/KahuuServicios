@@ -31,6 +31,7 @@
 	</div>
 	
 	<g:layoutBody />
+	
 	<div class="footer" role="contentinfo">
 		<div align="center">Usar este sitio web implica la aceptacion de los <g:link>T&eacute;rminos y Condiciones</g:link> y <g:link>Politicas de Privacidad</g:link> de Kahuu Servicios</div>
 		<div align="center">COPYRIGHT (C) 2012 SERVICIOSKAHUU.COM. TODOS LOS DERECHOS RESERVADOS</div>

@@ -9,7 +9,7 @@ class AdminController
 	{
 		if (session.admin)
 		{
-			redirect(controller:'empleo', action:'index')
+			redirect(controller:'perfil', action:'index')
 		}
 		else
 		{

@@ -2,15 +2,15 @@ package kelgal.empleos.domain
 
 
 
-
-import kelgal.empleos.Referencia;
-
+import kelgal.empleos.Review;
+import grails.test.mixin.*
+import org.junit.*
 
 /**
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
  */
-@TestFor(Referencia)
-class ReferenciaTests {
+@TestFor(Review)
+class ReviewTests {
 
     void testSomething() {
        fail "Implement me"

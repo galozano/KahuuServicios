@@ -30,11 +30,11 @@
 					
 						<g:sortableColumn property="email" title="${message(code: 'profile.email.label', default: 'Email')}" />
 					
+						<g:sortableColumn property="nombre" title="${message(code: 'profile.nombre.label', default: 'Nombre')}" />
+					
 						<g:sortableColumn property="celular" title="${message(code: 'profile.celular.label', default: 'Celular')}" />
 					
-						<g:sortableColumn property="celular2" title="${message(code: 'profile.celular2.label', default: 'Celular2')}" />
-					
-						<th><g:message code="profile.certificado.label" default="Certificado" /></th>
+						<g:sortableColumn property="descripcion" title="${message(code: 'profile.descripcion.label', default: 'Descripcion')}" />
 					
 					</tr>
 				</thead>
@@ -48,11 +48,11 @@
 					
 						<td>${fieldValue(bean: profileInstance, field: "email")}</td>
 					
+						<td>${fieldValue(bean: profileInstance, field: "nombre")}</td>
+					
 						<td>${fieldValue(bean: profileInstance, field: "celular")}</td>
 					
-						<td>${fieldValue(bean: profileInstance, field: "celular2")}</td>
-					
-						<td>${fieldValue(bean: profileInstance, field: "certificado")}</td>
+						<td>${fieldValue(bean: profileInstance, field: "descripcion")}</td>
 					
 					</tr>
 				</g:each>

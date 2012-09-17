@@ -1,6 +1,9 @@
 package kelgal.empleos
 
-class EmpleoController 
+import kelgal.empleos.Categorias;
+import kelgal.empleos.Profile;
+
+class PerfilController 
 {
     def index()
 	{				
@@ -17,8 +20,10 @@ class EmpleoController
 			redirect(action: "users");
 			return;
 		}
+		
+		int total =  profileInstance.reviews.size();
 			
-		render(view: "profile", model:	[profileInstance: profileInstance, categoriasList: Categorias.list(sort:'nombre')] );
+		render(view: "profile", model:	[profileInstance: profileInstance, categoriasList: Categorias.list(sort:'nombre'), reviewsTotal:total] );
 	}
 	
 	def darFoto( )
@@ -31,32 +36,28 @@ class EmpleoController
 	
 	def buscar( )
 	{
-		def c = Profile.createCriteria()
-		def results = c.list {
-			ilike("nombre", "%" + params.buscador + "%")
-			
-			order("nombre", "desc")
-		}
-		
+		def results = Profile.findAll("from Profile as b " +
+					 "where b.nombre like :search or b.descripcion like :search",
+					 [search: "%" + params.buscador +"%"])
+	
 		render(view: "users",model:[profileInstanceList: results ,profileInstanceTotal:results.size(), categoriasList: Categorias.list(sort:'nombre')]);
 	}
 	
 	def users(Long id)
 	{	
-		def profiles = Profile.list();
-		List results = new ArrayList();
+		def cat = Categorias.get(id);	
+			
+		def c = Profile.createCriteria();
 		
-		for(profile in profiles)
-		{	
-			for(categoria in profile.categorias)
-			{					
-				if(categoria.id == id)
-				{
-					results.add(profile);
-				}	
+		def results = c.list() {
+			categorias {
+					eq("nombre",cat.nombre);
 			}
+			order("reviews", "asc");		
 		}
-		
+	
+
+
 		if(results.size() == 0)
 		{
 			flash.message = message(code: 'default.not.found.message', args: [message(code: 'profile.label', default: 'Profile'), id]);

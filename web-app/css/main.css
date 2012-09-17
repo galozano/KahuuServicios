@@ -48,20 +48,73 @@ body {
 	        box-shadow: 0 0 0.3em #255b17;
 }
 
-#kahuuLogo {
+.page-bgtop
+{
+	padding:20px;
+}
+
+#kahuuLogo 
+{
 	background-color: #254673;
 }
 
+#kahuuLogo h2 span
+{
+	margin-left: -28px;
+	font-size: 15px;
+	color: #48802C;
+	font-size: 15px;
+}
 
-#kahuuLogo a {
+#kahuuLogo h2 a {
 	display: inline-block;
-	margin: 1em;
+	margin: 1em 1em 0.3em 1em;
+	
 	color: #FFF;
 	font-size: 1.4em;
 	text-decoration: none;
 	font-weight:bold;
 }
 
+#userLogin
+{
+	position: relative;
+	color: white;
+	text-decoration: none;
+	background-color: #254673;
+	text-align: right;
+	padding-right: 20px;
+	padding-bottom: 5px;
+}
+
+#sidebar {
+	float:left;
+	border: 2px solid #E0E0E0;
+	margin: 20px;
+	height: 500px;
+	width: 200px;
+	padding: 10px;
+}
+
+#sidebar li
+{
+	padding-top: 3px;
+}
+
+.content {
+	padding: 15px;
+	float: right;
+	width: 665px;
+	padding: 20px 15px 15px 15px;
+}
+
+.content h1 {
+	
+}
+
+li {
+	list-style: none;
+}
 
 /* replace with .no-boxshadow body if you have modernizr available */
 .ie6 body,
@@ -176,13 +229,13 @@ img {
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
 }
 
-.no-borderradius .nav a:focus, .no-borderradius .nav a:hover {
+.no-borderradius .nav a:focus, .no-borderradius .nav a:hover  {
 	background-color: transparent;
 	color: #444444;
 	text-decoration: underline;
 }
 
-.nav a.home, .nav a.list, .nav a.create , .nav a.contact{
+.nav a.home, .nav a.list, .nav a.create , .nav a.contact, .nav a.comments{
 	background-position: 0.7em center;
 	background-repeat: no-repeat;
 	text-indent: 25px;
@@ -196,8 +249,8 @@ img {
 	background-image: url(../images/skin/database_table.png);
 }
 
-.nav a.create {
-	background-image: url(../images/skin/database_add.png);
+.nav a.comments {
+	background-image: url(../images/skin/comments.png);
 }
 
 .nav a.contact {
@@ -575,7 +628,7 @@ th:hover, tr:hover {
 	text-decoration: underline;
 }
 
-.buttons .delete, .buttons .edit, .buttons .save {
+.buttons .delete, .buttons .edit, .buttons .save  {
 	background-position: 0.7em center;
 	background-repeat: no-repeat;
 	text-indent: 25px;
@@ -605,39 +658,12 @@ a.skip {
 
 /* MIO */
 
-#sidebar {
-	float:left;
-	border: 2px solid #E0E0E0;
-	margin: 20px;
-	height: 500px;
-	width: 160px;
-	padding: 10px;
-}
 
-#sidebar li
-{
-	padding-top: 3px;
-}
-
-.content {
-	padding: 15px;
-	float: right;
-	width: 700px;
-	padding: 20px 15px 15px 15px;
-}
-
-.content h1 {
-	
-}
-
-li {
-	list-style: none;
-}
 
 #profile-general {
 	position: relative;
 	left: 120px;
-	top: -100px;
+	top: -120px;
 }
 
 #profile-general h1 {
@@ -708,6 +734,15 @@ li {
 	border: none;
 }
 
+.post .rating
+ {
+	position: relative;
+	margin-top:10px;
+
+	height: 30px;
+	font-size: 11px;
+}
+
 #content-users
 {
 	padding: 15px;
@@ -717,20 +752,20 @@ li {
 
 #searchLargo
 {
-	
+
 }
 
 
 #cuadroIzq {
 	float:left;
 	margin-left: 100px;
-	margin-top: 20px;
+	
 }
 
 #cuadroDer {
 	padding-bottom: 20px;
 	margin-left: 500px;
-	margin-top: 20px;
+
 }
 
 #cuadroIzq ul
@@ -746,13 +781,11 @@ li {
 #page-index 
 {
 	padding: 10px;
-	
 }
 
 #ingresarBoton {
 	margin-top: 20px;
 }
-
 
 .input_buscador
 {
@@ -760,8 +793,31 @@ li {
 	border: 1px solid #cccccc;
 	font-size: 1em;
 	padding: 0.2em 0.4em;
-	width: 540px;
+	width: 200px;
 }
+
+
+/* Reviews */
+
+.review
+{
+	border-bottom: 2px dashed #E0E0E0;
+	margin: 5px;
+	padding-bottom: 10px;
+	padding-top: 5px;
+}
+
+.review #author
+{
+	font-size: 12px;
+}
+
+.review #text_review
+{
+	padding-top: 10px;
+}
+
+
 
 
 

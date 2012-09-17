@@ -27,15 +27,26 @@
 </head>
 <body>
 	<div id="kahuuLogo" role="banner">
-		<h2><a href="${createLink(uri: '/')}">Kahuu Servicios</a></h2>
+		<h2><a href="${createLink(uri: '/')}">Kahuu Servicios</a><span>beta</span></h2> 
 	</div>
+	
+	<div id="userLogin">
+		<g:if test="${session.user}">
+			Hola, ${session.user.nombre} [<g:link controller="usuario" action="logout"> Cerrar Sesi&oacute;n</g:link> ]
+		</g:if>
+		<g:else>
+			Hola Visitante, [<g:link controller="usuario" action="login"> Ingresar/Registrar </g:link>]
+		</g:else>
+	</div>
+	
 	<div class="nav">
 		<ul>
-			<li><g:link class="home" controller="empleo" action="users" id="1"><g:message code="default.home.label"/></g:link> </li> 
-			<li><g:link class="contact">Contactenos</g:link></li>
-			<li>
+			<li><g:link class="home" controller="perfil" action="users" id="1"><g:message code="default.home.label"/></g:link> </li> 
+			<li><g:link class="comments" controller="usuario" action="login" >Tus Comentarios</g:link></li>
+			<li><g:link class="contact" controller="informacion" action="contactenos">Contactenos</g:link></li>		
+			<li id="derecha">
 				<div id="searchLargo">
-					<g:form name="searchForm" url="[controller:'empleo',action:'buscar']">
+					<g:form name="searchForm" url="[controller:'perfil',action:'buscar']">
 						<div>
 							<g:textField  class="input_buscador" name="buscador" value="busca tu servicio..." onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" />
 							<g:submitButton name="buscar"  value="Buscar"/>

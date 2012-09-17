@@ -6,6 +6,6 @@ class Categorias
 	
     static constraints =
 	{
-		
+		nombre unique: true;
     }
 }

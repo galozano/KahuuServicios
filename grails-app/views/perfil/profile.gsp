@@ -8,7 +8,6 @@
 
 <body>
 	<div id="page">
-		<div id="page-bgtop">
 			<div id="sidebar">
 					<h1>Categor&iacuteas</h1>
 					<ul>
@@ -29,7 +28,16 @@
 					</g:else>		
 					<div id="profile-general">
 						<h1><g:fieldValue bean="${profileInstance}" field="nombre"/></h1>
-						<h1>Cel:<g:fieldValue bean="${profileInstance}" field="celular"/></h1>
+						<img src="${resource(dir: 'images/skin', file: 'stars-'+profileInstance.totalRating+'.png')}" />  (${reviewsTotal} Comentarios)
+						<g:if test="${session.user}">
+							<h1>
+								Cel:<g:fieldValue bean="${profileInstance}" field="celular"/> 
+								<g:if test="${profileInstance.celular2}"> ,<g:fieldValue bean="${profileInstance}" field="celular2"/></g:if>
+							</h1>
+						</g:if>
+						<g:else>
+							<br/>Para ver el tel&eacute;fono <g:link controller="usuario" action="login">Ingresa</g:link> o <g:link controller="usuario" action="login">Registrate</g:link>
+						</g:else>	
 					</div>
 				</div>
 				<div class="profile-box">
@@ -44,16 +52,6 @@
 				</div>
 				<div class="profile-box">
 					<div class="box-header">
-						Referencias
-					</div>
-					<div class="box-content">
-						<g:each in="${profileInstance.referencias}" var="c">					
-							<div id="referencia">${c.nombre}</div>
-						</g:each>
-					</div>
-				</div>
-				<div class="profile-box">
-					<div class="box-header">
 						Categor&iacuteas <span>
 					</div>
 					<div class="box-content">
@@ -62,10 +60,34 @@
 						</g:each>
 					</div>
 				</div>
+				<div class="profile-box">
+					<div class="box-header">
+						Comentarios (
+						<g:if test="${session.user}">
+							<g:link controller="usuario" action="crearComentario" id="${profileInstance.id}">Ecribir Comentario</g:link>
+						</g:if>
+						<g:else>
+							Para comentar <g:link controller="usuario" action="login">Ingresa</g:link> o <g:link controller="usuario" action="login">Registrate</g:link>
+						</g:else> )
+					</div>
+					<div class="box-content">
+						<g:each in="${profileInstance.reviews}" var="c">					
+								<div class="review">
+									<div id="header_review">
+										<img src="${resource(dir: 'images/skin', file: 'stars-'+c.rating+'.png')}" />
+										&nbsp;&nbsp;${c.titulo}  &nbsp;&nbsp;${c.fechaCreado.format("dd MMM, yyyy")} 
+									</div>
+									<div id="author"> Por ${c.author}</div>
+									<div id="text_review">
+										${c.texto}
+									</div>			
+								</div>
+						</g:each>		
+					</div>				
+				</div>
 			</div>
 			<!-- end #content -->
 			<div style="clear: both;">&nbsp;</div>
-		</div>
 	</div>
 </body>
 </html>
