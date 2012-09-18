@@ -14,4 +14,21 @@ class AdminControllerTests {
     void testSomething() {
        fail "Implement me"
     }
+	
+	
+	def testLogin()
+	{
+		
+		
+	}
+	
+	def testHandleLogin( )
+	{
+		
+	}
+	
+	def testLogout()
+	{
+		
+	}
 }

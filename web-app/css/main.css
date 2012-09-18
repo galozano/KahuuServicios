@@ -817,6 +817,11 @@ a.skip {
 	padding-top: 10px;
 }
 
+.review #header_review a
+{
+	float:right;
+}
+
 
 
 

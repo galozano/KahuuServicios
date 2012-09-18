@@ -20,9 +20,9 @@ class PerfilController
 			redirect(action: "users");
 			return;
 		}
-		
-		int total =  profileInstance.reviews.size();
-			
+	
+		int total =  profileInstance.reviews ? profileInstance.reviews.size():0;
+	
 		render(view: "profile", model:	[profileInstance: profileInstance, categoriasList: Categorias.list(sort:'nombre'), reviewsTotal:total] );
 	}
 	
@@ -36,10 +36,26 @@ class PerfilController
 	
 	def buscar( )
 	{
-		def results = Profile.findAll("from Profile as b " +
-					 "where b.nombre like :search or b.descripcion like :search",
-					 [search: "%" + params.buscador +"%"])
+//		def results = Profile.findAll("from Profile as b " +
+//					 "where b.nombre like :search or b.descripcion like :search",
+//					 [search: "%" + params.buscador +"%"])
 	
+		def query = Profile.where()
+		{
+			(descripcion =~ "%"+params.buscador+"%") || (nombre =~  "%"+params.buscador+"%")
+		}
+		def results = query.list(sort:"reviews")
+		
+		
+		if(results.size() == 0)
+		{
+			flash.message = "No se encontro ning&uacute;n resultado."
+		}
+		else
+		{
+			flash.message = null;
+		}
+		
 		render(view: "users",model:[profileInstanceList: results ,profileInstanceTotal:results.size(), categoriasList: Categorias.list(sort:'nombre')]);
 	}
 	
@@ -47,22 +63,32 @@ class PerfilController
 	{	
 		def cat = Categorias.get(id);	
 			
-		def c = Profile.createCriteria();
-		
-		def results = c.list() {
-			categorias {
-					eq("nombre",cat.nombre);
-			}
-			order("reviews", "asc");		
-		}
-	
-
-
-		if(results.size() == 0)
+		if(cat == null)
 		{
-			flash.message = message(code: 'default.not.found.message', args: [message(code: 'profile.label', default: 'Profile'), id]);
+			flash.message = "No se encontro ning&uacute;n resultado."
+			render(view: "users",model:[categoriasList: Categorias.list(sort:'nombre')]);
 		}
-		
-		render(view: "users",model:[profileInstanceList: results ,profileInstanceTotal:results.size(), categoriasList: Categorias.list(sort:'nombre')]);
+		else
+		{
+			def c = Profile.createCriteria();
+			
+			def results = c.list() {
+				categorias {
+						eq("nombre",cat.nombre);
+				}
+				order("reviews", "asc");		
+			}
+	
+			if(results.size() == 0)
+			{
+				flash.message = "No se encontro ning&uacute;n resultado."
+			}
+			else
+			{
+				flash.message = null;
+			}
+			
+			render(view: "users",model:[profileInstanceList: results ,profileInstanceTotal:results.size(), categoriasList: Categorias.list(sort:'nombre')]);
+		}
 	}
 }

@@ -20,6 +20,9 @@
 					</ul>
 				</div>
 				<div class="content">
+					<g:if test="${flash.message}">
+						<div class="message" role="status">${flash.message}</div>
+					</g:if>
 					<g:each in="${profileInstanceList}" status="i" var="profileInstance">
 						<div class="post">
 							<g:if test="${profileInstance?.image}">

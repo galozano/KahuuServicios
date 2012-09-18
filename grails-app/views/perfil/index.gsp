@@ -35,10 +35,10 @@
 				<div id="cuadroIzq">
 					<h3>Ofrecer un Servicio</h3>
 					<ul>			
-						<li>1. Ofrecer tu servicio en la p&aacute;gina.</li>
-						<li>2. Esperar a que te contacten.</li>
-						<li>3. Cuadrar con la persona para ofrecerle el servicio.</li>
-						<li>4. Obtener tu dinero por el servicio que ofreciste.</li>
+						<li>1. Ofrecer servicio</li>
+						<li>2. Esperar llamada.</li>
+						<li>3. Ofrecerle servicio.</li>
+						<li>4. Obten tu dinero.</li>
 					</ul>
 					
 
@@ -47,10 +47,10 @@
 				<div id="cuadroDer">
 					<h3>Recibir un Servicio</h3>
 					<ul>
-						<li>1. Buscar un servicio que te interese.</li>
-						<li>2. Contactar a la persona del servicio.</li>
-						<li>3. Coordinar con &eacute;l para recibir el servicio que tu necesitas.</li>
-						<li>4. Pagarle a la persona por su servicio.</li>
+						<li>1. Buscar un servicio.</li>
+						<li>2. Contactar a la persona.</li>
+						<li>3. Recibir el servicio.</li>
+						<li>4. Pagarle servicio.</li>
 					</ul>
 				</div>
 		

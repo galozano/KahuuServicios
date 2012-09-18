@@ -25,7 +25,7 @@ class UsuarioController
 			if (user.password == params.password.encodeAsSHA1())
 			{
 				session.user = user;
-				redirect(controller:'perfil', action:'users', id:1);
+				redirect(controller:'comentarios', action:'misComentarios');
 			}
 			else
 			{
@@ -56,7 +56,6 @@ class UsuarioController
 	{
 		def user = new User(params);
 		user.fechaCreado = new Date();
-		user.puntos = 0;
 		
 		if(!params.agree)
 		{
@@ -95,52 +94,5 @@ class UsuarioController
 	def olvideClave( )
 	{
 		render(view:"olvideClave");
-	}
-	
-	def crearComentario( )
-	{
-		def profile = Profile.get(params.id);	
-		render(view:"comentario",model:[profileInstance:profile]);
-	}
-	
-	def handleComentario()
-	{		
-		Profile.withTransaction { status ->
-			
-			Profile profile = Profile.get(params.perfil);
-			User user = session.user;
-			
-			Review review = new Review(author:user.nombre, titulo:params.titulo ,texto:params.comentario, rating:params.rating, profile:profile,user:user, fechaCreado:new Date());
-		
-			if(review.save())
-			{
-				profile = Profile.get(params.perfil);
-				
-				int total =  profile.reviews.size();
-				int average = 0;
-		
-				if(total != 0)
-				{
-					average = profile.reviews.rating.sum() / profile.reviews.size();
-				}
-				
-				profile.totalRating = average;
-				
-				if(profile.save())
-				{
-					redirect(controller:"perfil", action:"profile", id:profile.id);
-				}
-				else
-				{
-					status.setRollbackOnly();
-					render(view:"comentario",model:[profileInstance:profile,comentarioInstance:review]);
-				}
-			}
-			else
-			{
-				status.setRollbackOnly();
-				render(view:"comentario",model:[profileInstance:profile,comentarioInstance:review]);
-			}
-		}
 	}
 }

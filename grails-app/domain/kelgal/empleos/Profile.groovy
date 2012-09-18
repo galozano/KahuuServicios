@@ -35,7 +35,8 @@ class Profile
 	
     static constraints = 
 	{
-		categorias  lazy:false
+		categorias  lazy:false;
+		reviews lazy:false;
 		usuario unique:true;
 		image maxSize:1000000;
 		email email:true

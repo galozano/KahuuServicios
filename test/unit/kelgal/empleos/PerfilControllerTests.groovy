@@ -11,32 +11,50 @@ import org.junit.*
 @Mock([Profile,Categorias])
 class PerfilControllerTests 
 {	
+	
+	private Categorias categoria;
+	
+	private Ciudad ciudad;
+	
+	private Certificado cert;
+	
+	private Profile profile;
+	
+	/**
+	 * Set UP el scenario
+	 */
+	public void setIt() 
+	{	
+		categoria = new Categorias(nombre:"Primera");
+		ciudad = new Ciudad(nombre:"Cartagena");
+		cert = new Certificado(nombre:"Principal", nivel:1);
+		
+		assert categoria.save(flush: true) != null;
+		
+		profile = new Profile(nombre:"Gustavo",usuario:"gus",password:"hola",email:"gus@gmail.com",certificado:cert, celular2:"3135851647", estadoUsuario:false,fechaCreado:new Date() ,celular:"3205721687", descripcion:"descripcion1", ciudad:ciudad, image: new byte[10]);
+		profile.addToCategorias(categoria);
+		
+		assert profile.save() != null;
+		
+		profile = new Profile(nombre:"Rafael",usuario:"Rafa",estadoUsuario:true,email:"rafa@gmail.com", certificado:cert, celular2:"3135851647",fechaCreado:new Date() ,password:"hola",celular:"3205721687", descripcion:"descripcion2", ciudad:ciudad, image: new byte[1000]);
+		profile.addToCategorias(categoria);
+		
+		assert profile.save() != null;
+	}
+	
 	void testIndex( )
 	{
-		def categoria = new Categorias(nombre:"Primera");
-		assert categoria.save(flush: true) != null;
+		setIt();
 		
 		controller.index();
 		
-		assert view == "/empleo/index";		
+		assert view == "/perfil/index";		
 		assert model.categoriasList.count , 1;	
 	}
 	
 	void testUsers( )
 	{
-		Categorias categoria = new Categorias(nombre:"Primera");
-		Ciudad ciudad = new Ciudad(nombre:"Cartagena");
-		Certificado cert = new Certificado(nombre:"Principal", nivel:1);
-		
-		def profile = new Profile(nombre:"Gustavo",usuario:"gus",password:"hola",email:"gus@gmail.com",certificado:cert, celular2:"3135851647", estadoUsuario:false,fechaCreado:new Date() ,celular:"3205721687", descripcion:"decripcion", ciudad:ciudad, image: new byte[10]);
-		profile.addToCategorias(categoria);
-		
-		assert profile.save() != null;
-		
-		profile = new Profile(nombre:"Rafael",usuario:"Rafa",estadoUsuario:true,email:"rafa@gmail.com", certificado:cert, celular2:"3135851647",fechaCreado:new Date() ,password:"hola",celular:"3205721687", descripcion:"decripcion", ciudad:ciudad, image: new byte[1000]);
-		profile.addToCategorias(categoria);
-		
-		assert profile.save() != null;
+		setIt();
 		
 		controller.users(categoria.id);
 		
@@ -44,45 +62,48 @@ class PerfilControllerTests
 		
 		assert model.profileInstanceList.get(0).nombre, "Gustavo";
 		assert model.profileInstanceList.get(1).nombre, "Rafael";
+		
+		//Buscar en categoria que no existe
+		controller.users(12345);
+		assert flash.message != null;
 	}
 	
 	void testBuscar( )
 	{
-		Categorias categoria = new Categorias(nombre:"Primera");
-		Ciudad ciudad = new Ciudad(nombre:"Cartagena");
-		Certificado cert = new Certificado(nombre:"Principal", nivel:1);
+		setIt();
+
+		params.buscador = "descripcion1";
 		
-		def profile = new Profile(nombre:"Gustavo",usuario:"gus",password:"hola",email:"gus@gmail.com",certificado:cert, celular2:"3135851647", estadoUsuario:false,fechaCreado:new Date() ,celular:"3205721687", descripcion:"decripcion", ciudad:ciudad, image: new byte[10]);
-		profile.addToCategorias(categoria);
+		controller.buscar();
 		
-		assert profile.save() != null;
+		//Buscar por descripcion
+		assert flash.message == null;
+		assert model.profileInstanceTotal, 1;
 		
-		profile = new Profile(nombre:"Rafael",usuario:"Rafa",estadoUsuario:true,email:"rafa@gmail.com", certificado:cert, celular2:"3135851647",fechaCreado:new Date() ,password:"hola",celular:"3205721687", descripcion:"decripcion", ciudad:ciudad, image: new byte[1000]);
-		profile.addToCategorias(categoria);
+		//Buscar por nombre
+		params.buscador = "Rafa";
+		controller.buscar();
 		
-		assert profile.save() != null;		
+		assert model.profileInstanceList.get(0).nombre, "Rafael";
+		
+		//Buscar algo que no existe
+		params.buscador = "NO EXISTE";
+		controller.buscar();
+		
+		assert flash.message != null;
 	}
 	
 	void testProfile( )
 	{ 	
+		setIt();
+		
 		//Perfil que no existe
 		controller.profile(877);
 		
 		assert flash.message != null;
 		
-		//Test normal
-		Categorias categoria = new Categorias(nombre:"Primera");
-		Ciudad ciudad = new Ciudad(nombre:"Cartagena");
-		Certificado cert = new Certificado(nombre:"Principal", nivel:1);
-		  		
-		def profile = new Profile(nombre:"Gus",usuario:"gus",email:"rafa@gmail.com", certificado:cert, celular2:"3135851647",estadoUsuario:false,fechaCreado:new Date() ,password:"hola", celular:"3205721687", descripcion:"decripcion", ciudad:ciudad, image: new byte[10]);
-		profile.addToCategorias(categoria);
-		
-		
-		assert profile.save() != null;
-		
-		controller.profile(profile.id);
-		
+		//Profile que existe
+		controller.profile(profile.id);	
 		assert model.profileInstance.nombre == profile.nombre;  
 	}
 }

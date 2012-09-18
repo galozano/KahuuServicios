@@ -7,8 +7,6 @@ class User
 	String email;
 	
 	String password;
-	
-	int puntos;
 		
 	Date fechaCreado;
 	
@@ -17,8 +15,7 @@ class User
     static constraints = 
 	{
 		email email: true, unique: true, blank:false;
-		nombre blank:false;
+		nombre blank:false, size:2..60;
 		password blank:false;
-		
 	}
 }

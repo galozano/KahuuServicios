@@ -27,7 +27,7 @@
 </head>
 <body>
 	<div id="kahuuLogo" role="banner">
-		<h2><a href="${createLink(uri: '/')}">Kahuu Servicios</a></h2>
+		<h2><a href="${createLink(uri: '/')}">Kahuu Servicios</a><span>beta</span></h2> 
 	</div>
 	
 	<g:layoutBody />

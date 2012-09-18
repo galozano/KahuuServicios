@@ -3,7 +3,7 @@ class KahuuFilters
  {
 	def filters = 
 	{
-	       loginCheck(controller: 'kelgal.empleo.auto.*', action: '*') 
+	       loginAdminCheck(controller: 'categorias|certificado|ciudad|profile|user', action: '*', ) 
 		   {
 	           before = 
 			   {
@@ -14,5 +14,18 @@ class KahuuFilters
 	               }
 	           }
 		   }
+		   
+		   loginCheck(controller: 'comentarios', action: '*')
+		   {
+			   before =
+			   {
+				   if (!session.user)
+				   {
+					   redirect(controller:"usuario", action: 'login');
+					   return false;
+				   }
+			   }
+		   }
+		   
 	}
 }

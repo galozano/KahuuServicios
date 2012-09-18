@@ -42,7 +42,7 @@
 				</div>
 				<div class="profile-box">
 					<div class="box-header">
-						Resumen Personal 
+						Descripci&oacute;n
 					</div>
 					<div class="box-content">
 						<p>
@@ -52,7 +52,7 @@
 				</div>
 				<div class="profile-box">
 					<div class="box-header">
-						Categor&iacuteas <span>
+						Categor&iacuteas 
 					</div>
 					<div class="box-content">
 						<g:each in="${profileInstance.categorias}" var="c">					
@@ -64,7 +64,7 @@
 					<div class="box-header">
 						Comentarios (
 						<g:if test="${session.user}">
-							<g:link controller="usuario" action="crearComentario" id="${profileInstance.id}">Ecribir Comentario</g:link>
+							<g:link controller="comentarios" action="crearComentario" id="${profileInstance.id}">Escribir Comentario</g:link>
 						</g:if>
 						<g:else>
 							Para comentar <g:link controller="usuario" action="login">Ingresa</g:link> o <g:link controller="usuario" action="login">Registrate</g:link>
@@ -82,7 +82,8 @@
 										${c.texto}
 									</div>			
 								</div>
-						</g:each>		
+						</g:each>	
+						<g:paginate controller="profile" action="profile" total="${reviewsTotal}" />	
 					</div>				
 				</div>
 			</div>
