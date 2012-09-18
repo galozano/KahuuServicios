@@ -34,6 +34,7 @@ class ComentariosControllerTests
 		
 		profile = new Profile(nombre:"Gustavo",usuario:"gus",password:"hola",email:"gus@gmail.com",certificado:cert, celular2:"3135851647", estadoUsuario:false,fechaCreado:new Date() ,celular:"3205721687", descripcion:"decripcion", ciudad:ciudad, image: new byte[10]);
 		profile.addToCategorias(categoria);
+		profile.totalRating = 3;
 		assert profile.save() != null;
 		
 		user = new User(nombre:"Gus",password:"pass", email:"gus@gus.com",fechaCreado:new Date());	
@@ -48,6 +49,8 @@ class ComentariosControllerTests
 		
 		review = new Review(author:"Gustavo Lozano",titulo:"titulo1 es", texto:"TEXTO segundo", rating:5, profile:profile,user:user,fechaCreado:new Date());
 		assert review.save() != null;
+		
+		
 	}
 	
 	void testHandleComentario( )
@@ -63,16 +66,33 @@ class ComentariosControllerTests
 		params.id = user.id;
 		controller.misComentarios();
 		
+		assert profile.totalRating, 3;
+		
 		//Comentarios antes de borrar
 		int total = model.totalComentarios;
 		
 		params.id = review.id;
 		controller.deleteComentario();
-		assert flash.message != null;
+		assert flash.message == null;
 		
-		//Comentarios depues de haber borrado (n-1)
+		//Comentarios despues de haber borrado (n-1)
 		controller.misComentarios();
 		assert model.totalComentarios, (total-1);
+		
+		assert profile.reviews.size(), (total-1);
+		
+		//Assert que se calculo bien el rating de nuevo
+		assert profile.totalRating, 1;
+		
+	}
+	
+	void testCambiarPassword( )
+	{
+		
+	}
+	
+	void testActualizarUsuario( )
+	{
 		
 	}
 	

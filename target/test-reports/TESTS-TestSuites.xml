@@ -1,26 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-  <testsuite errors="0" failures="0" hostname="Gustavo-Lozanos-2.local" id="0" name="PerfilControllerTests" package="kelgal.empleos" tests="4" time="5.805" timestamp="2012-09-18T00:41:22">
+  <testsuite errors="0" failures="0" hostname="Gustavo-Lozanos-2.local" id="0" name="ComentariosControllerTests" package="kelgal.empleos" tests="2" time="4.936" timestamp="2012-09-18T15:12:36">
       <properties />
 
-      <testcase classname="kelgal.empleos.PerfilControllerTests" name="testIndex" time="4.245" />
+      <testcase classname="kelgal.empleos.ComentariosControllerTests" name="testHandleComentario" time="2.835" />
 
-      <testcase classname="kelgal.empleos.PerfilControllerTests" name="testUsers" time="0.288" />
+      <testcase classname="kelgal.empleos.ComentariosControllerTests" name="testDeteleComentario" time="2.059" />
 
-      <testcase classname="kelgal.empleos.PerfilControllerTests" name="testBuscar" time="0.349" />
-
-      <testcase classname="kelgal.empleos.PerfilControllerTests" name="testProfile" time="0.847" />
-
-      <system-out><![CDATA[--Output from testIndex--
---Output from testUsers--
---Output from testBuscar--
---Output from testProfile--
+      <system-out><![CDATA[--Output from testHandleComentario--
+--Output from testDeteleComentario--
 ]]></system-out>
 
-      <system-err><![CDATA[--Output from testIndex--
---Output from testUsers--
---Output from testBuscar--
---Output from testProfile--
+      <system-err><![CDATA[--Output from testHandleComentario--
+--Output from testDeteleComentario--
 ]]></system-err>
 
   </testsuite>

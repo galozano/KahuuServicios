@@ -1,0 +1,13 @@
+Testsuite: kelgal.empleos.ComentariosControllerTests
+Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 4.936 sec
+------------- Standard Output ---------------
+--Output from testHandleComentario--
+--Output from testDeteleComentario--
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+--Output from testHandleComentario--
+--Output from testDeteleComentario--
+------------- ---------------- ---------------
+
+Testcase: testHandleComentario took 2.836 sec
+Testcase: testDeteleComentario took 2.059 sec

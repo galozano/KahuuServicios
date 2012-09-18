@@ -28,7 +28,7 @@
 					</g:else>		
 					<div id="profile-general">
 						<h1><g:fieldValue bean="${profileInstance}" field="nombre"/></h1>
-						<img src="${resource(dir: 'images/skin', file: 'stars-'+profileInstance.totalRating+'.png')}" />  (${reviewsTotal} Comentarios)
+						<img src="${resource(dir: 'images/skin', file: 'stars-'+profileInstance.totalRating+'.png')}" />(${reviewsTotal} Comentarios)
 						<g:if test="${session.user}">
 							<h1>
 								Cel:<g:fieldValue bean="${profileInstance}" field="celular"/> 
@@ -36,7 +36,7 @@
 							</h1>
 						</g:if>
 						<g:else>
-							<br/>Para ver el tel&eacute;fono <g:link controller="usuario" action="login">Ingresa</g:link> o <g:link controller="usuario" action="login">Registrate</g:link>
+							<div><br/>Para ver el tel&eacute;fono <g:link controller="usuario" action="login">Ingresa</g:link> o <g:link controller="usuario" action="login">Registrate</g:link></div>
 						</g:else>	
 					</div>
 				</div>
@@ -79,7 +79,7 @@
 									</div>
 									<div id="author"> Por ${c.author}</div>
 									<div id="text_review">
-										${c.texto}
+										  <g:lines string='${c.texto}'></g:lines>
 									</div>			
 								</div>
 						</g:each>	

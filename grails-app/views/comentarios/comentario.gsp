@@ -44,7 +44,7 @@
 					
 					<div class="fieldcontain ${hasErrors(bean: comentarioInstance, field: 'texto', 'error')} required">
 						<label for="Rating">Comentario: </label>
-						<g:textArea name="texto" value="${comentarioInstance?.texto}"/>
+						<g:textArea name="texto" escapeHtml="false" value="${comentarioInstance?.texto}"/>
 					</div>
 					
 					<fieldset class="buttons">
