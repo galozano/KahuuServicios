@@ -56,8 +56,10 @@ class ComentariosController {
 
 	def misComentarios( )
 	{
-		User user = User.get(session.user.id);
-		render(view:"miscomentarios", model:[listaComentarios:user.reviews,totalComentarios:user.reviews.size()])
+		User user = User.get(session.user.id);	
+		List revs = Review.findAllByUser(user,[sort: "fechaCreado", order: "desc"]);
+		
+		render(view:"miscomentarios", model:[listaComentarios:revs,totalComentarios:revs.size()])
 	}
 
 	def deleteComentario( )

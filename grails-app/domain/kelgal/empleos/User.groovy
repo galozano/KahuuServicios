@@ -15,7 +15,7 @@ class User
     static constraints = 
 	{
 		email email: true, unique: true, blank:false;
-		nombre blank:false, size:2..60;
+		nombre blank:false, size:2..45;
 		password blank:false;
 	}
 }

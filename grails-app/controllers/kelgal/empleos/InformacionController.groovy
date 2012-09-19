@@ -12,6 +12,8 @@ class InformacionController
 	
 	def contactenos()
 	{
+		
+		
 		render(view:"contactenos");
 	}
 }

@@ -50,7 +50,7 @@ body {
 
 .page-bgtop
 {
-	padding:20px;
+	padding:40px 20px 20px 20px
 }
 
 #kahuuLogo 
@@ -87,6 +87,8 @@ body {
 	padding-bottom: 5px;
 }
 
+/*sidebar */
+
 #sidebar {
 	float:left;
 	border: 2px solid #E0E0E0;
@@ -106,6 +108,12 @@ body {
 	float: right;
 	width: 665px;
 	padding: 20px 15px 15px 15px;
+}
+
+.index-content
+{
+	text-align:center;
+	margin-bottom: 20px
 }
 
 .content h1 {
@@ -583,19 +591,21 @@ th:hover, tr:hover {
 /* ACTION BUTTONS */
 
 .buttons {
-	background-color: #efefef;
+	text-align: center;
+	margin-top: 10px;
+/* 	background-color: #efefef;
 	overflow: hidden;
-	padding: 0.3em;
-	   -moz-box-shadow: 0 0 3px 1px #aaaaaa;
-	-webkit-box-shadow: 0 0 3px 1px #aaaaaa;
-	        box-shadow: 0 0 3px 1px #aaaaaa;
 	margin: 0.1em 0 0 0;
 	border: none;
+	width: auto;
+	
+		   -moz-border-radius: 0.3em;
+	-webkit-border-radius: 0.3em;
+	        border-radius: 0.3em; */
 }
 
-.buttons input,
-.buttons a {
-	background-color: transparent;
+.buttons input, .buttons a {
+/* 	background-color: transparent;
 	border: 0;
 	color: #666666;
 	cursor: pointer;
@@ -607,7 +617,7 @@ th:hover, tr:hover {
 
 	   -moz-border-radius: 0.3em;
 	-webkit-border-radius: 0.3em;
-	        border-radius: 0.3em;
+	        border-radius: 0.3em; */
 }
 
 .buttons input:hover, .buttons input:focus,
@@ -628,27 +638,9 @@ th:hover, tr:hover {
 	text-decoration: underline;
 }
 
-.buttons .delete, .buttons .edit, .buttons .save  {
-	background-position: 0.7em center;
-	background-repeat: no-repeat;
-	text-indent: 25px;
-}
-
 .ie6 .buttons input.delete, .ie6 .buttons input.edit, .ie6 .buttons input.save,
 .ie7 .buttons input.delete, .ie7 .buttons input.edit, .ie7 .buttons input.save {
 	padding-left: 36px;
-}
-
-.buttons .delete {
-	background-image: url(../images/skin/database_delete.png);
-}
-
-.buttons .edit {
-	background-image: url(../images/skin/database_edit.png);
-}
-
-.buttons .save {
-	background-image: url(../images/skin/database_save.png);
 }
 
 a.skip {
@@ -656,9 +648,7 @@ a.skip {
 	left: -9999px;
 }
 
-/* MIO */
-
-
+/* Perfil */
 
 #profile-general {
 	position: relative;
@@ -674,8 +664,11 @@ a.skip {
 	height: 100px;
 }
 
-.profile-box {
-	
+.profile-box 
+{
+	overflow-y: auto;
+	overflow-x: hidden;
+	word-wrap: break-word;
 }
 
 .box-content {
@@ -755,17 +748,19 @@ a.skip {
 
 }
 
-
 #cuadroIzq {
 	float:left;
-	margin-left: 100px;
+	margin-left: 90px;
+}
+
+#cuadroCentrado
+{
 	
 }
 
 #cuadroDer {
 	padding-bottom: 20px;
-	margin-left: 500px;
-
+	margin-left: 470px;
 }
 
 #cuadroIzq ul
@@ -778,9 +773,11 @@ a.skip {
 	margin-top: 10px;
 }
 
-#page-index 
+.olvide
 {
-	padding: 10px;
+	text-align: right;
+	font-size: 14px;
+	padding-right: 15px;
 }
 
 #ingresarBoton {
@@ -805,6 +802,9 @@ a.skip {
 	margin: 5px;
 	padding-bottom: 10px;
 	padding-top: 5px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	word-wrap: break-word;
 }
 
 .review #author
@@ -822,9 +822,8 @@ a.skip {
 	float:right;
 }
 
-
-
-
-
-
-	
+#tableIndex
+{
+	width: 420px;
+	margin-left: 250px;
+}

@@ -101,6 +101,26 @@ class UsuarioController
 		  sb.append((char)((int)(Math.random()*26)+97));
 		}
 		
+		User user = User.findByEmail(params.email);
+		
+		if(user != null)
+		{
+			user.password = sb.toString().encodeAsSHA1();;
+			
+			if(user.save())
+			{
+				//Send email
+			}
+			else
+			{
+				//No se pudo guardar el nuevo usuario
+			}
+		}
+		else
+		{
+			//EL usuario buscado no existe
+		}
+		
 		render(view:"olvideClave");
 	}
 }

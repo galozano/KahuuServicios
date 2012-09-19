@@ -45,11 +45,13 @@
 							<g:passwordField name="password"  value="${userInstance?.password}" />
 						</div> 
 						
-						<g:link action="olvideClave">Olvid&eacute; mi clave</g:link>
+						<div class="olvide">
+							<g:link action="olvideClave">Olvid&eacute; mi clave</g:link>
+						</div>
 						
-						<fieldset class="buttons">
+						<div class="buttons">
 							<g:submitButton name="create" class="save" value="Iniciar" />
-						</fieldset>
+						</div>
 					</g:form>
 				</div>
 				<div id="cuadroDer">

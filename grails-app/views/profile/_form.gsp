@@ -7,7 +7,7 @@
 		<g:message code="profile.categorias.label" default="Categorias" />
 		
 	</label>
-	<g:select name="categorias" from="${kelgal.empleos.Categorias.list()}" multiple="multiple" optionKey="id" size="5" value="${profileInstance?.categorias*.id}" class="many-to-many"/>
+	<g:select name="categorias" from="${kelgal.empleos.Categorias.list()}" multiple="multiple" optionKey="id" optionValue="nombre" size="5" value="${profileInstance?.categorias*.id}" class="many-to-many"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'usuario', 'error')} ">
@@ -55,7 +55,7 @@
 		<g:message code="profile.descripcion.label" default="Descripcion" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="descripcion" required="" value="${profileInstance?.descripcion}"/>
+	<g:textArea name="descripcion" required="" value="${profileInstance?.descripcion}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'celular2', 'error')} ">
@@ -71,7 +71,7 @@
 		<g:message code="profile.certificado.label" default="Certificado" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="certificado" name="certificado.id" from="${kelgal.empleos.Certificado.list()}" optionKey="id" required="" value="${profileInstance?.certificado?.id}" class="many-to-one"/>
+	<g:select id="certificado" name="certificado.id" from="${kelgal.empleos.Certificado.list()}" optionKey="id" optionValue="nombre" required="" value="${profileInstance?.certificado?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'ciudad', 'error')} required">
@@ -79,7 +79,7 @@
 		<g:message code="profile.ciudad.label" default="Ciudad" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="ciudad" name="ciudad.id" from="${kelgal.empleos.Ciudad.list()}" optionKey="id" required="" value="${profileInstance?.ciudad?.id}" class="many-to-one"/>
+	<g:select id="ciudad" name="ciudad.id" from="${kelgal.empleos.Ciudad.list()}" optionKey="id" optionValue="nombre" required="" value="${profileInstance?.ciudad?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'estadoUsuario', 'error')} ">

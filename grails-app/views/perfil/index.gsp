@@ -14,8 +14,8 @@
 </style>
 <body>
 	<div class="body">
-			<div id="page-index">		
-				<div align="center">
+			<div class="page-bgtop">		
+				<div class="index-content">
 					<h2>Bienvenidos</h2>
 						<br/><br/>
 					<p>
@@ -31,28 +31,28 @@
 						<br/><br/><br/>
 					<h3>Como Funciona: </h3>
 				</div>
-							
-				<div id="cuadroIzq">
+					
+				<table id="tableIndex">		
+				<tr>
+					<td>
 					<h3>Ofrecer un Servicio</h3>
 					<ul>			
-						<li>1. Ofrecer servicio</li>
+						<li>1. Publicar servicio</li>
 						<li>2. Esperar llamada.</li>
 						<li>3. Ofrecerle servicio.</li>
-						<li>4. Obten tu dinero.</li>
 					</ul>
-					
-
-				</div>
-				
-				<div id="cuadroDer">
+					</td>	
+					<td>
 					<h3>Recibir un Servicio</h3>
 					<ul>
 						<li>1. Buscar un servicio.</li>
 						<li>2. Contactar a la persona.</li>
 						<li>3. Recibir el servicio.</li>
-						<li>4. Pagarle servicio.</li>
+
 					</ul>
-				</div>
+					</td>
+				</tr>
+				</table>
 		
 				<div align="center">
 					<p>
@@ -60,7 +60,7 @@
 						de Kahuu Servicios.
 					</p>
 					<br/>
-					<g:select id="ciudad.id" name="ciudad.nombre" from="${kelgal.empleos.Ciudad.list()}" optionKey="nombre"  optionValue="nombre" value="${profileInstance?.ciudad?.nombre}" class="many-to-one"/>
+					<g:select id="id" name="nombre" from="${ciudadesLista}" optionKey="nombre"  optionValue="nombre" value="${nombre}" class="many-to-one"/>
 								
 					<div id="ingresarBoton">
 						<g:link controller="perfil" action="users" id="1">Continuar</g:link>

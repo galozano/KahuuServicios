@@ -46,7 +46,7 @@
 					</div>
 					<div class="box-content">
 						<p>
-							${profileInstance.descripcion}
+							<g:lines string='${profileInstance.descripcion}'></g:lines>
 						</p>
 					</div>
 				</div>
@@ -71,7 +71,7 @@
 						</g:else> )
 					</div>
 					<div class="box-content">
-						<g:each in="${profileInstance.reviews}" var="c">					
+						<g:each in="${reviewsList}" var="c">					
 								<div class="review">
 									<div id="header_review">
 										<img src="${resource(dir: 'images/skin', file: 'stars-'+c.rating+'.png')}" />
@@ -79,11 +79,12 @@
 									</div>
 									<div id="author"> Por ${c.author}</div>
 									<div id="text_review">
+									<p>
 										  <g:lines string='${c.texto}'></g:lines>
+									</p>
 									</div>			
 								</div>
 						</g:each>	
-						<g:paginate controller="profile" action="profile" total="${reviewsTotal}" />	
 					</div>				
 				</div>
 			</div>

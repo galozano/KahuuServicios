@@ -8,6 +8,13 @@
 <body>
   <div class="page">
   	<div class="page-bgtop">
+  	
+  		 <g:if test="${flash.message}">
+			<div class="message" role="status">${flash.message}</div>
+		</g:if>
+		
+  		<h2>Cont&aacute;ctenos</h2>
+  		
   		<g:form action="contactenos">
   			<div class="fieldcontain  required">
 				<label for="email"> <g:message code="user.email.label" default="Email" /></label>
@@ -29,7 +36,7 @@
 						
 						
 			<fieldset class="buttons">
-				<g:submitButton name="create" class="save" value="Iniciar" />
+				<g:submitButton name="contactar"  value="Enviar" />
 			</fieldset>
   		
   		</g:form>	

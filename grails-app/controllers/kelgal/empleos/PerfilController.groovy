@@ -7,7 +7,7 @@ class PerfilController
 {
     def index()
 	{				
-		render(view: "index", model: [categoriasList: Categorias.list(sort:'nombre')]);
+		render(view: "index", model:[ciudadesLista:Ciudad.list()]);
     }
 		
 	def profile(Long id )
@@ -21,9 +21,11 @@ class PerfilController
 			return;
 		}
 	
-		int total =  profileInstance.reviews ? profileInstance.reviews.size():0;
+		//Buscar y ordernar los reviewd del profile
+		List revs = Review.findAllByProfile(profileInstance,[sort: "fechaCreado", order: "desc"]);
+		int total =  revs ? revs.size():0;
 	
-		render(view: "profile", model:	[profileInstance: profileInstance, categoriasList: Categorias.list(sort:'nombre'), reviewsTotal:total] );
+		render(view: "profile", model:	[profileInstance: profileInstance, reviewsList: revs,categoriasList: Categorias.list(sort:'nombre'), reviewsTotal:total] );
 	}
 	
 	def darFoto( )
