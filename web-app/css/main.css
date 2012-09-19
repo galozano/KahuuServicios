@@ -661,7 +661,12 @@ a.skip {
 }
 
 #profile-up {
-	height: 100px;
+	height: 110px;
+}
+
+#profile-up img:first-child
+{
+	border: 3px solid black;
 }
 
 .profile-box 
@@ -695,7 +700,7 @@ a.skip {
 {
 	margin-bottom: 20px;
 	border-bottom: 1px dotted #E7E2DC;
-	height: 80px;
+	height: 90px;
 }
 
 .post input
@@ -706,9 +711,10 @@ a.skip {
 	float: left;
 }
 
-.post img
+.post > img:first-child
 {
 	float: left;
+	border:3px solid black;
 }
 
 .post .title {

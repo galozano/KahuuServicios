@@ -21,7 +21,7 @@
 			<div class="content">
 				<div id="profile-up">	
 					<g:if test="${profileInstance?.image}">
-						<img src="${createLink(controller:'empleo', action:'darFoto', id: profileInstance.id)}"  width="100" height="100"/>
+						<img src="${createLink(controller:'perfil', action:'darFoto', id: profileInstance.id)}"  width="100" height="100"/>
 					</g:if>
 					<g:else>
 						<img src="${resource(dir: 'images', file: 'none.jpg')}" width="100" height="100"/>
