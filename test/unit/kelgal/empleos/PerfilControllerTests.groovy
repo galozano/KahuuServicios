@@ -8,7 +8,7 @@ import org.junit.*
  */
 
 @TestFor(PerfilController)
-@Mock([Profile,Categorias])
+@Mock([Profile,Categorias,Ciudad,Review])
 class PerfilControllerTests 
 {	
 	
@@ -27,6 +27,9 @@ class PerfilControllerTests
 	{	
 		categoria = new Categorias(nombre:"Primera");
 		ciudad = new Ciudad(nombre:"Cartagena");
+		
+		assert ciudad.save() != null;
+		
 		cert = new Certificado(nombre:"Principal", nivel:1);
 		
 		assert categoria.save(flush: true) != null;
@@ -40,6 +43,12 @@ class PerfilControllerTests
 		profile.addToCategorias(categoria);
 		
 		assert profile.save() != null;
+		
+//		user = new User(nombre:"Gus",password:"pass", email:"gus@gus.com",fechaCreado:new Date(), activated:false, keyConfirmar:"HOLA");
+//		assert user.save() != null;
+//		
+//		review = new Review(author:"Gustavo Lozano",titulo:"titulo1 es", texto:"TEXTO segundo", rating:5, profile:profile,user:user,fechaCreado:new Date());
+//		assert review.save() != null;
 	}
 	
 	void testIndex( )
@@ -47,9 +56,7 @@ class PerfilControllerTests
 		setIt();
 		
 		controller.index();
-		
 		assert view == "/perfil/index";		
-		assert model.categoriasList.count , 1;	
 	}
 	
 	void testUsers( )
@@ -99,11 +106,12 @@ class PerfilControllerTests
 		
 		//Perfil que no existe
 		controller.profile(877);
-		
 		assert flash.message != null;
 		
+		
 		//Profile que existe
-		controller.profile(profile.id);	
+		params.usuario = profile.usuario;
+		controller.profileUsuario();	
 		assert model.profileInstance.nombre == profile.nombre;  
 	}
 }

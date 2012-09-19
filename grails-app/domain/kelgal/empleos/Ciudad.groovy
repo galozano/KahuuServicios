@@ -4,6 +4,8 @@ class Ciudad
 {
 	String nombre;
 	
-    static constraints = {
+    static constraints = 
+	{
+		nombre unique:true;
     }
 }

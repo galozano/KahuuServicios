@@ -10,6 +10,10 @@ class User
 		
 	Date fechaCreado;
 	
+	boolean activated;
+	
+	String keyConfirmar;
+	
 	static hasMany = [reviews:Review];
 	
     static constraints = 

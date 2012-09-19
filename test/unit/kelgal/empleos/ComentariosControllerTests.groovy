@@ -37,8 +37,7 @@ class ComentariosControllerTests
 		profile.totalRating = 3;
 		assert profile.save() != null;
 		
-		user = new User(nombre:"Gus",password:"pass", email:"gus@gus.com",fechaCreado:new Date());	
-		
+		user = new User(nombre:"Gus",password:"pass", email:"gus@gus.com",fechaCreado:new Date(), activated:false, keyConfirmar:"HOLA");			
 		assert user.save() != null;
 		
 		//Iniciar la session
@@ -49,14 +48,28 @@ class ComentariosControllerTests
 		
 		review = new Review(author:"Gustavo Lozano",titulo:"titulo1 es", texto:"TEXTO segundo", rating:5, profile:profile,user:user,fechaCreado:new Date());
 		assert review.save() != null;
-		
-		
 	}
 	
 	void testHandleComentario( )
 	{
+		setIt();
 		
-			
+		//test ideal
+		int inicial = profile.totalRating;
+		
+		params.perfil  = profile.id;
+		params.titulo = "Prueba Titulo";
+		params.texto = "prueba texto kjsdfgh";
+		params.rating = 4;
+		
+		controller.handleComentario();
+		
+		assert profile.totalRating, 3;
+		assert profile.reviews.size(), 3;
+		
+		//Test titulo muy largo
+		
+		
 	}
 	
 	void testDeteleComentario( )
@@ -88,12 +101,36 @@ class ComentariosControllerTests
 	
 	void testCambiarPassword( )
 	{
+		setIt();
 		
+		//Test condiciones ideales
+		params.password = "nuevapass"
+		params.confirm  = "nuevapass";
+		
+		controller.handleCambiarPassword();
+		
+		assert model.userInstance.password, params.password.encodeAsSHA1();;
+		
+		//Test Passwords diferentes
+		params.password = "nuevapass"
+		params.confirm  = "diferente";
+		
+		controller.handleCambiarPassword();
+	
+		assert flash.message != null;
+			
 	}
 	
 	void testActualizarUsuario( )
 	{
+		setIt();
 		
+		params.nombre = "Nuevo Nombre";
+		
+		controller.handleActualizarUsuario();
+		
+		assert session.user.nombre, params.nombre;
+		assert flash.message != null;
 	}
 	
 }

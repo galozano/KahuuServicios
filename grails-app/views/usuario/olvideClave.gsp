@@ -14,7 +14,7 @@
 		</g:if>
   	
   		<h2>Olvid&oacute; Clave</h2>
-  		<g:form action="olvideClave">
+  		<g:form action="handleOlvideClave">
   			<div class="fieldcontain  required">
 				<label for="email"> <g:message code="user.email.label" default="Email" /></label>
 				<span class="required-indicator">*</span>

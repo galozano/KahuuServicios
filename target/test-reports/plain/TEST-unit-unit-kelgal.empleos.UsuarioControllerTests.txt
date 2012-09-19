@@ -1,0 +1,46 @@
+Testsuite: kelgal.empleos.UsuarioControllerTests
+Tests run: 4, Failures: 1, Errors: 1, Time elapsed: 7.002 sec
+------------- Standard Output ---------------
+--Output from testLogin--
+--Output from testHandleLogin--
+--Output from testRegister--
+--Output from testHandleRegistration--
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+--Output from testLogin--
+--Output from testHandleLogin--
+--Output from testRegister--
+--Output from testHandleRegistration--
+------------- ---------------- ---------------
+
+Testcase: testLogin took 5.31 sec
+Testcase: testHandleLogin took 0.638 sec
+	FAILED
+Assertion failed: 
+
+assert flash.message == null
+       |     |       |
+       |     |       false
+       |     Constrasena incorrecta con el email gus@gus.com
+       [message:Constrasena incorrecta con el email gus@gus.com]
+
+junit.framework.AssertionFailedError: Assertion failed: 
+
+assert flash.message == null
+       |     |       |
+       |     |       false
+       |     Constrasena incorrecta con el email gus@gus.com
+       [message:Constrasena incorrecta con el email gus@gus.com]
+
+	at kelgal.empleos.UsuarioControllerTests.testHandleLogin(UsuarioControllerTests.groovy:74)
+
+Testcase: testRegister took 0.253 sec
+Testcase: testHandleRegistration took 0.707 sec
+	Caused an ERROR
+No signature of method: kelgal.empleos.UsuarioController.sendMail() is applicable for argument types: (kelgal.empleos.UsuarioController$_handleRegistration_closure1) values: [kelgal.empleos.UsuarioController$_handleRegistration_closure1@672dc104]
+Possible solutions: findAll()
+groovy.lang.MissingMethodException: No signature of method: kelgal.empleos.UsuarioController.sendMail() is applicable for argument types: (kelgal.empleos.UsuarioController$_handleRegistration_closure1) values: [kelgal.empleos.UsuarioController$_handleRegistration_closure1@672dc104]
+Possible solutions: findAll()
+	at kelgal.empleos.UsuarioController.handleRegistration(UsuarioController.groovy:87)
+	at kelgal.empleos.UsuarioControllerTests.testHandleRegistration(UsuarioControllerTests.groovy:112)
+

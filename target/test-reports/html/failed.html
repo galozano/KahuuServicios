@@ -15,10 +15,15 @@
      - Failed tests</h1>
 <p class="intro">
                         Executed
-                        2
+                        4
                         tests
                     
-                        without a single error or failure!
+                        with
+                        one error
+
+                        and
+                        one failure
+                        .
                     </p>
 </div>
 <div class="grid_2 omega">
@@ -41,6 +46,117 @@
 </nav>
 </div>
 <div class="clear"></div>
+<div class="testsuite error">
+<div class="header">
+<h2>UsuarioControllerTests</h2>
+<h3>
+                        Executed
+                        4
+                        tests
+                    
+                        with
+                        one error
+
+                        and
+                        one failure
+                        .
+                    </h3>
+</div>
+<div class="testcase clearfix success grid_8 alpha omega" data-name="testLogin">
+<div class="grid_3 alpha">
+<p>
+<span class="icon success"></span><b class="testname message success">testLogin</b>
+</p>
+<p class="summary">Executed in 5.31 seconds.</p>
+</div>
+<div class="grid_5 omega outputinfo"></div>
+<div class="clear"></div>
+</div>
+<div class="testcase clearfix failure grid_8 alpha omega" data-name="testHandleLogin">
+<div class="grid_3 alpha">
+<p>
+<span class="icon failure"></span><b class="testname message failure">testHandleLogin</b>
+</p>
+<p class="summary">Executed in 0.638 seconds.</p>
+</div>
+<div class="grid_5 omega outputinfo">
+<div class="details">
+<p>
+<b class="message">Assertion failed: 
+
+assert flash.message == null
+       |     |       |
+       |     |       false
+       |     Constrasena incorrecta con el email gus@gus.com
+       [message:Constrasena incorrecta con el email gus@gus.com]
+</b>
+</p>
+<pre>junit.framework.AssertionFailedError: Assertion failed: 
+
+assert flash.message == null
+       |     |       |
+       |     |       false
+       |     Constrasena incorrecta con el email gus@gus.com
+       [message:Constrasena incorrecta con el email gus@gus.com]
+
+	at kelgal.empleos.UsuarioControllerTests.testHandleLogin(UsuarioControllerTests.groovy:74)
+</pre>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="testcase clearfix success grid_8 alpha omega" data-name="testRegister">
+<div class="grid_3 alpha">
+<p>
+<span class="icon success"></span><b class="testname message success">testRegister</b>
+</p>
+<p class="summary">Executed in 0.253 seconds.</p>
+</div>
+<div class="grid_5 omega outputinfo"></div>
+<div class="clear"></div>
+</div>
+<div class="testcase clearfix error grid_8 alpha omega" data-name="testHandleRegistration">
+<div class="grid_3 alpha">
+<p>
+<span class="icon error"></span><b class="testname message error">testHandleRegistration</b>
+</p>
+<p class="summary">Executed in 0.71 seconds.</p>
+</div>
+<div class="grid_5 omega outputinfo">
+<div class="details">
+<p>
+<b class="message">No signature of method: kelgal.empleos.UsuarioController.sendMail() is applicable for argument types: (kelgal.empleos.UsuarioController$_handleRegistration_closure1) values: [kelgal.empleos.UsuarioController$_handleRegistration_closure1@672dc104]
+Possible solutions: findAll()</b>
+</p>
+<pre>groovy.lang.MissingMethodException: No signature of method: kelgal.empleos.UsuarioController.sendMail() is applicable for argument types: (kelgal.empleos.UsuarioController$_handleRegistration_closure1) values: [kelgal.empleos.UsuarioController$_handleRegistration_closure1@672dc104]
+Possible solutions: findAll()
+	at kelgal.empleos.UsuarioController.handleRegistration(UsuarioController.groovy:87)
+	at kelgal.empleos.UsuarioControllerTests.testHandleRegistration(UsuarioControllerTests.groovy:112)
+</pre>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="clearfix output footer">
+<div class="sysout">
+<h2>Standard output</h2>
+<pre class="stdout">--Output from testLogin--
+--Output from testHandleLogin--
+--Output from testRegister--
+--Output from testHandleRegistration--
+</pre>
+</div>
+<div class="syserr">
+<h2>System error</h2>
+<pre class="syserr">--Output from testLogin--
+--Output from testHandleLogin--
+--Output from testRegister--
+--Output from testHandleRegistration--
+</pre>
+</div>
+</div>
+<div class="clear"></div>
+</div>
 <div class="clear"></div>
 </div>
 <!--

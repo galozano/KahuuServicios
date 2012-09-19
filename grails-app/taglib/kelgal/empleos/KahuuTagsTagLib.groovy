@@ -7,5 +7,7 @@ class KahuuTagsTagLib
 	{ attrs, body ->
 		 out << attrs['string'].encodeAsHTML().replace('\n', '<br/>\n')
 	}
+	
+	
 
 }

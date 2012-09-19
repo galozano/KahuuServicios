@@ -42,7 +42,7 @@
 	<div class="nav">
 		<ul>
 			<li><g:link class="home" controller="perfil" action="users" id="1"><g:message code="default.home.label"/></g:link> </li> 
-			<li><g:link class="comments" controller="comentarios" action="misComentarios">Tus Comentarios</g:link></li>
+			<li><g:link class="comments" controller="comentarios" action="misComentarios">Mis Comentarios</g:link></li>
 			<li><g:link class="contact" controller="informacion" action="contactenos">Cont&aacute;ctenos</g:link></li>		
 			<li id="derecha">
 				<div id="searchLargo">

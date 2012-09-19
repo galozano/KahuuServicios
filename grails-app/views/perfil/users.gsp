@@ -33,7 +33,7 @@
 							</g:else>
 							
 							<div class="title">
-								<g:link action="profile" id="${profileInstance.id}"> ${fieldValue(bean: profileInstance, field: "nombre")}</g:link>
+								<g:link action="profileUsuario" params="[usuario:profileInstance.usuario]"> ${fieldValue(bean: profileInstance, field: "nombre")}</g:link>
 								<div class="rating">
 									<img src="${resource(dir: 'images/skin', file: 'stars-'+profileInstance.totalRating+'.png')}" /> &nbsp;(${profileInstance.reviews.size()} Comentarios)
 								</div>

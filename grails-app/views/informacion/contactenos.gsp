@@ -15,7 +15,7 @@
 		
   		<h2>Cont&aacute;ctenos</h2>
   		
-  		<g:form action="contactenos">
+  		<g:form action="handleContactenos">
   			<div class="fieldcontain  required">
 				<label for="email"> <g:message code="user.email.label" default="Email" /></label>
 				<span class="required-indicator">*</span>

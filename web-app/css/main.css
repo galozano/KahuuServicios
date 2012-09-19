@@ -750,7 +750,7 @@ a.skip {
 
 #cuadroIzq {
 	float:left;
-	margin-left: 90px;
+	width: 48%;
 }
 
 #cuadroCentrado
@@ -759,8 +759,8 @@ a.skip {
 }
 
 #cuadroDer {
-	padding-bottom: 20px;
-	margin-left: 470px;
+	float:right;
+	width: 48%;
 }
 
 #cuadroIzq ul
@@ -777,7 +777,7 @@ a.skip {
 {
 	text-align: right;
 	font-size: 14px;
-	padding-right: 15px;
+	padding-right: 130px;
 }
 
 #ingresarBoton {

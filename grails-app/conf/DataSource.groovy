@@ -12,6 +12,7 @@ hibernate {
 // environment specific settings
 environments {
     development {
+		
         dataSource {
 			pooled = true
 			dbCreate = "update"
@@ -23,6 +24,8 @@ environments {
         }
     }
     test {
+		
+		grails.mail.disabled=true
         dataSource {
 			dbCreate = "update"
 			url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000"

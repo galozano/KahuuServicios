@@ -14,9 +14,26 @@ class PerfilController
 	{	
 		def profileInstance = Profile.get(id)
 		
-		if (!profileInstance) 
+		if (!profileInstance)
 		{
-			flash.message = message(code: 'default.not.found.message', args: [message(code: 'profile.label', default: 'Profile'), id]);
+			flash.message = "No existe el perfil buscado";
+			redirect(action: "users");
+			return;
+		}
+		else
+		{
+			redirect(action:"profileUsuario", params:[usuario:profileInstance.usuario]);
+		}
+
+	}
+	
+	def profileUsuario( )
+	{
+		def profileInstance = Profile.findByUsuario(params.usuario);
+		
+		if (!profileInstance)
+		{
+			flash.message = "No existe el perfil buscado";
 			redirect(action: "users");
 			return;
 		}
@@ -28,6 +45,8 @@ class PerfilController
 		render(view: "profile", model:	[profileInstance: profileInstance, reviewsList: revs,categoriasList: Categorias.list(sort:'nombre'), reviewsTotal:total] );
 	}
 	
+	
+	
 	def darFoto( )
 	{
 		def perfil = Profile.get(params.id);
@@ -38,10 +57,10 @@ class PerfilController
 	
 	def buscar( )
 	{
-//		def results = Profile.findAll("from Profile as b " +
-//					 "where b.nombre like :search or b.descripcion like :search",
-//					 [search: "%" + params.buscador +"%"])
-	
+		//		def results = Profile.findAll("from Profile as b " +
+		//					 "where b.nombre like :search or b.descripcion like :search",
+		//					 [search: "%" + params.buscador +"%"])
+			
 		def query = Profile.where()
 		{
 			(descripcion =~ "%"+params.buscador+"%") || (nombre =~  "%"+params.buscador+"%")

@@ -37,11 +37,10 @@ class Profile
 	{
 		categorias  lazy:false;
 		reviews lazy:false;
-		usuario unique:true;
+		usuario unique:true, blank:false;
 		image maxSize:1000000;
 		email email:true
 		nombre blank:false;
 		celular blank:false;
-		descripcion blank:false;
     }
 }
