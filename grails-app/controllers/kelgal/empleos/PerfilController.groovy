@@ -2,12 +2,13 @@ package kelgal.empleos
 
 import kelgal.empleos.Categorias;
 import kelgal.empleos.Profile;
+import kelgal.empleos.Ciudad;
 
 class PerfilController 
 {
     def index()
 	{				
-		render(view: "index", model:[ciudadesLista:Ciudad.list()]);
+		render(view: "index", model:[ciudadesLista: Ciudad.list( )]);
     }
 		
 	def profile(Long id )
@@ -38,13 +39,12 @@ class PerfilController
 			return;
 		}
 	
-		//Buscar y ordernar los reviewd del profile
+		//Buscar y ordernar los reviews del profile
 		List revs = Review.findAllByProfile(profileInstance,[sort: "fechaCreado", order: "desc"]);
 		int total =  revs ? revs.size():0;
 	
 		render(view: "profile", model:	[profileInstance: profileInstance, reviewsList: revs,categoriasList: Categorias.list(sort:'nombre'), reviewsTotal:total] );
 	}
-	
 	
 	
 	def darFoto( )

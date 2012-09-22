@@ -12,7 +12,6 @@ hibernate {
 // environment specific settings
 environments {
     development {
-		
         dataSource {
 			pooled = true
 			dbCreate = "update"
@@ -34,7 +33,7 @@ environments {
     production {
         dataSource {
 			pooled = true
-			dbCreate = "validate"
+			dbCreate = "update"
 			url = "jdbc:mysql://localhost:3306/kahuu_servicios"
 			driverClassName = "com.mysql.jdbc.Driver"
 			dialect = org.hibernate.dialect.MySQL5InnoDBDialect
