@@ -82,7 +82,7 @@
 						</div>
 						
 						<div class="fieldcontain">
-							<g:checkBox name="agree"/> Acepto las <g:link>Pol&iacute;ticas de Privacidad</g:link> y los <g:link>T&eacute;rminos y Condiciones</g:link> de Kahuu Servicios.
+							<g:checkBox name="agree"/> Acepto las <g:link controller="informacion" action="terminos">Pol&iacute;ticas de Privacidad</g:link> y los <g:link controller="informacion" action="privacidad">T&eacute;rminos y Condiciones</g:link> de Kahuu Servicios.
 						</div>
 						
 						<fieldset class="buttons">

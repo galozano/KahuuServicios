@@ -40,7 +40,7 @@ class Profile
 		usuario unique:true, blank:false;
 		image maxSize:1000000;
 		email email:true
-		nombre blank:false;
+		nombre blank:false, size:2..45;
 		celular blank:false;
     }
 }

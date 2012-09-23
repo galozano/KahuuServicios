@@ -6,6 +6,14 @@ class ComentariosController {
 
 	def index() { }
 
+	def misComentarios( )
+	{
+		User user = User.get(session.user.id);
+		List revs = Review.findAllByUser(user,[sort: "fechaCreado", order: "desc"]);
+		
+		render(view:"miscomentarios", model:[listaComentarios:revs,totalComentarios:revs.size()]);
+	}
+
 	def crearComentario( )
 	{
 		def profile = Profile.get(params.id);
@@ -53,27 +61,85 @@ class ComentariosController {
 			}
 		}
 	}
-
-	def misComentarios( )
+	
+	def editarComentario(Long id)
 	{
-		User user = User.get(session.user.id);	
-		List revs = Review.findAllByUser(user,[sort: "fechaCreado", order: "desc"]);
+		Review rev = Review.get(id);	
 		
-		render(view:"miscomentarios", model:[listaComentarios:revs,totalComentarios:revs.size()])
+		if(!rev)
+		{
+			flash.message = "El comentario no existe";
+			redirect(action:"misComentarios");
+			return;
+		}
+		
+		render(view:"editcomentario", model:[comentarioInstance:rev]);
+	}
+	
+	def handleEditComentario(Long id)
+	{	
+		Review.withTransaction {  status ->
+			
+			Review rev = Review.get(id);
+			
+			if(!rev)
+			{
+				status.setRollbackOnly();
+				flash.message = "El comentario no existe";
+				redirect(view:"misComentarios");
+				return;
+			}
+			
+			rev.properties = params;
+			
+			if(rev.save(flush:true))
+			{
+				Profile profile = rev.profile;
+				
+				int total =  profile.reviews.size();
+				int average = 0;
+				
+				if(total != 0)
+				{
+					average = profile.reviews.rating.sum() / total;
+				}
+				
+				//Se actualiza el rating al nuevo despues de agregar el comentario
+				profile.totalRating = average;
+				
+				if(profile.save())
+				{
+					flash.message = "Mensaje editado con exito";
+					redirect(action:"misComentarios");
+				}
+				else
+				{
+					status.setRollbackOnly();
+					render(view:"editcomentario", model:[comentarioInstance:rev]);
+					return;
+				}
+			}
+			else
+			{
+				status.setRollbackOnly();
+				render(view:"editcomentario", model:[comentarioInstance:rev]);
+				return;
+			}	
+		}	
 	}
 
 	def deleteComentario( )
 	{
-
 		Profile.withTransaction { status ->
 
 			Review rev = Review.get(params.id);
-			Long profileId = rev.profile.id;
-
+			//Long profileId = rev.profile.id;
+			Profile profile = rev.profile;
+			
 			rev.delete(flush:true);
 
 			//Get profile para actualizar tu total rating
-			Profile profile = Profile.get(profileId);
+			//Profile profile = Profile.get(profileId);
 			int total =  profile.reviews.size();
 			int average = 0;
 
@@ -102,6 +168,11 @@ class ComentariosController {
 
 	}
 
+	
+	//------------------------------------------------------------------------------------------
+	// Perfil Login
+	//------------------------------------------------------------------------------------------
+	
 
 	def miPerfil()
 	{

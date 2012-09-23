@@ -67,9 +67,7 @@ class ComentariosControllerTests
 		assert profile.totalRating, 3;
 		assert profile.reviews.size(), 3;
 		
-		//Test titulo muy largo
-		
-		
+		//Test titulo muy largo	
 	}
 	
 	void testDeteleComentario( )
@@ -81,9 +79,10 @@ class ComentariosControllerTests
 		
 		assert profile.totalRating, 3;
 		
-		//Comentarios antes de borrar
+		//Scar el total antes de borrar el comentario
 		int total = model.totalComentarios;
 		
+		//Borrar el comentario
 		params.id = review.id;
 		controller.deleteComentario();
 		assert flash.message == null;
@@ -94,8 +93,44 @@ class ComentariosControllerTests
 		
 		assert profile.reviews.size(), (total-1);
 		
-		//Assert que se calculo bien el rating de nuevo
+		//Ver si el rating se calculo bien
 		assert profile.totalRating, 1;
+		
+	}
+	
+	void testEditComentario( )
+	{
+		setIt();
+		
+		//Test Comentario que no existe
+		controller.editarComentario(1245);
+		
+		assert flash.message != null;
+		assert response.redirectedUrl == "/comentarios/misComentarios";
+		
+		response.reset();
+		
+		//Test que existe comentario
+		controller.editarComentario(review.id);
+		assert view == "/comentarios/editcomentario";
+		assert model.comentarioInstance, review;
+	}
+	
+	void testHandleEditComentario( )
+	{
+		setIt();
+		
+		params.titulo = "nuevo";
+		params.texto = "texto nuevo";
+		params.rating = 1;
+		
+		controller.handleEditComentario(review.id);
+		
+		assert review.titulo, params.titulo;
+		assert review.texto, params.texto;
+		assert review.rating, params.rating;
+		
+		assert profile.totalRating == 1;
 		
 	}
 	

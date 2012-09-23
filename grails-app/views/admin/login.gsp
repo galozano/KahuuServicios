@@ -2,21 +2,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
-<meta name="layout" content="main" />
+<meta name="layout" content="complete" />
 <title>Login</title>
 </head>
 <body>
 	<div class="body">
-		<div id="page">
-			<div id="sidebar">
-				<h1>Categorias</h1>
-				<ul>
-					<g:each in="${categoriasList}" var="categoriaInstance">
-						<li><g:link action="users" id="${categoriaInstance.id}"> ${fieldValue(bean: categoriaInstance, field: "nombre")}</g:link></li>
-					</g:each>
-				</ul>
-			</div>		
-			<div class="content">
+		<div id="page">	
+			<div class="index-content">
 				<g:if test="${flash.message}">
 					<div class="message" role="status">${flash.message}</div>
 				</g:if>

@@ -1,11 +1,20 @@
 <!doctype html>
 <html>
 	<head>
-		<title>Grails Runtime Exception</title>
+		<title>Runtime Exception</title>
 		<meta name="layout" content="main">
 		<link rel="stylesheet" href="${resource(dir: 'css', file: 'errors.css')}" type="text/css">
 	</head>
 	<body>
-		<g:renderException exception="${exception}" />
+		<p>
+			Hubo un Error inexperado.
+		</p>
+		
+		<p>
+			Lo sentimos. Estamos trabajando para darle un mejor servicio.
+		</p>
+		
+			
+		<g:renderException exception="${exception}"/>
 	</body>
 </html>

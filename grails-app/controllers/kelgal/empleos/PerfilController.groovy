@@ -50,9 +50,12 @@ class PerfilController
 	def darFoto( )
 	{
 		def perfil = Profile.get(params.id);
-		byte[] image = perfil.image;
-		
-		response.outputStream << image;
+			
+		if(perfil)
+		{
+			byte[] image = perfil.image;
+			response.outputStream << image;
+		}
 	}
 	
 	def buscar( )
@@ -63,10 +66,9 @@ class PerfilController
 			
 		def query = Profile.where()
 		{
-			(descripcion =~ "%"+params.buscador+"%") || (nombre =~  "%"+params.buscador+"%")
+			(descripcion =~ "%"+params.buscador+"%") || (nombre =~  "%"+params.buscador+"%") || (usuario =~  "%"+params.buscador+"%")
 		}
 		def results = query.list(sort:"reviews")
-		
 		
 		if(results.size() == 0)
 		{
@@ -97,7 +99,8 @@ class PerfilController
 				categorias {
 						eq("nombre",cat.nombre);
 				}
-				order("reviews", "asc");		
+				
+				order("totalRating", "desc");		
 			}
 	
 			if(results.size() == 0)

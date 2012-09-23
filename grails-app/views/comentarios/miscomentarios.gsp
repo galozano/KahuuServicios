@@ -33,6 +33,7 @@
 					<div class="review">
 						<div id="header_review">
 							<g:link action="deleteComentario" id="${c.id}"><img src="${resource(dir: 'images/skin', file: 'delete.png')}" /></g:link>
+							<g:link action="editarComentario" id="${c.id}"><img src="${resource(dir: 'images/skin', file: 'edit.png')}" /></g:link>
 							<img src="${resource(dir: 'images/skin', file: 'stars-'+c.rating+'.png')}" />
 							&nbsp;&nbsp;${c.titulo}  &nbsp;&nbsp;${c.fechaCreado.format("dd MMM, yyyy")} 
 						</div>

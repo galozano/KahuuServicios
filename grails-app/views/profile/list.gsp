@@ -3,7 +3,7 @@
 <!doctype html>
 <html>
 	<head>
-		<meta name="layout" content="main">
+		<meta name="layout" content="complete">
 		<g:set var="entityName" value="${message(code: 'profile.label', default: 'Profile')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
@@ -15,7 +15,7 @@
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
-		<div id="list-profile" class="content scaffold-list" role="main">
+		<div id="list-profile" role="main">
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
@@ -25,8 +25,6 @@
 					<tr>
 					
 						<g:sortableColumn property="usuario" title="${message(code: 'profile.usuario.label', default: 'Usuario')}" />
-					
-						<g:sortableColumn property="image" title="${message(code: 'profile.image.label', default: 'Image')}" />
 					
 						<g:sortableColumn property="email" title="${message(code: 'profile.email.label', default: 'Email')}" />
 					
@@ -43,8 +41,6 @@
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
 						<td><g:link action="show" id="${profileInstance.id}">${fieldValue(bean: profileInstance, field: "usuario")}</g:link></td>
-					
-						<td>${fieldValue(bean: profileInstance, field: "image")}</td>
 					
 						<td>${fieldValue(bean: profileInstance, field: "email")}</td>
 					

@@ -79,4 +79,39 @@
 	.error ul {
 		margin-left: 0;
 	}
+	
+	#tableIndex
+	{
+		width: 100%;
+		margin: 0px;
+	}
+	
+	#sidebar 
+	{
+		border: 2px solid #E0E0E0;
+		height: 100%;
+		width: auto;
+		padding: 10px;
+		float: initial;
+	}
+	
+	.content
+	{
+		width: auto;
+		float: initial;
+	}
+	
+	
+	#cuadroIzq {
+		padding: 0px;
+		float: initial;
+		width: 100%;
+	}
+	
+	#cuadroDer {
+		padding: 0px;
+		float: initial;
+		width: 100%;
+	}
+	
 }

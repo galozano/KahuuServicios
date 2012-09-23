@@ -10,6 +10,7 @@ class UsuarioController
 	{
 		if (session.user) 
 		{
+			flash.message = null;
 			redirect(controller:'comentarios', action:'misComentarios');
 		}
 		else
@@ -39,18 +40,6 @@ class UsuarioController
 		{
 			flash.message = "Usuario con email ${params.email} no encontrado";
 			redirect(action: "login");
-		}
-	}
-	
-	def register()
-	{
-		if(!session.user)
-		{	
-			render(view: "login");
-		}
-		else
-		{
-			redirect(controller:'perfil', action:'users', id:1);
 		}
 	}
 

@@ -18,10 +18,12 @@ class UsuarioControllerTests
 	
 	void setIt()
 	{
-		user = new User(nombre:"Gus",password:"pass", email:"gus@gus.com",fechaCreado:new Date(), activated:false, keyConfirmar:"HOLA");
+		String pass = "pass";
+		
+		user = new User(nombre:"Gus",password:pass.encodeAsSHA1(), email:"gus@gus.com",fechaCreado:new Date(), activated:false, keyConfirmar:"HOLA");
 		assert user.save() != null;
+		
 	}
-	
 	
 	void testLogin( )
 	{
@@ -64,13 +66,14 @@ class UsuarioControllerTests
 		assert session.user == null;
 		
 		response.reset();
+		flash.message = null;
 		
 		//Usuario registrado con todo bien
 		params.email = "gus@gus.com";
 		params.password = "pass";
 		
 		controller.handleLogin();	
-		//assert session.user != null;
+		assert session.user != null;
 		assert flash.message == null;
 		assert response.redirectedUrl == "/comentarios/misComentarios";
 	}

@@ -16,7 +16,8 @@ class Review
 	
 	static constraints =
 	{
-		titulo size:4..20;		
+		titulo size:4..20, blank:false;
+		texto  blank:false;
 	}
 	
 	static mapping = {

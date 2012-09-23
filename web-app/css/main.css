@@ -93,8 +93,8 @@ body {
 	float:left;
 	border: 2px solid #E0E0E0;
 	margin: 20px;
-	height: 500px;
-	width: 200px;
+	height: 100%;
+	width: 21%;
 	padding: 10px;
 }
 
@@ -106,7 +106,7 @@ body {
 .content {
 	padding: 15px;
 	float: right;
-	width: 665px;
+	width: 69%;
 	padding: 20px 15px 15px 15px;
 }
 
@@ -467,6 +467,12 @@ input:invalid:focus, select:invalid:focus, textarea:invalid:focus {
 
 /* TABLES */
 
+#tableIndex
+{
+	width: 420px;
+	margin: 0px auto;
+}
+
 table {
 	border-top: 1px solid #DFDFDF;
 	border-collapse: collapse;
@@ -593,15 +599,7 @@ th:hover, tr:hover {
 .buttons {
 	text-align: center;
 	margin-top: 10px;
-/* 	background-color: #efefef;
-	overflow: hidden;
-	margin: 0.1em 0 0 0;
-	border: none;
-	width: auto;
-	
-		   -moz-border-radius: 0.3em;
-	-webkit-border-radius: 0.3em;
-	        border-radius: 0.3em; */
+
 }
 
 .buttons input, .buttons a {
@@ -648,12 +646,13 @@ a.skip {
 	left: -9999px;
 }
 
-/* Perfil */
+/* PROFILE */
 
 #profile-general {
 	position: relative;
 	left: 120px;
 	top: -120px;
+	width: 68%;
 }
 
 #profile-general h1 {
@@ -662,6 +661,9 @@ a.skip {
 
 #profile-up {
 	height: 110px;
+	overflow-y: hidden;
+	overflow-x: hidden;
+	word-wrap: break-word;
 }
 
 #profile-up img:first-child
@@ -742,6 +744,7 @@ a.skip {
 	font-size: 11px;
 }
 
+
 #content-users
 {
 	padding: 15px;
@@ -753,6 +756,8 @@ a.skip {
 {
 
 }
+
+/* LOGIN */
 
 #cuadroIzq {
 	float:left;
@@ -786,6 +791,8 @@ a.skip {
 	padding-right: 130px;
 }
 
+/* SEARCH */
+
 #ingresarBoton {
 	margin-top: 20px;
 }
@@ -800,7 +807,7 @@ a.skip {
 }
 
 
-/* Reviews */
+/* REVIEWS */
 
 .review
 {
@@ -826,10 +833,6 @@ a.skip {
 .review #header_review a
 {
 	float:right;
+	padding-left: 10px;
 }
 
-#tableIndex
-{
-	width: 420px;
-	margin-left: 250px;
-}

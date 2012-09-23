@@ -75,7 +75,7 @@
 								<div class="review">
 									<div id="header_review">
 										<img src="${resource(dir: 'images/skin', file: 'stars-'+c.rating+'.png')}" />
-										&nbsp;&nbsp;${c.titulo}  &nbsp;&nbsp;${c.fechaCreado.format("dd MMM, yyyy")} 
+										&nbsp;&nbsp;${c.titulo}  &nbsp;&nbsp;${c.fechaCreado.format("dd MMM, yyyy  HH:MM")} 
 									</div>
 									<div id="author"> Por ${c.author}</div>
 									<div id="text_review">
