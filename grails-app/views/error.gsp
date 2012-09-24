@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		<p>
-			Hubo un Error inexperado.
+			Hubo un Error inesperado.
 		</p>
 		
 		<p>
