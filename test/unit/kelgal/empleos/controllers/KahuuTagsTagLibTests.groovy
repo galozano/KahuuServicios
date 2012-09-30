@@ -1,7 +1,8 @@
-package kelgal.empleos
+package kelgal.empleos.controllers
 
 
 
+import kelgal.empleos.KahuuTagsTagLib;
 import grails.test.mixin.*
 import org.junit.*
 

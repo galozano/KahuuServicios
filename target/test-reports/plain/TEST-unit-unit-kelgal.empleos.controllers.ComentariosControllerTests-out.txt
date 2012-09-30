@@ -1,0 +1,6 @@
+--Output from testHandleComentario--
+--Output from testDeteleComentario--
+--Output from testEditComentario--
+--Output from testHandleEditComentario--
+--Output from testCambiarPassword--
+--Output from testActualizarUsuario--

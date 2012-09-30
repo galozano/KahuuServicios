@@ -1,7 +1,11 @@
-package kelgal.empleos
+package kelgal.empleos.controllers
 
-
-
+import kelgal.empleos.Categorias;
+import kelgal.empleos.Certificado;
+import kelgal.empleos.Profile;
+import kelgal.empleos.Review;
+import kelgal.empleos.User;
+import kelgal.empleos.UsuarioController;
 import grails.test.mixin.*
 import org.junit.*
 
@@ -11,9 +15,9 @@ import org.junit.*
  */
 @TestFor(UsuarioController)
 @Mock([Profile,Categorias,Review,Certificado,User])
+
 class UsuarioControllerTests 
 {
-	
 	User user;
 	
 	void setIt()

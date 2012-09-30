@@ -1,7 +1,17 @@
-package kelgal.empleos
+package kelgal.empleos.controllers
 
 
 
+import kelgal.empleos.Categorias;
+import kelgal.empleos.Certificado;
+import kelgal.empleos.Ciudad;
+import kelgal.empleos.ComentarioService;
+import kelgal.empleos.ComentariosController;
+import kelgal.empleos.PerfilService;
+import kelgal.empleos.Profile;
+import kelgal.empleos.Review;
+import kelgal.empleos.User;
+import kelgal.empleos.UsuarioService;
 import grails.test.mixin.*
 
 import org.h2.engine.SessionFactory;
@@ -25,7 +35,7 @@ class ComentariosControllerTests
 	private Review review
 	
 	private User user;
-	
+
 	public setIt()
 	{
 		categoria = new Categorias(nombre:"Primera");
@@ -48,6 +58,10 @@ class ComentariosControllerTests
 		
 		review = new Review(author:"Gustavo Lozano",titulo:"titulo1 es", texto:"TEXTO segundo", rating:5, profile:profile,user:user,fechaCreado:new Date());
 		assert review.save() != null;
+		
+		controller.comentarioService = new ComentarioService();
+		controller.perfilService = new PerfilService();
+		controller.usuarioService = new UsuarioService();
 	}
 	
 	void testHandleComentario( )
@@ -57,7 +71,7 @@ class ComentariosControllerTests
 		//test ideal
 		int inicial = profile.totalRating;
 		
-		params.perfil  = profile.id;
+		params.perfilId  = profile.id;
 		params.titulo = "Prueba Titulo";
 		params.texto = "prueba texto kjsdfgh";
 		params.rating = 4;

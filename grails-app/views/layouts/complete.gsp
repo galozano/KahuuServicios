@@ -11,6 +11,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title><g:layoutTitle default="Kahuu Servicios" /></title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portal web para buscar servicios (electricista, plomeros, pintores, etc.) en Colombia" />
+
 <link rel="shortcut icon"
 	href="${resource(dir: 'images', file: 'favicon.ico')}"
 	type="image/x-icon">
@@ -34,7 +36,7 @@
 	
 	<div class="footer" role="contentinfo">
 		<div align="center">Usar este sitio web implica la aceptacion de los <g:link controller="informacion" action="terminos">T&eacute;rminos y Condiciones</g:link> y <g:link controller="informacion" action="privacidad">Politicas de Privacidad</g:link> de Kahuu Servicios</div>
-		<div align="center">COPYRIGHT (C) 2012 SERVICIOSKAHUU.COM. TODOS LOS DERECHOS RESERVADOS</div>
+		<div align="center">COPYRIGHT (C) 2012 KAHUUSERVICIOS.COM. TODOS LOS DERECHOS RESERVADOS</div>
 	</div>
 	<div id="spinner" class="spinner" style="display: none;">
 		<g:message code="spinner.alt" default="Loading&hellip;" />

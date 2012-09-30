@@ -1,6 +1,14 @@
-package kelgal.empleos
+package kelgal.empleos.controllers
 
+import kelgal.empleos.Categorias;
+import kelgal.empleos.Certificado;
+import kelgal.empleos.Ciudad;
+import kelgal.empleos.PerfilController;
+import kelgal.empleos.PerfilService;
+import kelgal.empleos.Profile;
+import kelgal.empleos.Review;
 import grails.test.mixin.*
+import groovy.mock.interceptor.MockFor
 import org.junit.*
 
 /**
@@ -11,7 +19,6 @@ import org.junit.*
 @Mock([Profile,Categorias,Ciudad,Review])
 class PerfilControllerTests 
 {	
-	
 	private Categorias categoria;
 	
 	private Ciudad ciudad;
@@ -20,15 +27,12 @@ class PerfilControllerTests
 	
 	private Profile profile;
 	
-	/**
-	 * Set UP el scenario
-	 */
-	public void setIt() 
-	{	
+	public void setIt()
+	{
 		categoria = new Categorias(nombre:"Primera");
 		ciudad = new Ciudad(nombre:"Cartagena");
 		
-		assert ciudad.save() != null;
+		assert ciudad.save(flush: true) != null;
 		
 		cert = new Certificado(nombre:"Principal", nivel:1);
 		
@@ -37,18 +41,20 @@ class PerfilControllerTests
 		profile = new Profile(nombre:"Gustavo",usuario:"gus",password:"hola",email:"gus@gmail.com",certificado:cert, celular2:"3135851647", estadoUsuario:false,fechaCreado:new Date() ,celular:"3205721687", descripcion:"descripcion1", ciudad:ciudad, image: new byte[10]);
 		profile.addToCategorias(categoria);
 		
-		assert profile.save() != null;
+		assert profile.save(flush: true) != null;
 		
 		profile = new Profile(nombre:"Rafael",usuario:"Rafa",estadoUsuario:true,email:"rafa@gmail.com", certificado:cert, celular2:"3135851647",fechaCreado:new Date() ,password:"hola",celular:"3205721687", descripcion:"descripcion2", ciudad:ciudad, image: new byte[1000]);
 		profile.addToCategorias(categoria);
 		
-		assert profile.save() != null;
+		assert profile.save(flush: true) != null;
 		
 //		user = new User(nombre:"Gus",password:"pass", email:"gus@gus.com",fechaCreado:new Date(), activated:false, keyConfirmar:"HOLA");
 //		assert user.save() != null;
-//		
+//
 //		review = new Review(author:"Gustavo Lozano",titulo:"titulo1 es", texto:"TEXTO segundo", rating:5, profile:profile,user:user,fechaCreado:new Date());
 //		assert review.save() != null;
+		
+		controller.perfilService = new PerfilService( );
 	}
 	
 	void testIndex( )
@@ -59,8 +65,22 @@ class PerfilControllerTests
 		assert view == "/perfil/index";		
 	}
 	
+	void testProfile( )
+	{	
+		setIt();
+		
+		//Perfil que no existe
+		controller.profile(877);
+		assert flash.message != null;
+		
+		//Profile que existe
+		params.usuario = profile.usuario;
+		controller.profileUsuario();
+		assert model.profileInstance.nombre == profile.nombre;
+	}
+	
 	void testUsers( )
-	{
+	{		
 		setIt();
 		
 		controller.users(categoria.id);
@@ -78,7 +98,7 @@ class PerfilControllerTests
 	void testBuscar( )
 	{
 		setIt();
-
+		
 		params.buscador = "descripcion1";
 		
 		controller.buscar();
@@ -100,18 +120,5 @@ class PerfilControllerTests
 		assert flash.message != null;
 	}
 	
-	void testProfile( )
-	{ 	
-		setIt();
-		
-		//Perfil que no existe
-		controller.profile(877);
-		assert flash.message != null;
-		
-		
-		//Profile que existe
-		params.usuario = profile.usuario;
-		controller.profileUsuario();	
-		assert model.profileInstance.nombre == profile.nombre;  
-	}
+
 }

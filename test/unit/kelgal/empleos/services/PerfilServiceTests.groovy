@@ -1,0 +1,210 @@
+package kelgal.empleos.services
+
+
+
+import grails.test.mixin.*
+import kelgal.empleos.Categorias;
+import kelgal.empleos.Certificado;
+import kelgal.empleos.Ciudad;
+import kelgal.empleos.PerfilService;
+import kelgal.empleos.Profile;
+import kelgal.empleos.Review;
+import kelgal.empleos.exceptions.KahuuException
+import org.junit.*
+
+/**
+ * See the API for {@link grails.test.mixin.services.ServiceUnitTestMixin} for usage instructions
+ */
+@TestFor(PerfilService)
+@Mock([Profile,Categorias,Ciudad,Review])
+class PerfilServiceTests {
+
+	PerfilService perfilService = new PerfilService( );
+	
+	private Categorias categoria;
+	
+	private Ciudad ciudad;
+	
+	private Certificado cert;
+	
+	private Profile profile;
+	
+	public void setIt()
+	{
+		categoria = new Categorias(nombre:"Primera");
+		ciudad = new Ciudad(nombre:"Cartagena");
+		
+		assert ciudad.save(flush: true) != null;
+		
+		cert = new Certificado(nombre:"Principal", nivel:1);
+		
+		assert categoria.save(flush: true) != null;
+		
+		profile = new Profile(nombre:"Gustavo",usuario:"gus",password:"hola",email:"gus@gmail.com",certificado:cert, celular2:"3135851647", estadoUsuario:false,fechaCreado:new Date() ,celular:"3205721687", descripcion:"descripcion1", ciudad:ciudad, image: new byte[10]);
+		profile.addToCategorias(categoria);
+		
+		assert profile.save(flush: true) != null;
+		
+		profile = new Profile(nombre:"Rafael",usuario:"Rafa",estadoUsuario:true,email:"rafa@gmail.com", certificado:cert, celular2:"3135851647",fechaCreado:new Date() ,password:"hola",celular:"3205721687", descripcion:"descripcion2", ciudad:ciudad, image: new byte[1000]);
+		profile.addToCategorias(categoria);
+		
+		assert profile.save(flush: true) != null;
+		
+//		user = new User(nombre:"Gus",password:"pass", email:"gus@gus.com",fechaCreado:new Date(), activated:false, keyConfirmar:"HOLA");
+//		assert user.save() != null;
+//
+//		review = new Review(author:"Gustavo Lozano",titulo:"titulo1 es", texto:"TEXTO segundo", rating:5, profile:profile,user:user,fechaCreado:new Date());
+//		assert review.save() != null;
+	}
+	
+	void testDarCiudades()
+	{
+		setIt();
+		
+		def results = perfilService.darCiudades();
+		
+		System.out.println(results.size());
+		
+		assert results.size( ), Ciudad.list().size();
+	}
+	
+	void testDarCategorias( )
+	{
+		setIt();
+		
+		def results = perfilService.darCategorias();
+		assert results.size( ), Categorias.list().size();
+	}
+	
+	void testDarPerfil( )
+	{
+		setIt();
+		
+		try
+		{
+			Profile result = perfilService.darPerfil(profile.id);
+			
+			assert result.nombre, profile.nombre;
+			assert result.email, profile.email;
+		}
+		catch(KahuuException e)
+		{
+			fail "No debe llegar aca";
+		}
+
+	}
+	
+	
+	void testDarPerfilInvalido( )
+	{
+		setIt();
+		
+		try
+		{
+			Profile result = perfilService.darPerfil(123455);
+			fail "No debe llegar aca";
+		}
+		catch(KahuuException e)
+		{
+			//Debe pasar por aca
+		}
+	}
+	
+	void testDarPerfilUsuario( )
+	{
+		setIt();
+		
+		try
+		{
+			Profile result = perfilService.darPerfilUsuario(profile.usuario);
+		
+			assert result.id, profile.id;
+			assert result.nombre, profile.nombre;
+			assert result.email, profile.email;
+		}
+		catch(KahuuException e)
+		{
+			fail "No debe llegar aca";
+		}	
+	}
+	
+	void testDarPerfilUsuarioInvalido( )
+	{
+		setIt();
+		
+		try
+		{
+			Profile result = perfilService.darPerfilUsuario("Invalido");
+			fail "No debe llegar aca";
+		}
+		catch(KahuuException e)
+		{
+			//Debe pasar por aca
+		}
+	}
+
+	void testUsersCategoria( )
+	{
+		setIt();
+		
+		def results = perfilService.usuariosCategoria(categoria.id);
+		
+		assert results.size(), 2;
+		
+		assert results.get(0).nombre, "Gustavo";
+		assert results.get(1).nombre, "Rafael";	
+	}
+	
+	void testUsersCategoriaInvalido( )
+	{
+		setIt();
+		
+		try
+		{
+			def results = perfilService.usuariosCategoria(12345);
+			fail "No debe llegar aca";
+		}
+		catch(KahuuException e)
+		{
+			//Debe pasar
+		}
+	}
+	
+	void testBuscar( )
+	{
+		setIt();
+
+		try
+		{
+			//Buscar por descripcion
+			String buscador = "descripcion1";
+			def results = perfilService.buscarPerfil(buscador);
+			
+			assert results.size(), 1;
+			
+			//Buscar por nombre
+			buscador = "Rafa";
+			results = perfilService.buscarPerfil(buscador);
+			
+			assert results.get(0).nombre, "Rafael";
+		}
+		catch(KahuuException e)
+		{
+			fail "No debe llegar aca";
+		}
+	}
+	
+	void testBuscarInvalido( )
+	{
+		try
+		{
+			String buscador = "NO EXISTE";
+			def results = perfilService.buscarPerfil(buscador);
+			fail "No debe llegar aca";
+		}
+		catch(KahuuException e)
+		{
+			//Debe pasar por aca
+		}
+	}
+}

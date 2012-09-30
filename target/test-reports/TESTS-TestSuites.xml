@@ -1,33 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-  <testsuite errors="1" failures="0" hostname="Gustavo-Lozanos-2.local" id="0" name="UsuarioControllerTests" package="kelgal.empleos" tests="4" time="6.14" timestamp="2012-09-23T17:56:23">
+  <testsuite errors="0" failures="0" hostname="Gustavo-Lozanos-2.local" id="0" name="ComentariosControllerTests" package="kelgal.empleos.controllers" tests="6" time="6.592" timestamp="2012-09-29T23:58:00">
       <properties />
 
-      <testcase classname="kelgal.empleos.UsuarioControllerTests" name="testLogin" time="4.74" />
+      <testcase classname="kelgal.empleos.controllers.ComentariosControllerTests" name="testHandleComentario" time="4.722" />
 
-      <testcase classname="kelgal.empleos.UsuarioControllerTests" name="testHandleLogin" time="0.356" />
+      <testcase classname="kelgal.empleos.controllers.ComentariosControllerTests" name="testDeteleComentario" time="0.643" />
 
-      <testcase classname="kelgal.empleos.UsuarioControllerTests" name="testRegister" time="0.272" />
+      <testcase classname="kelgal.empleos.controllers.ComentariosControllerTests" name="testEditComentario" time="0.242" />
 
-      <testcase classname="kelgal.empleos.UsuarioControllerTests" name="testHandleRegistration" time="0.698">
-          <error message="No signature of method: kelgal.empleos.UsuarioController.sendMail() is applicable for argument types: (kelgal.empleos.UsuarioController$_handleRegistration_closure1) values: [kelgal.empleos.UsuarioController$_handleRegistration_closure1@2e079eb9]&#xa;Possible solutions: findAll()" type="groovy.lang.MissingMethodException">groovy.lang.MissingMethodException: No signature of method: kelgal.empleos.UsuarioController.sendMail() is applicable for argument types: (kelgal.empleos.UsuarioController$_handleRegistration_closure1) values: [kelgal.empleos.UsuarioController$_handleRegistration_closure1@2e079eb9]
-Possible solutions: findAll()
-	at kelgal.empleos.UsuarioController.handleRegistration(UsuarioController.groovy:76)
-	at kelgal.empleos.UsuarioControllerTests.testHandleRegistration(UsuarioControllerTests.groovy:115)
-</error>
+      <testcase classname="kelgal.empleos.controllers.ComentariosControllerTests" name="testHandleEditComentario" time="0.351" />
 
-      </testcase>
+      <testcase classname="kelgal.empleos.controllers.ComentariosControllerTests" name="testCambiarPassword" time="0.309" />
 
-      <system-out><![CDATA[--Output from testLogin--
---Output from testHandleLogin--
---Output from testRegister--
---Output from testHandleRegistration--
+      <testcase classname="kelgal.empleos.controllers.ComentariosControllerTests" name="testActualizarUsuario" time="0.254" />
+
+      <system-out><![CDATA[--Output from testHandleComentario--
+--Output from testDeteleComentario--
+--Output from testEditComentario--
+--Output from testHandleEditComentario--
+--Output from testCambiarPassword--
+--Output from testActualizarUsuario--
 ]]></system-out>
 
-      <system-err><![CDATA[--Output from testLogin--
---Output from testHandleLogin--
---Output from testRegister--
---Output from testHandleRegistration--
+      <system-err><![CDATA[--Output from testHandleComentario--
+--Output from testDeteleComentario--
+--Output from testEditComentario--
+--Output from testHandleEditComentario--
+--Output from testCambiarPassword--
+--Output from testActualizarUsuario--
 ]]></system-err>
 
   </testsuite>

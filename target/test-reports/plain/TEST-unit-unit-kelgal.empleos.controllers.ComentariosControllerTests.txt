@@ -1,0 +1,25 @@
+Testsuite: kelgal.empleos.controllers.ComentariosControllerTests
+Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 6.592 sec
+------------- Standard Output ---------------
+--Output from testHandleComentario--
+--Output from testDeteleComentario--
+--Output from testEditComentario--
+--Output from testHandleEditComentario--
+--Output from testCambiarPassword--
+--Output from testActualizarUsuario--
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+--Output from testHandleComentario--
+--Output from testDeteleComentario--
+--Output from testEditComentario--
+--Output from testHandleEditComentario--
+--Output from testCambiarPassword--
+--Output from testActualizarUsuario--
+------------- ---------------- ---------------
+
+Testcase: testHandleComentario took 4.722 sec
+Testcase: testDeteleComentario took 0.643 sec
+Testcase: testEditComentario took 0.242 sec
+Testcase: testHandleEditComentario took 0.351 sec
+Testcase: testCambiarPassword took 0.309 sec
+Testcase: testActualizarUsuario took 0.254 sec

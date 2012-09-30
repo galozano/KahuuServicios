@@ -3,53 +3,55 @@ package kelgal.empleos
 import kelgal.empleos.Categorias;
 import kelgal.empleos.Profile;
 import kelgal.empleos.Ciudad;
+import kelgal.empleos.exceptions.KahuuException;
 
 class PerfilController 
 {
+	PerfilService perfilService;
+	
     def index()
 	{				
-		render(view: "index", model:[ciudadesLista: Ciudad.list( )]);
+		render(view: "index", model:[ciudadesLista: perfilService.darCiudades()]);
     }
 		
 	def profile(Long id )
 	{	
-		def profileInstance = Profile.get(id)
-		
-		if (!profileInstance)
+		try
 		{
-			flash.message = "No existe el perfil buscado";
-			redirect(action: "users");
-			return;
-		}
-		else
-		{
+			def profileInstance = perfilService.darPerfil(id);
 			redirect(action:"profileUsuario", params:[usuario:profileInstance.usuario]);
+		}
+		catch(KahuuException e)
+		{
+			flash.message = e.message;
+			redirect(action: "users");
 		}
 
 	}
 	
 	def profileUsuario( )
-	{
-		def profileInstance = Profile.findByUsuario(params.usuario);
-		
-		if (!profileInstance)
+	{	
+		try
 		{
-			flash.message = "No existe el perfil buscado";
+			Profile profileInstance = perfilService.darPerfilUsuario(params.usuario);
+			def categorias = perfilService.darCategorias( );
+		
+			//Buscar y ordernar los reviews del profile
+			List revs = perfilService.darReviewsPerfil(profileInstance);
+			int total =  revs ? revs.size():0;
+			
+			render(view: "profile", model:	[profileInstance: profileInstance, reviewsList: revs,categoriasList:categorias, reviewsTotal:total] );
+		}	
+		catch(KahuuException e)
+		{
+			flash.message = e.message;
 			redirect(action: "users");
-			return;
 		}
-	
-		//Buscar y ordernar los reviews del profile
-		List revs = Review.findAllByProfile(profileInstance,[sort: "fechaCreado", order: "desc"]);
-		int total =  revs ? revs.size():0;
-	
-		render(view: "profile", model:	[profileInstance: profileInstance, reviewsList: revs,categoriasList: Categorias.list(sort:'nombre'), reviewsTotal:total] );
 	}
-	
 	
 	def darFoto( )
 	{
-		def perfil = Profile.get(params.id);
+		def perfil = perfilService.darPerfil(id);
 			
 		if(perfil)
 		{
@@ -59,60 +61,34 @@ class PerfilController
 	}
 	
 	def buscar( )
-	{
-		//		def results = Profile.findAll("from Profile as b " +
-		//					 "where b.nombre like :search or b.descripcion like :search",
-		//					 [search: "%" + params.buscador +"%"])
-			
-		def query = Profile.where()
-		{
-			(descripcion =~ "%"+params.buscador+"%") || (nombre =~  "%"+params.buscador+"%") || (usuario =~  "%"+params.buscador+"%")
-		}
-		def results = query.list(sort:"reviews")
+	{		
+		def categorias = perfilService.darCategorias( );
 		
-		if(results.size() == 0)
+		try
 		{
-			flash.message = "No se encontro ning&uacute;n resultado."
-		}
-		else
+			def results = perfilService.buscarPerfil(params.buscador);
+			render(view: "users",model:[profileInstanceList: results ,profileInstanceTotal:results.size(), categoriasList: categorias]);
+		}	
+		catch(KahuuException e)
 		{
-			flash.message = null;
-		}
-		
-		render(view: "users",model:[profileInstanceList: results ,profileInstanceTotal:results.size(), categoriasList: Categorias.list(sort:'nombre')]);
+			flash.message = e.message;
+			render(view: "users",model:[categoriasList: categorias]);
+		}	
 	}
 	
 	def users(Long id)
 	{	
-		def cat = Categorias.get(id);	
-			
-		if(cat == null)
+		def categorias = perfilService.darCategorias( );
+		
+		try
 		{
-			flash.message = "No se encontro ning&uacute;n resultado."
-			render(view: "users",model:[categoriasList: Categorias.list(sort:'nombre')]);
+			def results = perfilService.usuariosCategoria(id);
+			render(view: "users",model:[profileInstanceList: results ,profileInstanceTotal:results.size(), categoriasList: categorias]);
 		}
-		else
+		catch(KahuuException e)
 		{
-			def c = Profile.createCriteria();
-			
-			def results = c.list() {
-				categorias {
-						eq("nombre",cat.nombre);
-				}
-				
-				order("totalRating", "desc");		
-			}
-	
-			if(results.size() == 0)
-			{
-				flash.message = "No se encontro ning&uacute;n resultado."
-			}
-			else
-			{
-				flash.message = null;
-			}
-			
-			render(view: "users",model:[profileInstanceList: results ,profileInstanceTotal:results.size(), categoriasList: Categorias.list(sort:'nombre')]);
+			flash.message = e.message;
+			render(view: "users",model:[categoriasList: categorias]);
 		}
 	}
 }

@@ -27,7 +27,7 @@
 			<h2>Escribe tu Comentario</h2>
 
 			<g:form action="handleComentario">
-				<g:hiddenField name="perfil" value="${profileInstance?.id}" />
+				<g:hiddenField name="perfilId" value="${profileInstance?.id}" />
 
 				<div class="fieldcontain ${hasErrors(bean: comentarioInstance, field: 'rating', 'error')} required">
 					<label for="Rating">Calificaci&oacute;n: Malo </label>
