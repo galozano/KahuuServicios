@@ -18,7 +18,14 @@ class PerfilController
 	{	
 		try
 		{
-			def profileInstance = perfilService.darPerfil(id);
+			Profile profileInstance = perfilService.darPerfil(id);
+			
+			if(profileInstance == null)
+			{
+				flash.message = "No existe el perfil buscado";
+				redirect(action: "users");
+			}
+			
 			redirect(action:"profileUsuario", params:[usuario:profileInstance.usuario]);
 		}
 		catch(KahuuException e)
@@ -36,6 +43,12 @@ class PerfilController
 			Profile profileInstance = perfilService.darPerfilUsuario(params.usuario);
 			def categorias = perfilService.darCategorias( );
 		
+			if(profileInstance == null)
+			{
+				flash.message = "No existe el perfil buscado";
+				redirect(action: "users");
+			}
+			
 			//Buscar y ordernar los reviews del profile
 			List revs = perfilService.darReviewsPerfil(profileInstance);
 			int total =  revs ? revs.size():0;
@@ -51,13 +64,22 @@ class PerfilController
 	
 	def darFoto( )
 	{
-		def perfil = perfilService.darPerfil(id);
-			
-		if(perfil)
+		try
 		{
-			byte[] image = perfil.image;
-			response.outputStream << image;
+			def perfil = perfilService.darPerfil(id);
+			
+			if(perfil)
+			{
+				byte[] image = perfil.image;
+				response.outputStream << image;
+			}
 		}
+		catch(KahuuException e)
+		{
+			flash.message = e.message;
+			redirect(action: "users");
+		}
+
 	}
 	
 	def buscar( )
@@ -67,7 +89,16 @@ class PerfilController
 		try
 		{
 			def results = perfilService.buscarPerfil(params.buscador);
-			render(view: "users",model:[profileInstanceList: results ,profileInstanceTotal:results.size(), categoriasList: categorias]);
+			
+			if(results.size() == 0)
+			{
+				flash.message = "No se encontro ning&uacute;n resultado.";
+				render(view: "users",model:[categoriasList: categorias]);
+			}
+			else
+			{
+				render(view: "users",model:[profileInstanceList: results ,profileInstanceTotal:results.size(), categoriasList: categorias]);
+			}	
 		}	
 		catch(KahuuException e)
 		{
@@ -83,7 +114,17 @@ class PerfilController
 		try
 		{
 			def results = perfilService.usuariosCategoria(id);
-			render(view: "users",model:[profileInstanceList: results ,profileInstanceTotal:results.size(), categoriasList: categorias]);
+			
+			if(results.size() == 0)
+			{
+				flash.message = "No se encontro ning&uacute;n resultado.";
+				render(view: "users",model:[categoriasList: categorias]);
+			}
+			else
+			{
+				render(view: "users",model:[profileInstanceList: results ,profileInstanceTotal:results.size(), categoriasList: categorias]);
+			}
+			
 		}
 		catch(KahuuException e)
 		{

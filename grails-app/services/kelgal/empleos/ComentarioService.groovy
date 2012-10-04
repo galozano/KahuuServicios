@@ -3,9 +3,19 @@ package kelgal.empleos
 import kelgal.empleos.exceptions.KahuuException;
 import org.springframework.transaction.annotation.Transactional
 
-@Transactional
-class ComentarioService {
 
+/**
+ * EL servicio que maneja todo lo relacionado con los comentarios de los perfiles
+ * @author gustavolozano
+ */
+@Transactional
+class ComentarioService 
+{
+	/**
+	 * Devuelve los comentarios de un usuario existente 
+	 * @param id id != null && id existe
+	 * @return
+	 */
 	@Transactional(readOnly = true)
 	def darMisComentarios(Long id)
 	{
@@ -22,6 +32,12 @@ class ComentarioService {
 		}
 	}
 
+	/**
+	 * Devuelve el review con un id dado
+	 * @pre el id debe existir
+	 * @param id
+	 * @return
+	 */
 	@Transactional(readOnly = true)
 	def darReview(id)
 	{
@@ -35,16 +51,25 @@ class ComentarioService {
 		return rev;
 	}
 
-	def crearComentario(Long pPerfil, User pUser, String titulo, String texto, int rating)
+	/**
+	 * Agregar un comentario a un perfil
+	 * @param pPerfiln
+	 * @param pUser
+	 * @param titulo
+	 * @param texto
+	 * @param rating
+	 * @return el perfil a quien se le agrego el comentario
+	 */
+	def crearComentario(Profile pPerfiln, User pUser, String titulo, String texto, int rating)
 	{
-		Profile profile = Profile.get(pPerfil);
+		Profile profile = pPerfiln;
 		User user = pUser;
 
 		Review review = new Review(author:user.nombre, titulo:titulo ,texto:texto, rating:rating, profile:profile,user:user, fechaCreado:new Date());
 
-		if(review.save())
+		if(review.save(flush:true))
 		{
-			profile = Profile.get(pPerfil);
+			profile = Profile.get(profile.id);
 
 			int total =  profile.reviews.size();
 			int average = 0;
@@ -57,23 +82,29 @@ class ComentarioService {
 			//Se actualiza el rating al nuevo despues de agregar el comentario
 			profile.totalRating = average;
 
-			if(profile.save())
+			if(profile.save(flush:true))
 			{
 				return profile;
 			}
 			else
 			{
-				status.setRollbackOnly();
 				throw new KahuuException("Error guardando", review);
 			}
 		}
 		else
 		{
-			status.setRollbackOnly();
 			throw new KahuuException("Error guardando", review);
 		}
 	}
 
+	/**
+	 * Se edita el comentario con la id especificada
+	 * @param id id!= null
+	 * @param titulo titulo != null
+	 * @param texto  texto != null
+	 * @param rating  rating < 6 && rating > -1
+	 * @return retorna el perfil al cual se le fue editado el comentario
+	 */
 	def editarComentario(Long id,String titulo, String texto, int rating)
 	{
 		Review rev = Review.get(id);
@@ -102,26 +133,34 @@ class ComentarioService {
 			//Se actualiza el rating al nuevo despues de agregar el comentario
 			profile.totalRating = average;
 
-			if(profile.save())
+			if(profile.save(flush:true))
 			{
 				return profile;
 			}
 			else
 			{
-				status.setRollbackOnly();
 				throw new KahuuException("Error guardando", rev);
 			}
 		}
 		else
 		{
-			status.setRollbackOnly();
 			throw new KahuuException("Error guardando", rev);
 		}
 	}
 	
+	/**
+	 * Borra un comentario con la id dada
+	 * @param id id != null && id existe
+	 */
 	def deleteComentario(id)
 	{	
 		Review rev = Review.get(id);
+		
+		if(!rev)
+		{
+			throw new KahuuException("Comentario no existe");
+		}
+		
 		//Long profileId = rev.profile.id;
 		Profile profile = rev.profile;
 		
@@ -146,9 +185,7 @@ class ComentarioService {
 		}
 		else
 		{
-			status.setRollbackOnly();
 			throw new KahuuException("Error eliminando", rev);
 		}
-		status.setRollbackOnly();
 	}
 }

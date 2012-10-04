@@ -26,7 +26,7 @@
 						Lo mejor es que es completamente GRATIS.
 					</p>
 						<br/>
-					<p> Para incribirte puedes enviarnos un correo a soporte@kelgal.com.
+					<p> Para inscribirse puedes enviarnos un correo a soporte@kelgal.com.
 					</p>
 						<br/><br/><br/>
 					<h3>Como Funciona: </h3>
@@ -39,7 +39,7 @@
 					<ul>			
 						<li>1. Publicar servicio</li>
 						<li>2. Esperar llamada.</li>
-						<li>3. Ofrecerle servicio.</li>
+						<li>3. Ofrecer servicio.</li>
 					</ul>
 					</td>	
 					<td>

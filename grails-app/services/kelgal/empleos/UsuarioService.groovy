@@ -3,8 +3,20 @@ package kelgal.empleos
 import kelgal.empleos.exceptions.KahuuException;
 import org.codehaus.groovy.grails.plugins.web.taglib.ApplicationTagLib
 
+
+/**
+ * 
+ * @author gustavolozano
+ *
+ */
 class UsuarioService
 {
+	/**
+	 * 
+	 * @param email
+	 * @param password
+	 * @return
+	 */
 	def loginUsuario(String email, String password)
 	{
 		User user = User.findByEmail(email);
@@ -17,15 +29,22 @@ class UsuarioService
 			}
 			else
 			{
-				throw new KahuuException("Constrasena incorrecta con el email ${email}");
+				return null;
 			}
 		}
 		else
 		{
-			throw new KahuuException("Usuario ${email} no encontrado");
+			return null;
 		}
 	}
 
+	/**
+	 * Registra un nuevo usuario al sistema
+	 * @param nombre  nombre != null && nombre != ""
+	 * @param email  email != null && email != ""
+	 * @param password  password != null && password != ""
+	 * @return retorna el usuario que fue registrado
+	 */
 	def registration(String nombre, String email, String password)
 	{
 		User user = new User(nombre:nombre, email:email, password:password.encodeAsSHA1(), fechaCreado:new Date(), activated:false, keyConfirmar:Password.createRandomPass());
@@ -52,6 +71,11 @@ class UsuarioService
 		}
 	}
 
+	/**
+	 * Envia un email con clave nueva
+	 * @param email email != null
+	 * @return retorna el usuario al cual se le olvido la clave
+	 */
 	def olvidoClave(String email)
 	{
 		String sb = Password.createRandomPass();
@@ -71,6 +95,8 @@ class UsuarioService
 					subject "Tu nueva clave"
 					html mensaje
 				}
+				
+				return user;
 			}
 			else
 			{
@@ -81,29 +107,48 @@ class UsuarioService
 		else
 		{
 			//EL usuario buscado no existe
-			throw new KahuuException("El email " + email + " no existe");
+			return null;
 		}
 	}
 
-	def verificarEmail(id)
+	/**
+	 * Verificar el email despues de registrarse con un link
+	 * @param id id != null && id existe
+	 * @return
+	 */
+	def verificarEmail(id, String clave)
 	{
 		User u = User.get(id);
-		u.activated = true;
-		u.keyConfirmar = "";
-
-		if(u.save())
+		
+		if(u.keyConfirmar.equals(clave))
 		{
-			return true;
+			u.activated = true;
+			u.keyConfirmar = "";
+			
+			if(u.save(flush:true))
+			{
+				return true;
+			}
+			else
+			{
+				throw new KahuuException("Problema activando tu cuenta.");
+			}
 		}
 		else
 		{
-			throw new KahuuException("Problema activando tu cuenta.");
+			return false;
 		}
 	}
 
 	def cambiarPassword(String password, Long id)
 	{
 		User user = User.get(id);
+	
+		if(!user)
+		{
+			throw new KahuuException("El usuario no existe");
+		}
+		
 		user.password = password.encodeAsSHA1();
 
 		if(user.save(flush:true))
@@ -119,6 +164,13 @@ class UsuarioService
 	def actualizarUsuario(String nombreNuevo, Long id)
 	{
 		User user = User.get(id);
+		
+		if(!user)
+		{
+			throw new KahuuException("El usuario no existe");
+		}
+		
+		//Actualizar el nombre del usuario
 		user.nombre = nombreNuevo;
 
 		if(user.save(flush:true))

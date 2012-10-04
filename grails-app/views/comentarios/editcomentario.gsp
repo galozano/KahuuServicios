@@ -22,7 +22,7 @@
 				</div>
 			</g:if>
 
-			<g:link controller="usuario" action="miscomentarios">Atras</g:link>
+			<g:link controller="comentarios" action="misComentarios">Atras</g:link>
 
 			<h2>Editar Comentario</h2>
 
@@ -50,7 +50,7 @@
 				</div>
 
 				<fieldset class="buttons">
-					<g:submitButton name="create" class="save" value="Editar" />
+					<g:submitButton name="create" class="save" value="Actualizar" />
 				</fieldset>
 			</g:form>
 		</div>

@@ -134,6 +134,8 @@ class ComentariosControllerTests
 	{
 		setIt();
 		
+		assert profile.totalRating == 3;
+		
 		params.titulo = "nuevo";
 		params.texto = "texto nuevo";
 		params.rating = 1;
@@ -144,7 +146,7 @@ class ComentariosControllerTests
 		assert review.texto, params.texto;
 		assert review.rating, params.rating;
 		
-		assert profile.totalRating == 1;
+		assert profile.totalRating,1;
 		
 	}
 	

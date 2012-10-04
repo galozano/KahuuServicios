@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="Gustavo-Lozanos-2.local" name="kelgal.empleos.controllers.ComentariosControllerTests" tests="6" time="6.592" timestamp="2012-09-29T23:58:00">
+<testsuite errors="0" failures="0" hostname="Gustavo-Lozanos-2.local" name="kelgal.empleos.controllers.ComentariosControllerTests" tests="6" time="6.437" timestamp="2012-10-04T00:43:36">
   <properties />
-  <testcase classname="kelgal.empleos.controllers.ComentariosControllerTests" name="testHandleComentario" time="4.722" />
-  <testcase classname="kelgal.empleos.controllers.ComentariosControllerTests" name="testDeteleComentario" time="0.643" />
-  <testcase classname="kelgal.empleos.controllers.ComentariosControllerTests" name="testEditComentario" time="0.242" />
-  <testcase classname="kelgal.empleos.controllers.ComentariosControllerTests" name="testHandleEditComentario" time="0.351" />
-  <testcase classname="kelgal.empleos.controllers.ComentariosControllerTests" name="testCambiarPassword" time="0.309" />
-  <testcase classname="kelgal.empleos.controllers.ComentariosControllerTests" name="testActualizarUsuario" time="0.254" />
-  <system-out><![CDATA[--Output from testHandleComentario--
+  <testcase classname="kelgal.empleos.controllers.ComentariosControllerTests" name="testHandleEditComentario" time="4.223" />
+  <testcase classname="kelgal.empleos.controllers.ComentariosControllerTests" name="testHandleComentario" time="0.262" />
+  <testcase classname="kelgal.empleos.controllers.ComentariosControllerTests" name="testDeteleComentario" time="0.847" />
+  <testcase classname="kelgal.empleos.controllers.ComentariosControllerTests" name="testEditComentario" time="0.372" />
+  <testcase classname="kelgal.empleos.controllers.ComentariosControllerTests" name="testCambiarPassword" time="0.358" />
+  <testcase classname="kelgal.empleos.controllers.ComentariosControllerTests" name="testActualizarUsuario" time="0.32" />
+  <system-out><![CDATA[--Output from testHandleEditComentario--
+--Output from testHandleComentario--
 --Output from testDeteleComentario--
 --Output from testEditComentario--
---Output from testHandleEditComentario--
 --Output from testCambiarPassword--
 --Output from testActualizarUsuario--
 ]]></system-out>
-  <system-err><![CDATA[--Output from testHandleComentario--
+  <system-err><![CDATA[--Output from testHandleEditComentario--
+--Output from testHandleComentario--
 --Output from testDeteleComentario--
 --Output from testEditComentario--
---Output from testHandleEditComentario--
 --Output from testCambiarPassword--
 --Output from testActualizarUsuario--
 ]]></system-err>

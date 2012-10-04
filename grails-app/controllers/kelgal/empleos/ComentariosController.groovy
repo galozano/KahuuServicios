@@ -6,12 +6,22 @@ import kelgal.empleos.exceptions.KahuuException;
 
 class ComentariosController 
 {
+	//------------------------------------------------------------------------------------------
+	// Servicios
+	//------------------------------------------------------------------------------------------
+
 	ComentarioService comentarioService;
+	
 	UsuarioService usuarioService;
+	
 	PerfilService perfilService;
 	
 	def index() { }
 
+	//------------------------------------------------------------------------------------------
+	// Metodos Comentarios
+	//------------------------------------------------------------------------------------------
+	
 	def misComentarios( )
 	{
 		try
@@ -25,12 +35,19 @@ class ComentariosController
 			render(view:"miscomentarios");
 		}
 	}
-
+	
 	def crearComentario( )
 	{
 		try
 		{	
 			def profile = perfilService.darPerfil(params.id);
+			
+			if(profile == null)
+			{
+				flash.message = "No existe el perfil buscado";
+				render(view:"comentario");
+			}
+			
 			render(view:"comentario",model:[profileInstance:profile]);
 		}
 		catch(KahuuException e)
@@ -42,14 +59,31 @@ class ComentariosController
 
 	def handleComentario()
 	{		
+		Profile prof;
+		
 		try
 		{
-			def profile = comentarioService.crearComentario(params.perfilId, session.user,params.titulo, params.texto, params.rating);
-			redirect(controller:"perfil", action:"profile", id:profile.id);
+			int rating = Integer.parseInt(params.rating);
+			
+			if(rating < 1 || rating > 5)
+			{
+				flash.message = "Valor del comentario es invalido";
+				render(view:"comentario");
+			}
+			
+			prof = perfilService.darPerfil(Long.parseLong(params.perfilId));
+			
+			Profile profile = comentarioService.crearComentario(prof, session.user,params.titulo, params.texto, rating);
+			redirect(controller:"perfil", action:"profileUsuario", params:[usuario:profile.usuario]);
 		}
 		catch(KahuuException e)
 		{
-			render(view:"comentario",model:[comentarioInstance:e.invalido]);
+			render(view:"comentario",model:[comentarioInstance:e.invalido,profileInstance:prof]);
+		}
+		catch(Exception e)
+		{
+			flash.message = "Error inesperado";
+			render(view:"comentario",model:[profileInstance:prof]);
 		}
 	}
 	
@@ -69,10 +103,11 @@ class ComentariosController
 	
 	def handleEditComentario(Long id)
 	{	
-		
 		try
 		{
-			def profile = comentarioService.editarComentario(id, params.titulo, params.texto, params.rating);
+			int rating = Integer.parseInt(params.rating);
+			
+			def profile = comentarioService.editarComentario(id, params.titulo, params.texto, rating);
 			flash.message = "Mensaje editado con exito";
 			redirect(action:"misComentarios");
 		}
@@ -80,6 +115,11 @@ class ComentariosController
 		{
 			flash.message = e.getMessage();
 			render(view:"editcomentario", model:[comentarioInstance:e.invalido]);
+		}
+		catch(Exception e)
+		{
+			flash.message = "Error inesperado";
+			render(view:"comentario");
 		}
 	}
 
@@ -96,10 +136,9 @@ class ComentariosController
 			redirect(action:"misComentarios");
 		}
 	}
-
 	
 	//------------------------------------------------------------------------------------------
-	// Perfil Login
+	// Metodos Perfil
 	//------------------------------------------------------------------------------------------
 
 	def miPerfil()
@@ -119,6 +158,7 @@ class ComentariosController
 			try
 			{
 				def user = usuarioService.cambiarPassword(params.password, session.user.id);
+				
 				session.user = user;
 				flash.message = "Se cambio la constrase&ntilde;a exitosamente"
 				render(view:"miperfil",model: [userInstance:user]);
@@ -135,10 +175,10 @@ class ComentariosController
 		try
 		{
 			def user = usuarioService.actualizarUsuario(params.nombre, session.user.id);
+			
 			session.user = user;
 			flash.message = "Se actualizo el usuario exitosamente";
 			render(view:"miperfil",model: [userInstance:user]);
-			
 		}
 		catch(KahuuException e)
 		{

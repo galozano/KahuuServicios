@@ -6,6 +6,7 @@ import kelgal.empleos.Profile;
 import kelgal.empleos.Review;
 import kelgal.empleos.User;
 import kelgal.empleos.UsuarioController;
+import kelgal.empleos.UsuarioService;
 import grails.test.mixin.*
 import org.junit.*
 
@@ -26,6 +27,8 @@ class UsuarioControllerTests
 		
 		user = new User(nombre:"Gus",password:pass.encodeAsSHA1(), email:"gus@gus.com",fechaCreado:new Date(), activated:false, keyConfirmar:"HOLA");
 		assert user.save() != null;
+		
+		controller.usuarioService = new UsuarioService();
 		
 	}
 	

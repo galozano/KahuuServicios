@@ -32,7 +32,7 @@ class ComentarioServiceTests
 	
 	private User user;
 	
-	def comentarioService = new ComentarioService( );
+	ComentarioService comentarioService = new ComentarioService( );
 	
 	public setIt()
 	{
@@ -143,11 +143,67 @@ class ComentarioServiceTests
 	
 	void testEditarComentario( )
 	{
+		setIt();
 		
+		String titulo = "nuevo";
+		String texto = "texto nuevo";
+		int rating = 1;
+		
+		try
+		{
+			def profile = comentarioService.editarComentario(review.id, titulo, texto, rating);
+			
+			assert review.titulo, titulo;
+			assert review.texto, texto;
+			assert review.rating, rating;
+			
+			assert profile.totalRating == 1;
+		}
+		catch(KahuuException e)
+		{
+			fail "No debe llegar aca";
+		}
 	}
 	
 	void testDeleteComentario( )
 	{
+		setIt();
 		
+		try
+		{
+			List todos = comentarioService.darMisComentarios(user.id);
+			
+			int total = todos.size();
+			assert profile.totalRating, 3;
+		
+			//Borrar el comentario
+			comentarioService.deleteComentario(review.id);
+	
+			//Comentarios despues de haber borrado (n-1)
+			todos = comentarioService.darMisComentarios(user.id);
+			assert todos.size(), (total-1);
+			
+			//Ver si el rating se calculo bien
+			assert profile.totalRating, 1;
+		}
+		catch(KahuuException e)
+		{
+			fail "No debe llegar aca";
+		}
+	}
+	
+	void testDeleteComentarioInvalido( )
+	{
+		setIt();
+		
+		try
+		{
+			comentarioService.deleteComentario(12345);
+			fail "No debe llegar aca";
+		}
+		catch(KahuuException e)
+		{
+			//Deberia llegar aca
+		}
 	}
 }

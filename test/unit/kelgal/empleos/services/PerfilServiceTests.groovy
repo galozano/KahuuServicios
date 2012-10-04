@@ -102,11 +102,11 @@ class PerfilServiceTests {
 		try
 		{
 			Profile result = perfilService.darPerfil(123455);
-			fail "No debe llegar aca";
+			assert result == null;
 		}
 		catch(KahuuException e)
 		{
-			//Debe pasar por aca
+			fail "No debe llegar aca";
 		}
 	}
 	
@@ -135,11 +135,11 @@ class PerfilServiceTests {
 		try
 		{
 			Profile result = perfilService.darPerfilUsuario("Invalido");
-			fail "No debe llegar aca";
+			assert result == null;
 		}
 		catch(KahuuException e)
 		{
-			//Debe pasar por aca
+			fail "No debe llegar aca";
 		}
 	}
 
@@ -200,11 +200,12 @@ class PerfilServiceTests {
 		{
 			String buscador = "NO EXISTE";
 			def results = perfilService.buscarPerfil(buscador);
-			fail "No debe llegar aca";
+			assert results.size()==0;
+			
 		}
 		catch(KahuuException e)
 		{
-			//Debe pasar por aca
+			fail "No debe llegar aca";
 		}
 	}
 }

@@ -26,7 +26,7 @@ class PerfilService
 		
 		if(!perfil)
 		{
-			throw new KahuuException("Perfil no existe");
+			return null;
 		}
 		
 		return perfil;
@@ -38,7 +38,7 @@ class PerfilService
 		
 		if(!perfil)
 		{
-			throw new KahuuException("Perfil no existe");
+			return null;
 		}
 		
 		return perfil;
@@ -56,14 +56,8 @@ class PerfilService
 		}
 		def results = query.list(sort:"reviews")
 		
-		if(results.size() == 0)
-		{
-			throw new KahuuException("No se encontro ning&uacute;n resultado.");
-		}
-		else
-		{
-			return results;
-		}
+		
+		return results;
 	}
 	
 	def usuariosCategoria(id)
@@ -86,14 +80,7 @@ class PerfilService
 				order("totalRating", "desc");
 			}
 	
-			if(results.size() == 0)
-			{
-				throw new KahuuException("No se encontro ning&uacute;n resultado.");
-			}
-			else
-			{
-				return results;
-			}
+			return results;
 		}
 	}
 }

@@ -4,17 +4,16 @@ import kelgal.empleos.exceptions.KahuuException;
 import grails.validation.ValidationException
 import org.codehaus.groovy.grails.plugins.web.taglib.ApplicationTagLib
 
-class UsuarioController 
+class UsuarioController
 {
 	def usuarioService;
-	
-    def index() { }
-	
-	def login( ) 
+
+	def index() { }
+
+	def login( )
 	{
-		if (session.user) 
+		if (session.user)
 		{
-			flash.message = null;
 			redirect(controller:'comentarios', action:'misComentarios');
 		}
 		else
@@ -22,32 +21,33 @@ class UsuarioController
 			render(view: "login");
 		}
 	}
-	
+
 	def handleLogin( )
 	{
-		try
+		User user = usuarioService.loginUsuario(params.email, params.password);
+
+		if(user != null)
 		{
-			session.user = usuarioService.loginUsuario(params.email, params.password);
+			session.user = user;
 			redirect(controller:'comentarios', action:'misComentarios');
 		}
-		catch(KahuuException e)
+		else
 		{
-			flash.message = e.message;
-			redirect(action: "login");
-		}	
+			flash.message = "Constrasena o email incorrecto";
+		}
 	}
 
-	def handleRegistration( ) 
-	{	
+	def handleRegistration( )
+	{
 		User user = new User(params);
-		
+
 		if(!params.agree)
 		{
 			flash.message = "Debe aceptar los t&eacute;rminos y condiciones.";
 			render(view:"login" ,model:[userRegist:user]);
 			return;
-		}		
-		else if (params.password != params.confirm) 
+		}
+		else if (params.password != params.confirm)
 		{
 			flash.message = "Las constrase&ntilde;as no son iguales."
 			render(view:"login" ,model:[userRegist:user]);
@@ -57,10 +57,10 @@ class UsuarioController
 			flash.message = "Constrase&ntilde;a tiene que ser mayor de 4 carcacteres"
 			render(view:"login" ,model:[userRegist:user]);
 		}
-		else 
+		else
 		{
 			try
-			{	
+			{
 				usuarioService.registration(params.nombre, params.email, params.password);
 				flash.message = "Registrado exitosamente. Revisa t&uacute; email para confirmar t&uacute; cuenta."
 				redirect(action:'login');
@@ -71,25 +71,34 @@ class UsuarioController
 			}
 		}
 	}
-	
-	def logout() 
+
+	def logout()
 	{
 		log.info "User agent: " + request.getHeader("User-Agent")
 		session.invalidate()
 		redirect(action: "login")
 	}
-	
+
 	def olvideClave( )
 	{
 		render(view:"olvideClave");
 	}
-	
+
 	def handleOlvideClave( )
-	{	
+	{
 		try
 		{
-			usuarioService.olvidoClave(params.email);
-			flash.message = "Se cambio la clave con exito. Revisa tu email con tu nueva clave.";
+			User user = usuarioService.olvidoClave(params.email);
+			
+			if(user != null)
+			{
+				flash.message = "Se cambio la clave con exito. Revisa tu email con tu nueva clave.";
+			}
+			else
+			{
+				flash.message = "El email " + params.email + " no existe";
+			}
+			
 			render(view:"olvideClave");
 		}
 		catch(KahuuException e)
@@ -98,14 +107,23 @@ class UsuarioController
 			render(view:"olvideClave");
 		}
 	}
-	
+
 	def verificarEmail()
 	{
 		try
 		{
-			usuarioService.verificarEmail(params.id);
-			flash.message = "Gracias, ya puedes usar t&uacute; cuenta.";
-			redirect(action: "login");
+			boolean verificado = usuarioService.verificarEmail(params.id, params.key);
+			
+			if(verificado)
+			{
+				flash.message = "Gracias, ya puedes usar t&uacute; cuenta.";
+				redirect(action: "login");
+			}
+			else
+			{
+				flash.message = "T&uacute; cuenta es invalida y no pudo ser confirmada";
+				redirect(action: "login");
+			}
 		}
 		catch(KahuuException e)
 		{

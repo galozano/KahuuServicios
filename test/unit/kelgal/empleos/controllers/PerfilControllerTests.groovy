@@ -26,6 +26,7 @@ class PerfilControllerTests
 	private Certificado cert;
 	
 	private Profile profile;
+
 	
 	public void setIt()
 	{
@@ -57,6 +58,16 @@ class PerfilControllerTests
 		controller.perfilService = new PerfilService( );
 	}
 	
+	public void setIt2( )
+	{	
+		categoria = new Categorias(nombre:"Primera");
+		ciudad = new Ciudad(nombre:"Cartagena");
+		cert = new Certificado(nombre:"Principal", nivel:1);
+		
+		profile = new Profile(nombre:"Rafael",usuario:"Rafa",estadoUsuario:true,email:"rafa@gmail.com", certificado:cert, celular2:"3135851647",fechaCreado:new Date() ,password:"hola",celular:"3205721687", descripcion:"descripcion2", ciudad:ciudad, image: new byte[1000]);
+		profile.addToCategorias(categoria);
+	}
+	
 	void testIndex( )
 	{
 		setIt();
@@ -67,11 +78,18 @@ class PerfilControllerTests
 	
 	void testProfile( )
 	{	
-		setIt();
+		setIt2();
+		
+		def perfilService = mockFor(PerfilService);
+		perfilService.demand.darPerfil(1..1) { Long id -> return profile};
+		
+		controller.perfilService =  perfilService.createMock( );
 		
 		//Perfil que no existe
 		controller.profile(877);
 		assert flash.message != null;
+		
+		
 		
 		//Profile que existe
 		params.usuario = profile.usuario;

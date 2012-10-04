@@ -5,6 +5,10 @@ class InformacionController
 
     def index() { }
 	
+	//------------------------------------------------------------------------------------------
+	// Metodos Informacion
+	//------------------------------------------------------------------------------------------
+	
 	def terminos()
 	{
 		render(view:"terminos");
@@ -30,6 +34,7 @@ class InformacionController
 			return;
 		}
 		
+		//Enviar email a soporte kelgal
 		sendMail
 		{
 			to "gustil@gmail.com"
