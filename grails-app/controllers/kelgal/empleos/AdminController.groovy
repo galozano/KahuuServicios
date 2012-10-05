@@ -1,8 +1,12 @@
 package kelgal.empleos
 
+/**
+ * 
+ * @author gustavolozano
+ *
+ */
 class AdminController 
 {
-
 	def index() { }
 	
 	def login( )

@@ -24,9 +24,9 @@
 
 			<g:link controller="perfil" action="profile" id="${profileInstance?.id}">Atras</g:link>
 
-			<h2>Escribe tu Comentario</h2>
+			<h2>Escribe tu Comentario-${profileInstance?.nombre }</h2>
 
-			<g:form action="handleComentario">
+			<g:form action="handleComentario" useToken="true">
 				<g:hiddenField name="perfilId" value="${profileInstance?.id}" />
 
 				<div class="fieldcontain ${hasErrors(bean: comentarioInstance, field: 'rating', 'error')} required">

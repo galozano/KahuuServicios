@@ -2,8 +2,16 @@ package kelgal.empleos
 
 import java.lang.ProcessBuilder.Redirect;
 
+import org.codehaus.groovy.grails.web.metaclass.WithFormMethod;
+
 import kelgal.empleos.exceptions.KahuuException;
 
+
+/**
+ * 
+ * @author gustavolozano
+ *
+ */
 class ComentariosController 
 {
 	//------------------------------------------------------------------------------------------
@@ -58,33 +66,42 @@ class ComentariosController
 	}
 
 	def handleComentario()
-	{		
-		Profile prof;
-		
-		try
-		{
-			int rating = Integer.parseInt(params.rating);
+	{			
+		withForm 
+		{				
+			Profile prof;
 			
-			if(rating < 1 || rating > 5)
+			try
 			{
-				flash.message = "Valor del comentario es invalido";
-				render(view:"comentario");
+				int rating = Integer.parseInt(params.rating);
+				
+				if(rating < 1 || rating > 5)
+				{
+					flash.message = "Valor del comentario es invalido";
+					render(view:"comentario");
+				}
+				
+				prof = perfilService.darPerfil(Long.parseLong(params.perfilId));
+				
+				Profile profile = comentarioService.crearComentario(prof, session.user,params.titulo, params.texto, rating);
+				redirect(controller:"perfil", action:"profileUsuario", params:[usuario:profile.usuario]);
 			}
-			
-			prof = perfilService.darPerfil(Long.parseLong(params.perfilId));
-			
-			Profile profile = comentarioService.crearComentario(prof, session.user,params.titulo, params.texto, rating);
-			redirect(controller:"perfil", action:"profileUsuario", params:[usuario:profile.usuario]);
+			catch(KahuuException e)
+			{
+				render(view:"comentario",model:[comentarioInstance:e.invalido,profileInstance:prof]);
+			}
+			catch(Exception e)
+			{
+				flash.message = "Error inesperado";
+				render(view:"comentario",model:[profileInstance:prof]);
+			}
 		}
-		catch(KahuuException e)
+		.invalidToken
 		{
-			render(view:"comentario",model:[comentarioInstance:e.invalido,profileInstance:prof]);
+			flash.message = "No unda tanta veces crear.";
+			render(view:"miscomentarios");
 		}
-		catch(Exception e)
-		{
-			flash.message = "Error inesperado";
-			render(view:"comentario",model:[profileInstance:prof]);
-		}
+
 	}
 	
 	def editarComentario(Long id)
@@ -151,6 +168,11 @@ class ComentariosController
 		if (params.password != params.confirm)
 		{
 			flash.message = "Las constrase&ntilde;as no son iguales."
+			redirect(action:"miPerfil")
+		}
+		else if(params.password.equals("") || params.password.size() < 4)
+		{
+			flash.message = "Constrase&ntilde;a tiene que ser mayor de 4 carcacteres"
 			redirect(action:"miPerfil")
 		}
 		else

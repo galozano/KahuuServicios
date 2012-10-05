@@ -32,10 +32,11 @@
 				<g:each in="${listaComentarios}" var="c">					
 					<div class="review">
 						<div id="header_review">
-							<g:link action="deleteComentario" id="${c.id}" title="eliminar"><img src="${resource(dir: 'images/skin', file: 'delete.png')}" /></g:link>
+							<g:link action="deleteComentario" id="${c.id}" title="eliminar" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" ><img src="${resource(dir: 'images/skin', file: 'delete.png')}" /></g:link>
 							<g:link action="editarComentario" id="${c.id}" title="editar"><img src="${resource(dir: 'images/skin', file: 'edit.png')}" /></g:link>
 							<img src="${resource(dir: 'images/skin', file: 'stars-'+c.rating+'.png')}" />
-							&nbsp;&nbsp;${c.titulo}  &nbsp;&nbsp;${c.fechaCreado.format("dd MMM, yyyy")} 
+							&nbsp;&nbsp;${c.titulo}  &nbsp;&nbsp;${c.fechaCreado.format("dd MMM, yyyy")}  
+							&nbsp;&nbsp; &nbsp;&nbsp; ${c.profile.nombre }
 						</div>
 						<div id="text_review">
 							${c.texto}
