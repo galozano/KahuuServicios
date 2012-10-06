@@ -126,14 +126,13 @@ class ComentarioServiceTests
 		//test ideal
 		int inicial = profile.totalRating;
 		
-		Long perfilId  = profile.id;
 		String titulo = "Prueba Titulo";
 		String texto = "prueba texto kjsdfgh";
 		int rating = 4;
 		
 		try
 		{
-			comentarioService.crearComentario(perfilId,user,titulo,texto,rating);
+			comentarioService.crearComentario(profile,user,titulo,texto,rating);
 		}
 		catch(KahuuException e)
 		{

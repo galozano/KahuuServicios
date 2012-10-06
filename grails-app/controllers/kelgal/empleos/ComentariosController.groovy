@@ -101,7 +101,6 @@ class ComentariosController
 			flash.message = "No unda tanta veces crear.";
 			render(view:"miscomentarios");
 		}
-
 	}
 	
 	def editarComentario(Long id)

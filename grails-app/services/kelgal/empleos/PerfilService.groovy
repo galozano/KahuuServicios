@@ -2,6 +2,12 @@ package kelgal.empleos
 
 import kelgal.empleos.exceptions.KahuuException
 
+
+/**
+ * 
+ * @author gustavolozano
+ *
+ */
 class PerfilService
 {
 	def darCiudades( )
@@ -28,8 +34,10 @@ class PerfilService
 		{
 			return null;
 		}
-		
-		return perfil;
+		else
+		{
+			return perfil;
+		}
 	}
 	
 	def darPerfilUsuario(String usuario)
@@ -54,10 +62,10 @@ class PerfilService
 		{
 			(descripcion =~ "%"+buscador+"%") || (nombre =~  "%"+buscador+"%") || (usuario =~  "%"+buscador+"%")
 		}
-		def results = query.list(sort:"reviews")
+		def results = query.list()
 		
 		
-		return results;
+		return results.sort( );
 	}
 	
 	def usuariosCategoria(id)
@@ -72,15 +80,13 @@ class PerfilService
 		{
 			def c = Profile.createCriteria();
 			
-			def results = c.list() {
+			def results = c.list( ) {
 				categorias {
 						eq("nombre",cat.nombre);
 				}
-				
-				order("totalRating", "desc");
 			}
 	
-			return results;
+			return results.sort();
 		}
 	}
 }

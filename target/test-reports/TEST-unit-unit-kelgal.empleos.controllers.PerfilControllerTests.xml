@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="1" hostname="Gustavo-Lozanos-2.local" name="kelgal.empleos.controllers.PerfilControllerTests" tests="5" time="6.311" timestamp="2012-10-06T03:09:29">
+  <properties />
+  <testcase classname="kelgal.empleos.controllers.PerfilControllerTests" name="testIndex" time="4.62" />
+  <testcase classname="kelgal.empleos.controllers.PerfilControllerTests" name="testProfile" time="0.556" />
+  <testcase classname="kelgal.empleos.controllers.PerfilControllerTests" name="testProfileUsuario" time="0.362">
+    <failure message="Assertion failed: &#xa;&#xa;assert view == &quot;/perfil/users&quot;&#xa;       |    |&#xa;       null false&#xa;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Assertion failed: 
+
+assert view == &quot;/perfil/users&quot;
+       |    |
+       null false
+
+	at kelgal.empleos.controllers.PerfilControllerTests.testProfileUsuario(PerfilControllerTests.groovy:107)
+</failure>
+  </testcase>
+  <testcase classname="kelgal.empleos.controllers.PerfilControllerTests" name="testUsers" time="0.37" />
+  <testcase classname="kelgal.empleos.controllers.PerfilControllerTests" name="testBuscar" time="0.362" />
+  <system-out><![CDATA[--Output from testIndex--
+--Output from testProfile--
+--Output from testProfileUsuario--
+--Output from testUsers--
+--Output from testBuscar--
+]]></system-out>
+  <system-err><![CDATA[--Output from testIndex--
+--Output from testProfile--
+--Output from testProfileUsuario--
+--Output from testUsers--
+--Output from testBuscar--
+]]></system-err>
+</testsuite>

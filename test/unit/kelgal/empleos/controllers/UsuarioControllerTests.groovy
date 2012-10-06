@@ -58,7 +58,7 @@ class UsuarioControllerTests
 		
 		controller.handleLogin();
 		assert flash.message != null;
-		assert response.redirectedUrl == "/usuario/login";
+		assert view == "/usuario/login";
 		assert session.user == null;
 		
 		response.reset();
@@ -69,7 +69,7 @@ class UsuarioControllerTests
 		
 		controller.handleLogin();
 		assert flash.message != null;
-		assert response.redirectedUrl == "/usuario/login";
+		assert view == "/usuario/login";
 		assert session.user == null;
 		
 		response.reset();
@@ -101,6 +101,7 @@ class UsuarioControllerTests
 		
 		controller.handleRegistration();
 		assert flash.message != null;
+		assert view == "/usuario/login"
 		
 		//Agrre esta en false
 		params.nombre = "Rafa";
@@ -111,6 +112,7 @@ class UsuarioControllerTests
 		
 		controller.handleRegistration();
 		assert flash.message != null;
+		assert view == "/usuario/login"
 		
 		// Todo perfecto
 		params.nombre = "Rafa";
@@ -120,5 +122,7 @@ class UsuarioControllerTests
 		params.confirm = "nueva";
 		
 		controller.handleRegistration();
+		
+		assert view == "/usuario/login"
 	}
 }

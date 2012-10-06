@@ -33,15 +33,16 @@ class PerfilController
 				flash.message = "No existe el perfil buscado";
 				redirect(action: "users");
 			}
-			
-			redirect(action:"profileUsuario", params:[usuario:profileInstance.usuario]);
+			else
+			{
+				redirect(action:"profileUsuario", params:[usuario:profileInstance.usuario]);
+			}
 		}
 		catch(KahuuException e)
 		{
 			flash.message = e.message;
 			redirect(action: "users");
 		}
-
 	}
 	
 	def profileUsuario( )
@@ -56,27 +57,29 @@ class PerfilController
 				flash.message = "No existe el perfil buscado";
 				redirect(action: "users");
 			}
-			
-			//Buscar y ordernar los reviews del profile
-			List revs = perfilService.darReviewsPerfil(profileInstance);
-			int total =  revs ? revs.size():0;
-			
-			render(view: "profile", model:	[profileInstance: profileInstance, reviewsList: revs,categoriasList:categorias, reviewsTotal:total] );
+			else
+			{			
+				//Buscar y ordernar los reviews del profile
+				List revs = perfilService.darReviewsPerfil(profileInstance);
+				int total =  revs ? revs.size():0;
+				
+				render(view: "profile", model:	[profileInstance: profileInstance, reviewsList: revs,categoriasList:categorias, reviewsTotal:total] );
+			}
 		}	
 		catch(KahuuException e)
 		{
 			flash.message = e.message;
-			redirect(action: "users");
+			render(action: "users",model:[categoriasList: categorias]);
 		}
 	}
 	
-	def darFoto( )
+	def darFoto(Long id)
 	{
 		try
 		{
 			def perfil = perfilService.darPerfil(id);
 			
-			if(perfil)
+			if(perfil != null)
 			{
 				byte[] image = perfil.image;
 				response.outputStream << image;
@@ -101,7 +104,7 @@ class PerfilController
 			if(results.size() == 0)
 			{
 				flash.message = "No se encontro ning&uacute;n resultado.";
-				render(view: "users",model:[categoriasList: categorias]);
+				redirect(action: "users");
 			}
 			else
 			{
@@ -111,7 +114,7 @@ class PerfilController
 		catch(KahuuException e)
 		{
 			flash.message = e.message;
-			render(view: "users",model:[categoriasList: categorias]);
+			redirect(action: "users");
 		}	
 	}
 	

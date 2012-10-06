@@ -27,7 +27,6 @@ class PerfilControllerTests
 	
 	private Profile profile;
 
-	
 	public void setIt()
 	{
 		categoria = new Categorias(nombre:"Primera");
@@ -66,6 +65,11 @@ class PerfilControllerTests
 		
 		profile = new Profile(nombre:"Rafael",usuario:"Rafa",estadoUsuario:true,email:"rafa@gmail.com", certificado:cert, celular2:"3135851647",fechaCreado:new Date() ,password:"hola",celular:"3205721687", descripcion:"descripcion2", ciudad:ciudad, image: new byte[1000]);
 		profile.addToCategorias(categoria);
+		
+		//		def perfilService = mockFor(PerfilService);
+		//		perfilService.demand.darPerfil(1..1) { Long id -> return profile};
+		//
+		//		controller.perfilService =  perfilService.createMock( );
 	}
 	
 	void testIndex( )
@@ -78,18 +82,31 @@ class PerfilControllerTests
 	
 	void testProfile( )
 	{	
-		setIt2();
+		setIt();
 		
-		def perfilService = mockFor(PerfilService);
-		perfilService.demand.darPerfil(1..1) { Long id -> return profile};
-		
-		controller.perfilService =  perfilService.createMock( );
+		//Perfil Existe id
+		controller.profile(profile.id);
+		assert flash.message == null;
+
+		response.reset( );
 		
 		//Perfil que no existe
-		controller.profile(877);
+		controller.profile(12345677);
 		assert flash.message != null;
+
+	}
+	
+	void testProfileUsuario( )
+	{
+		setIt();
 		
+		//Profile que existe
+		params.usuario = "NOEXISTE";
+		controller.profileUsuario();
+		flash.message != null;
+		assert view == "/perfil/users";
 		
+		response.reset( );
 		
 		//Profile que existe
 		params.usuario = profile.usuario;
@@ -104,13 +121,17 @@ class PerfilControllerTests
 		controller.users(categoria.id);
 		
 		assert model.profileInstanceTotal, 2;
-		
 		assert model.profileInstanceList.get(0).nombre, "Gustavo";
 		assert model.profileInstanceList.get(1).nombre, "Rafael";
 		
 		//Buscar en categoria que no existe
 		controller.users(12345);
 		assert flash.message != null;
+		
+		response.reset( );
+		
+		controller.users();
+		
 	}
 	
 	void testBuscar( )

@@ -1,0 +1,157 @@
+!SESSION 2012-10-05 14:34:32.416 -----------------------------------------------
+eclipse.buildId=3.0.0.201208091018-RELEASE-e42
+java.version=1.7.0_04
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.springsource.ggts.ide -keyring /Users/gustavolozano/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.springsource.ggts.ide -keyring /Users/gustavolozano/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2012-10-05 14:37:16.565
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.springsource.ide.eclipse.commons.frameworks.core 0 0 2012-10-05 14:37:44.184
+!MESSAGE Result of converting legacy STS 2.x workspace preferences to 3.x
+!SUBENTRY 1 org.springsource.ide.eclipse.commons.frameworks.core 0 0 2012-10-05 14:37:44.184
+!MESSAGE Converted legacy STS plugin preferences
+!SUBENTRY 1 unknown 0 0 2012-10-05 14:37:44.184
+!MESSAGE OK
+!SUBENTRY 1 org.springsource.ide.eclipse.commons.frameworks.core 0 0 2012-10-05 14:37:44.184
+!MESSAGE Converted legacy Roo plugin state locations
+!SUBENTRY 1 org.springsource.ide.eclipse.commons.frameworks.core 0 0 2012-10-05 14:37:44.184
+!MESSAGE Converted legacy STS plugin state locations
+!SESSION 2012-10-05 14:55:23.619 -----------------------------------------------
+eclipse.buildId=3.0.0.201208091018-RELEASE-e42
+java.version=1.7.0_04
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.springsource.ggts.ide -keyring /Users/gustavolozano/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.springsource.ggts.ide -keyring /Users/gustavolozano/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.resources 2 10035 2012-10-05 14:55:43.356
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.core.net 1 0 2012-10-05 14:55:46.676
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.springsource.ide.eclipse.commons.frameworks.core 0 0 2012-10-05 14:56:04.548
+!MESSAGE Result of converting legacy STS 2.x workspace preferences to 3.x
+!SUBENTRY 1 org.springsource.ide.eclipse.commons.frameworks.core 0 0 2012-10-05 14:56:04.548
+!MESSAGE Converted legacy STS plugin preferences
+!SUBENTRY 1 unknown 0 0 2012-10-05 14:56:04.548
+!MESSAGE OK
+!SUBENTRY 1 org.springsource.ide.eclipse.commons.frameworks.core 0 0 2012-10-05 14:56:04.548
+!MESSAGE Converted legacy Roo plugin state locations
+!SUBENTRY 1 org.springsource.ide.eclipse.commons.frameworks.core 0 0 2012-10-05 14:56:04.548
+!MESSAGE Converted legacy STS plugin state locations
+
+!ENTRY org.eclipse.egit.ui 4 0 2012-10-05 15:15:06.214
+!MESSAGE Invalid project description.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Invalid project description.
+	at org.eclipse.core.internal.resources.Project.checkDescription(Project.java:175)
+	at org.eclipse.core.internal.resources.Project.assertCreateRequirements(Project.java:53)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:287)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:269)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.createExistingProject(ProjectUtils.java:156)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.access$0(ProjectUtils.java:119)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils$1.run(ProjectUtils.java:91)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2326)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.createProjects(ProjectUtils.java:111)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.createProjects(ProjectUtils.java:55)
+	at org.eclipse.egit.ui.internal.clone.GitCreateProjectViaWizardWizard.importProjects(GitCreateProjectViaWizardWizard.java:162)
+	at org.eclipse.egit.ui.internal.clone.GitCreateProjectViaWizardWizard.access$1(GitCreateProjectViaWizardWizard.java:146)
+	at org.eclipse.egit.ui.internal.clone.GitCreateProjectViaWizardWizard$3.run(GitCreateProjectViaWizardWizard.java:130)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+Contains: OK
+Contains: /Users/gustavolozano/Documents/Proyectos/KahuuServicios/KahuuServicios overlaps the workspace location: /Users/gustavolozano/Documents/Proyectos/KahuuServicios/KahuuServicios
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2012-10-05 15:15:06.228
+!MESSAGE Invalid project description.
+!SUBENTRY 2 unknown 0 0 2012-10-05 15:15:06.228
+!MESSAGE OK
+!SUBENTRY 2 org.eclipse.core.resources 4 77 2012-10-05 15:15:06.228
+!MESSAGE /Users/gustavolozano/Documents/Proyectos/KahuuServicios/KahuuServicios overlaps the workspace location: /Users/gustavolozano/Documents/Proyectos/KahuuServicios/KahuuServicios
+
+!ENTRY org.eclipse.egit.ui 4 0 2012-10-05 15:19:34.629
+!MESSAGE Invalid project description.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Invalid project description.
+	at org.eclipse.core.internal.resources.Project.checkDescription(Project.java:175)
+	at org.eclipse.core.internal.resources.Project.assertCreateRequirements(Project.java:53)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:287)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:269)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.createExistingProject(ProjectUtils.java:156)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.access$0(ProjectUtils.java:119)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils$1.run(ProjectUtils.java:91)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2326)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.createProjects(ProjectUtils.java:111)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.createProjects(ProjectUtils.java:55)
+	at org.eclipse.egit.ui.internal.clone.GitCreateProjectViaWizardWizard.importProjects(GitCreateProjectViaWizardWizard.java:162)
+	at org.eclipse.egit.ui.internal.clone.GitCreateProjectViaWizardWizard.access$1(GitCreateProjectViaWizardWizard.java:146)
+	at org.eclipse.egit.ui.internal.clone.GitCreateProjectViaWizardWizard$3.run(GitCreateProjectViaWizardWizard.java:130)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+Contains: OK
+Contains: /Users/gustavolozano/Documents/Proyectos/KahuuServicios/KahuuServicios overlaps the workspace location: /Users/gustavolozano/Documents/Proyectos/KahuuServicios/KahuuServicios
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2012-10-05 15:19:34.629
+!MESSAGE Invalid project description.
+!SUBENTRY 2 unknown 0 0 2012-10-05 15:19:34.629
+!MESSAGE OK
+!SUBENTRY 2 org.eclipse.core.resources 4 77 2012-10-05 15:19:34.629
+!MESSAGE /Users/gustavolozano/Documents/Proyectos/KahuuServicios/KahuuServicios overlaps the workspace location: /Users/gustavolozano/Documents/Proyectos/KahuuServicios/KahuuServicios
+
+!ENTRY org.eclipse.egit.ui 4 0 2012-10-05 15:19:41.410
+!MESSAGE Invalid project description.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Invalid project description.
+	at org.eclipse.core.internal.resources.Project.checkDescription(Project.java:175)
+	at org.eclipse.core.internal.resources.Project.assertCreateRequirements(Project.java:53)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:287)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:269)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.createExistingProject(ProjectUtils.java:156)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.access$0(ProjectUtils.java:119)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils$1.run(ProjectUtils.java:91)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2326)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.createProjects(ProjectUtils.java:111)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.createProjects(ProjectUtils.java:55)
+	at org.eclipse.egit.ui.internal.clone.GitCreateProjectViaWizardWizard.importProjects(GitCreateProjectViaWizardWizard.java:162)
+	at org.eclipse.egit.ui.internal.clone.GitCreateProjectViaWizardWizard.access$1(GitCreateProjectViaWizardWizard.java:146)
+	at org.eclipse.egit.ui.internal.clone.GitCreateProjectViaWizardWizard$3.run(GitCreateProjectViaWizardWizard.java:130)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+Contains: OK
+Contains: /Users/gustavolozano/Documents/Proyectos/KahuuServicios/KahuuServicios overlaps the workspace location: /Users/gustavolozano/Documents/Proyectos/KahuuServicios/KahuuServicios
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2012-10-05 15:19:41.411
+!MESSAGE Invalid project description.
+!SUBENTRY 2 unknown 0 0 2012-10-05 15:19:41.411
+!MESSAGE OK
+!SUBENTRY 2 org.eclipse.core.resources 4 77 2012-10-05 15:19:41.411
+!MESSAGE /Users/gustavolozano/Documents/Proyectos/KahuuServicios/KahuuServicios overlaps the workspace location: /Users/gustavolozano/Documents/Proyectos/KahuuServicios/KahuuServicios
+
+!ENTRY org.eclipse.egit.ui 4 0 2012-10-05 15:20:55.645
+!MESSAGE Invalid project description.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Invalid project description.
+	at org.eclipse.core.internal.resources.Project.checkDescription(Project.java:175)
+	at org.eclipse.core.internal.resources.Project.assertCreateRequirements(Project.java:53)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:287)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:269)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.createExistingProject(ProjectUtils.java:156)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.access$0(ProjectUtils.java:119)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils$1.run(ProjectUtils.java:91)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2326)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.createProjects(ProjectUtils.java:111)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.createProjects(ProjectUtils.java:55)
+	at org.eclipse.egit.ui.internal.clone.GitCreateProjectViaWizardWizard.importProjects(GitCreateProjectViaWizardWizard.java:162)
+	at org.eclipse.egit.ui.internal.clone.GitCreateProjectViaWizardWizard.access$1(GitCreateProjectViaWizardWizard.java:146)
+	at org.eclipse.egit.ui.internal.clone.GitCreateProjectViaWizardWizard$3.run(GitCreateProjectViaWizardWizard.java:130)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+Contains: OK
+Contains: /Users/gustavolozano/Documents/Proyectos/KahuuServicios/KahuuServicios overlaps the workspace location: /Users/gustavolozano/Documents/Proyectos/KahuuServicios/KahuuServicios
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2012-10-05 15:20:55.645
+!MESSAGE Invalid project description.
+!SUBENTRY 2 unknown 0 0 2012-10-05 15:20:55.645
+!MESSAGE OK
+!SUBENTRY 2 org.eclipse.core.resources 4 77 2012-10-05 15:20:55.645
+!MESSAGE /Users/gustavolozano/Documents/Proyectos/KahuuServicios/KahuuServicios overlaps the workspace location: /Users/gustavolozano/Documents/Proyectos/KahuuServicios/KahuuServicios

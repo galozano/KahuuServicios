@@ -44,42 +44,51 @@ class UsuarioController
 		else
 		{
 			flash.message = "Constrasena o email incorrecto";
+			render(view:"login", model:[userRegist:user]);
 		}
 	}
 
 	def handleRegistration( )
 	{
 		User user = new User(params);
-
-		if(!params.agree)
+		
+		withForm
 		{
-			flash.message = "Debe aceptar los t&eacute;rminos y condiciones.";
-			render(view:"login" ,model:[userRegist:user]);
-			return;
-		}
-		else if (params.password != params.confirm)
-		{
-			flash.message = "Las constrase&ntilde;as no son iguales."
-			render(view:"login" ,model:[userRegist:user]);
-		}
-		else if(params.password.equals("") || params.password.size() < 4)
-		{
-			flash.message = "Constrase&ntilde;a tiene que ser mayor de 4 carcacteres"
-			render(view:"login" ,model:[userRegist:user]);
-		}
-		else
-		{
-			try
+			if(!params.agree)
 			{
-				usuarioService.registration(params.nombre, params.email, params.password);
-				flash.message = "Registrado exitosamente. Revisa t&uacute; email para confirmar t&uacute; cuenta."
-				redirect(action:'login');
+				flash.message = "Debe aceptar los t&eacute;rminos y condiciones.";
+				render(view:"login" ,model:[userRegist:user]);
+				return;
 			}
-			catch(KahuuException e)
+			else if (params.password != params.confirm)
 			{
-				render(view: "login", model:[userRegist:e.invalido]);
+				flash.message = "Las constrase&ntilde;as no son iguales."
+				render(view:"login" ,model:[userRegist:user]);
+			}
+			else if(params.password.equals("") || params.password.size() < 4)
+			{
+				flash.message = "Constrase&ntilde;a tiene que ser mayor de 4 carcacteres"
+				render(view:"login" ,model:[userRegist:user]);
+			}
+			else
+			{
+				try
+				{
+					usuarioService.registration(params.nombre, params.email, params.password);
+					flash.message = "Registrado exitosamente. Revisa t&uacute; email para confirmar t&uacute; cuenta."
+					redirect(action:'login');
+				}
+				catch(KahuuException e)
+				{
+					render(view: "login", model:[userRegist:e.invalido]);
+				}
 			}
 		}
+		.invalidToken
+		{
+			flash.message = "No unda tanta veces.";
+			render(view:"login" ,model:[userRegist:user]);
+		}	
 	}
 
 	def logout()

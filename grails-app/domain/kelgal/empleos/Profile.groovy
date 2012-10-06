@@ -3,8 +3,8 @@ package kelgal.empleos
 import java.util.Date;
 
 
-class Profile
-{
+class Profile implements Comparable
+{	
 	String nombre;
 	
 	String usuario;
@@ -43,4 +43,18 @@ class Profile
 		nombre blank:false, size:2..45;
 		celular blank:false;
     }
+
+	@Override
+	public int compareTo(Object o)
+	{
+		int rev1 = this.reviews.size( );
+		int rev2 = o.reviews.size();
+		
+		if(rev1 == rev2)
+			return 0;
+		else if(rev1 < rev2)
+			return 1;
+		else if(rev1 > rev2)
+			return -1;
+	}
 }

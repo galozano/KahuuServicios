@@ -56,7 +56,7 @@
 				</div>
 				<div id="cuadroDer">
 					<div><h2>Inscr&iacute;bete</h2></div>
-					<g:form action="handleRegistration">
+					<g:form action="handleRegistration" useToken="true">
 						<div class="fieldcontain ${hasErrors(bean: userRegist, field: 'nombre', 'error')} required">
 							<label for="nombre"> <g:message code="user.nombre.label" default="Nombre" /></label>
 							<span class="required-indicator">*</span>

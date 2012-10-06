@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xml:base="http://www.springsource.org"  xmlns:dc="http://purl.org/dc/elements/1.1/">
+<channel>
+ <title>SpringSource.org</title>
+ <link>http://www.springsource.org</link>
+ <description>Welcome to the home of Spring, the leading platform to build and run enterprise Java applications. Led and sustained by SpringSource, Spring delivers significant benefits for many projects, increasing development productivity and runtime performance while improving test coverage and application quality.</description>
+ <language>en</language>
+<item>
+ <title>vFabric GemFire Fundamentals: Free eLearning Training</title>
+ <link>http://www.springsource.org/vFabric-GemFire-Fundamentals</link>
+ <description>&lt;p&gt;&lt;div style=&quot;float: right; width:114; padding: 10px&quot;&gt;
+&lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=151426&quot;&gt;&lt;img alt=&quot;vFabric GemFire for Developers&quot; border=&quot;0&quot; src=&quot;http://www.springsource.org/files/GemFire_Fundamentals.png&quot;/&gt;&lt;/a&gt;
+&lt;/div&gt;
+Always wanted to learn what vFabric GemFire can do for you? Now is your chance because SpringSource has released a &lt;b&gt;free 2.5 hour eLearning training&lt;/b&gt; called &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=151426&quot;&gt;vFabric GemFire Fundamentals&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;VMware vFabric GemFire is a distributed data management platform providing dynamic scalability, high performance, and database-like persistence. This 2.5 hour eLearning training introduces you to GemFire Enterprises 6.5.&lt;/p&gt;
+
+&lt;p&gt;The training provides a brief overview of the product, explains the concepts and features, and also enables you to perform basic operations, such as cache configuration, data caching, region creations, and working with functions and listeners.&lt;/p&gt;
+&lt;p&gt;The training consists of five modules:
+&lt;ul&gt;&lt;li&gt;Module 1: Introduction to GemFire Enterprise 6.5&lt;/li&gt;
+&lt;li&gt;Module 2: Data Regions and Operations&lt;/li&gt;
+&lt;li&gt;Module 3: Distributed Cache&lt;/li&gt;
+&lt;li&gt;Module 4: Programming with GemFire&lt;/li&gt;
+&lt;li&gt;Module 5: Advanced Features of GemFire&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=151426&quot;&gt;Click here to download the training&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;For developers interested in winning the professional 4-day vFabric GemFire for Developers training &lt;a href=&quot;http://www.springsource.org/spring-prize-contest&quot;&gt;click here&lt;/a&gt;</description>
+ <comments>http://www.springsource.org/vFabric-GemFire-Fundamentals#comments</comments>
+ <category domain="http://www.springsource.org/taxonomy/term/4">News and Announcements</category>
+ <pubDate>Fri, 05 Oct 2012 13:33:08 +0000</pubDate>
+ <dc:creator>Mark Baars</dc:creator>
+ <guid isPermaLink="false">3687 at http://www.springsource.org</guid>
+</item>
+<item>
+ <title>Professional SpringSource Training Schedule: November, 2012</title>
+ <link>http://www.springsource.org/spring-training-schedule-november</link>
+ <description>&lt;p&gt;SpringSource has released the training schedule for November 2012. Professional Spring and vFabric trainings will be provided in several locations spread over the world. This month SpringSource is also giving away a professional Spring training. For more information about the &lt;a href=&quot;http://www.springsource.org/spring-prize-contest&quot;&gt;Spring Prize Contest click here&lt;/a&gt;. The complete training schedule for November, 2012 can be found below:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Week 45&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;05 ? 08 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=125251&quot;&gt;Enterprise Integration with Spring in Jakarta, Indonesia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;05 ? 07 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=140929&quot;&gt;Hibernate with Spring in Toronto, Canada&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;06 ? 09 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=149927&quot;&gt;Core Spring in Zagreb, Croatia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;06 ? 09 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=143225&quot;&gt;Core Spring in Lisbon, Portugal&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;06 ? 09 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=142233&quot;&gt;Core Spring in Cape Town, South Africa&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;06 ? 09 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=132913&quot;&gt;Core Spring in Stockholm, Sweden&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;06 ? 09 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=139653&quot;&gt;Core Spring in Amsterdam, Netherlands&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;06 ? 09 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=141748&quot;&gt;Core Spring in Los Angeles, United States&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;06 ? 09 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=144002&quot;&gt;Core Spring in Philadelphia, United States&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;06 ? 09 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=142234&quot;&gt;Enterprise Integration with Spring in Brussels, Belgium&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;06 ? 09 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=148714&quot;&gt;Enterprise Integration with Spring in Phoenix, United States&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;06 ? 09 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=148715&quot;&gt;Enterprise Integration with Spring in Sacramento, United States&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;06 ? 09 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=148713&quot;&gt;Enterprise Integration with Spring in San Francisco, United States&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;06 ? 09 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=141764&quot;&gt;Enterprise Integration with Spring in Boston, United States&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;06 ? 09 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=113045&quot;&gt;Spring Web in Munich, Germany&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;06 ? 09 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=142773&quot;&gt;Spring Web in Dublin, Ireland&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;06 ? 09 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=142771&quot;&gt;Spring Web in London, UK&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;06 ? 09 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=141762&quot;&gt;Spring Web in Chicago, IL&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Week 46&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;12 ? 15 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=133589&quot;&gt;Core Spring in Sydney, Australia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;12 ? 15 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=139429&quot;&gt;Core Spring in Manila, Philippines&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;12 ? 15 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=140937&quot;&gt;Spring Web in Edison, United States&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;13 ? 16 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=149919&quot;&gt;Core Spring in Dublin, Ireland&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;13 ? 16 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=138360&quot;&gt;Core Spring in Madrid, Spain&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;13 ? 16 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=149910&quot;&gt;Core Spring in London, United Kingdom&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;13 ? 16 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=136220&quot;&gt;Core Spring Live Online in United States&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;13 ? 16 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=141750&quot;&gt;Core Spring in Minneapolis, United States&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;13 ? 16 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=141752&quot;&gt;Core Spring in Dallas, United States&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;13 ? 16 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=143226&quot;&gt;Enterprise Integration with Spring in Lisbon, Portugal&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;13 ? 16 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=149926&quot;&gt;Enterprise Integration with Spring in Zurich, Switzerland&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;13 ? 16 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=142155&quot;&gt;Enterprise Integration with Spring Live Online in Europe&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;13 ? 16 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=141763&quot;&gt;Spring Web in Charlotte, United States&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Week 47&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;19 ? 22 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=133592&quot;&gt;Core Spring in Brisbane, Australia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;19 ? 22 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=150818&quot;&gt;Core Spring in Bangalore, India&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;19 ? 22 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=133360&quot;&gt;Enterprise Integration with Spring in Ottawa, Canada&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;19 ? 22 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=133361&quot;&gt;Enterprise Integration with Spring in Montreal, Canada&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;19 ? 22 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=126519&quot;&gt;Spring Web in Paris, France&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;20 ? 23 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=113028&quot;&gt;Enterprise Integration with Spring in Munich, Germany&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;20 ? 23 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=149918&quot;&gt;Enterprise Integration with Spring in Dublin, Ireland&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;20 ? 23 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=132924&quot;&gt;Enterprise Integration with Spring in Oslo, Norway&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;20 ? 23 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=151790&quot;&gt;Spring Web in Mexico City, Mexico&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Week 48&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;26 ? 29 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=133353&quot;&gt;Core Spring in Ottawa, Canada&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;26 ? 29 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=133354&quot;&gt;Core Spring in Montreal, Canada&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;26 ? 29 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=128978&quot;&gt;Core Spring in Aarhus, Denmark&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;26 ? 29 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=130059&quot;&gt;Core Spring in Bangalore, India&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;27 ? 30 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=150582 &quot;&gt;Core Spring in Buenos Aires, Argentina&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;27 ? 30 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=130636&quot;&gt;Core Spring in Paris, France&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;27 ? 30 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=126517&quot;&gt;Core Spring in Lyon, France&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;27 ? 30 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=113025&quot;&gt;Core Spring in Munich, Germany&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;27 ? 30 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=135319 &quot;&gt;Core Spring in Rome, Italy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;27 ? 30 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=132916&quot;&gt;Core Spring in Oslo, Norway&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;27 ? 30 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=149930&quot;&gt;Core Spring in Moscow, Russia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;27 ? 30 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=141761&quot;&gt;Core Spring in Atlanta, United States&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;27 ? 30 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=141759&quot;&gt;Core Spring in Chicago, United States&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;27 ? 30 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=149912&quot;&gt;Enterprise Integration with Spring in London, United Kingdom&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;27 ? 30 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=141765&quot;&gt;Enterprise Integration with Spring in Washington, United States&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;27 ? 30 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=148716&quot;&gt;Enterprise Integration with Spring in New York, United States&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;27 ? 29 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=130639&quot;&gt;Groovy &amp; Grails in Paris, France&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;27 ? 30 NOV: &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=det&amp;id_course=136221&quot;&gt;Spring Web Live Online in United States&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;p&gt;If you cannot find a professional training near you, you can always request an &lt;a href=http://mylearn.vmware.com/mgrReg/message.cfm?ui=www&amp;subject=Onsite%20Training&gt;onsite SpringSource training&lt;/a&gt;&lt;/p&gt;</description>
+ <comments>http://www.springsource.org/spring-training-schedule-november#comments</comments>
+ <category domain="http://www.springsource.org/taxonomy/term/4">News and Announcements</category>
+ <pubDate>Thu, 04 Oct 2012 13:28:27 +0000</pubDate>
+ <dc:creator>Mark Baars</dc:creator>
+ <guid isPermaLink="false">3681 at http://www.springsource.org</guid>
+</item>
+<item>
+ <title>Spring Shell 1.0.0 Released</title>
+ <link>http://www.springsource.org/node/3679</link>
+ <description>&lt;p&gt;Dear Spring Community,&lt;/p&gt;
+&lt;p&gt;I am pleased to announce the first GA release for Spring Shell project! Spring Shell is an interactive shell that can be easily extended with commands using a Spring based programming model, extracted from the Spring Roo project.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.springsource.com/download/community?project=Spring%20Shell&amp;amp;version=1.0.0.RELEASE&quot;&gt;Downloads&lt;/a&gt; | &lt;a href=&quot;http://static.springsource.org/spring-shell/docs/1.0.0.RELEASE/api/&quot;&gt;JavaDocs&lt;/a&gt; | &lt;a href=&quot;http://static.springsource.org/spring-shell/docs/1.0.0.RELEASE/reference/html&quot;&gt;Reference Documentation&lt;/a&gt; | &lt;a href=&quot;http://static.springsource.org/spring-shell/docs/1.0.0.RELEASE/changelog.txt&quot;&gt;Changelog&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;We look forward to your feedback on the forum or in the issue tracker.&lt;/p&gt;
+</description>
+ <comments>http://www.springsource.org/node/3679#comments</comments>
+ <category domain="http://www.springsource.org/taxonomy/term/4">News and Announcements</category>
+ <pubDate>Wed, 03 Oct 2012 09:25:55 +0000</pubDate>
+ <dc:creator>Costin Leau</dc:creator>
+ <guid isPermaLink="false">3679 at http://www.springsource.org</guid>
+</item>
+<item>
+ <title>Decomposing Applications for Deployability and Scalability</title>
+ <link>http://www.springsource.org/node/3678</link>
+ <description>&lt;p&gt; 
+&lt;div style=&quot;float: right; width:114; padding: 10px&quot;&gt;
+&lt;a href=&quot;http://www.springone2gx.com/conference/washington/2012/10/session?id=27696&quot;&gt;&lt;img height=&quot;130&quot; alt=&quot;Craig Walls&quot; width=&quot;130&quot; border=&quot;0&quot; src=&quot;http://www.springone2gx.com/s/images/bio/985_Richardson_20110412_144005_medium_sq.jpg&quot;/&gt;&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Today, there are several trends that are forcing application   architectures to evolve. Users expect a rich, interactive and dynamic   user experience on a wide variety of clients including mobile devices.   Applications must be highly scalable, highly available and run on cloud   environments. Organizations often want to frequently roll out updates,   even multiple times a day. Consequently, it&amp;rsquo;s no longer adequate to   develop simple, monolithic web applications that serve up HTML to   desktop browsers.&lt;/p&gt;
+&lt;p&gt;In this talk we describe the limitations of a monolithic   architecture. You will learn how to use the scale cube to decompose your   application into a set of narrowly focused, independently deployable   back-end services and an HTML 5 client. We will also discuss the role of   technologies such as NodeJS and AMQP brokers. You will learn how a   modern PaaS such as Cloud Foundry simplifies the development and   deployment of this style of application.&lt;/p&gt;
+&lt;p&gt;Check out the &lt;a href=&quot;http://www.springone2gx.com/conference/washington/2012/10/session?id=27696&quot;&gt;session on SpringOne2GX.com&lt;/a&gt; for more details and  &lt;a href=&quot;http://www.springone2gx.com/conference/washington/2012/10/register&quot;&gt;register&lt;/a&gt; today!&lt;/p&gt;</description>
+ <comments>http://www.springsource.org/node/3678#comments</comments>
+ <category domain="http://www.springsource.org/taxonomy/term/4">News and Announcements</category>
+ <pubDate>Wed, 03 Oct 2012 01:14:38 +0000</pubDate>
+ <dc:creator>Pieter Humphrey</dc:creator>
+ <guid isPermaLink="false">3678 at http://www.springsource.org</guid>
+</item>
+<item>
+ <title>This Week in Spring - 2nd October, 2012</title>
+ <link>http://www.springsource.org/node/3677</link>
+ <description>&lt;P&gt;  Welcome back to another installment of &lt;EM&gt;This Week in Spring&lt;/EM&gt;! This last week sure flew by, didn&#039;t it? This week, of course, &lt;A href  =&quot;http://www.springsource.org/node/3674&quot;&gt;SpringSource is at  JavaOne&lt;/a&gt;. If you&#039;re at the show, be sure to stop by the booth  at the Hilton Union Square and say hello! The vFabric, CloudFoundry and SpringSource experts are all there to talk to you.
+Don&#039;t miss the Spring, Groovy and Grails event of the year in Washington, DC: &lt;a href=&quot;http://www.springone2gx.com/conference/washington/2012/10/home&quot;&gt;SpringOne2GX&lt;/a&gt;.  If you haven&#039;t already registered, now&#039;s the time! &lt;/P&gt;
+
+&lt;OL&gt;
+	&lt;LI&gt;  SpringSource CTO Adrian Colyer  
+		 has a  nice post on the strong position Spring continues to enjoy at &lt;a href = &quot;http://blog.springsource.org/2012/10/01/spring-remains-at-the-forefront-of-enterprise-java-bigdata-nosql-and-cloud-portability/&quot;&gt;the forefront enterprise Java, NoSQL and cloud portability. 
+		&lt;/a&gt; &lt;/LI&gt;
+	 &lt;LI&gt; Gary Russel has a nice post  &lt;a href =&quot;http://blog.springsource.org/2012/09/26/whats-new-in-spring-integration-2-2-part-2-transaction-synchronization/&quot;&gt;on a new feature in Spring Integration 2.2 that lets you  plugin &lt;em&gt;transactional&lt;/EM&gt; (&quot;commit&quot; and &quot;rollback&quot;) behavior for all messages&lt;/a&gt;, not just those coming from transactional resources like JDBC or JMS.  
+  
+		
+	 &lt;/LI&gt;
+	 &lt;Li&gt; Duncan Brown has a nice post on  
+		  &lt;a href = &quot;http://architects.dzone.com/articles/persisting-neo4j-spring-data&quot;&gt;using Spring Data Neo4J&lt;/a&gt;. The subject matter alone would make this post a must-read, but Duncan&#039;s groan-inducing humor sells it. 
+		  &lt;/LI&gt;
+	 &lt;LI&gt; Yohan Liyanage has a nice look at the &lt;CODE&gt;ApplicationContext&lt;/CODE&gt; facility &lt;a href =&quot;http://blog.yohanliyanage.com/2012/09/eventing-with-spring-framework/&quot;&gt;to publish and consume   events sent from one component to another&lt;/a&gt;.  
+		   &lt;/LI&gt; 
+	 &lt;LI&gt; The &lt;EM&gt;Java Code Geeks&lt;/EM&gt; blog has a nice post on  some of the implications of 
+ the  &lt;a href =&quot;http://www.javacodegeeks.com/2012/09/spring-testing-support-and-context.html&quot;&gt;Spring&#039;s test framework&#039;s support for &lt;EM&gt;caching&lt;/EM&gt; &lt;CODE&gt;ApplicationContext&lt;/CODE&gt;s between tests&lt;/a&gt;. 
+		  &lt;/LI&gt; 
+ 
+ 	 &lt;LI&gt;Gal Levinsky   introduces the  problem of circular dependencies and introduces &lt;A href=&quot;http://java.dzone.com/articles/resolve-circular-dependency&quot;&gt;one way  Spring can help you work around the issue&lt;/a&gt;. 
+    &lt;/LI&gt; 
+	 &lt;LI&gt;Boris Lam is back at it, this time with a post on how to  &lt;a href =&quot;http://java.dzone.com/articles/customizing-spring-data-jpa&quot;&gt;extend Spring Data JPA repositories with a new generic repository base class&lt;/A&gt;.  &lt;/LI&gt; 
+		
+		 	 &lt;LI&gt;Boris Lam has a nice follow up blog that shows how to extend &lt;A href= &quot;http://java.dzone.com/articles/adding-hibernate-native-sql&quot;&gt;Spring Data JPA to support queries using  native Hibernate queries&lt;/a&gt;.  &lt;/LI&gt; 
+		
+	 &lt;LI&gt; Viral Patel has a nice code walkthrough demonstrating how to build 
+		 &lt;A href =&quot;http://viralpatel.net/blogs/spring-mvc-hashmap-form-example/&quot;&gt;a dynamic form in Spring MVC - one whose values grow and contract dynamically - that stores its values in a &lt;CODE&gt;java.util.HashMap&lt;/CODE&gt;&lt;/a&gt;  &lt;/LI&gt; 
+			
+	 &lt;LI&gt;	Dejan Bosanac has put together a very nice blog explaining one of my favorite features of Spring Integration: the ability to &lt;a href=&quot;http://java.dzone.com/articles/backing-spring-integration-1&quot;&gt; back Spring &lt;CODE&gt;&amp;lt;channel/&amp;gt;&lt;/CODE&gt; elements with JMS &lt;CODE&gt;Destinations&lt;/CODE&gt; so that messages  are  durably conveyed through the system&lt;/a&gt;.  &lt;/LI&gt; 
+	 &lt;LI&gt; Lukas Eder has put together a quick blog introducing &lt;A href=&quot;http://java.dzone.com/articles/nice-way-using-jooq-spring&quot;&gt;a recipe for using jOOQ with   Spring&lt;/a&gt;. &lt;A href=&quot;http://www.jooq.org/&quot;&gt;JOOQ&lt;/A&gt; is a framework that lets you write type-safe SQL queries using a fluid Java API.  
+	   &lt;/LI&gt; 
+
+	 &lt;LI&gt; Damien Lepage has a very cool post on &lt;a href=&quot;http://java.dzone.com/articles/autowire-or-not-autowire&quot;&gt;different strategies for designing your beans to encourage  better testability&lt;/A&gt;.  &lt;/LI&gt;
+	&lt;/OL&gt;</description>
+ <comments>http://www.springsource.org/node/3677#comments</comments>
+ <pubDate>Tue, 02 Oct 2012 23:22:01 +0000</pubDate>
+ <dc:creator>Josh Long</dc:creator>
+ <guid isPermaLink="false">3677 at http://www.springsource.org</guid>
+</item>
+<item>
+ <title>Win a Spring Training seat worth $2,500</title>
+ <link>http://www.springsource.org/spring-prize-contest</link>
+ <description>&lt;p&gt;Whether you are a beginner with Spring or an experienced Spring professional there is always a &lt;a href=&quot;http://mylearn.vmware.com/mgrReg/plan.cfm?plan=31719&amp;ui=www_edu&quot;&gt;SpringSource training&lt;/a&gt; for you. SpringSource offers several learning paths including the Spring developer path with &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=one&amp;id_subject=17750&quot;&gt;Core Spring&lt;/a&gt;, &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=one&amp;id_subject=17833&quot;&gt;Enterprise Integration with Spring&lt;/a&gt; and &lt;a href=&quot;http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=one&amp;id_subject=33053&quot;&gt;Spring Web&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt; Now is your chance to win one of these SpringSource trainings. SpringSource is giving away a free SpringSource Spring training seat worth over $2,500. Sign up for the SpringSource newsletter before October 20, 2012 to join this contest. Winners will be announced on October 21, 2012. Winners will receive a referral code that can be used at the &lt;a href=&quot;http://mylearn.vmware.com/mgrReg/plan.cfm?plan=31719&amp;ui=www_edu&quot;&gt;Spring Education Site&lt;/a&gt; for a training of choice.&lt;/p&gt;
+
+&lt;a href=&quot;http://vmware.us5.list-manage.com/subscribe?u=7aa6598689f1502ae57179bcc&amp;id=94a56c9bfd&quot;&gt;Click Here To Join The Contest&lt;/a&gt;</description>
+ <comments>http://www.springsource.org/spring-prize-contest#comments</comments>
+ <category domain="http://www.springsource.org/taxonomy/term/4">News and Announcements</category>
+ <pubDate>Mon, 01 Oct 2012 07:28:36 +0000</pubDate>
+ <dc:creator>Mark Baars</dc:creator>
+ <guid isPermaLink="false">3675 at http://www.springsource.org</guid>
+</item>
+<item>
+ <title>Rockin&#039; out with SpringSource at JavaOne 2012</title>
+ <link>http://www.springsource.org/node/3674</link>
+ <description>&lt;div class=&quot;event-nodeapi&quot;&gt;
+  &lt;div class=&quot;event-start dtstart&quot; title=&quot;2012-09-30T16:00:00Z&quot;&gt;&lt;label&gt;Start:  &lt;/label&gt; 2012-09-30 09:00 &lt;/div&gt;
+&lt;/div&gt;
+  &lt;div class=&quot;event-nodeapi&quot;&gt;
+    &lt;div class=&quot;event-end dtend&quot; title=&quot;2012-10-03T21:00:00Z&quot;&gt;&lt;label&gt;End: &lt;/label&gt; 2012-10-03 14:00 &lt;/div&gt;
+  &lt;/div&gt;
+ &lt;div class=&quot;event-nodeapi&quot;&gt;
+   &lt;div class=&quot;event-tz&quot;&gt;&lt;label&gt;Timezone: &lt;/label&gt;US/Pacific &lt;/div&gt;
+  &lt;/div&gt;
+&lt;div class=&quot;event-nodeapi&quot;&gt;
+  &lt;div class=&quot;event-start dtstart&quot; title=&quot;2012-09-30T16:00:00Z&quot;&gt;&lt;label&gt;Start:  &lt;/label&gt; 2012-09-30 09:00 &lt;/div&gt;
+&lt;/div&gt;
+  &lt;div class=&quot;event-nodeapi&quot;&gt;
+    &lt;div class=&quot;event-end dtend&quot; title=&quot;2012-10-03T21:00:00Z&quot;&gt;&lt;label&gt;End: &lt;/label&gt; 2012-10-03 14:00 &lt;/div&gt;
+  &lt;/div&gt;
+ &lt;div class=&quot;event-nodeapi&quot;&gt;
+   &lt;div class=&quot;event-tz&quot;&gt;&lt;label&gt;Timezone: &lt;/label&gt;US/Pacific &lt;/div&gt;
+  &lt;/div&gt;
+&lt;div class=&quot;field field-type-text field-field-location&quot;&gt;
+      &lt;div class=&quot;field-label&quot;&gt;Location:&amp;nbsp;&lt;/div&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    &lt;p&gt;San Francisco&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/files/duke.png&quot; alt=&quot;Duke Rockin Out&quot; width=&quot;300&quot; height=&quot;256&quot; align=&quot;right&quot; /&gt;&lt;/p&gt;&lt;/div&gt;
+&lt;p&gt;JavaOne 2012 should be an exciting conference, and San Francisco downtown is booked solid with developers from all corners of the Java community. There will be lots of activity and sessions, Java Univeristy, and as always, rock and roll baby.. this year&#039;s appreciation event is Pearl Jam and Kings of Leon! Spring enthusiasts also shouldn&#039;t  miss the upcoming &lt;a href=&quot;http://www.springone2gx.com/conference/washington/2012/10/home&quot;&gt;SpringOne 2GX Conference&lt;/a&gt; in Washington, DC Oct 15th-18th.&lt;/p&gt;
+&lt;p&gt;So what is SpringSource up to this year at the conference?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;u&gt;SpringSource Booth #5302&lt;/u&gt;&lt;/strong&gt; @ Hilton Union Square - Monday 10:30am-5, Tuesday 10am-5, Wednesday 9:30am-5&lt;br /&gt;
+  Stop by to get cool schwag, hoodies and t-shirts you might actually wear, and of course, see demos and talk to experts on Spring,  Groovy/Grails, Cloud Foundry and vFabric. &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;u&gt;Rockstar Sessions at the conference&lt;/u&gt;: &lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Monday, Oct. 1&lt;/strong&gt;&lt;br /&gt;
+  1:00 pm ? 2:00 pm &lt;br /&gt;
+  What&amp;rsquo;s New in Grails 2.0?&lt;br /&gt;
+  Speaker: Graeme Rocher&lt;br /&gt;
+  Location: Parc 55 ? Cyril Magnin I&lt;/p&gt;
+&lt;p&gt;8:30 pm ? 9:15 pm &lt;br /&gt;
+  Web Framework Smackdown 2012&lt;br /&gt;
+  Speaker: Graeme Rocher&lt;br /&gt;
+  Location: Parc 55 ? Cyril Magnin II/III&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;
+  &lt;strong&gt;Tuesday, Oct. 2 &lt;/strong&gt;&lt;br /&gt;
+  10:00 am ? 11:00 am&lt;br /&gt;
+  Java EE and Spring Framework Panel Discussion&lt;br /&gt;
+  Speaker: Chris Beams &lt;br /&gt;
+  Location: Parc 55 ? Market Street &lt;br /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Wednesday, Oct. 3 &lt;/strong&gt;&lt;br /&gt;
+  10:00 am ? 11:00 am &lt;br /&gt;
+  Developing Polyglot Persistence Applications &lt;br /&gt;
+  Speaker: Chris Richardson&lt;br /&gt;
+  Location: Parc 55 ? Market Street &lt;/p&gt;
+&lt;p&gt;11:30 am ? 12:30 pm&lt;br /&gt;
+  Script Bowl 2012: The Battle of the JVM-Based Languages&lt;br /&gt;
+  Speaker: Guillaume Laforge&lt;br /&gt;
+  Location: Hilton San Francisco ? Plaza A/B&lt;/p&gt;
+&lt;p&gt;1:00 pm ? 2:00 pm&lt;br /&gt;
+  Developing Applications with Cloud Services &lt;br /&gt;
+  Speaker: Chris Richardson&lt;br /&gt;
+  Location: Parc 55 ? Embarcadero&lt;/p&gt;
+&lt;p&gt;3:00 pm ? 4:00 pm&lt;br /&gt;
+  What&amp;rsquo;s New in Groovy 2.0?&lt;br /&gt;
+  Speaker: Guillaume Laforge &lt;br /&gt;
+  Location: Hilton San Francisco ? Golden Gate 6/7/8&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;u&gt;Spring At Java University&lt;/u&gt;: &lt;/strong&gt;@ Hilton San Francisco Union Square and Hotel Nikko San Francisco - Sunday 8am-3:30&lt;/p&gt;
+&lt;p&gt;Extensive and fast-paced hands-on University    Sessions on Sunday, learn while you are at the conference.  You can register for &lt;a href=&quot;http://www.oracle.com/us/ju-reg-pop-1622693.html?iframe=true&amp;amp;width=540&amp;amp;height=170&quot;&gt;Java    University&lt;/a&gt; for 800.00 USD only or attend with the conference. SpringSource will be offering full day course: &lt;a href=&quot;http://www.oracle.com/javaone/program/schedule/university/index.html#spring&quot;&gt;Developing Enterprise Applications with the Spring Framework&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Instructor: &lt;/strong&gt;Chris Richardson&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Course Level: &lt;/strong&gt;Intermediate&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Course Description:&lt;/strong&gt;&lt;br /&gt;
+  The Spring Framework is a widely used full-stack Java technology?based   application framework. The foundations of the Spring Framework are   dependency injection (DI), aspect-oriented programming (AOP), and   portable service abstractions (PSAs). Together, these foundational   elements simplify application development and boost developer   productivity.&lt;/p&gt;
+&lt;p&gt;This course covers a broad range of topics to give participants a   clear understanding of the Spring Framework. You will learn about DI and   how it promotes loose coupling and simplifies test-driven development   (TDD). The course also describes AOP and how it simplifies application   code by promoting modularity and separation of concerns. You will learn   how PSAs, which provide extensive support for middle-tier functionality   such as persistence, remoting, and messaging, dramatically reduce the   amount of you need to write and improve application portability. This   course describes the new features in Spring 3.1 and surveys the numerous   other projects in the Spring ecosystem. By the end of the course,   participants should be ready to apply Spring in their own applications.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;The Spring Lightweight Container Architecture, Including Inversion of Control&lt;/li&gt;
+  &lt;li&gt;Agile, Domain-Driven Design Techniques with Spring&lt;/li&gt;
+  &lt;li&gt;Effective JDBC and Persistence Data Access&lt;/li&gt;
+  &lt;li&gt;Declarative Transaction Management&lt;/li&gt;
+  &lt;li&gt;Pragmatic AOP&lt;/li&gt;
+  &lt;li&gt;Unit Testing in Isolation&lt;/li&gt;
+  &lt;li&gt;Rapid System Integration Testing&lt;/li&gt;
+  &lt;li&gt;Spring Support for JSR-250 Annotations&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;field field-type-text field-field-description&quot;&gt;
+      &lt;div class=&quot;field-label&quot;&gt;Description:&amp;nbsp;&lt;/div&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    &lt;p&gt;JavaOne 2012&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+</description>
+ <comments>http://www.springsource.org/node/3674#comments</comments>
+ <pubDate>Wed, 26 Sep 2012 21:09:16 +0000</pubDate>
+ <dc:creator>Pieter Humphrey</dc:creator>
+ <guid isPermaLink="false">3674 at http://www.springsource.org</guid>
+</item>
+<item>
+ <title>This Week in Spring - 25th September, 2012 </title>
+ <link>http://www.springsource.org/node/3673</link>
+ <description> 
+&lt;P&gt; Welcome back to another installment of &lt;EM&gt;This Week in Spring&lt;/em&gt;!
+  There&#039;s &lt;EM&gt;so&lt;/EM&gt; much good stuff to look at this week. Can you believe we&#039;re already staring down October? 
+
+It&#039;s time to think about who or what you are going to be for halloween!&lt;/p&gt;
+
+&lt;P&gt; With October comes &lt;A href =&quot;http://springone2gx.com&quot;&gt;SpringOne2GX&lt;/A&gt;, the premier event for Spring developers.  
+Check out the &lt;a href=&quot;http://springone2gx.com/conference/washington/2012/10/schedule&quot;&gt;final schedule&lt;/a&gt; of 
+ &lt;a href=&quot;http://www.springone2gx.com/conference/washington/2012/10/sessions&quot;&gt;speakers and  sessions&lt;/a&gt; 
+for this year&#039;s event! SpringOne 2GX is your opportunity to  learn from development leads and published authors on the Spring,  Groovy/Grails, Tomcat and Cloud technologies. &lt;br&gt;
+
+ &lt;/P&gt;
+&lt;OL&gt;
+  &lt;LI&gt;  The video from Spring Security lead Rob Winch&#039;s webinar   introducing &lt;A Href = &quot;http://www.springsource.org/spring-security&quot;&gt;Spring Security&lt;/a&gt;  &lt;a href = &quot;http://www.springsource.org/node/3670&quot;&gt;is now available&lt;/a&gt;.  &lt;/LI&gt;
+  &lt;LI&gt;  Oleg Zhurakousky kicks off the march  to Spring Integration  2.2 with &lt;A href =&quot;http://blog.springsource.org/2012/09/24/whats-new-in-spring-integration-2-2-rc1-part-1-mongodb/&quot;&gt;a blog introducing the new MongoDB features  in 2.2&lt;/A&gt;. 
+ 
+ &lt;LI&gt;  Gary Russell &lt;a href = &quot;http://www.springsource.org/node/3665&quot;&gt;has announced release candidate 1 of Spring Integration 2.2&lt;/a&gt;. 
+  
+
+          This is intended to be the final release before GA, so users are encouraged to give feedback on this release.  
+
+	&lt;/LI&gt;
+&lt;LI&gt;Costin Leau has announced &lt;A href =&quot;http://www.springsource.org/node/3664&quot;&gt; the 1.0.0.RC1 release of Spring Shell&lt;/a&gt;, which is an extraction of the  shell   used in   Spring Roo and made available through the Spring programming model.  
+	   
+	
+	   &lt;/LI&gt;
+ &lt;LI&gt;  Roger Hughes is back at it again, this time with &lt;A href =&quot;http://java.dzone.com/articles/spring-31-caching-and-config&quot;&gt;a look at  Spring 3.1 caching and configuration&lt;/a&gt; options, specifically focusing on setting up a &lt;CODE&gt;CacheManager&lt;/CODE&gt;.   &lt;/li&gt;
+  &lt;LI&gt;  The vFabric blog  has an interesting look at the &lt;a href =&quot;http://blogs.vmware.com/vfabric/2012/09/spring-insight-split-agent-architecture.html&quot;&gt;&quot;split-agent&quot; architecture behind Spring Insight&lt;/A&gt;, that allows the separation of the collection stage from the analysis one.  
+	 &lt;/LI&gt;
+  &lt;LI&gt;Krishna Prasad has a nice post on &lt;a href =&quot;http://krishnasblog.com/tag/spring-mvc/&quot;&gt;obtaining test coverage information for Spring Web Flow applications&lt;/a&gt;.  &lt;/LI&gt;
+ &lt;LI&gt;  Mattias Severson has a  nice post on handling errors &lt;A href =&quot;http://www.jayway.com/2012/09/23/improve-your-spring-rest-api-part-ii/&quot;&gt;in Spring MVC-based RESTful application&lt;/a&gt;.   &lt;/LI&gt;
+  &lt;LI&gt; Ronillo Ang&#039;s put together a very brief deck on the &lt;a href =&quot;http://www.slideshare.net/ronilloang/spring-mvc-demo-14356569&quot;&gt;fundamental pieces of a Spring MVC application&lt;/a&gt;.   &lt;/LI&gt;
+  &lt;LI&gt; The JavaCode Geeks blog has a nice post &lt;a href=&quot;http://www.javacodegeeks.com/2012/09/spring-persistence-layer-writing.html&quot;&gt;on writing persistence layers with the Spring framework&lt;/a&gt;. &lt;/LI&gt;
+  &lt;LI&gt;&lt;EM&gt;L&#039;Artech&lt;/EM&gt; blog has a cool post on   
+	 creating &lt;a href = &quot;http://shreymalhotra.me/blog/tutorial/spring-mvc-creating-the-homepage-part-3-web-app-series/&quot;&gt;the login form for a web application using Spring MVC&lt;/a&gt;, in part 3 of a series. 
+	 &lt;/LI&gt;
+ 
+  
+&lt;/oL&gt;
+</description>
+ <comments>http://www.springsource.org/node/3673#comments</comments>
+ <category domain="http://www.springsource.org/taxonomy/term/4">News and Announcements</category>
+ <pubDate>Wed, 26 Sep 2012 04:12:26 +0000</pubDate>
+ <dc:creator>Josh Long</dc:creator>
+ <guid isPermaLink="false">3673 at http://www.springsource.org</guid>
+</item>
+<item>
+ <title>Second milestone of spring-test-mvc released</title>
+ <link>http://www.springsource.org/node/3672</link>
+ <description>&lt;p&gt;A second milestone of the &lt;a title=&quot;spring-test-mvc&quot; href=&quot;https://github.com/SpringSource/spring-test-mvc&quot;&gt;Spring MVC Test&lt;/a&gt; project is now available through the SpringSource &lt;a title=&quot;JFrog&quot; href=&quot;http://www.jfrog.com/home/&quot;&gt;Artifactory&lt;/a&gt; repository &lt;a title=&quot;SpringSource milestone Artifactory repository&quot; href=&quot;http://repo.springsource.org/milestone&quot;&gt;http://repo.springsource.org/milestone&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;There is much that&#039;s new. On the server side we&#039;ve added support for servlet filters, basic support for Spring Security, the ability to define default request properties and expectations to re-use across every performed request, and much more. On the client side we&#039;ve greatly expanded the options for request matching and response creation.&lt;/p&gt;
+&lt;p&gt;For further details and comments read &lt;a href=&quot;http://rossenstoyanchev.org/blog/2012/09/25/second-milestone-of-spring-test-mvc/&quot;&gt;this blog post&lt;/a&gt;.&lt;/p&gt;
+</description>
+ <comments>http://www.springsource.org/node/3672#comments</comments>
+ <category domain="http://www.springsource.org/taxonomy/term/4">News and Announcements</category>
+ <pubDate>Wed, 26 Sep 2012 04:06:06 +0000</pubDate>
+ <dc:creator>Rossen Stoyanchev</dc:creator>
+ <guid isPermaLink="false">3672 at http://www.springsource.org</guid>
+</item>
+<item>
+ <title>Video: Spring Security Fundamentals</title>
+ <link>http://www.springsource.org/node/3670</link>
+ <description>&lt;p&gt;
+
+&lt;p&gt;By Rob Winch, Senior Software Engineer, Spring Security Lead  
+&lt;p&gt;Due to its complexity, implementing security can be a daunting task for developers of all skill levels. In this presentation we will discuss, in depth, the foundation of Spring Security&#039;s architecture through the use of working sample code. We will start off with an existing application and learn how we can add Spring Security to it. We will then explore how Spring Security works underneath the hood.?
+&lt;p&gt;
+
+&lt;center&gt;&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;http://www.youtube.com/embed/if6EMTVZ200&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/center&gt;
+
+
+&lt;p&gt;Be sure to thumbs up the presentation if you find it useful and &lt;a href=&quot;http://www.youtube.com/subscription_center?adduser=SpringSourceDev&quot;&gt;subscribe to the SpringSourceDev channel&lt;/a&gt; to see other recordings and screencasts.&lt;/p&gt;</description>
+ <comments>http://www.springsource.org/node/3670#comments</comments>
+ <category domain="http://www.springsource.org/taxonomy/term/4">News and Announcements</category>
+ <pubDate>Tue, 25 Sep 2012 22:09:47 +0000</pubDate>
+ <dc:creator>Pieter Humphrey</dc:creator>
+ <guid isPermaLink="false">3670 at http://www.springsource.org</guid>
+</item>
+</channel>
+</rss>
