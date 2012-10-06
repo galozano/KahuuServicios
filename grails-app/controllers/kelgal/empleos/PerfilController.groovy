@@ -22,7 +22,7 @@ class PerfilController
 		render(view: "index", model:[ciudadesLista: perfilService.darCiudades()]);
     }
 		
-	def profile(Long id )
+	def profile(Long id)
 	{	
 		try
 		{
@@ -69,7 +69,7 @@ class PerfilController
 		catch(KahuuException e)
 		{
 			flash.message = e.message;
-			render(action: "users",model:[categoriasList: categorias]);
+			redirect(action: "users");
 		}
 	}
 	
@@ -124,9 +124,9 @@ class PerfilController
 		
 		try
 		{
-			def results = perfilService.usuariosCategoria(id);
+			def results = perfilService.perfilesCategoria(id);
 			
-			if(results.size() == 0)
+			if(results == null || results.size() == 0)
 			{
 				flash.message = "No se encontro ning&uacute;n resultado.";
 				render(view: "users",model:[categoriasList: categorias]);
@@ -137,7 +137,7 @@ class PerfilController
 			}
 			
 		}
-		catch(KahuuException e)
+		catch(Exception e)
 		{
 			flash.message = e.message;
 			render(view: "users",model:[categoriasList: categorias]);

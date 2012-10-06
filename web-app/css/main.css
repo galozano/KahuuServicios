@@ -713,7 +713,7 @@ a.skip {
 	float: left;
 }
 
-.post > img:first-child
+.post a > img:first-child
 {
 	float: left;
 	border:3px solid black;

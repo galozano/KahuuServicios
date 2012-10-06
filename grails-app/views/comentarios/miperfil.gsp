@@ -43,7 +43,7 @@
 		
 		<g:form action="handleCambiarPassword">
 			<div class="fieldcontain ${hasErrors(bean: userPass, field: 'password', 'error')} required">
-				<label for="password">Constrase&ntilde;a</label>
+				<label for="password">Constrase&ntilde;a Nueva</label>
 				<span class="required-indicator">*</span>
 				<g:passwordField name="password" value="${userPass?.password}" />
 			</div>

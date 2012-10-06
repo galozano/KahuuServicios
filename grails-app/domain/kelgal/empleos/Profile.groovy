@@ -47,8 +47,8 @@ class Profile implements Comparable
 	@Override
 	public int compareTo(Object o)
 	{
-		int rev1 = this.reviews.size( );
-		int rev2 = o.reviews.size();
+		int rev1 = this.reviews == null? 0:this.reviews.size( );
+		int rev2 = o.reviews == null? 0 : o.reviews.size();
 		
 		if(rev1 == rev2)
 			return 0;

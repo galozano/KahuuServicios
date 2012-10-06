@@ -104,7 +104,7 @@ class PerfilControllerTests
 		params.usuario = "NOEXISTE";
 		controller.profileUsuario();
 		flash.message != null;
-		assert view == "/perfil/users";
+		assert response.redirectedUrl == "/perfil/users";
 		
 		response.reset( );
 		

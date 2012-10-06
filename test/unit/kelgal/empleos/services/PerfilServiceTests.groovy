@@ -9,6 +9,7 @@ import kelgal.empleos.Ciudad;
 import kelgal.empleos.PerfilService;
 import kelgal.empleos.Profile;
 import kelgal.empleos.Review;
+import kelgal.empleos.User
 import kelgal.empleos.exceptions.KahuuException
 import org.junit.*
 
@@ -16,7 +17,7 @@ import org.junit.*
  * See the API for {@link grails.test.mixin.services.ServiceUnitTestMixin} for usage instructions
  */
 @TestFor(PerfilService)
-@Mock([Profile,Categorias,Ciudad,Review])
+@Mock([Profile,Categorias,Ciudad,Review,User])
 class PerfilServiceTests {
 
 	PerfilService perfilService = new PerfilService( );
@@ -28,6 +29,10 @@ class PerfilServiceTests {
 	private Certificado cert;
 	
 	private Profile profile;
+	
+	private User user;
+	
+	private Review review;
 	
 	public void setIt()
 	{
@@ -50,21 +55,18 @@ class PerfilServiceTests {
 		
 		assert profile.save(flush: true) != null;
 		
-//		user = new User(nombre:"Gus",password:"pass", email:"gus@gus.com",fechaCreado:new Date(), activated:false, keyConfirmar:"HOLA");
-//		assert user.save() != null;
-//
-//		review = new Review(author:"Gustavo Lozano",titulo:"titulo1 es", texto:"TEXTO segundo", rating:5, profile:profile,user:user,fechaCreado:new Date());
-//		assert review.save() != null;
+		user = new User(nombre:"Gus",password:"pass", email:"gus@gus.com",fechaCreado:new Date(), activated:false, keyConfirmar:"HOLA");
+		assert user.save(flush: true) != null;
+
+		review = new Review(author:"Gustavo Lozano",titulo:"titulo1 es", texto:"TEXTO segundo", rating:5, profile:profile,user:user,fechaCreado:new Date());
+		assert review.save(flush: true) != null;
 	}
 	
 	void testDarCiudades()
 	{
 		setIt();
 		
-		def results = perfilService.darCiudades();
-		
-		System.out.println(results.size());
-		
+		def results = perfilService.darCiudades();	
 		assert results.size( ), Ciudad.list().size();
 	}
 	
@@ -84,8 +86,10 @@ class PerfilServiceTests {
 		{
 			Profile result = perfilService.darPerfil(profile.id);
 			
+			assert result.id, profile.id;
 			assert result.nombre, profile.nombre;
 			assert result.email, profile.email;
+			assert result.celular, profile.celular;
 		}
 		catch(KahuuException e)
 		{
@@ -121,6 +125,7 @@ class PerfilServiceTests {
 			assert result.id, profile.id;
 			assert result.nombre, profile.nombre;
 			assert result.email, profile.email;
+			assert result.celular, profile.celular;
 		}
 		catch(KahuuException e)
 		{
@@ -143,11 +148,16 @@ class PerfilServiceTests {
 		}
 	}
 
-	void testUsersCategoria( )
+	void testPerfilesCategoria( )
 	{
 		setIt();
 		
-		def results = perfilService.usuariosCategoria(categoria.id);
+		def results = perfilService.perfilesCategoria(categoria.id);
+		
+		if(results == null)
+		{
+			fail("No puede llegar aca");
+		}
 		
 		assert results.size(), 2;
 		
@@ -155,19 +165,13 @@ class PerfilServiceTests {
 		assert results.get(1).nombre, "Rafael";	
 	}
 	
-	void testUsersCategoriaInvalido( )
+	void testPerfilesCategoriaInvalido( )
 	{
 		setIt();
 		
-		try
-		{
-			def results = perfilService.usuariosCategoria(12345);
-			fail "No debe llegar aca";
-		}
-		catch(KahuuException e)
-		{
-			//Debe pasar
-		}
+		def results = perfilService.perfilesCategoria(12345);
+		assert results == null;
+
 	}
 	
 	void testBuscar( )

@@ -26,10 +26,10 @@
 					<g:each in="${profileInstanceList}" status="i" var="profileInstance">
 						<div class="post">
 							<g:if test="${profileInstance?.image}">
-								<img src="${createLink(controller:'perfil', action:'darFoto', id: profileInstance.id)}" width="75" height="75"/>
+								<g:link action="profileUsuario" params="[usuario:profileInstance.usuario]"><img src="${createLink(controller:'perfil', action:'darFoto', id: profileInstance.id)}" width="75" height="75"/></g:link>
 							</g:if>
 							<g:else>
-								<img src="${resource(dir: 'images', file: 'none.jpg')}" width="75" height="75"/>
+								<g:link action="profileUsuario" params="[usuario:profileInstance.usuario]"><img src="${resource(dir: 'images', file: 'none.jpg')}" width="75" height="75"/></g:link>
 							</g:else>
 							
 							<div class="title">

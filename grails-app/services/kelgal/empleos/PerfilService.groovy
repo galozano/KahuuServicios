@@ -68,13 +68,18 @@ class PerfilService
 		return results.sort( );
 	}
 	
-	def usuariosCategoria(id)
+	/**
+	 * Retorna una lista con los perfiles de una categoria
+	 * @param id id de la categoria, id != null
+	 * @return	retorna una lista de perfiles ordenados(numero de reviews), si la categoria no existe retorna null
+	 */
+	def perfilesCategoria(Long id)
 	{
 		def cat = Categorias.get(id);
 		
 		if(cat == null)
 		{
-			throw new KahuuException("No se encontro ning&uacute;n resultado.");
+			return null;
 		}
 		else
 		{

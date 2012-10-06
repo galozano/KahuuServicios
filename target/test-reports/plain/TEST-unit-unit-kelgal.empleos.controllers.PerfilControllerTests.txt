@@ -1,5 +1,5 @@
 Testsuite: kelgal.empleos.controllers.PerfilControllerTests
-Tests run: 5, Failures: 1, Errors: 0, Time elapsed: 6.311 sec
+Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 6.562 sec
 ------------- Standard Output ---------------
 --Output from testIndex--
 --Output from testProfile--
@@ -15,23 +15,8 @@ Tests run: 5, Failures: 1, Errors: 0, Time elapsed: 6.311 sec
 --Output from testBuscar--
 ------------- ---------------- ---------------
 
-Testcase: testIndex took 4.62 sec
-Testcase: testProfile took 0.556 sec
-Testcase: testProfileUsuario took 0.362 sec
-	FAILED
-Assertion failed: 
-
-assert view == "/perfil/users"
-       |    |
-       null false
-
-junit.framework.AssertionFailedError: Assertion failed: 
-
-assert view == "/perfil/users"
-       |    |
-       null false
-
-	at kelgal.empleos.controllers.PerfilControllerTests.testProfileUsuario(PerfilControllerTests.groovy:107)
-
-Testcase: testUsers took 0.37 sec
-Testcase: testBuscar took 0.362 sec
+Testcase: testIndex took 4.855 sec
+Testcase: testProfile took 0.454 sec
+Testcase: testProfileUsuario took 0.339 sec
+Testcase: testUsers took 0.507 sec
+Testcase: testBuscar took 0.35 sec

@@ -24,6 +24,7 @@ class UsuarioServiceTests
 	{
 		String pass = "pass";
 		mockCodec(SHA1Codec);
+		
 		user = new User(nombre:"Gus",password:pass.encodeAsSHA1(), email:"gus@gus.com",fechaCreado:new Date(), activated:false, keyConfirmar:"HOLA");
 		assert user.save() != null;
 	}
