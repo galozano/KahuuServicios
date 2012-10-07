@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="1" failures="0" hostname="Gustavo-Lozanos-2.local" name="kelgal.empleos.controllers.InformacionControllerTests" tests="1" time="0.528" timestamp="2012-10-07T21:09:05">
+  <properties />
+  <testcase classname="kelgal.empleos.controllers.InformacionControllerTests" name="initializationError" time="0.153">
+    <error message="No runnable methods" type="java.lang.Exception">java.lang.Exception: No runnable methods
+</error>
+  </testcase>
+  <system-out><![CDATA[--Output from initializationError--
+]]></system-out>
+  <system-err><![CDATA[--Output from initializationError--
+]]></system-err>
+</testsuite>

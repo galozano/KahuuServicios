@@ -1,16 +1,16 @@
 Testsuite: kelgal.empleos.controllers.AdminControllerTests
-Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 2.615 sec
+Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 4.575 sec
 ------------- Standard Output ---------------
---Output from testLogin--
 --Output from testHandleLogin--
 --Output from testLogout--
+--Output from testLogin--
 ------------- ---------------- ---------------
 ------------- Standard Error -----------------
---Output from testLogin--
 --Output from testHandleLogin--
 --Output from testLogout--
+--Output from testLogin--
 ------------- ---------------- ---------------
 
-Testcase: testLogin took 2.398 sec
-Testcase: testHandleLogin took 0.086 sec
-Testcase: testLogout took 0.089 sec
+Testcase: testHandleLogin took 2.989 sec
+Testcase: testLogout took 0.204 sec
+Testcase: testLogin took 0.134 sec

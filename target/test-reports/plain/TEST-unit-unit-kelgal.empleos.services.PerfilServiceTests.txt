@@ -1,0 +1,37 @@
+Testsuite: kelgal.empleos.services.PerfilServiceTests
+Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 1.86 sec
+------------- Standard Output ---------------
+--Output from testBuscar--
+--Output from testDarCiudades--
+--Output from testDarCategorias--
+--Output from testDarPerfil--
+--Output from testDarPerfilInvalido--
+--Output from testDarPerfilUsuario--
+--Output from testDarPerfilUsuarioInvalido--
+--Output from testPerfilesCategoria--
+--Output from testPerfilesCategoriaInvalido--
+--Output from testBuscarInvalido--
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+--Output from testBuscar--
+--Output from testDarCiudades--
+--Output from testDarCategorias--
+--Output from testDarPerfil--
+--Output from testDarPerfilInvalido--
+--Output from testDarPerfilUsuario--
+--Output from testDarPerfilUsuarioInvalido--
+--Output from testPerfilesCategoria--
+--Output from testPerfilesCategoriaInvalido--
+--Output from testBuscarInvalido--
+------------- ---------------- ---------------
+
+Testcase: testBuscar took 0.392 sec
+Testcase: testDarCiudades took 0.201 sec
+Testcase: testDarCategorias took 0.163 sec
+Testcase: testDarPerfil took 0.11 sec
+Testcase: testDarPerfilInvalido took 0.167 sec
+Testcase: testDarPerfilUsuario took 0.104 sec
+Testcase: testDarPerfilUsuarioInvalido took 0.171 sec
+Testcase: testPerfilesCategoria took 0.147 sec
+Testcase: testPerfilesCategoriaInvalido took 0.168 sec
+Testcase: testBuscarInvalido took 0.066 sec

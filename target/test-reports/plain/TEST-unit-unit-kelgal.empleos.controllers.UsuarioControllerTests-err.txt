@@ -1,0 +1,4 @@
+--Output from testRegister--
+--Output from testHandleRegistration--
+--Output from testHandleLogin--
+--Output from testLogin--

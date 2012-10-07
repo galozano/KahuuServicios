@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="Gustavo-Lozanos-2.local" name="kelgal.empleos.controllers.UsuarioControllerTests" tests="4" time="1.288" timestamp="2012-10-07T21:09:11">
+  <properties />
+  <testcase classname="kelgal.empleos.controllers.UsuarioControllerTests" name="testRegister" time="0.441" />
+  <testcase classname="kelgal.empleos.controllers.UsuarioControllerTests" name="testHandleRegistration" time="0.312" />
+  <testcase classname="kelgal.empleos.controllers.UsuarioControllerTests" name="testHandleLogin" time="0.207" />
+  <testcase classname="kelgal.empleos.controllers.UsuarioControllerTests" name="testLogin" time="0.18" />
+  <system-out><![CDATA[--Output from testRegister--
+--Output from testHandleRegistration--
+--Output from testHandleLogin--
+--Output from testLogin--
+]]></system-out>
+  <system-err><![CDATA[--Output from testRegister--
+--Output from testHandleRegistration--
+--Output from testHandleLogin--
+--Output from testLogin--
+]]></system-err>
+</testsuite>

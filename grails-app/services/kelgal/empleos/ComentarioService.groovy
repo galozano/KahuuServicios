@@ -34,13 +34,13 @@ class ComentarioService
 	}
 
 	/**
-	 * Devuelve el review con un id dado
-	 * @param id- id del review, id != null & id existe
-	 * @return retora el review
+	 * Retorna el review con un id dado
+	 * @param  Long id del review, id != null & id existe
+	 * @return Review retorna el review identificado con la id entrada por parametro
 	 * @throws KahuuException arroja una excepcion si el review no existe;
 	 */
 	@Transactional(readOnly = true)
-	def darReview(id) throws KahuuException
+	def darReview(Long id) throws KahuuException
 	{
 		Review rev =  Review.get(id);
 
@@ -54,13 +54,13 @@ class ComentarioService
 
 	/**
 	 * Agregar un comentario a un perfil
-	 * @param pPerfiln
-	 * @param pUser
-	 * @param titulo
-	 * @param texto
-	 * @param rating
+	 * @param pPerfiln- perfil al cual se le agrega el nuevo comentario
+	 * @param pUser- usuario que agrego el nuevo comentario
+	 * @param titulo - titulo del comentario
+	 * @param texto - comentario
+	 * @param rating - calificacion del comentario
 	 * @return  retorna el perfil a quien se le agrego el comentario
-	 * @throws KahuuException
+	 * @throws KahuuException- en caso de que no s epuede guardar el perfil actualizado o el comentario 
 	 */
 	def crearComentario(Profile pPerfiln, User pUser, String titulo, String texto, int rating) throws KahuuException
 	{
@@ -154,7 +154,7 @@ class ComentarioService
 	/**
 	 * Borra un comentario con la id dada
 	 * @param id id != null && id existe
-	 * @return
+	 * @return void
 	 * @throws KahuuException
 	 */
 	def deleteComentario(id) throws KahuuException

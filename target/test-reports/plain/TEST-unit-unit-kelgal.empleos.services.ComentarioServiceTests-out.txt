@@ -1,0 +1,8 @@
+--Output from testCrearComentario--
+--Output from testDarMisComentarios--
+--Output from testDarMisComentariosInvalido--
+--Output from testDarReview--
+--Output from testDarReviewInvalido--
+--Output from testEditarComentario--
+--Output from testDeleteComentario--
+--Output from testDeleteComentarioInvalido--

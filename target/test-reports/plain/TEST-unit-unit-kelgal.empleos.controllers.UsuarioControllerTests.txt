@@ -1,0 +1,19 @@
+Testsuite: kelgal.empleos.controllers.UsuarioControllerTests
+Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 1.288 sec
+------------- Standard Output ---------------
+--Output from testRegister--
+--Output from testHandleRegistration--
+--Output from testHandleLogin--
+--Output from testLogin--
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+--Output from testRegister--
+--Output from testHandleRegistration--
+--Output from testHandleLogin--
+--Output from testLogin--
+------------- ---------------- ---------------
+
+Testcase: testRegister took 0.441 sec
+Testcase: testHandleRegistration took 0.312 sec
+Testcase: testHandleLogin took 0.207 sec
+Testcase: testLogin took 0.18 sec

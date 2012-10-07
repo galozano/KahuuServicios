@@ -31,8 +31,8 @@
 						<img src="${resource(dir: 'images/skin', file: 'stars-'+profileInstance.totalRating+'.png')}" />(${reviewsTotal} Comentarios)
 						<g:if test="${session.user}">
 							<h1>
-								Cel:<g:fieldValue bean="${profileInstance}" field="celular"/> 
-								<g:if test="${profileInstance.celular2}"> ,<g:fieldValue bean="${profileInstance}" field="celular2"/></g:if>
+								Cel:<g:fieldValue bean="${profileInstance}" field="celular"/>
+								<g:if test="${profileInstance.celular2}">,<g:fieldValue bean="${profileInstance}" field="celular2"/></g:if>
 							</h1>
 						</g:if>
 						<g:else>

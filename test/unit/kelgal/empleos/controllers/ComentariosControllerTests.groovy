@@ -64,6 +64,22 @@ class ComentariosControllerTests
 		controller.usuarioService = new UsuarioService();
 	}
 	
+	void testMisComentario( )
+	{
+		setIt();
+		
+		controller.misComentarios();
+		
+		assert model.totalComentarios, user.reviews.size();
+		assert view == "/comentarios/miscomentarios";
+	}
+	
+	void testCrearComentario( )
+	{
+		setIt();
+		
+	}
+	
 	void testHandleComentario( )
 	{
 		setIt();

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="Gustavo-Lozanos-2.local" name="kelgal.empleos.controllers.ComentariosControllerTests" tests="8" time="8.146" timestamp="2012-10-07T21:08:57">
+  <properties />
+  <testcase classname="kelgal.empleos.controllers.ComentariosControllerTests" name="testMisComentario" time="4.526" />
+  <testcase classname="kelgal.empleos.controllers.ComentariosControllerTests" name="testCrearComentario" time="0.387" />
+  <testcase classname="kelgal.empleos.controllers.ComentariosControllerTests" name="testHandleComentario" time="0.442" />
+  <testcase classname="kelgal.empleos.controllers.ComentariosControllerTests" name="testDeteleComentario" time="1.247" />
+  <testcase classname="kelgal.empleos.controllers.ComentariosControllerTests" name="testEditComentario" time="0.432" />
+  <testcase classname="kelgal.empleos.controllers.ComentariosControllerTests" name="testHandleEditComentario" time="0.259" />
+  <testcase classname="kelgal.empleos.controllers.ComentariosControllerTests" name="testCambiarPassword" time="0.467" />
+  <testcase classname="kelgal.empleos.controllers.ComentariosControllerTests" name="testActualizarUsuario" time="0.339" />
+  <system-out><![CDATA[--Output from testMisComentario--
+--Output from testCrearComentario--
+--Output from testHandleComentario--
+--Output from testDeteleComentario--
+--Output from testEditComentario--
+--Output from testHandleEditComentario--
+--Output from testCambiarPassword--
+--Output from testActualizarUsuario--
+]]></system-out>
+  <system-err><![CDATA[--Output from testMisComentario--
+--Output from testCrearComentario--
+--Output from testHandleComentario--
+--Output from testDeteleComentario--
+--Output from testEditComentario--
+--Output from testHandleEditComentario--
+--Output from testCambiarPassword--
+--Output from testActualizarUsuario--
+]]></system-err>
+</testsuite>

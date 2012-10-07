@@ -6,15 +6,14 @@
 		<link rel="stylesheet" href="${resource(dir: 'css', file: 'errors.css')}" type="text/css">
 	</head>
 	<body>
-		<p>
-			Hubo un Error inesperado.
-		</p>
+		<g:if env="production">
+			<p>Hubo un Error inesperado.</p>
+
+			<p>Lo sentimos. Estamos trabajando para darle un mejor servicio.</p>
+		</g:if>
+		<g:else>		
+			<g:renderException exception="${exception}"/>
+		</g:else>
 		
-		<p>
-			Lo sentimos. Estamos trabajando para darle un mejor servicio.
-		</p>
-		
-			
-		<g:renderException exception="${exception}"/>
 	</body>
 </html>

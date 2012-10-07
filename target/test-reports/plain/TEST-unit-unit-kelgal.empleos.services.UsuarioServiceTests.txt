@@ -1,0 +1,37 @@
+Testsuite: kelgal.empleos.services.UsuarioServiceTests
+Tests run: 8, Failures: 0, Errors: 1, Time elapsed: 1.575 sec
+------------- Standard Output ---------------
+--Output from testCambiarPassword--
+--Output from testActualizarUsuario--
+--Output from testRegist--
+--Output from testHandleLoginEmailInvalido--
+--Output from testHandleLoginPassword--
+--Output from testVerificarEmail--
+--Output from testVerificarInvalido--
+--Output from testHandleLoginPasswordInvalido--
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+--Output from testCambiarPassword--
+--Output from testActualizarUsuario--
+--Output from testRegist--
+--Output from testHandleLoginEmailInvalido--
+--Output from testHandleLoginPassword--
+--Output from testVerificarEmail--
+--Output from testVerificarInvalido--
+--Output from testHandleLoginPasswordInvalido--
+------------- ---------------- ---------------
+
+Testcase: testCambiarPassword took 0.249 sec
+Testcase: testActualizarUsuario took 0.036 sec
+Testcase: testRegist took 0.495 sec
+	Caused an ERROR
+No thread-bound request found: Are you referring to request attributes outside of an actual web request, or processing a request outside of the originally receiving thread? If you are actually operating within a web request and still receive this message, your code is probably running outside of DispatcherServlet/DispatcherPortlet: In this case, use RequestContextListener or RequestContextFilter to expose the current request.
+java.lang.IllegalStateException: No thread-bound request found: Are you referring to request attributes outside of an actual web request, or processing a request outside of the originally receiving thread? If you are actually operating within a web request and still receive this message, your code is probably running outside of DispatcherServlet/DispatcherPortlet: In this case, use RequestContextListener or RequestContextFilter to expose the current request.
+	at kelgal.empleos.UsuarioService.registration(UsuarioService.groovy:58)
+	at kelgal.empleos.services.UsuarioServiceTests.testRegist(UsuarioServiceTests.groovy:69)
+
+Testcase: testHandleLoginEmailInvalido took 0.024 sec
+Testcase: testHandleLoginPassword took 0.681 sec
+Testcase: testVerificarEmail took 0.026 sec
+Testcase: testVerificarInvalido took 0.019 sec
+Testcase: testHandleLoginPasswordInvalido took 0.034 sec

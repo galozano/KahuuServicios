@@ -163,6 +163,8 @@ class PerfilServiceTests {
 		
 		assert results.get(0).nombre, "Gustavo";
 		assert results.get(1).nombre, "Rafael";	
+		
+		//TODO: hay que hacer caso para pobrar que se ordenan bien
 	}
 	
 	void testPerfilesCategoriaInvalido( )

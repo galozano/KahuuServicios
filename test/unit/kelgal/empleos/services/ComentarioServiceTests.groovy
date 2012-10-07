@@ -63,6 +63,9 @@ class ComentarioServiceTests
 		{
 			def results = comentarioService.darMisComentarios(user.id);
 			assert results.size(), 2;
+			
+			//TODO: esten ordenados por fecha
+			
 		}
 		catch(KahuuException e)
 		{
@@ -94,9 +97,11 @@ class ComentarioServiceTests
 		try
 		{
 			Review rev = comentarioService.darReview(review.id);
-			
-			assert rev.titulo, review.titulo;
-			assert rev.rating, review.rating;
+				
+			assert review.id, rev.id;
+			assert review.titulo, rev.titulo;
+			assert review.texto, rev.texto;
+			assert review.rating, rev.rating;
 		}
 		catch(KahuuException e)
 		{
@@ -125,6 +130,8 @@ class ComentarioServiceTests
 		 
 		//test ideal
 		int inicial = profile.totalRating;
+		int totalReviews = this.profile.reviews.size();
+		
 		
 		String titulo = "Prueba Titulo";
 		String texto = "prueba texto kjsdfgh";
@@ -132,7 +139,10 @@ class ComentarioServiceTests
 		
 		try
 		{
-			comentarioService.crearComentario(profile,user,titulo,texto,rating);
+			Profile profNuevo = comentarioService.crearComentario(profile,user,titulo,texto,rating);
+			
+			assert profNuevo.reviews.size( ), (totalReviews + 1); 
+			assert profNuevo.nombre, profile.nombre;
 		}
 		catch(KahuuException e)
 		{

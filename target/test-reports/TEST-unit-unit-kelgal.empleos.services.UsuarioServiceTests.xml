@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="1" failures="0" hostname="Gustavo-Lozanos-2.local" name="kelgal.empleos.services.UsuarioServiceTests" tests="8" time="1.575" timestamp="2012-10-07T21:09:18">
+  <properties />
+  <testcase classname="kelgal.empleos.services.UsuarioServiceTests" name="testCambiarPassword" time="0.249" />
+  <testcase classname="kelgal.empleos.services.UsuarioServiceTests" name="testActualizarUsuario" time="0.036" />
+  <testcase classname="kelgal.empleos.services.UsuarioServiceTests" name="testRegist" time="0.495">
+    <error message="No thread-bound request found: Are you referring to request attributes outside of an actual web request, or processing a request outside of the originally receiving thread? If you are actually operating within a web request and still receive this message, your code is probably running outside of DispatcherServlet/DispatcherPortlet: In this case, use RequestContextListener or RequestContextFilter to expose the current request." type="java.lang.IllegalStateException">java.lang.IllegalStateException: No thread-bound request found: Are you referring to request attributes outside of an actual web request, or processing a request outside of the originally receiving thread? If you are actually operating within a web request and still receive this message, your code is probably running outside of DispatcherServlet/DispatcherPortlet: In this case, use RequestContextListener or RequestContextFilter to expose the current request.
+	at kelgal.empleos.UsuarioService.registration(UsuarioService.groovy:58)
+	at kelgal.empleos.services.UsuarioServiceTests.testRegist(UsuarioServiceTests.groovy:69)
+</error>
+  </testcase>
+  <testcase classname="kelgal.empleos.services.UsuarioServiceTests" name="testHandleLoginEmailInvalido" time="0.024" />
+  <testcase classname="kelgal.empleos.services.UsuarioServiceTests" name="testHandleLoginPassword" time="0.681" />
+  <testcase classname="kelgal.empleos.services.UsuarioServiceTests" name="testVerificarEmail" time="0.026" />
+  <testcase classname="kelgal.empleos.services.UsuarioServiceTests" name="testVerificarInvalido" time="0.019" />
+  <testcase classname="kelgal.empleos.services.UsuarioServiceTests" name="testHandleLoginPasswordInvalido" time="0.034" />
+  <system-out><![CDATA[--Output from testCambiarPassword--
+--Output from testActualizarUsuario--
+--Output from testRegist--
+--Output from testHandleLoginEmailInvalido--
+--Output from testHandleLoginPassword--
+--Output from testVerificarEmail--
+--Output from testVerificarInvalido--
+--Output from testHandleLoginPasswordInvalido--
+]]></system-out>
+  <system-err><![CDATA[--Output from testCambiarPassword--
+--Output from testActualizarUsuario--
+--Output from testRegist--
+--Output from testHandleLoginEmailInvalido--
+--Output from testHandleLoginPassword--
+--Output from testVerificarEmail--
+--Output from testVerificarInvalido--
+--Output from testHandleLoginPasswordInvalido--
+]]></system-err>
+</testsuite>
