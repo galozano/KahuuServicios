@@ -18,9 +18,13 @@ class Review
 	{
 		titulo size:4..20, blank:false;
 		texto  blank:false;
+		author blank:false;
+		rating blank:false;
+		
 	}
 	
-	static mapping = {
+	static mapping =
+	 {
 		texto type: 'text';
 	}
 }

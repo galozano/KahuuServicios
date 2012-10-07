@@ -2,10 +2,13 @@ package kelgal.empleos
 
 class Categorias 
 {	
+	/**
+	 * 
+	 */
 	String nombre;
 
     static constraints =
 	{
-		nombre unique: true;
+		nombre unique: true, blank:false;
     }
 }

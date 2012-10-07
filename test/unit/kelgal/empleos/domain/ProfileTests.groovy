@@ -13,7 +13,5 @@ import org.junit.*
 @TestFor(Profile)
 class ProfileTests {
 
-    void testSomething() {
-       fail "Implement me"
-    }
+
 }

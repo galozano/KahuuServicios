@@ -1,5 +1,0 @@
---Output from testIndex--
---Output from testProfile--
---Output from testProfileUsuario--
---Output from testUsers--
---Output from testBuscar--

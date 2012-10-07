@@ -5,7 +5,7 @@ import org.springframework.transaction.annotation.Transactional
 
 
 /**
- * EL servicio que maneja todo lo relacionado con los comentarios de los perfiles
+ * EL servicio que maneja todo lo relacionado con los comentarios
  * @author gustavolozano
  */
 @Transactional
@@ -13,11 +13,12 @@ class ComentarioService
 {
 	/**
 	 * Devuelve los comentarios de un usuario existente 
-	 * @param id id != null && id existe
-	 * @return
+	 * @param id- id del usuario id != null && id existe
+	 * @return retorna una lista con los comentarios del usuario
+	 * @throws KahuuException-arroja una excepcion si no existe el usuario
 	 */
 	@Transactional(readOnly = true)
-	def darMisComentarios(Long id)
+	def darMisComentarios(Long id) throws KahuuException
 	{
 		User user = User.get(id);
 		
@@ -34,12 +35,12 @@ class ComentarioService
 
 	/**
 	 * Devuelve el review con un id dado
-	 * @pre el id debe existir
-	 * @param id
-	 * @return
+	 * @param id- id del review, id != null & id existe
+	 * @return retora el review
+	 * @throws KahuuException arroja una excepcion si el review no existe;
 	 */
 	@Transactional(readOnly = true)
-	def darReview(id)
+	def darReview(id) throws KahuuException
 	{
 		Review rev =  Review.get(id);
 
@@ -58,9 +59,10 @@ class ComentarioService
 	 * @param titulo
 	 * @param texto
 	 * @param rating
-	 * @return el perfil a quien se le agrego el comentario
+	 * @return  retorna el perfil a quien se le agrego el comentario
+	 * @throws KahuuException
 	 */
-	def crearComentario(Profile pPerfiln, User pUser, String titulo, String texto, int rating)
+	def crearComentario(Profile pPerfiln, User pUser, String titulo, String texto, int rating) throws KahuuException
 	{
 		Profile profile = pPerfiln;
 		User user = pUser;
@@ -96,7 +98,7 @@ class ComentarioService
 			throw new KahuuException("Error guardando", review);
 		}
 	}
-
+	
 	/**
 	 * Se edita el comentario con la id especificada
 	 * @param id id!= null
@@ -104,8 +106,9 @@ class ComentarioService
 	 * @param texto  texto != null
 	 * @param rating  rating < 6 && rating > -1
 	 * @return retorna el perfil al cual se le fue editado el comentario
+	 * @throws KahuuException
 	 */
-	def editarComentario(Long id,String titulo, String texto, int rating)
+	def editarComentario(Long id,String titulo, String texto, int rating) throws KahuuException
 	{
 		Review rev = Review.get(id);
 
@@ -151,8 +154,10 @@ class ComentarioService
 	/**
 	 * Borra un comentario con la id dada
 	 * @param id id != null && id existe
+	 * @return
+	 * @throws KahuuException
 	 */
-	def deleteComentario(id)
+	def deleteComentario(id) throws KahuuException
 	{	
 		Review rev = Review.get(id);
 		

@@ -12,7 +12,5 @@ import org.junit.*
 @TestFor(Certificado)
 class CertificadoTests {
 
-    void testSomething() {
-       fail "Implement me"
-    }
+
 }

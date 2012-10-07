@@ -24,7 +24,7 @@
 
 			<g:link controller="comentarios" action="misComentarios">Atras</g:link>
 
-			<h2>Editar Comentario-${comentarioInstance?.profile.nombre}</h2>
+			<h2>Editar Comentario</h2>
 
 			<g:form action="handleEditComentario">
 				<g:hiddenField name="id" value="${comentarioInstance?.id}" />

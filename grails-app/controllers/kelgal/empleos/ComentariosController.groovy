@@ -123,9 +123,17 @@ class ComentariosController
 		{
 			int rating = Integer.parseInt(params.rating);
 			
-			def profile = comentarioService.editarComentario(id, params.titulo, params.texto, rating);
-			flash.message = "Mensaje editado con exito";
-			redirect(action:"misComentarios");
+			if(rating < 1 || rating > 5)
+			{
+				flash.message = "Valor del comentario es invalido";
+				redirect(action:"editarComentario", id:id);
+			}
+			else
+			{
+				def profile = comentarioService.editarComentario(id, params.titulo, params.texto, rating);
+				flash.message = "Mensaje editado con exito";
+				redirect(action:"misComentarios");
+			}
 		}
 		catch(KahuuException e)
 		{
@@ -135,7 +143,7 @@ class ComentariosController
 		catch(Exception e)
 		{
 			flash.message = "Error inesperado";
-			render(view:"comentario");
+			redirect(action:"editarComentario", id:id)
 		}
 	}
 

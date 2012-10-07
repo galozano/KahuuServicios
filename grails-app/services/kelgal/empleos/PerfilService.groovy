@@ -4,28 +4,46 @@ import kelgal.empleos.exceptions.KahuuException
 
 
 /**
- * 
+ * Servicio que maneja todo lo relacionado con el Perfil
  * @author gustavolozano
  *
  */
 class PerfilService
 {
+	/**
+	 * 
+	 * @return
+	 */
 	def darCiudades( )
 	{
 		return Ciudad.list( );
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	def darCategorias( )
 	{
 		return Categorias.list(sort:'nombre');
 	}
 	
+	/**
+	 * 
+	 * @param profile
+	 * @return
+	 */
 	def darReviewsPerfil(Profile profile)
 	{
 		List revs = Review.findAllByProfile(profile,[sort: "fechaCreado", order: "desc"]);
 		return revs;
 	}
 	
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
 	def darPerfil(id)
 	{
 		Profile perfil = Profile.get(id);
@@ -40,6 +58,11 @@ class PerfilService
 		}
 	}
 	
+	/**
+	 * 
+	 * @param usuario
+	 * @return
+	 */
 	def darPerfilUsuario(String usuario)
 	{
 		Profile perfil = Profile.findByUsuario(usuario);
@@ -52,6 +75,11 @@ class PerfilService
 		return perfil;
 	}
 	
+	/**
+	 * 
+	 * @param buscador
+	 * @return
+	 */
 	def buscarPerfil(String buscador)
 	{
 		//		def results = Profile.findAll("from Profile as b " +

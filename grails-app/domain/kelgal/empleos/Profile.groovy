@@ -7,14 +7,26 @@ class Profile implements Comparable
 {	
 	String nombre;
 	
+	/**
+	 * Nombre de usuario para identificar al perfil
+	 */
 	String usuario;
 	
+	/**
+	 * Constrasena del perfil
+	 */
 	String password;
 	
 	String email;
 	
+	/**
+	 * Fecha y Hora en la cual fue creado el perfil
+	 */
 	Date fechaCreado;
 	
+	/**
+	 * Estado del usuario, incrito o no
+	 */
 	boolean estadoUsuario;
 	
 	String celular;
@@ -27,6 +39,9 @@ class Profile implements Comparable
 	
 	byte[] image;
 	
+	/**
+	 * El rating total del perfil
+	 */
 	int totalRating;
 	
 	Certificado certificado;
@@ -49,12 +64,35 @@ class Profile implements Comparable
 	{
 		int rev1 = this.reviews == null? 0:this.reviews.size( );
 		int rev2 = o.reviews == null? 0 : o.reviews.size();
-		
+		int totalRating1 = this.totalRating == null? 0: this.totalRating;
+		int totalRating2 = o.totalRating == null ? 0 : o.totalRating;
+			
 		if(rev1 == rev2)
-			return 0;
+		{
+			if(totalRating1 == totalRating2)
+				return 0;
+			else if(totalRating1 < totalRating2)
+				return 1;
+			else if(totalRating1 > totalRating2)
+				return -1;
+		}
 		else if(rev1 < rev2)
-			return 1;
+		{
+			if(totalRating1 == totalRating2)
+				return 1;
+			else if(totalRating1 < totalRating2)
+				return 1;
+			else if(totalRating1 > totalRating2)
+				return -1;
+		}
 		else if(rev1 > rev2)
-			return -1;
+		{
+			if(totalRating1 == totalRating2)
+				return -1;
+			else if(totalRating1 < totalRating2)
+				return 1;
+			else if(totalRating1 > totalRating2)
+				return -1;
+		}
 	}
 }

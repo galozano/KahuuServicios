@@ -11,8 +11,10 @@ import org.junit.*
  */
 @TestFor(Review)
 class ReviewTests {
+	
+	void testConstraint( )
+	{
+		
+	}
 
-    void testSomething() {
-       fail "Implement me"
-    }
 }

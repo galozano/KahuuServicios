@@ -1,30 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-  <testsuite errors="0" failures="0" hostname="Gustavo-Lozanos-2.local" id="0" name="PerfilControllerTests" package="kelgal.empleos.controllers" tests="5" time="6.562" timestamp="2012-10-06T19:55:01">
+  <testsuite errors="0" failures="0" hostname="Gustavo-Lozanos-2.local" id="0" name="AdminControllerTests" package="kelgal.empleos.controllers" tests="3" time="2.615" timestamp="2012-10-06T21:39:29">
       <properties />
 
-      <testcase classname="kelgal.empleos.controllers.PerfilControllerTests" name="testIndex" time="4.855" />
+      <testcase classname="kelgal.empleos.controllers.AdminControllerTests" name="testLogin" time="2.398" />
 
-      <testcase classname="kelgal.empleos.controllers.PerfilControllerTests" name="testProfile" time="0.454" />
+      <testcase classname="kelgal.empleos.controllers.AdminControllerTests" name="testHandleLogin" time="0.086" />
 
-      <testcase classname="kelgal.empleos.controllers.PerfilControllerTests" name="testProfileUsuario" time="0.339" />
+      <testcase classname="kelgal.empleos.controllers.AdminControllerTests" name="testLogout" time="0.089" />
 
-      <testcase classname="kelgal.empleos.controllers.PerfilControllerTests" name="testUsers" time="0.507" />
-
-      <testcase classname="kelgal.empleos.controllers.PerfilControllerTests" name="testBuscar" time="0.35" />
-
-      <system-out><![CDATA[--Output from testIndex--
---Output from testProfile--
---Output from testProfileUsuario--
---Output from testUsers--
---Output from testBuscar--
+      <system-out><![CDATA[--Output from testLogin--
+--Output from testHandleLogin--
+--Output from testLogout--
 ]]></system-out>
 
-      <system-err><![CDATA[--Output from testIndex--
---Output from testProfile--
---Output from testProfileUsuario--
---Output from testUsers--
---Output from testBuscar--
+      <system-err><![CDATA[--Output from testLogin--
+--Output from testHandleLogin--
+--Output from testLogout--
 ]]></system-err>
 
   </testsuite>

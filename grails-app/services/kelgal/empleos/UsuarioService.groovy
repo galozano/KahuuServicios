@@ -5,19 +5,20 @@ import org.codehaus.groovy.grails.plugins.web.taglib.ApplicationTagLib
 
 
 /**
- * 
+ * Servicio que maneja todo lo que tiene que ver con el Usuario
  * @author gustavolozano
- *
  */
 class UsuarioService
 {
+	
 	/**
-	 * 
-	 * @param email
-	 * @param password
-	 * @return
+	 * Verifica que el usuario que esta haciendo login existe y es valido
+	 * @param email email del usuario tratando de registrarse, email != null
+	 * @param password password del usuario tratando de registrarse, password != null
+	 * @return retorna el usuario en caso que todo sea correcto, null de lo contrario
+	 * @throws KahuuException
 	 */
-	def loginUsuario(String email, String password)
+	def loginUsuario(String email, String password) throws KahuuException
 	{
 		User user = User.findByEmail(email);
 
@@ -38,14 +39,16 @@ class UsuarioService
 		}
 	}
 
+	
 	/**
 	 * Registra un nuevo usuario al sistema
 	 * @param nombre  nombre != null && nombre != ""
 	 * @param email  email != null && email != ""
 	 * @param password  password != null && password != ""
 	 * @return retorna el usuario que fue registrado
+	 * @throws KahuuException
 	 */
-	def registration(String nombre, String email, String password)
+	def registration(String nombre, String email, String password) throws KahuuException
 	{
 		User user = new User(nombre:nombre, email:email, password:password.encodeAsSHA1(), fechaCreado:new Date(), activated:false, keyConfirmar:Password.createRandomPass());
 
@@ -71,12 +74,14 @@ class UsuarioService
 		}
 	}
 
+
 	/**
 	 * Envia un email con clave nueva
 	 * @param email email != null
 	 * @return retorna el usuario al cual se le olvido la clave
+	 * @throws KahuuException
 	 */
-	def olvidoClave(String email)
+	def olvidoClave(String email)  throws KahuuException
 	{
 		String sb = Password.createRandomPass();
 		User user = User.findByEmail(email);
@@ -113,10 +118,11 @@ class UsuarioService
 
 	/**
 	 * Verificar el email despues de registrarse con un link
-	 * @param id id != null && id existe
-	 * @return
+	 * @param id id del usuario, id != null && id existe
+	 * @return verdadero en caso que se verifique bien el email, fakse de lo contario
+	 * @throws KahuuException arroja una excepcion en caso de que exista un error guardado el usuario
 	 */
-	def verificarEmail(id, String clave)
+	def verificarEmail(id, String clave)  throws KahuuException
 	{
 		User u = User.get(id);
 		
@@ -140,7 +146,14 @@ class UsuarioService
 		}
 	}
 
-	def cambiarPassword(String password, Long id)
+	/**
+	 * Cambia la constrasena del usuario por la nueva especificada
+	 * @param password- las constrasena nueva, password != null
+	 * @param id la id del usuario al cual se le cambia la constrasena, id != null
+	 * @return retorna el usuario a quien se le cambio la constrasena.
+	 * @throws KahuuException- arroja una excepcion en caso de que el usuario no exista o no se pude guarar el usuario
+	 */
+	def cambiarPassword(String password, Long id) throws KahuuException
 	{
 		User user = User.get(id);
 	
@@ -161,7 +174,15 @@ class UsuarioService
 		}
 	}
 	
-	def actualizarUsuario(String nombreNuevo, Long id)
+
+	/**
+	 * 
+	 * @param nombreNuevo
+	 * @param id
+	 * @return
+	 * @throws KahuuException
+	 */
+	def actualizarUsuario(String nombreNuevo, Long id)  throws KahuuException
 	{
 		User user = User.get(id);
 		
