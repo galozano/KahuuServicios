@@ -1,3 +1,0 @@
---Output from testHandleLogin--
---Output from testLogout--
---Output from testLogin--

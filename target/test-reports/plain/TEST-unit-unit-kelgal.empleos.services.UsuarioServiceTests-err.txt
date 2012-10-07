@@ -1,8 +1,0 @@
---Output from testCambiarPassword--
---Output from testActualizarUsuario--
---Output from testRegist--
---Output from testHandleLoginEmailInvalido--
---Output from testHandleLoginPassword--
---Output from testVerificarEmail--
---Output from testVerificarInvalido--
---Output from testHandleLoginPasswordInvalido--
