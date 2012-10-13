@@ -1,4 +1,4 @@
-package kelgal.empleos
+package kelgal.empleos;
 
 import kelgal.empleos.exceptions.KahuuException;
 import org.springframework.transaction.annotation.Transactional
@@ -14,8 +14,8 @@ class ComentarioService
 	/**
 	 * Devuelve los comentarios de un usuario existente 
 	 * @param id- id del usuario id != null && id existe
-	 * @return retorna una lista con los comentarios del usuario
-	 * @throws KahuuException-arroja una excepcion si no existe el usuario
+	 * @return lista con los comentarios del usuario
+	 * @throws KahuuException-si no existe el usuario
 	 */
 	@Transactional(readOnly = true)
 	def darMisComentarios(Long id) throws KahuuException
@@ -36,8 +36,8 @@ class ComentarioService
 	/**
 	 * Retorna el review con un id dado
 	 * @param  Long id del review, id != null & id existe
-	 * @return Review retorna el review identificado con la id entrada por parametro
-	 * @throws KahuuException arroja una excepcion si el review no existe;
+	 * @return Review review identificado con la id entrada por parametro
+	 * @throws KahuuException si el review no existe
 	 */
 	@Transactional(readOnly = true)
 	def darReview(Long id) throws KahuuException
@@ -59,8 +59,8 @@ class ComentarioService
 	 * @param titulo - titulo del comentario
 	 * @param texto - comentario
 	 * @param rating - calificacion del comentario
-	 * @return  retorna el perfil a quien se le agrego el comentario
-	 * @throws KahuuException- en caso de que no s epuede guardar el perfil actualizado o el comentario 
+	 * @return perfil a quien se le agrego el comentario
+	 * @throws KahuuException- en caso de que no se pueda guardar el perfil actualizado o el comentario 
 	 */
 	def crearComentario(Profile pPerfiln, User pUser, String titulo, String texto, int rating) throws KahuuException
 	{
@@ -106,7 +106,7 @@ class ComentarioService
 	 * @param texto  texto != null
 	 * @param rating  rating < 6 && rating > -1
 	 * @return retorna el perfil al cual se le fue editado el comentario
-	 * @throws KahuuException
+	 * @throws KahuuException- so no se puede guardarel nuevo review 
 	 */
 	def editarComentario(Long id,String titulo, String texto, int rating) throws KahuuException
 	{
