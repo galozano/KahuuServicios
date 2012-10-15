@@ -6,7 +6,6 @@
 <title>Terminos y Condiciones</title>
 </head>
 <body>
-	<div class="body">
 	  	<div id="page">
 			<div class="page-bgtop">
 				<p>
@@ -201,6 +200,5 @@
 				</p>
 			</div>
 		</div>
-	</div>
 </body>
 </html>

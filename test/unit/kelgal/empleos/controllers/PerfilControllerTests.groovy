@@ -80,6 +80,14 @@ class PerfilControllerTests
 		assert view == "/perfil/index";		
 	}
 	
+	void testPrincipal( )
+	{
+		setIt();
+		
+		controller.principal();		
+		assert view == "/perfil/principal";
+	}
+	
 	void testProfile( )
 	{	
 		setIt();
@@ -104,7 +112,7 @@ class PerfilControllerTests
 		params.usuario = "NOEXISTE";
 		controller.profileUsuario();
 		flash.message != null;
-		assert response.redirectedUrl == "/perfil/users";
+		assert response.redirectedUrl == "/perfil/perfiles";
 		
 		response.reset( );
 		
@@ -118,19 +126,19 @@ class PerfilControllerTests
 	{		
 		setIt();
 		
-		controller.users(categoria.id);
+		controller.perfiles(categoria.id);
 		
 		assert model.profileInstanceTotal, 2;
 		assert model.profileInstanceList.get(0).nombre, "Gustavo";
 		assert model.profileInstanceList.get(1).nombre, "Rafael";
 		
 		//Buscar en categoria que no existe
-		controller.users(12345);
+		controller.perfiles(12345);
 		assert flash.message != null;
 		
 		response.reset( );
 		
-		controller.users();
+		controller.perfiles();
 		
 	}
 	

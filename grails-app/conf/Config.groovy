@@ -61,9 +61,11 @@ grails.hibernate.cache.queries = false
 
 //Configure google Analytics
 google.analytics.webPropertyID = "UA-34823980-1"
+grails.views.javascript.library="jquery"
 
 environments {
-    development {
+    development 
+	{
         grails.logging.jul.usebridge = true
     }
     production {
@@ -98,7 +100,7 @@ grails {
 mail {
 	host = "smtp.gmail.com"
 	port = 465
-	username = "soporte@kelgal.com"
+	username = "soporte@kahuu.co"
 	password = "so112358"
 	props = ["mail.smtp.auth":"true",
 			 "mail.smtp.socketFactory.port":"465",

@@ -2,31 +2,23 @@ package kelgal.empleos
 
 import java.util.Date;
 
-
+/**
+ * Representa un perfil( los que proveen el servicio) en el sistema
+ * @author gustavolozano
+ *
+ */
 class Profile implements Comparable
 {	
 	String nombre;
 	
-	/**
-	 * Nombre de usuario para identificar al perfil
-	 */
 	String usuario;
 	
-	/**
-	 * Constrasena del perfil
-	 */
 	String password;
 	
 	String email;
 	
-	/**
-	 * Fecha y Hora en la cual fue creado el perfil
-	 */
 	Date fechaCreado;
 	
-	/**
-	 * Estado del usuario, incrito o no
-	 */
 	boolean estadoUsuario;
 	
 	String celular;
@@ -39,9 +31,6 @@ class Profile implements Comparable
 	
 	byte[] image;
 	
-	/**
-	 * El rating total del perfil
-	 */
 	int totalRating;
 	
 	Certificado certificado;
@@ -59,6 +48,10 @@ class Profile implements Comparable
 		celular blank:false;
     }
 
+	/**
+	 * Compra los perfile para ordenarlos.
+	 * Se compara por la cantidad de comentarios que tenga y el rating total que tenga los perfiles
+	 */
 	@Override
 	public int compareTo(Object o)
 	{

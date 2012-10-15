@@ -11,8 +11,8 @@ import kelgal.empleos.exceptions.KahuuException
 class PerfilService
 {
 	/**
-	 * 
-	 * @return
+	 * Retorna todas la ciudad que existan
+	 * @return lista de ciudades
 	 */
 	def darCiudades( )
 	{
@@ -20,29 +20,30 @@ class PerfilService
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Retorna todas las categorias
+	 * @return lista de categorias
 	 */
 	def darCategorias( )
 	{
 		return Categorias.list(sort:'nombre');
 	}
 	
+	
 	/**
-	 * 
-	 * @param profile
-	 * @return
+	 * Retrona los comentarios de un perfil en especifico
+	 * @param profile el perfil - perfil != null & perfil existe
+	 * @return lista de comentarios del perfil
 	 */
-	def darReviewsPerfil(Profile profile)
+	def darReviewsPerfil(Profile perfil)
 	{
-		List revs = Review.findAllByProfile(profile,[sort: "fechaCreado", order: "desc"]);
+		List revs = Review.findAllByProfile(perfil,[sort: "fechaCreado", order: "desc"]);
 		return revs;
 	}
 	
 	/**
-	 * 
-	 * @param id
-	 * @return
+	 * Retorna un perfil con la id
+	 * @param id- id del perfil- perfil != null 
+	 * @return el perfil o null en caso de que no exista
 	 */
 	def darPerfil(id)
 	{
@@ -59,9 +60,9 @@ class PerfilService
 	}
 	
 	/**
-	 * 
-	 * @param usuario
-	 * @return
+	 * Retorna un perdil dado el nombre de usuario
+	 * @param usuario- el nombre de usuario del perfil - usuario != null
+	 * @return perfil con el nombre de usuario especificado o null si no existe
 	 */
 	def darPerfilUsuario(String usuario)
 	{
@@ -76,9 +77,9 @@ class PerfilService
 	}
 	
 	/**
-	 * 
-	 * @param buscador
-	 * @return
+	 * Busca un perfil con el texto dado - se busca en la descripcion, nombre y categoria
+	 * @param buscador - el texto a buscar
+	 * @return lista de los perfiles que coinciden con el texto buscado
 	 */
 	def buscarPerfil(String buscador)
 	{
@@ -111,15 +112,44 @@ class PerfilService
 		}
 		else
 		{
-			def c = Profile.createCriteria();
-			
-			def results = c.list( ) {
-				categorias {
-						eq("nombre",cat.nombre);
-				}
-			}
-	
-			return results.sort();
+			return perfilesCategoriasNombre(cat.nombre);
 		}
+	}
+	
+	/**
+	 * Retorna la lista de usuario dado el nombre de una categoria
+	 * @param nombreCategoria- nombre de la categoria - nombreCategoria != null
+	 * @return retorna una lista con los perfiles de la categoria
+	 */
+	def perfilesCategoriasNombre(String nombreCategoria)
+	{
+		def c = Profile.createCriteria();
+		
+		def results = c.list( ) {
+			categorias {
+					eq("nombre",nombreCategoria);
+			}
+		}
+		return results.sort();
+	}
+	
+	
+	/**
+	 * Retorna una lista de 3 perfiles con lo mas destacados 
+	 * los mas destacados son los que mas tienen estrellas
+	 * @return la lista de los destacados
+	 */
+	def perfilesDestacados( )
+	{
+		return Profile.list(max: 3, sort: "totalRating", order: "desc").sort();		
+	}
+	
+	/**
+	 * Retorna una lista de lso perfiles que fueron anadidos recientemente
+	 * @return la lista de los recientes
+	 */
+	def perfilesRecientes( )
+	{
+		return Profile.list(max: 3, sort: "fechaCreado", order: "desc");
 	}
 }

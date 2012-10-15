@@ -1,7 +1,7 @@
 package kelgal.empleos
 
 /**
- * 
+ * Contalador de los administradores
  * @author gustavolozano
  *
  */
@@ -9,6 +9,10 @@ class AdminController
 {
 	def index() { }
 	
+	/**
+	 * 
+	 * @return
+	 */
 	def login( )
 	{
 		if (session.admin)
@@ -21,6 +25,10 @@ class AdminController
 		}
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	def handleLogin( )
 	{
 		def user = Admin.findByLogin(params.login);
@@ -45,6 +53,10 @@ class AdminController
 		}
 	}
 
+	/**
+	 * Log out del admin
+	 * @return
+	 */
 	def logout()
 	{
 		log.info "User agent: " + request.getHeader("User-Agent")

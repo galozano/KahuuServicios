@@ -6,8 +6,6 @@
 <title>Ingresar</title>
 </head>
 <body>
-	<div class="body">
-		<div id="page">
 			<div class="page-bgtop">
 			
 				<g:hasErrors bean="${userInstance}">
@@ -91,8 +89,6 @@
 					</g:form>			
 				</div>
 			</div>
-		</div>
-	</div>
 </body>
 </html>
 

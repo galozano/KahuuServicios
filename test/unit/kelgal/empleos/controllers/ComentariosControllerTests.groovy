@@ -24,6 +24,10 @@ import org.junit.*
 @Mock([Profile,Categorias,Review,Certificado,User])
 class ComentariosControllerTests 
 {
+	//--------------------------------------------------------------------------------------------------
+	// Dominios
+	//--------------------------------------------------------------------------------------------------
+	
 	private Categorias categoria;
 	
 	private Ciudad ciudad;
@@ -36,6 +40,10 @@ class ComentariosControllerTests
 	
 	private User user;
 
+	//--------------------------------------------------------------------------------------------------
+	// Escenarios
+	//--------------------------------------------------------------------------------------------------
+	
 	public setIt()
 	{
 		categoria = new Categorias(nombre:"Primera");
@@ -63,6 +71,10 @@ class ComentariosControllerTests
 		controller.perfilService = new PerfilService();
 		controller.usuarioService = new UsuarioService();
 	}
+	
+	//--------------------------------------------------------------------------------------------------
+	// Tests
+	//--------------------------------------------------------------------------------------------------
 	
 	void testMisComentario( )
 	{

@@ -7,6 +7,7 @@ class UrlMappings {
 			}
 		}
 
+		"/categoria/$nombreCategoria"(controller:"perfil", action:"categoria");
 		"/$usuario"(controller:"perfil", action:"profileUsuario");
 		"/" (controller: "perfil", action:"index")
 		"500"(view:'/error')

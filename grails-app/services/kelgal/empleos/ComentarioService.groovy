@@ -1,7 +1,7 @@
-package kelgal.empleos;
+package kelgal.empleos
 
+import org.springframework.transaction.annotation.Transactional;
 import kelgal.empleos.exceptions.KahuuException;
-import org.springframework.transaction.annotation.Transactional
 
 
 /**
@@ -11,17 +11,18 @@ import org.springframework.transaction.annotation.Transactional
 @Transactional
 class ComentarioService 
 {
+	
 	/**
 	 * Devuelve los comentarios de un usuario existente 
 	 * @param id- id del usuario id != null && id existe
 	 * @return lista con los comentarios del usuario
-	 * @throws KahuuException-si no existe el usuario
+	 * @throws KahuuException-si no existe el usuario 
 	 */
 	@Transactional(readOnly = true)
 	def darMisComentarios(Long id) throws KahuuException
 	{
 		User user = User.get(id);
-		
+	
 		if(user)
 		{
 			List revs = Review.findAllByUser(user,[sort: "fechaCreado", order: "desc"]);
@@ -54,6 +55,7 @@ class ComentarioService
 
 	/**
 	 * Agregar un comentario a un perfil
+	 * <b>post:</b> Existe un nuevo comentario en la base de datos
 	 * @param pPerfiln- perfil al cual se le agrega el nuevo comentario
 	 * @param pUser- usuario que agrego el nuevo comentario
 	 * @param titulo - titulo del comentario
@@ -69,7 +71,7 @@ class ComentarioService
 
 		Review review = new Review(author:user.nombre, titulo:titulo ,texto:texto, rating:rating, profile:profile,user:user, fechaCreado:new Date());
 
-		if(review.save(flush:true))
+		if(review.save( ))
 		{
 			profile = Profile.get(profile.id);
 
@@ -84,7 +86,7 @@ class ComentarioService
 			//Se actualiza el rating al nuevo despues de agregar el comentario
 			profile.totalRating = average;
 
-			if(profile.save(flush:true))
+			if(profile.save( ))
 			{
 				return profile;
 			}
@@ -101,12 +103,13 @@ class ComentarioService
 	
 	/**
 	 * Se edita el comentario con la id especificada
+	 * <b>post:</b> El comentario se esta actualizado en la base de datos
 	 * @param id id!= null
 	 * @param titulo titulo != null
 	 * @param texto  texto != null
 	 * @param rating  rating < 6 && rating > -1
 	 * @return retorna el perfil al cual se le fue editado el comentario
-	 * @throws KahuuException- so no se puede guardarel nuevo review 
+	 * @throws KahuuException-no se puede guardar el nuevo review 
 	 */
 	def editarComentario(Long id,String titulo, String texto, int rating) throws KahuuException
 	{
@@ -121,7 +124,7 @@ class ComentarioService
 		rev.texto = texto;
 		rev.rating = rating;
 		
-		if(rev.save(flush:true))
+		if(rev.save( ))
 		{
 			Profile profile = rev.profile;
 
@@ -136,7 +139,7 @@ class ComentarioService
 			//Se actualiza el rating al nuevo despues de agregar el comentario
 			profile.totalRating = average;
 
-			if(profile.save(flush:true))
+			if(profile.save( ))
 			{
 				return profile;
 			}
@@ -153,6 +156,7 @@ class ComentarioService
 	
 	/**
 	 * Borra un comentario con la id dada
+	 * <b>post:</b> Comentario borrado de la tabla Reviews
 	 * @param id id != null && id existe
 	 * @return void
 	 * @throws KahuuException

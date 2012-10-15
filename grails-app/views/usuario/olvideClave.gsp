@@ -6,7 +6,6 @@
 <title>Olvido Clave</title>
 </head>
 <body>
-   <div class="page">
   	<div class="page-bgtop">
   	
   		<g:if test="${flash.message}">
@@ -27,6 +26,5 @@
   		</g:form>
   		
   	</div>
-  </div>
 </body>
 </html>

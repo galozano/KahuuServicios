@@ -8,8 +8,7 @@
 <body>
   <div class="page">
   	<div class="page-bgtop">
-  		<h2>Cont&aacute;ctenos</h2>
-  		
+  		<h2>Cont&aacute;ctenos</h2>		
   		 <g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 		</g:if>

@@ -120,6 +120,11 @@ body {
 	
 }
 
+.content #titulo h1
+{
+	margin:0px 0px 10px 0px;
+}
+
 li {
 	list-style: none;
 }
@@ -395,8 +400,7 @@ fieldset.embedded legend {
 
 /* MESSAGES AND ERRORS */
 
-.errors,
-.message {
+.errors, .message {
 	font-size: 0.8em;
 	line-height: 2;
 	margin: 1em 2em;
@@ -469,7 +473,7 @@ input:invalid:focus, select:invalid:focus, textarea:invalid:focus {
 
 #tableIndex
 {
-	width: 420px;
+	width: 50%;
 	margin: 0px auto;
 }
 
@@ -648,27 +652,32 @@ a.skip {
 
 /* PROFILE */
 
-#profile-general {
+.profile-general {
 	position: relative;
 	left: 120px;
 	top: -120px;
 	width: 68%;
 }
 
-#profile-general h1 {
+.profile-general h1 {
 	
 }
 
-#profile-up {
+.profile-up {
 	height: 110px;
 	overflow-y: hidden;
 	overflow-x: hidden;
 	word-wrap: break-word;
 }
 
-#profile-up img:first-child
+.profile-up img:first-child
 {
 	border: 3px solid black;
+}
+
+.profile-up #telefono
+{
+	font-weight: bold;
 }
 
 .profile-box 
@@ -696,7 +705,6 @@ a.skip {
 	font-size: 10px;
 	float: right;
 }
-
 
 .post 
 {
@@ -743,7 +751,6 @@ a.skip {
 	height: 30px;
 	font-size: 11px;
 }
-
 
 #content-users
 {

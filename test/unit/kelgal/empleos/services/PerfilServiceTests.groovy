@@ -3,6 +3,7 @@ package kelgal.empleos.services
 
 
 import grails.test.mixin.*
+import java.text.SimpleDateFormat
 import kelgal.empleos.Categorias;
 import kelgal.empleos.Certificado;
 import kelgal.empleos.Ciudad;
@@ -20,6 +21,10 @@ import org.junit.*
 @Mock([Profile,Categorias,Ciudad,Review,User])
 class PerfilServiceTests {
 
+	//--------------------------------------------------------------------------------------------------
+	// Servicios & Dominios
+	//--------------------------------------------------------------------------------------------------
+	
 	PerfilService perfilService = new PerfilService( );
 	
 	private Categorias categoria;
@@ -34,6 +39,10 @@ class PerfilServiceTests {
 	
 	private Review review;
 	
+	//--------------------------------------------------------------------------------------------------
+	// Escenarios
+	//--------------------------------------------------------------------------------------------------
+	
 	public void setIt()
 	{
 		categoria = new Categorias(nombre:"Primera");
@@ -45,12 +54,23 @@ class PerfilServiceTests {
 		
 		assert categoria.save(flush: true) != null;
 		
-		profile = new Profile(nombre:"Gustavo",usuario:"gus",password:"hola",email:"gus@gmail.com",certificado:cert, celular2:"3135851647", estadoUsuario:false,fechaCreado:new Date() ,celular:"3205721687", descripcion:"descripcion1", ciudad:ciudad, image: new byte[10]);
+		for(int i = 1; i < 20; i ++)
+		{
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			Date date1 = sdf.parse("2009-12-"+i);
+			
+			profile = new Profile(nombre:"Nombre" + i,usuario:"Usuario" + i,password:"Passowrd",email:"email"+i+"@gmail.com",certificado:cert, celular2:"3135851647", estadoUsuario:false,fechaCreado:date1 ,celular:"3205721687", descripcion:"descripcion" + i, ciudad:ciudad, image: new byte[10]);
+			profile.addToCategorias(categoria);
+			
+			assert profile.save(flush: true) != null;
+		}
+		
+		profile = new Profile(nombre:"Gustavo",usuario:"gus",password:"hola",email:"gus@gmail.com",certificado:cert, celular2:"3135851647", estadoUsuario:false,fechaCreado:new Date( ) ,celular:"3205721687", descripcion:"descripcion1", ciudad:ciudad, image: new byte[10]);
 		profile.addToCategorias(categoria);
 		
 		assert profile.save(flush: true) != null;
 		
-		profile = new Profile(nombre:"Rafael",usuario:"Rafa",estadoUsuario:true,email:"rafa@gmail.com", certificado:cert, celular2:"3135851647",fechaCreado:new Date() ,password:"hola",celular:"3205721687", descripcion:"descripcion2", ciudad:ciudad, image: new byte[1000]);
+		profile = new Profile(nombre:"Rafael",usuario:"Rafa",estadoUsuario:true,email:"rafa@gmail.com", certificado:cert, celular2:"3135851647",fechaCreado:new Date( ) ,password:"hola",celular:"3205721687", descripcion:"descripcion2", ciudad:ciudad, image: new byte[1000]);
 		profile.addToCategorias(categoria);
 		
 		assert profile.save(flush: true) != null;
@@ -62,6 +82,13 @@ class PerfilServiceTests {
 		assert review.save(flush: true) != null;
 	}
 	
+	//--------------------------------------------------------------------------------------------------
+	// Tests
+	//--------------------------------------------------------------------------------------------------
+	
+	/**
+	 * 
+	 */
 	void testDarCiudades()
 	{
 		setIt();
@@ -70,6 +97,9 @@ class PerfilServiceTests {
 		assert results.size( ), Ciudad.list().size();
 	}
 	
+	/**
+	 * 
+	 */
 	void testDarCategorias( )
 	{
 		setIt();
@@ -78,6 +108,9 @@ class PerfilServiceTests {
 		assert results.size( ), Categorias.list().size();
 	}
 	
+	/**
+	 * 
+	 */
 	void testDarPerfil( )
 	{
 		setIt();
@@ -98,7 +131,9 @@ class PerfilServiceTests {
 
 	}
 	
-	
+	/**
+	 * 
+	 */
 	void testDarPerfilInvalido( )
 	{
 		setIt();
@@ -114,6 +149,9 @@ class PerfilServiceTests {
 		}
 	}
 	
+	/**
+	 * 
+	 */
 	void testDarPerfilUsuario( )
 	{
 		setIt();
@@ -133,6 +171,9 @@ class PerfilServiceTests {
 		}	
 	}
 	
+	/**
+	 * 
+	 */
 	void testDarPerfilUsuarioInvalido( )
 	{
 		setIt();
@@ -148,6 +189,9 @@ class PerfilServiceTests {
 		}
 	}
 
+	/**
+	 * 
+	 */
 	void testPerfilesCategoria( )
 	{
 		setIt();
@@ -167,6 +211,9 @@ class PerfilServiceTests {
 		//TODO: hay que hacer caso para pobrar que se ordenan bien
 	}
 	
+	/**
+	 * 
+	 */
 	void testPerfilesCategoriaInvalido( )
 	{
 		setIt();
@@ -176,6 +223,9 @@ class PerfilServiceTests {
 
 	}
 	
+	/**
+	 * 
+	 */
 	void testBuscar( )
 	{
 		setIt();
@@ -200,6 +250,9 @@ class PerfilServiceTests {
 		}
 	}
 	
+	/**
+	 * 
+	 */
 	void testBuscarInvalido( )
 	{
 		try
@@ -213,5 +266,33 @@ class PerfilServiceTests {
 		{
 			fail "No debe llegar aca";
 		}
+	}
+	
+	/**
+	 * Prueba que los perfiles destacados sean los correctos
+	 */
+	void testPerfilesDestacados( )
+	{
+		setIt();
+		
+		List lista =  perfilService.perfilesDestacados( );
+		
+		assert lista.size() == 3;
+		assert lista.get(0), profile;
+	}
+	
+	/**
+	 * Prueba que los perfiles sean los mas recientes y esten bien ordenados
+	 */
+	void testPerfilesRecientes( )
+	{
+		setIt();
+		
+		List lista = perfilService.perfilesRecientes();
+		
+		assert lista.size( ) == 3;
+		
+		assert lista.get(0).fechaCreado.compareTo(profile.fechaCreado) == 0;
+		assert lista.get(1).fechaCreado.compareTo(profile.fechaCreado) == -1;
 	}
 }

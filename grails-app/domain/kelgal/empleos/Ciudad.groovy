@@ -1,10 +1,12 @@
 package kelgal.empleos
 
+/**
+ * Representa una ciudad en el sistema
+ * @author gustavolozano
+ *
+ */
 class Ciudad 
 {
-	/**
-	 * Nombre de la ciudad
-	 */
 	String nombre;
 	
     static constraints = 

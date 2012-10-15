@@ -6,7 +6,6 @@
 <title>Comentario</title>
 </head>
 <body>
-	<div id="page">
 		<div class="page-bgtop">
 			<g:hasErrors bean="${comentarioInstance}">
 				<ul class="errors" role="alert">
@@ -52,6 +51,5 @@
 				</fieldset>
 			</g:form>
 		</div>
-	</div>
 </body>
 </html>

@@ -1,15 +1,14 @@
 package kelgal.empleos
 
+/**
+ * Representa un certificado en el sistema
+ * @author gustavolozano
+ *
+ */
 class Certificado 
 {
-	/**
-	 * Nombre del certificado
-	 */
 	String nombre;
 	
-	/**
-	 * Nivel del certificad 
-	 */
 	int nivel;
 	
     static constraints =

@@ -6,15 +6,8 @@
 <title>Mi Perfil</title>
 </head>
 <body>
-  <div class="body">
-  	<div class="page-bgtop">
-  		<div class="nav" role="navigation">
-			<ul>
-				<li><g:link action="misComentarios">Comentarios</g:link></li>
-				<li><g:link action="miPerfil">Perfil</g:link></li>
-			</ul>
-		</div>
-  	
+  	<div class="page-bgtop">  
+  		<g:render template="navegacion"/>	
   		<g:hasErrors bean="${userInstance}">
 			<ul class="errors" role="alert">
 				<g:eachError bean="${userInstance}" var="error">
@@ -59,6 +52,5 @@
 			</fieldset>
 		</g:form>
   	</div>
-  </div>
 </body>
 </html>

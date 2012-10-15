@@ -57,10 +57,10 @@ class UsuarioService
 			//Enviar email de confirmacion
 			String link = new ApplicationTagLib().createLink([controller: 'usuario', action:"verificarEmail", absolute: true,  params:[id: user.id, key: user.keyConfirmar]]);
 			String send = "<p>Para verificar t&uacute; email click en el siguiente link</p> <br/>" + link + "<br/><br/> Kahuu Servicios";
-
+			
 			sendMail
 			{
-				to user.email;
+				to user.email
 				subject "Verificar Email:Kahuu"
 				html send
 			}
@@ -176,11 +176,11 @@ class UsuarioService
 	
 
 	/**
-	 * 
-	 * @param nombreNuevo
-	 * @param id
-	 * @return
-	 * @throws KahuuException
+	 * Actualiza el nombre del usuario con la id dada
+	 * @param nombreNuevo- nombre nuevo
+	 * @param id - id del usuario a cambiar
+	 * @return retorna el usuario con el nombre cambiado
+	 * @throws KahuuException - an caso de que no se pueda guardar el nuevo usuario
 	 */
 	def actualizarUsuario(String nombreNuevo, Long id)  throws KahuuException
 	{

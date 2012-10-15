@@ -21,6 +21,10 @@ import org.junit.*
 @Mock([Profile,Categorias,Review,Certificado,User])
 class ComentarioServiceTests
 {	
+	//--------------------------------------------------------------------------------------------------
+	// Servicios & Dominios
+	//--------------------------------------------------------------------------------------------------
+	
 	private Categorias categoria;
 	
 	private Ciudad ciudad;
@@ -34,6 +38,10 @@ class ComentarioServiceTests
 	private User user;
 	
 	ComentarioService comentarioService = new ComentarioService( );
+	
+	//--------------------------------------------------------------------------------------------------
+	// Escenarios
+	//--------------------------------------------------------------------------------------------------
 	
 	public setIt()
 	{
@@ -56,6 +64,13 @@ class ComentarioServiceTests
 		assert review.save() != null;
 	}
 	
+	//--------------------------------------------------------------------------------------------------
+	// Tests
+	//--------------------------------------------------------------------------------------------------
+	
+	/**
+	 * 
+	 */
 	void testDarMisComentarios( )
 	{
 		setIt();
@@ -75,6 +90,9 @@ class ComentarioServiceTests
 		
 	}
 	
+	/**
+	 * 
+	 */
 	void testDarMisComentariosInvalido( )
 	{
 		setIt();
@@ -91,6 +109,9 @@ class ComentarioServiceTests
 		
 	}
 	
+	/**
+	 * 
+	 */
 	void testDarReview( )
 	{
 		setIt();
@@ -110,6 +131,9 @@ class ComentarioServiceTests
 		}	
 	}
 	
+	/**
+	 * 
+	 */
 	void testDarReviewInvalido( )
 	{
 		setIt();
@@ -125,6 +149,9 @@ class ComentarioServiceTests
 		}
 	}
 	
+	/**
+	 * 
+	 */
 	void testCrearComentario( )
 	{
 		setIt();
@@ -151,6 +178,9 @@ class ComentarioServiceTests
 		}
 	}
 	
+	/**
+	 * 
+	 */
 	void testEditarComentario( )
 	{
 		setIt();
@@ -175,6 +205,9 @@ class ComentarioServiceTests
 		}
 	}
 	
+	/**
+	 * 
+	 */
 	void testDeleteComentario( )
 	{
 		setIt();
@@ -202,6 +235,9 @@ class ComentarioServiceTests
 		}
 	}
 	
+	/**
+	 * 
+	 */
 	void testDeleteComentarioInvalido( )
 	{
 		setIt();

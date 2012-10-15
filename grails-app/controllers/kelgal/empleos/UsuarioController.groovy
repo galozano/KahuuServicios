@@ -4,6 +4,13 @@ import kelgal.empleos.exceptions.KahuuException;
 import grails.validation.ValidationException
 import org.codehaus.groovy.grails.plugins.web.taglib.ApplicationTagLib
 
+
+
+/**
+ * Controlado de el manejo de usuarios 
+ * @author gustavolozano
+ *
+ */
 class UsuarioController
 {
 	
@@ -19,6 +26,10 @@ class UsuarioController
 	
 	def index() { }
 
+	/**
+	 * 
+	 * @return
+	 */
 	def login( )
 	{
 		if (session.user)
@@ -31,6 +42,12 @@ class UsuarioController
 		}
 	}
 
+	/**
+	 * Maneja el login del formulario login
+	 * @param- email - email que ingreso el usuario
+	 * @param- password- password que ingreso el usuario
+	 * @return- la pagina con los comentario si el registro fue exitoso de lo contrario la misma pagina login con su mensaje
+	 */
 	def handleLogin( )
 	{
 		User user = usuarioService.loginUsuario(params.email, params.password);
@@ -47,6 +64,10 @@ class UsuarioController
 		}
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	def handleRegistration( )
 	{
 		User user = new User(params);
@@ -90,6 +111,10 @@ class UsuarioController
 		}	
 	}
 
+	/**
+	 * Termina la session 
+	 * @return rederige a la action login
+	 */
 	def logout()
 	{
 		log.info "User agent: " + request.getHeader("User-Agent")
@@ -97,11 +122,20 @@ class UsuarioController
 		redirect(action: "login")
 	}
 
+	/**
+	 * Muestra la pagina de olvido clave
+	 * @return pagina olvideClave
+	 */
 	def olvideClave( )
 	{
 		render(view:"olvideClave");
 	}
 
+	/**
+	 * Maneja el olvido de la clave del usuario
+	 * @params email- el email del usuario
+	 * @return - mensaje de que se cambio con exito o que hubo un problema
+	 */
 	def handleOlvideClave( )
 	{
 		try
@@ -125,7 +159,13 @@ class UsuarioController
 			render(view:"olvideClave");
 		}
 	}
-
+	 
+	/**
+	 * Verificacion de la cuenta del usuario
+	 * @params id- id del usuario
+	 * @params key- el key o clave de confirmacion	
+	 * @return mensaje que fue activada la cuenta o de lo contrario
+	 */
 	def verificarEmail()
 	{
 		try

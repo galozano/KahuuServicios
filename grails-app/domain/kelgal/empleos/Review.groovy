@@ -1,5 +1,10 @@
 package kelgal.empleos
 
+/**
+ * Representa un comentario en el sistema
+ * @author gustavolozano
+ *
+ */
 class Review 
 {	
 	String titulo;

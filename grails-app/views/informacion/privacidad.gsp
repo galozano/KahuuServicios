@@ -6,7 +6,6 @@
 <title>Pol&iacute;ticas de Privacidad</title>
 </head>
 <body>
-  <div class="body">
   		<div id="page">
 			<div class="page-bgtop">
 				<p>
@@ -47,6 +46,5 @@
 				</p>
 			</div>
   	</div>
-  </div>
 </body>
 </html>

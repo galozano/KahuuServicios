@@ -4,6 +4,7 @@ import kelgal.empleos.exceptions.KahuuException;
 import kelgal.empleos.Password
 import kelgal.empleos.User;
 import kelgal.empleos.UsuarioService;
+import grails.test.MockUtils;
 import grails.test.mixin.*
 import org.junit.*
 import org.codehaus.groovy.grails.plugins.codecs.SHA1Codec
@@ -16,43 +17,55 @@ import org.codehaus.groovy.grails.plugins.codecs.SHA1Codec
 @Mock([User])
 class UsuarioServiceTests 
 {
+	//--------------------------------------------------------------------------------------------------
+	// Servicios & Dominios
+	//--------------------------------------------------------------------------------------------------
+	
 	UsuarioService usuarioService = new UsuarioService();
 	
-	User user;
+	User usuarioPrueba;
 		
+	//--------------------------------------------------------------------------------------------------
+	// Escenarios
+	//--------------------------------------------------------------------------------------------------
+	
 	void setIt()
 	{
 		String pass = "pass";
 		mockCodec(SHA1Codec);
 		
-		user = new User(nombre:"Gus",password:pass.encodeAsSHA1(), email:"gus@gus.com",fechaCreado:new Date(), activated:false, keyConfirmar:"HOLA");
-		assert user.save() != null;
+		usuarioPrueba = new User(nombre:"Gus",password:pass.encodeAsSHA1(), email:"gus@gus.com",fechaCreado:new Date(), activated:false, keyConfirmar:"HOLA");
+		assert usuarioPrueba.save() != null;
 	}
 	
-	void testHandleLoginPasswordInvalido()
+	//--------------------------------------------------------------------------------------------------
+	// Tests
+	//--------------------------------------------------------------------------------------------------
+	
+	void testLoginPasswordInvalido()
 	{
 		setIt();
 		
 		//Password Invalido
-		User user =	usuarioService.loginUsuario("gus@gus.com","invalido")
-		assert user == null;
+		User usuarioPrueba =	usuarioService.loginUsuario("gus@gus.com","invalido")
+		assert usuarioPrueba == null;
 	}
 	
-	void testHandleLoginEmailInvalido()
+	void testLoginEmailInvalido()
 	{
 		setIt();
 		
-		User user = usuarioService.loginUsuario("gus@gu2s.com","invalido")
-		assert user == null;
+		User usuarioPrueba = usuarioService.loginUsuario("gus@gu2s.com","invalido")
+		assert usuarioPrueba == null;
 	}
 	
-	void testHandleLoginPassword()
+	void testLoginPassword()
 	{
 		setIt();
 		
 		//Usuario registrado con todo bien
-		User user = 	usuarioService.loginUsuario("gus@gus.com","pass")
-		assert user.nombre, this.user.nombre;
+		User usuarioPrueba = 	usuarioService.loginUsuario("gus@gus.com","pass")
+		assert usuarioPrueba.nombre, this.usuarioPrueba.nombre;
 	}
 	
 	void testRegist( )
@@ -66,7 +79,9 @@ class UsuarioServiceTests
 
 		try
 		{
-			def user = usuarioService.registration(nombre, email, password);
+			//MockUtils(Email);
+			def usuarioPrueba = usuarioService.registration(nombre, email, password);
+			
 		}		
 		catch(KahuuException e)
 		{
@@ -82,8 +97,8 @@ class UsuarioServiceTests
 		
 		try
 		{
-			usuarioService.cambiarPassword(nuevo, user.id);		
-			assert nuevo.encodeAsSHA1(), user.password;
+			usuarioService.cambiarPassword(nuevo, usuarioPrueba.id);		
+			assert nuevo.encodeAsSHA1(), usuarioPrueba.password;
 		}
 		catch(KahuuException e)
 		{
@@ -100,8 +115,8 @@ class UsuarioServiceTests
 		
 		try
 		{
-			usuarioService.actualizarUsuario(nuevoNombre, user.id);
-			assert nuevoNombre, user.nombre;
+			usuarioService.actualizarUsuario(nuevoNombre, usuarioPrueba.id);
+			assert nuevoNombre, usuarioPrueba.nombre;
 		}
 		catch(KahuuException e)
 		{
@@ -116,10 +131,10 @@ class UsuarioServiceTests
 		
 		try
 		{
-			def verificar = usuarioService.verificarEmail(user.id, user.keyConfirmar);
+			def verificar = usuarioService.verificarEmail(usuarioPrueba.id, usuarioPrueba.keyConfirmar);
 			assert verificar == true;	
-			assert user.activated, true;
-			assert user.keyConfirmar.equals("");
+			assert usuarioPrueba.activated, true;
+			assert usuarioPrueba.keyConfirmar.equals("");
 		}
 		catch(KahuuException e)
 		{
@@ -133,7 +148,7 @@ class UsuarioServiceTests
 		
 		try
 		{
-			def verificar = usuarioService.verificarEmail(user.id, "INVALIDO");
+			def verificar = usuarioService.verificarEmail(usuarioPrueba.id, "INVALIDO");
 			assert verificar == false;
 		}
 		catch(KahuuException e)
@@ -141,4 +156,22 @@ class UsuarioServiceTests
 			fail "No deberia llegar aca";
 		}
 	}
+
+	/**	
+	void testOlvidoClave( )
+	{
+		setIt();
+		
+		try
+		{
+			def usuario = usuarioService.olvidoClave(usuarioPrueba.email);
+			
+			
+		}
+		catch(KahuuException e)
+		{
+			fail "No deberia llegar aca";
+		}
+	} 
+	*/
 }

@@ -4,19 +4,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="layout" content="complete" />
-<title>Bienvenidos!</title>
+<title><g:message code="kahuu.index.bienvenidos" default="Bienvenidos!"/></title>
 </head>
-
-<style type="text/css">
-
-
-
-</style>
 <body>
-	<div class="body">
-			<div class="page-bgtop">		
+		<div class="page-bgtop">		
 				<div class="index-content">
-					<h2>Bienvenidos</h2>
+					<h2><g:message code="kahuu.index.bienvenidos" default="Bienvenidos!"/></h2>
 						<br/><br/>
 					<p>
 						Kahuu Servicios es un portal para buscar servicios en Colombia!
@@ -26,7 +19,7 @@
 						Lo mejor es que es completamente GRATIS.
 					</p>
 						<br/>
-					<p> Para ofrecer un servicio puedes inscribirte enviandonos un correo a soporte@kelgal.com.
+					<p> Para ofrecer un servicio puedes inscribirte enviandonos un correo a soporte@kahuu.co
 					</p>
 						<br/><br/><br/>
 					<h3>Como Funciona: </h3>
@@ -60,15 +53,16 @@
 						de Kahuu Servicios.
 					</p>
 					<br/>
-					<g:select id="id" name="nombre" from="${ciudadesLista}" optionKey="nombre"  optionValue="nombre" value="${nombre}" class="many-to-one"/>
-								
-					<div id="ingresarBoton">
-						<g:link controller="perfil" action="users" id="1">Continuar</g:link>
-					</div>
+					
+					<g:form action="principal">
+						<g:select id="id" name="nombreCiudad" from="${ciudadesLista}" optionKey="nombre"  optionValue="nombre" value="${nombre}" class="many-to-one"/>		
+						<div id="ingresarBoton">
+							<g:submitButton name="continuar" value="Continuar"/>
+						</div>
+					</g:form>
 				</div>
 				<!-- end #content -->
 				<div style="clear: both;">&nbsp;</div>
 			</div>
-		</div>
 </body>
 </html>

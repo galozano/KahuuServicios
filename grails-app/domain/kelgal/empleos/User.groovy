@@ -1,5 +1,11 @@
 package kelgal.empleos
 
+
+/**
+ * Representa un usuario en el sistema
+ * @author gustavolozano
+ *
+ */
 class User 
 {
 	String nombre;

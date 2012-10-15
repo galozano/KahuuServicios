@@ -1,8 +1,10 @@
 package kelgal.empleos
 
+import kelgal.empleos.exceptions.KahuuException
+
 
 /**
- * 
+ * Controlador de manejo de los comentarios
  * @author gustavolozano
  *
  */
@@ -24,6 +26,10 @@ class ComentariosController
 	// Metodos Comentarios
 	//------------------------------------------------------------------------------------------
 	
+	/**
+	 * Retorna la pagina con todos los comentarios del usuario
+	 * @return- pagina miscomentarios
+	 */
 	def misComentarios( )
 	{
 		try
@@ -38,6 +44,11 @@ class ComentariosController
 		}
 	}
 	
+	/**
+	 * Muestra la pagina donse se escribe el comentario
+	 * @params-id id del perfil que se le va a agregar el comentario
+	 * @return- pagina donde se escribe el comentario
+	 */
 	def crearComentario( )
 	{
 		try
@@ -59,8 +70,16 @@ class ComentariosController
 		}
 	}
 
+	/**
+	 * Maneja la creacion de un nuevo comentario
+	 * @params-rating calificacion 
+	 * @params-titulo- titulo del comentario
+	 * @params-texto - texto del comentario
+	 * @return el perfil al cual se le agrego el comentario
+	 */
 	def handleComentario()
-	{			
+	{		
+		//No deja que se haga doble submision de formulario	
 		withForm 
 		{				
 			Profile prof;
@@ -97,6 +116,11 @@ class ComentariosController
 		}
 	}
 	
+	/**
+	 * Muestra la pagina para editar un comentario
+	 * @param id - id el comentario 
+	 * @return - pagina para editar el comentario
+	 */
 	def editarComentario(Long id)
 	{
 		try
@@ -111,6 +135,14 @@ class ComentariosController
 		}
 	}
 	
+	/**
+	 * Maneja la actualizacion del comentario
+	 * @param id- id del comentario 
+	 * @params-rating calificacion 
+	 * @params-titulo- titulo del comentario
+	 * @params-texto - texto del comentario
+	 * @return - va a la pagina de miscomentarios de los contarrio a editarcomentario si existe un error
+	 */
 	def handleEditComentario(Long id)
 	{	
 		try
@@ -141,6 +173,11 @@ class ComentariosController
 		}
 	}
 
+	/**
+	 * Remueve un comentario de la lista 
+	 * @params id del comentario que se va a remover
+	 * @return- pagina miscomentario
+	 */
 	def deleteComentario( )
 	{		
 		try
@@ -159,11 +196,28 @@ class ComentariosController
 	// Metodos Perfil
 	//------------------------------------------------------------------------------------------
 
+	/**
+	 * 
+	 * @return
+	 */
 	def miPerfil()
 	{
 		render(view:"miperfil",model: [userInstance:session.user]);
 	}
+	
+	/**
+	 * Te lleva a la pagina para buscar una persona para escribir un comentario
+	 * @return - la pagina donde buscar
+	 */
+	def escribirComentario( )
+	{
+		render(view:"escribircomentario");
+	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	def handleCambiarPassword()
 	{
 		if (params.password != params.confirm)
@@ -193,6 +247,10 @@ class ComentariosController
 		}
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	def handleActualizarUsuario()
 	{
 		try
