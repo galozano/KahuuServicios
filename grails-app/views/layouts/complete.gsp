@@ -18,8 +18,10 @@
 	<link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
 	<link rel="stylesheet" href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">
 	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/themes/smoothness/jquery-ui.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="${resource(dir: 'css', file: 'jquery.css')}" type="text/css">
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+	<script src="${resource(dir: 'js', file: 'application.js')}" type="text/javascript"></script>
 	<g:layoutHead />
 	<r:layoutResources/>
 </head>

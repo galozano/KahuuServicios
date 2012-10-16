@@ -277,7 +277,7 @@ class PerfilServiceTests {
 		
 		List lista =  perfilService.perfilesDestacados( );
 		
-		assert lista.size() == 3;
+		assert lista.size() == 5;
 		assert lista.get(0), profile;
 	}
 	
@@ -290,7 +290,7 @@ class PerfilServiceTests {
 		
 		List lista = perfilService.perfilesRecientes();
 		
-		assert lista.size( ) == 3;
+		assert lista.size( ) == 5;
 		
 		assert lista.get(0).fechaCreado.compareTo(profile.fechaCreado) == 0;
 		assert lista.get(1).fechaCreado.compareTo(profile.fechaCreado) == -1;

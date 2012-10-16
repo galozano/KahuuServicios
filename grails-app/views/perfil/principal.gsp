@@ -4,11 +4,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="layout" content="main" />
 <title>Kahuu Servicios</title>
-<script type="text/javascript">
-$(document).ready(function(){
-    $( "#tabs" ).tabs();
-});
-</script>
 </head>
 <body>
 

@@ -1,0 +1,21 @@
+.ui-tabs {
+	padding: 0px;
+}
+
+.ui-widget-content
+{
+	border: none;
+	background: none;
+}
+
+.ui-widget-header
+{
+	border:none;
+	border-bottom:1px solid #AAA;	
+	background:none;
+}
+
+.ui-tabs .ui-tabs-nav
+{
+	padding: 0;
+}
