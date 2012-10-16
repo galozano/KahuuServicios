@@ -19,13 +19,15 @@
 				<h1><g:fieldValue bean="${profileInstance}" field="nombre"/></h1>
 				<img src="${resource(dir: 'images/skin', file: 'stars-'+profileInstance.totalRating+'.png')}" />(${reviewsTotal} Comentarios)
 				<g:if test="${session.user}">
-					<h1>
-						Cel:<g:fieldValue bean="${profileInstance}" field="celular"/>
-						<g:if test="${profileInstance.celular2}">,<g:fieldValue bean="${profileInstance}" field="celular2"/></g:if>
-					</h1>
+					<div id="telefono">
+						<h1>
+							Celular:&nbsp;<g:fieldValue bean="${profileInstance}" field="celular"/>
+							<g:if test="${profileInstance.celular2}">,<g:fieldValue bean="${profileInstance}" field="celular2"/></g:if>
+						</h1>
+					</div>
 				</g:if>
 				<g:else>
-					<div id="telefono"><br/>Para ver el tel&eacute;fono <g:link controller="usuario" action="login">Ingresa</g:link> o <g:link controller="usuario" action="login">Registrate</g:link></div>
+					<div id="telefono">Para ver el tel&eacute;fono <g:link controller="usuario" action="login">Ingresa</g:link> o <g:link controller="usuario" action="login">Registrate</g:link></div>
 				</g:else>	
 			</div>
 		</div>

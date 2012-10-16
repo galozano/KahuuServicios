@@ -21,7 +21,7 @@ class Review
 	
 	static constraints =
 	{
-		titulo size:4..20, blank:false;
+		titulo size:4..45, blank:false;
 		texto  blank:false;
 		author blank:false;
 		rating blank:false;

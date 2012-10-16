@@ -53,6 +53,11 @@ body {
 	padding:40px 20px 20px 20px
 }
 
+.page-bgtop-login
+{
+	padding:40px 20px 20px 70px
+}
+
 #kahuuLogo 
 {
 	background-color: #254673;
@@ -154,7 +159,6 @@ h1 {
 	color: #48802c;
 	font-weight: normal;
 	font-size: 1.25em;
-	margin: 0.8em 0 0.3em 0;
 }
 
 ul {
@@ -651,33 +655,32 @@ a.skip {
 }
 
 /* PROFILE */
-
-.profile-general {
-	position: relative;
-	left: 120px;
-	top: -120px;
-	width: 68%;
-}
-
-.profile-general h1 {
-	
-}
-
 .profile-up {
-	height: 110px;
 	overflow-y: hidden;
 	overflow-x: hidden;
 	word-wrap: break-word;
 }
 
+.profile-up h1 {
+	margin: 0em 0 0.3em 0;
+}
+
+
 .profile-up img:first-child
 {
+	float:left;
+	margin-right: 10px;
 	border: 3px solid black;
 }
 
 .profile-up #telefono
 {
+	margin-top:20px;
 	font-weight: bold;
+}
+
+.profile-general {
+	overflow: hidden;
 }
 
 .profile-box 
@@ -728,14 +731,13 @@ a.skip {
 }
 
 .post .title {
-	height: 41px;
 	margin-left: 0px;
-	padding: 20px 0px 0px 20px;
+	padding: 0px 0px 0px 20px;
 	letter-spacing: -.5px;
-	float: left;
-	
 	font-size: 15px;
 	font-weight:bold;
+	overflow: hidden;
+	word-wrap:break-word;
 }
 
 .post .title a {

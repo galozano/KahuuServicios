@@ -61,7 +61,6 @@ grails.hibernate.cache.queries = false
 
 //Configure google Analytics
 google.analytics.webPropertyID = "UA-34823980-1"
-grails.views.javascript.library="jquery"
 
 environments {
     development 

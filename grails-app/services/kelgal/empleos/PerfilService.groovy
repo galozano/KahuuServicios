@@ -141,7 +141,7 @@ class PerfilService
 	 */
 	def perfilesDestacados( )
 	{
-		return Profile.list(max: 3, sort: "totalRating", order: "desc").sort();		
+		return Profile.list(max: 5, sort: "totalRating", order: "desc").sort();		
 	}
 	
 	/**
@@ -150,6 +150,6 @@ class PerfilService
 	 */
 	def perfilesRecientes( )
 	{
-		return Profile.list(max: 3, sort: "fechaCreado", order: "desc");
+		return Profile.list(max: 5, sort: "fechaCreado", order: "desc");
 	}
 }
