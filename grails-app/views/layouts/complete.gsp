@@ -24,6 +24,7 @@
 	<script src="${resource(dir: 'js', file: 'application.js')}" type="text/javascript"></script>
 	<g:layoutHead />
 	<r:layoutResources/>
+	<ga:trackPageview/>
 </head>
 <body>
 	<div id="kahuuLogo" role="banner">

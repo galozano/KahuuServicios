@@ -65,15 +65,13 @@ body {
 
 #kahuuLogo h2 span
 {
-	margin-left: -28px;
 	font-size: 15px;
 	color: #48802C;
-	font-size: 15px;
 }
 
 #kahuuLogo h2 a {
 	display: inline-block;
-	margin: 1em 1em 0.3em 1em;
+	margin: 1em 0.3em 0.3em 1em;
 	
 	color: #FFF;
 	font-size: 1.4em;
