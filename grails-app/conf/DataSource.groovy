@@ -15,11 +15,11 @@ environments {
         dataSource {
 			pooled = true
 			dbCreate = "update"
-			url = "jdbc:mysql://50.56.241.227:3306/kahuu_servicios_prueba"
+			url = "jdbc:mysql://127.0.0.1:3306/kahuu_servicios"
 			driverClassName = "com.mysql.jdbc.Driver"
 			dialect = org.hibernate.dialect.MySQL5InnoDBDialect
-			username = "afuera"
-			password = "qazxsw23edc"
+			username = "todos"
+			password = "todos"
         }
     }
     test {
