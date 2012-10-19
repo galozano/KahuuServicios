@@ -34,11 +34,11 @@ environments {
         dataSource {
 			pooled = true
 			dbCreate = "update"
-			url = "jdbc:mysql://localhost:3306/kahuu_servicios"
+			url = System.getProperty("JDBC_CONNECTION_STRING")
 			driverClassName = "com.mysql.jdbc.Driver"
 			dialect = org.hibernate.dialect.MySQL5InnoDBDialect
-			username = "todos"
-			password = "qazxsw23edc"
+			username =  System.getProperty("PARAM1")
+			password = System.getProperty("PARAM2")
             pooled = true
             properties {
                maxActive = -1
