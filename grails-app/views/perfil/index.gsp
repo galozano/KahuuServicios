@@ -1,4 +1,4 @@
-<%@page import="kelgal.empleos.Ciudad"%>
+<%@page import="kahuu.general.Ciudad"%>
 <%@ page contentType="text/html;charset=US-ASCII"%>
 <html>
 <head>

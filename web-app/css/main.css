@@ -92,25 +92,73 @@ body {
 
 /*sidebar */
 
-#sidebar {
+.sidebar 
+{
 	float:left;
-	border: 2px solid #E0E0E0;
-	margin: 20px;
+	margin: 20px 5px 20px 20px;
 	height: 100%;
-	width: 21%;
-	padding: 10px;
+	width: 24%;
 }
 
-#sidebar li
+.sidebar #box
+{
+	border: 2px solid #E0E0E0;
+	padding: 10px;
+	margin-bottom: 10px;
+	 -moz-border-radius: 0.4em;
+	-webkit-border-radius: 0.4em;
+	        border-radius: 0.4em;
+	
+}
+
+#box #tituloBox
+{
+	color:#48802C;
+	font-weight: bold;
+}
+
+.anuncio #titulo a
+{
+	font-size: 12pt;
+	color:#254673 ;
+	font-weight: bold;
+	text-decoration: none;
+	letter-spacing: 1px;
+	cursor: pointer;
+}
+
+.anuncio #linea
+{
+	font-size: 10pt;
+	display:block;
+	overflow-y: hidden;
+	overflow-x: hidden;
+	word-wrap: break-word;
+	letter-spacing: 0.2px;
+	text-align: justify;
+}
+
+
+.anuncio #link
+{
+	font-size: 9pt;
+	color:#48802C;
+}
+
+
+
+.sidebar li
 {
 	padding-top: 3px;
 }
 
+/* Contenido */
+
 .content {
 	padding: 15px;
 	float: right;
-	width: 69%;
-	padding: 20px 15px 15px 15px;
+	width: 70%;
+	padding: 20px 15px 15px 10px;
 }
 
 .index-content
@@ -127,6 +175,8 @@ body {
 {
 	margin:0px 0px 10px 0px;
 }
+
+/* GENERAL */
 
 li {
 	list-style: none;
@@ -166,8 +216,6 @@ ul {
 img {
 	border: 0;
 }
-
-/* GENERAL */
 
 .scaffold-list h1 {
 	border: none;

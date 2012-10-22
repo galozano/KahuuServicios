@@ -59,7 +59,7 @@ class Profile implements Comparable
 		int rev2 = o.reviews == null? 0 : o.reviews.size();
 		int totalRating1 = this.totalRating == null? 0: this.totalRating;
 		int totalRating2 = o.totalRating == null ? 0 : o.totalRating;
-			
+		
 		if(rev1 == rev2)
 		{
 			if(totalRating1 == totalRating2)

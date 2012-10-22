@@ -19,6 +19,8 @@ class PerfilController
 	//------------------------------------------------------------------------------------------
 	
 	PerfilService perfilService;
+	
+	AnuncioService anuncioService;
 
 	//------------------------------------------------------------------------------------------
 	// Metodos 
@@ -43,7 +45,9 @@ class PerfilController
 		List listaRecientes = perfilService.perfilesRecientes();
 		List listaCategorias = perfilService.darCategorias( );
 		
-		render(view: "principal",model:[listaDestacados:listaDestacados, categoriasList:listaCategorias, listaRecientes:listaRecientes]);
+		List vistaAnuncios = anuncioService.darAnuncios("principal",request.getRemoteAddr());
+		
+		render(view: "principal",model:[listaDestacados:listaDestacados, categoriasList:listaCategorias, listaRecientes:listaRecientes,listaAnuncios:vistaAnuncios]);
 	}
 		
 	/**
@@ -75,8 +79,9 @@ class PerfilController
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Muestra el perfil de un usuario con su nombre de usuario
+	 * @param usuario - el nombre de usuario
+	 * @return la vista profile con toda la informacion de perfil
 	 */
 	def profileUsuario( )
 	{	
@@ -132,8 +137,8 @@ class PerfilController
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Se busca los perfiles que tengan las palabras buscada en la descripcion
+	 * @return- la vista perfiles con el resultado de la busqueda
 	 */
 	def buscar( )
 	{		
@@ -150,7 +155,7 @@ class PerfilController
 			}
 			else
 			{
-				render(view: "perfiles",model:[profileInstanceList: results ,profileInstanceTotal:results.size(), categoriasList: categorias]);
+				render(view: "perfiles",model:[nombreCategoria:"Busqueda",profileInstanceList: results ,profileInstanceTotal:results.size(), categoriasList: categorias]);
 			}	
 		}	
 		catch(KahuuException e)
@@ -161,9 +166,9 @@ class PerfilController
 	}
 	
 	/**
-	 * 
-	 * @param id
-	 * @return
+	 * Muestra los perfiles dado una id de una categoria
+	 * @param id-id de la categoria
+	 * @return- la vista perfiles con la lista de los perfiles de la categoria
 	 */
 	def perfiles(Long id)
 	{	

@@ -1,5 +1,4 @@
-
-<%@ page import="kelgal.empleos.Categorias" %>
+<%@ page import="kahuu.general.Categorias" %>
 <!doctype html>
 <html>
 	<head>

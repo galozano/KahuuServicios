@@ -1,5 +1,4 @@
-
-<%@ page import="kelgal.empleos.Certificado" %>
+<%@ page import="kahuu.general.Certificado" %>
 <!doctype html>
 <html>
 	<head>

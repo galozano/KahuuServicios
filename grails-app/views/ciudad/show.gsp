@@ -1,5 +1,4 @@
-
-<%@ page import="kelgal.empleos.Ciudad" %>
+<%@ page import="kahuu.general.Ciudad" %>
 <!doctype html>
 <html>
 	<head>

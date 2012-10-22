@@ -1,4 +1,4 @@
-<%@ page import="kelgal.empleos.Profile" %>
+<%@ page import="kahuu.general.Profile" %>
 <!doctype html>
 <html>
 	<head>

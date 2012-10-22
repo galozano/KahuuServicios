@@ -3,7 +3,7 @@ class KahuuFilters
  {
 	def filters = 
 	{
-	       loginAdminCheck(controller: 'categorias|certificado|ciudad|profile|user', action: '*', ) 
+	       loginAdminCheck(controller: 'categorias|certificado|ciudad|profile|user|anuncio', action: '*', ) 
 		   {
 	           before = 
 			   {

@@ -97,7 +97,7 @@ class UsuarioController
 				try
 				{
 					usuarioService.registration(params.nombre, params.email, params.password);
-					flash.message = "Registrado exitosamente. Revisa t&uacute; email para confirmar t&uacute; cuenta."
+					flash.message = "Registrado exitosamente. Revisa t&uacute; email para confirmar t&uacute; cuenta.Revisa tu correo no deseado!"
 					redirect(action:'login');
 				}
 				catch(KahuuException e)
