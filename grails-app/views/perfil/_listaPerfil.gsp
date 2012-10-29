@@ -23,8 +23,8 @@
 			</g:else>
 		</div>
 		<div class="rating">
-			<img src="${resource(dir: 'images/skin', file: 'stars-'+profileInstance.totalRating+'.png')}"/> &nbsp;(${profileInstance.reviews.size()} Comentarios)
-		</div>
+			<img src="${resource(dir: 'images/skin', file: 'stars-'+profileInstance.totalRating+'.png')}"/><%-- &nbsp;(${profileInstance.reviews.size()} Comentarios)
+		--%></div>
 	</div>
 </div>
 </g:each>
