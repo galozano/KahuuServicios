@@ -65,10 +65,8 @@ class AnuncioServiceTests
 		
       	List listaVistas = anuncioService.darAnuncios("ejemplo","200.10.10.10");
 		
-		assert listaVistas.size() == 2;	
-		
-		System.out.println(listaVistas.get(0).anuncio.titulo);
-			
+		assert listaVistas.size() == 2;			
+		System.out.println(listaVistas.get(0).anuncio.titulo);			
 		assert listaVistas.get(0).id,anuncio.id;
     }
 	

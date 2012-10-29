@@ -115,20 +115,14 @@ class ComentarioServiceTests
 	void testDarReview( )
 	{
 		setIt();
-		
-		try
-		{
-			Review rev = comentarioService.darReview(review.id);
+
+		Review rev = comentarioService.darReview(review.id);
 				
-			assert review.id, rev.id;
-			assert review.titulo, rev.titulo;
-			assert review.texto, rev.texto;
-			assert review.rating, rev.rating;
-		}
-		catch(KahuuException e)
-		{
-			fail "No debe llegar aca";
-		}	
+		assert review.id, rev.id;
+		assert review.titulo, rev.titulo;
+		assert review.texto, rev.texto;
+		assert review.rating, rev.rating;
+
 	}
 	
 	/**
@@ -160,22 +154,14 @@ class ComentarioServiceTests
 		int inicial = profile.totalRating;
 		int totalReviews = this.profile.reviews.size();
 		
-		
 		String titulo = "Prueba Titulo";
 		String texto = "prueba texto kjsdfgh";
 		int rating = 4;
 		
-		try
-		{
-			Profile profNuevo = comentarioService.crearComentario(profile,user,titulo,texto,rating);
+		Profile profNuevo = comentarioService.crearComentario(profile,user,titulo,texto,rating);
 			
-			assert profNuevo.reviews.size( ), (totalReviews + 1); 
-			assert profNuevo.nombre, profile.nombre;
-		}
-		catch(KahuuException e)
-		{
-			fail "No debe llegar aca";
-		}
+		assert profNuevo.reviews.size( ), (totalReviews + 1); 
+		assert profNuevo.nombre, profile.nombre;
 	}
 	
 	/**
@@ -189,54 +175,42 @@ class ComentarioServiceTests
 		String texto = "texto nuevo";
 		int rating = 1;
 		
-		try
-		{
-			def profile = comentarioService.editarComentario(review.id, titulo, texto, rating);
+		def profile = comentarioService.editarComentario(review.id, titulo, texto, rating);
+		
+		assert review.titulo, titulo;
+		assert review.texto, texto;
+		assert review.rating, rating;
 			
-			assert review.titulo, titulo;
-			assert review.texto, texto;
-			assert review.rating, rating;
-			
-			assert profile.totalRating == 1;
-		}
-		catch(KahuuException e)
-		{
-			fail "No debe llegar aca";
-		}
+		assert profile.totalRating == 1;
+
 	}
 	
 	/**
-	 * 
+	 * Test de elimianr un comentario
 	 */
 	void testDeleteComentario( )
 	{
 		setIt();
 		
-		try
-		{
-			List todos = comentarioService.darMisComentarios(user.id);
+		List todos = comentarioService.darMisComentarios(user.id);
 			
-			int total = todos.size();
-			assert profile.totalRating, 3;
+		int total = todos.size();
+		assert profile.totalRating, 3;
 		
-			//Borrar el comentario
-			comentarioService.deleteComentario(review.id);
+		//Borrar el comentario
+		comentarioService.deleteComentario(review.id);
 	
-			//Comentarios despues de haber borrado (n-1)
-			todos = comentarioService.darMisComentarios(user.id);
-			assert todos.size(), (total-1);
+		//Comentarios despues de haber borrado (n-1)
+		todos = comentarioService.darMisComentarios(user.id);
+		assert todos.size(), (total-1);
 			
-			//Ver si el rating se calculo bien
-			assert profile.totalRating, 1;
-		}
-		catch(KahuuException e)
-		{
-			fail "No debe llegar aca";
-		}
+		//Ver si el rating se calculo bien
+		assert profile.totalRating, 1;
+
 	}
 	
 	/**
-	 * 
+	 * Test que no se puede elimianr un comentario invalido
 	 */
 	void testDeleteComentarioInvalido( )
 	{

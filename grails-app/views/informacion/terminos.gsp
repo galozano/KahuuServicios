@@ -6,7 +6,6 @@
 <title>Terminos y Condiciones</title>
 </head>
 <body>
-	  	<div id="page">
 			<div class="page-bgtop">
 				<p>
 					<strong>Glosario</strong>
@@ -199,6 +198,5 @@
 						de cualquier manera. </strong>
 				</p>
 			</div>
-		</div>
 </body>
 </html>

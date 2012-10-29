@@ -77,34 +77,19 @@ class UsuarioServiceTests
 		String email = "raf@gmail.com";
 		String password = "nueva"
 
-		try
-		{
-			//MockUtils(Email);
-			def usuarioPrueba = usuarioService.registration(nombre, email, password);
-			
-		}		
-		catch(KahuuException e)
-		{
-			fail "No deberia llegar aca";
-		}		
+		//MockUtils(Email);
+		def usuarioPrueba = usuarioService.registration(nombre, email, password);		
+	
 	}
 	
 	void testCambiarPassword( )
 	{
 		setIt();
 		
-		String nuevo = "nuevaPass";
-		
-		try
-		{
-			usuarioService.cambiarPassword(nuevo, usuarioPrueba.id);		
-			assert nuevo.encodeAsSHA1(), usuarioPrueba.password;
-		}
-		catch(KahuuException e)
-		{
-			fail "No deberia llegar aca";
-		}
-		
+		String nuevo = "nuevaPass";	
+	
+		usuarioService.cambiarPassword(nuevo, usuarioPrueba.id);		
+		assert nuevo.encodeAsSHA1(), usuarioPrueba.password;	
 	}
 	
 	void testActualizarUsuario( )
@@ -113,48 +98,28 @@ class UsuarioServiceTests
 		
 		String nuevoNombre = "Nuevo Nombre";
 		
-		try
-		{
-			usuarioService.actualizarUsuario(nuevoNombre, usuarioPrueba.id);
-			assert nuevoNombre, usuarioPrueba.nombre;
-		}
-		catch(KahuuException e)
-		{
-			fail "No deberia llegar aca";
-		}
-		
+		usuarioService.actualizarUsuario(nuevoNombre, usuarioPrueba.id);
+		assert nuevoNombre, usuarioPrueba.nombre;
 	}
 	
 	void testVerificarEmail( )
 	{
 		setIt();
 		
-		try
-		{
-			def verificar = usuarioService.verificarEmail(usuarioPrueba.id, usuarioPrueba.keyConfirmar);
-			assert verificar == true;	
-			assert usuarioPrueba.activated, true;
-			assert usuarioPrueba.keyConfirmar.equals("");
-		}
-		catch(KahuuException e)
-		{
-			fail "No deberia llegar aca";
-		}
+		def verificar = usuarioService.verificarEmail(usuarioPrueba.id, usuarioPrueba.keyConfirmar);
+		
+		assert verificar == true;	
+		assert usuarioPrueba.activated, true;
+		assert usuarioPrueba.keyConfirmar.equals("");
+
 	}
 	
 	void testVerificarInvalido( )
 	{
 		setIt();
 		
-		try
-		{
-			def verificar = usuarioService.verificarEmail(usuarioPrueba.id, "INVALIDO");
-			assert verificar == false;
-		}
-		catch(KahuuException e)
-		{
-			fail "No deberia llegar aca";
-		}
+		def verificar = usuarioService.verificarEmail(usuarioPrueba.id, "INVALIDO");
+		assert verificar == false;
 	}
 
 	/**	

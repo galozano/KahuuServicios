@@ -13,16 +13,15 @@
 		</g:if>
   	
   		<h2>Olvid&oacute; Clave</h2>
-  		<g:form action="handleOlvideClave">
+  		<g:form action="handleOlvideClave" class="azul">
   			<div class="fieldcontain  required">
 				<label for="email"> <g:message code="user.email.label" default="Email" /></label>
-				<span class="required-indicator">*</span>
 				<g:field type="email" name="email" value="" />
 			</div>
 			
-			<fieldset class="buttons">
-				<g:submitButton name="create" class="save" value="Enviar" />
-			</fieldset>
+			<div class="buttons">
+				<g:submitButton name="create" class="save" value="Recuperar" />
+			</div>
   		</g:form>
   		
   	</div>

@@ -91,12 +91,16 @@ class PerfilService
 		//					 "where b.nombre like :search or b.descripcion like :search",
 		//					 [search: "%" + params.buscador +"%"])
 			
+		
+		String buscadorModificado = buscador.replaceAll(" ", "%") ;
+	
+		def categoria = Categorias.findByNombreLike(buscadorModificado);
+		
 		def query = Profile.where()
 		{
-			(descripcion =~ "%"+buscador+"%") || (nombre =~  "%"+buscador+"%") || (usuario =~  "%"+buscador+"%")
+			(descripcion =~ "%"+buscadorModificado+"%") || (nombre =~  "%"+buscadorModificado+"%") || (usuario =~  "%"+buscadorModificado+"%") || (categorias.contains(buscador))
 		}
 		def results = query.list()
-		
 		
 		return results.sort( );
 	}

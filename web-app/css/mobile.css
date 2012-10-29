@@ -1,8 +1,45 @@
 /* Styles for mobile devices */
 /*480*/
-@media screen and (max-width: 960px) {
+
+@media only screen and (min-width: 481px) and (max-width: 930px)
+{
+  	img
+  	{
+  		max-width: 300px;
+  	}
+  	
+  	.input_buscador {
+		width:auto;
+	}
+	
+	.searchLargo
+	{	
+		width: auto;
+		margin: 10px;
+		margin-top: 40px;
+		float: initial;
+		margin-left: 300px;
+	}
+	
+	.kahuuLogo {
+		float: left;
+		margin: 0px;
+	}
+	
+	.subheader
+	{
+		height: 120px;
+	}
+}
+
+@media screen and (max-width: 480px) {
 	.nav {
 		padding: 0.5em;
+	}
+
+	img
+	{
+		max-width: 300px;
 	}
 
 	.nav li {
@@ -85,9 +122,26 @@
 		width: 100%;
 	}
 	
-	#sidebar 
+	.kahuuLogo
 	{
-		border: 2px solid #E0E0E0;
+		margin: 0px;
+		float: initial;
+	}
+	
+	.subheader
+	{
+		height: 180px;
+	}
+	
+	.searchLargo
+	{	
+		float: initial;
+		width: 85%;
+		margin: 10px;
+	}
+	
+	.sidebar 
+	{
 		height: 100%;
 		width: auto;
 		padding: 10px;
@@ -98,8 +152,13 @@
 	{
 		width: auto;
 		float: initial;
+		padding: 0px;
 	}
 	
+	.post
+	{
+		height: auto;
+	}
 	
 	#cuadroIzq {
 		padding: 0px;
@@ -113,4 +172,12 @@
 		width: 100%;
 	}
 	
+	.nav #derecha {
+		float: initial;
+	}
+	
+	.input_buscador {
+		width: 71%;
+	}
 }
+

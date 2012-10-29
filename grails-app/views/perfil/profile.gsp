@@ -17,17 +17,15 @@
 			</g:else>		
 			<div class="profile-general">
 				<h1><g:fieldValue bean="${profileInstance}" field="nombre"/></h1>
-				<img src="${resource(dir: 'images/skin', file: 'stars-'+profileInstance.totalRating+'.png')}" />(${reviewsTotal} Comentarios)
+				<img src="${resource(dir: 'images/skin', file: 'stars-'+profileInstance.totalRating+'.png')}" />&nbsp;(${reviewsTotal} Comentarios)
 				<g:if test="${session.user}">
-					<div id="telefono">
-						<h1>
+					<div id="telefono" class="azul">
 							Celular:&nbsp;<g:fieldValue bean="${profileInstance}" field="celular"/>
 							<g:if test="${profileInstance.celular2}">,<g:fieldValue bean="${profileInstance}" field="celular2"/></g:if>
-						</h1>
 					</div>
 				</g:if>
 				<g:else>
-					<div id="telefono">Para ver el tel&eacute;fono <g:link controller="usuario" action="login">Ingresa</g:link> o <g:link controller="usuario" action="login">Registrate</g:link></div>
+					<div id="telefono" class="azul">Para ver el tel&eacute;fono <g:link controller="usuario" action="login">Ingresa</g:link> o <g:link controller="usuario" action="login">Registrate</g:link></div>
 				</g:else>	
 			</div>
 		</div>
@@ -35,7 +33,7 @@
 			<div class="box-header">
 				Descripci&oacute;n
 			</div>
-			<div class="box-content">
+			<div class="box-content azul">
 				<p><g:lines string='${profileInstance.descripcion}'></g:lines></p>
 			</div>
 		</div>
@@ -43,7 +41,7 @@
 					<div class="box-header">
 						Categor&iacuteas 
 					</div>
-					<div class="box-content">
+					<div class="box-content azul">
 						<g:each in="${profileInstance.categorias}" var="c">					
 								<div id="categoria">${c.nombre}</div>
 						</g:each>
@@ -59,7 +57,7 @@
 							Para comentar <g:link controller="usuario" action="login">Ingresa</g:link> o <g:link controller="usuario" action="login">Registrate</g:link>
 						</g:else> )
 					</div>
-					<div class="box-content">
+					<div class="box-content azul">
 						<g:each in="${reviewsList}" var="c">					
 								<div class="review">
 									<div id="header_review">

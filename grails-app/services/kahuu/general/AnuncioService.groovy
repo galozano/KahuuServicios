@@ -45,17 +45,7 @@ class AnuncioService
 		
 		return anuncio;
 	}	
-	
-	/**
-	 * Devuelve el numero de clicks que se han hecho al anuncio especificado
-	 * @param idAnuncio- id del anuncio
-	 * @return
-	 */
-	def darNumeroClicksAnuncio(Long idAnuncio)
-	{
 		
-	}
-	
 	/**
 	 * Muestra los anuncios sorteados de una pagina en especifico
 	 * @param pagina- la pagina donde se va a mostrar los anuncios
@@ -102,5 +92,27 @@ class AnuncioService
 		}
 		
 		return listaVista;
+	}
+	
+	
+	/**
+	 * Retorna todos los anuncios de un usuario
+	 * @param usuario- usuario
+	 * @return lista de anuncios
+	 */
+	def darAnunciosUsuario(User usuario)
+	{
+		return Anuncio.findAllByUsuario(usuario);
+	}
+	
+	/**
+	 * Retorna el anuncio dado su id
+	 * @param idAnuncio- id del anuncio
+	 * @return- el auncio
+	 */
+	def darAnuncio(Long idAnuncio)
+	{
+		Anuncio anuncio = Anuncio.get(idAnuncio);		
+		return !anuncio ? null: anuncio; 
 	}
 }

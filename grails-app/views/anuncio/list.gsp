@@ -24,17 +24,17 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="costoPClick" title="${message(code: 'anuncio.costoPClick.label', default: 'Costo PC lick')}" />
-					
 						<g:sortableColumn property="descripcion" title="${message(code: 'anuncio.descripcion.label', default: 'Descripcion')}" />
-					
-						<g:sortableColumn property="estado" title="${message(code: 'anuncio.estado.label', default: 'Estado')}" />
-					
-						<g:sortableColumn property="presupuesto" title="${message(code: 'anuncio.presupuesto.label', default: 'Presupuesto')}" />
 					
 						<g:sortableColumn property="titulo" title="${message(code: 'anuncio.titulo.label', default: 'Titulo')}" />
 					
 						<g:sortableColumn property="urlWebsite" title="${message(code: 'anuncio.urlWebsite.label', default: 'Url Website')}" />
+					
+						<g:sortableColumn property="costoPClick" title="${message(code: 'anuncio.costoPClick.label', default: 'Costo PC lick')}" />
+					
+						<g:sortableColumn property="estado" title="${message(code: 'anuncio.estado.label', default: 'Estado')}" />
+					
+						<g:sortableColumn property="fechaCreado" title="${message(code: 'anuncio.fechaCreado.label', default: 'Fecha Creado')}" />
 					
 					</tr>
 				</thead>
@@ -42,17 +42,17 @@
 				<g:each in="${anuncioInstanceList}" status="i" var="anuncioInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${anuncioInstance.id}">${fieldValue(bean: anuncioInstance, field: "costoPClick")}</g:link></td>
-					
-						<td>${fieldValue(bean: anuncioInstance, field: "descripcion")}</td>
-					
-						<td><g:formatBoolean boolean="${anuncioInstance.estado}" /></td>
-					
-						<td>${fieldValue(bean: anuncioInstance, field: "presupuesto")}</td>
+						<td><g:link action="show" id="${anuncioInstance.id}">${fieldValue(bean: anuncioInstance, field: "descripcion")}</g:link></td>
 					
 						<td>${fieldValue(bean: anuncioInstance, field: "titulo")}</td>
 					
 						<td>${fieldValue(bean: anuncioInstance, field: "urlWebsite")}</td>
+					
+						<td>${fieldValue(bean: anuncioInstance, field: "costoPClick")}</td>
+					
+						<td><g:formatBoolean boolean="${anuncioInstance.estado}" /></td>
+					
+						<td><g:formatDate date="${anuncioInstance.fechaCreado}" /></td>
 					
 					</tr>
 				</g:each>

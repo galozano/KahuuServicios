@@ -25,12 +25,13 @@
 
 		<h2>Editar Comentario</h2>
 
-		<g:form action="handleEditComentario">
+		<g:form action="handleEditComentario" class="azul">
 			<g:hiddenField name="id" value="${comentarioInstance?.id}" />
 			<g:hiddenField name="version" value="${comentarioInstance?.version}" />
 				
 			<div class="fieldcontain ${hasErrors(bean: comentarioInstance, field: 'rating', 'error')} required">
-				<label for="Rating">Calificaci&oacute;n: Malo </label>
+				<label for="Rating">Calificaci&oacute;n:</label>
+					Malo
 					<g:radioGroup name="rating" values="[1,2,3,4,5]" value="${comentarioInstance?.rating}">
 						&nbsp;${it.radio}&nbsp;
 					</g:radioGroup>
@@ -47,9 +48,9 @@
 				<g:textArea name="texto" escapeHtml="false" value="${comentarioInstance?.texto}" />
 			</div>
 
-			<fieldset class="buttons">
+			<div class="buttons">
 				<g:submitButton name="create" class="save" value="Actualizar" />
-			</fieldset>
+			</div>
 		</g:form>
 	</div>
 </body>

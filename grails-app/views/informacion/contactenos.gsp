@@ -6,46 +6,40 @@
 <title>Contactenos</title>
 </head>
 <body>
-  <div class="page">
   	<div class="page-bgtop">
   		<h2>Cont&aacute;ctenos</h2>		
   		 <g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 		</g:if>
   		
-  		<g:form action="handleContactenos">
-  			
-  			<div class="fieldcontain required">
-				<label for="asunto">Nombre</label>
-				<span class="required-indicator">*</span>
-				<g:textField name="nombre"  value="" />
-			</div>
-  		
-  			<div class="fieldcontain  required">
-				<label for="email"> <g:message code="user.email.label" default="Email" /></label>
-				<span class="required-indicator">*</span>
-				<g:field type="email" name="email" value="" />
-			</div>
-		
-			<div class="fieldcontain required">
-				<label for="asunto">Asunto</label>
-				<span class="required-indicator">*</span>
-				<g:textField name="asunto"  value="" />
-			</div> 
-			
-			<div class="fieldcontain required">
-				<label for="texto">Texto</label>
-				<span class="required-indicator">*</span>
-				<g:textArea name="texto"  value="" />
-			</div> 
+  		<div class="azul">
+	  		<g:form action="handleContactenos" class="info">
+	  			
+	  			<div class="fieldcontain required">
+					<label for="asunto">Nombre</label>
+					<g:textField name="nombre"  value="" />
+				</div>
+	  		
+	  			<div class="fieldcontain  required">
+					<label for="email"> <g:message code="user.email.label" default="Email" /></label>
+					<g:field type="email" name="email" value="" />
+				</div>
 						
-						
-			<fieldset class="buttons">
-				<g:submitButton name="contactar"  value="Enviar" />
-			</fieldset>
-  		
-  		</g:form>	
+				<div class="fieldcontain required">
+					<label for="asunto">Asunto</label>
+					<g:textField name="asunto"  value="" />
+				</div> 
+				
+				<div class="fieldcontain required">
+					<label for="texto">Texto</label>
+					<g:textArea name="texto"  value="" />
+				</div> 
+							
+				<div class="buttons">
+					<g:submitButton name="contactar"  value="Enviar" />
+				</div>
+	  		</g:form>
+  		</div>	
   	</div>
-  </div>
 </body>
 </html>

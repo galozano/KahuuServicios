@@ -6,7 +6,7 @@
 <title>Ingresar</title>
 </head>
 <body>
-	<div class="page-bgtop-login">
+	<div class="page-bgtop">
 		<g:hasErrors bean="${userInstance}">
 			<ul class="errors" role="alert">
 				<g:eachError bean="${userInstance}" var="error">
@@ -29,16 +29,14 @@
 				
 		<div id="cuadroIzq">
 			<div><h2>Login</h2></div>
-			<g:form action="handleLogin">
+			<g:form action="handleLogin" class="azul">
 				<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'email', 'error')} required">
 					<label for="email"> <g:message code="user.email.label" default="Email" /></label>
-					<span class="required-indicator">*</span>
 					<g:field type="email" name="email" value="${userInstance?.email}" />
 				</div>
 		
 				<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'password', 'error')} required">
 					<label for="password">Constrase&ntilde;a</label>
-					<span class="required-indicator">*</span>
 					<g:passwordField name="password"  value="${userInstance?.password}" />
 				</div> 
 						
@@ -53,38 +51,34 @@
 		</div>
 		<div id="cuadroDer">
 			<div><h2>Inscr&iacute;bete</h2></div>
-			<g:form action="handleRegistration" useToken="true">
+			<g:form action="handleRegistration" useToken="true" class="azul">
 				<div class="fieldcontain ${hasErrors(bean: userRegist, field: 'nombre', 'error')} required">
 					<label for="nombre"> <g:message code="user.nombre.label" default="Nombre" /></label>
-					<span class="required-indicator">*</span>
 					<g:textField name="nombre" value="${userRegist?.nombre}" />
 				</div>
 						
 				<div class="fieldcontain ${hasErrors(bean: userRegist, field: 'email', 'error')} required">
 					<label for="email"> <g:message code="user.email.label" default="Email" /></label>
-					<span class="required-indicator">*</span>
 					<g:field type="email" name="email" value="${userRegist?.email}" />
 				</div>
 	
 				<div class="fieldcontain ${hasErrors(bean: userRegist, field: 'password', 'error')} required">
 					<label for="password">Constrase&ntilde;a</label>
-					<span class="required-indicator">*</span>
 					<g:passwordField name="password" value="${userRegist?.password}" />
 				</div>
 						
 				<div class="fieldcontain">
 					<label for="password">Confirmar Constrase&ntilde;a</label>
-					<span class="required-indicator">*</span>
 					<g:passwordField name="confirm" value="${userRegist?.password}" />
 				</div>
 						
 				<div class="fieldcontain">
-					<g:checkBox name="agree"/> Acepto las <g:link controller="informacion" action="terminos">Pol&iacute;ticas de Privacidad</g:link> y los <g:link controller="informacion" action="privacidad">T&eacute;rminos y Condiciones</g:link> de Kahuu Servicios.
+					<g:checkBox name="agree"/> Acepto las <g:link controller="informacion" action="terminos">Pol&iacute;ticas de Privacidad</g:link> y los <g:link controller="informacion" action="privacidad">T&eacute;rminos y Condiciones</g:link> de Kahuu.
 				</div>
 						
-				<fieldset class="buttons">
+				<div class="buttons">
 					<g:submitButton name="create" class="save" value="Crear Cuenta" />
-				</fieldset>
+				</div>
 			</g:form>			
 		</div>
 	</div>

@@ -22,7 +22,7 @@
 	</g:if>
 		
   	<div class="box-content">
-	  	<g:form>
+	  	<g:form class="azul">
 			<g:each in="${listaComentarios}" var="c">					
 				<div class="review">
 					<div id="header_review">

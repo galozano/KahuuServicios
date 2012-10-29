@@ -25,11 +25,12 @@
 
 			<h2>Escribe tu Comentario-${profileInstance?.nombre }</h2>
 
-			<g:form action="handleComentario" useToken="true">
+			<g:form action="handleComentario" useToken="true" class="azul">
 				<g:hiddenField name="perfilId" value="${profileInstance?.id}" />
 
 				<div class="fieldcontain ${hasErrors(bean: comentarioInstance, field: 'rating', 'error')} required">
-					<label for="Rating">Calificaci&oacute;n: Malo </label>
+					<label for="Rating">Calificaci&oacute;n:</label>
+						Malo
 						<g:radioGroup name="rating" values="[1,2,3,4,5]" value="1">
 							&nbsp;${it.radio}&nbsp;
 						</g:radioGroup>

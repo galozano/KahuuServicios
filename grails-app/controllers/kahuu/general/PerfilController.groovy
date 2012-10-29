@@ -42,12 +42,9 @@ class PerfilController
 	def principal( )
 	{
 		List listaDestacados = perfilService.perfilesDestacados();
-		List listaRecientes = perfilService.perfilesRecientes();
 		List listaCategorias = perfilService.darCategorias( );
 		
-		List vistaAnuncios = anuncioService.darAnuncios("principal",request.getRemoteAddr());
-		
-		render(view: "principal",model:[listaDestacados:listaDestacados, categoriasList:listaCategorias, listaRecientes:listaRecientes,listaAnuncios:vistaAnuncios]);
+		render(view: "principal",model:[listaDestacados:listaDestacados, categoriasList:listaCategorias]);
 	}
 		
 	/**
@@ -118,22 +115,13 @@ class PerfilController
 	 */
 	def darFoto(Long id)
 	{
-		try
-		{
-			def perfil = perfilService.darPerfil(id);
+		def perfil = perfilService.darPerfil(id);
 			
-			if(perfil != null)
-			{
-				byte[] image = perfil.image;
-				response.outputStream << image;
-			}
-		}
-		catch(KahuuException e)
+		if(perfil != null)
 		{
-			flash.message = e.message;
-			redirect(action: "perfiles");
+			byte[] image = perfil.image;
+			response.outputStream << image;
 		}
-
 	}
 	
 	/**

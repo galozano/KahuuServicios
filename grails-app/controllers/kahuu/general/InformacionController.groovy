@@ -58,7 +58,7 @@ class InformacionController
 			return;
 		}
 		
-		//Enviar email a soporte kelgal
+		//Enviar email a soporte gusti
 		sendMail
 		{
 			to "gustil@gmail.com"
@@ -68,6 +68,66 @@ class InformacionController
 
 		flash.message = "Email enviado. Muchas Gracias!"
 		render(view:"contactenos");
+	}
+	
+	/**
+	 * Retrona pagian de formulario para publicar un servicio
+	 * @return - pagina de registro de servicio
+	 */
+	def publicarServicio( )
+	{
+		render(view:"registroServicio");
+	}
+	
+	/**
+	 * Maneja el formulario de ingreso al sistema
+	 * @return-pagina de publicar servicio
+	 */
+	def handlePublicarServicio( )
+	{
+		withForm
+		{
+			if(!params.agree)
+			{
+				flash.message = "Debe aceptar los t&eacute;rminos y condiciones.";
+				render(view:"registroServicio");
+				return;
+			}
+			else if (params.nombre.equals("") || params.celular.equals("") || params.descripcion.equals("") || params.categoria.equals(""))
+			{
+				flash.message = "Uno o m&aacute;s campos estan vacios	"
+				render(view:"registroServicio");
+			}
+
+			else
+			{
+				String text = "Nombre:" + params.nombre + " Celular:" +params.celular + " Descripcion:"+ params.descripcion + " Email: "+ params.email + " Categorias:";
+				
+				StringBuffer textB = new StringBuffer(text);
+				
+				for(String c: params.categorias)
+				{
+					textB.append(c);
+					textB.append(",");
+				}
+				
+				//Enviar email a soporte kelgal
+				sendMail
+				{
+					to "gustil@gmail.com"
+					subject params.nombre
+					body textB.toString()
+				}
+				
+				flash.message = "Solicitud enviada con exito. La analizaremos y te llamaremos para confirmar. Muchas Gracias.";
+				render(view:"registroServicio");
+			}
+		}
+		.invalidToken
+		{
+			flash.message = "No unda tanta veces.";
+			render(view:"registroServicio");
+		}
 	}
 
 }

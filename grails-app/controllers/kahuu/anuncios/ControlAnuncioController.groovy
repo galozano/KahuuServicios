@@ -27,11 +27,20 @@ class ControlAnuncioController
 		{	
 			String idS = Long.toString(v.id);
 			
-			html +=  "<li class=\"anuncio\"><img src='http://cdn1.iconfinder.com/data/icons/crystalproject/48x48/filesystems/image.png' width='50' height='50'><span id=\"titulo\">";
-			html += "<a rel=\"nofollow\" href=\"${g.createLink(controller:'controlAnuncio',action:'contarClick')}/"+idS+"\">" + v.anuncio.titulo + "</a></span>";
-			html += "<br/><span id=\"link\">"+v.anuncio.urlWebsite+"</span>"
-			html += "<span id=\"linea\">"+v.anuncio.descripcion+"</span>"				
-			html +="</li>";
+			if(v.anuncio != null)
+			{
+				html +=  "<li class=\"anuncio\"><span id=\"titulo\">";
+				html += "<a rel=\"nofollow\" href=\"${g.createLink(controller:'controlAnuncio',action:'contarClick')}/"+idS+"\">" + v.anuncio.titulo + "</a></span>";
+				html += "<br/><span id=\"link\">"+v.anuncio.urlWebsite+"</span>"
+				
+				if(v.anuncio.image != null && v.anuncio.image.size() > 0)
+				{
+					html += "<img src='${createLink(controller:'controlAnuncio', action:'darFoto', id: v.anuncio.id)}' width='50' height='50'/>"
+				}
+				
+				html += "<span id=\"linea\">"+v.anuncio.descripcion+"</span>"
+				html +="</li>";
+			}
 		}
 		
 		html += "</ul></div>"
@@ -48,4 +57,20 @@ class ControlAnuncioController
 		Anuncio anuncio = anuncioService.contarClick(params.id.toLong());	
 		redirect(url: anuncio.urlWebsite);
 	} 
+	
+	/**
+	 * Retorna la foto de un anuncio dado
+	 * @return
+	 */
+	def darFotoAnuncio( )
+	{
+		Anuncio anuncio = anuncioService.darAnuncio(params.id);
+		
+		if(anuncio != null)
+		{
+			byte[] image = anuncio.image;
+			response.outputStream << image;
+		}
+	}
+		
 }

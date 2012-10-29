@@ -24,6 +24,8 @@ class Anuncio implements Comparable
 	
 	boolean estado;
 	
+	byte[] image;
+	
 	User usuario;
 	
 	Date fechaCreado;
@@ -32,7 +34,9 @@ class Anuncio implements Comparable
 		
     static constraints = 
 	{
-		
+		descripcion size: 2..150, blank: false;
+		titulo size: 2..45, blank: false;
+		urlWebsite blank: false, url:true;
 	}
 
 	@Override

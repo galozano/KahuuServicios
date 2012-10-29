@@ -20,7 +20,7 @@
 			<div class="message" role="status">${flash.message}</div>
 		</g:if>
 				
-  		<g:form action="handleActualizarUsuario">
+  		<g:form action="handleActualizarUsuario" class="azul">
 			 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'nombre', 'error')} ">
 				<label for="nombre">
 					<g:message code="user.nombre.label" default="Nombre" />
@@ -28,13 +28,13 @@
 				</label>
 				<g:textField name="nombre" value="${userInstance?.nombre}" size="40"/>
 				
-				<fieldset class="buttons">
+				<div class="buttons">
 					<g:submitButton name="create" class="save" value="Actualizar" />
-				</fieldset>
+				</div>
 			</div>
 		</g:form>
 		
-		<g:form action="handleCambiarPassword">
+		<g:form action="handleCambiarPassword" class="azul">
 			<div class="fieldcontain ${hasErrors(bean: userPass, field: 'password', 'error')} required">
 				<label for="password">Constrase&ntilde;a Nueva</label>
 				<span class="required-indicator">*</span>
@@ -47,9 +47,9 @@
 				<g:passwordField name="confirm" value="${userPass?.password}" />
 			</div>
 			
-			<fieldset class="buttons">
+			<div class="buttons">
 				<g:submitButton name="create" class="save" value="Cambiar" />
-			</fieldset>
+			</div>
 		</g:form>
   	</div>
 </body>
