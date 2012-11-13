@@ -19,6 +19,7 @@
 	<link rel="stylesheet" href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">
 	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/themes/smoothness/jquery-ui.css" type="text/css" media="all" />
 	<link rel="stylesheet" href="${resource(dir: 'css', file: 'jquery.css')}" type="text/css">
+	<link rel="image_src" href="${resource(dir: 'images', file: 'apple-touch-icon.png')}" /> 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
 	<script src="${resource(dir: 'js', file: 'application.js')}" type="text/javascript"></script>
@@ -32,9 +33,10 @@
 		<div class="nav">
 			<ul>
 				<li><g:link class="home" controller="perfil" action="principal"><g:message code="default.home.label"/></g:link> </li> 
-				<li><g:link class="comments" controller="comentarios" action="misComentarios">Mis Comentarios</g:link></li>
-				<li><g:link class="contact" controller="informacion" action="contactenos">Cont&aacute;ctenos</g:link></li>		
+				<li><g:link class="comments" controller="comentarios" action="misComentarios">Mis Comentarios</g:link></li>	
+				<li><g:link class="quees" controller="informacion" action="comoFunciona">C&oacute;mo funciona?</g:link></li>
 				<li><g:link class="publicar" controller="informacion" action="publicarServicio">P&uacute;blica tu Servicio</g:link></li>
+				<li><g:link class="contact" controller="informacion" action="contactenos">Cont&aacute;ctenos</g:link></li>
 				<li id="derecha">
 					<g:if test="${session.user}">
 						<g:link controller="usuario" action="logout"> Cerrar Sesi&oacute;n</g:link>
@@ -51,9 +53,9 @@
 				<a href="${createLink(uri: '/')}"><img src="${resource(dir: 'images', file: 'logoKahuu.png')}" /></a>
 			</div>
 			<div class="searchLargo">
-				<g:form name="searchForm" url="[controller:'perfil',action:'buscar']">
+				<g:form name="searchForm" url="[controller:'perfil',action:'buscar']" method="get">
 					<div>
-						<g:textField  class="input_buscador" name="buscador" value="Estas buscando por un..." onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" />
+						<g:textField  class="input_buscador" name="q" value="Estas buscando por un..." onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" />
 						<g:submitButton name="buscar" value="" />
 					</div>
 				</g:form>

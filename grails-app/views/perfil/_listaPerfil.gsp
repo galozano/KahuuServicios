@@ -14,17 +14,17 @@
 									
 	<div class="title">
 		<g:link action="profileUsuario" params="[usuario:profileInstance.usuario]">${fieldValue(bean: profileInstance, field: "nombre")}</g:link>
-		<div class="descripcion">
-			<g:if test="${profileInstance.descripcion.length() > 100}">
-				${profileInstance.descripcion.substring(0,98)}...
+		<div class="descripcion">		
+			<g:if test="${profileInstance.descripcion.length() > 90}">
+				${profileInstance.descripcion.substring(0,89)}...
 			</g:if>
 			<g:else>
 				${profileInstance.descripcion}
 			</g:else>
 		</div>
 		<div class="rating">
-			<img src="${resource(dir: 'images/skin', file: 'stars-'+profileInstance.totalRating+'.png')}"/><%-- &nbsp;(${profileInstance.reviews.size()} Comentarios)
-		--%></div>
+			<img src="${resource(dir: 'images/skin', file: 'stars-'+profileInstance.totalRating+'.png')}"/><%-- &nbsp;(${profileInstance.reviews.size()} Comentarios)--%>
+		</div>
 	</div>
 </div>
 </g:each>

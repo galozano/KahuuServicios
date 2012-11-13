@@ -36,8 +36,16 @@ class ComentariosController
 	{
 		try
 		{
-			def revs = comentarioService.darMisComentarios(session.user.id);
-			render(view:"miscomentarios", model:[listaComentarios:revs,totalComentarios:revs.size()]);
+			if(session.user)
+			{
+				def revs = comentarioService.darMisComentarios(session.user.id);
+				render(view:"miscomentarios", model:[listaComentarios:revs,totalComentarios:revs.size()]);
+			}
+			else
+			{
+				flash.message = "No existe un usuario con session iniciada";
+				render(view:"miscomentarios");
+			}
 		}
 		catch(KahuuException e)
 		{

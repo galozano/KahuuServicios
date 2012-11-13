@@ -34,6 +34,12 @@ class Profile implements Comparable
 	int totalRating;
 	
 	Certificado certificado;
+	
+	static searchable =
+	{
+		nombre boost: 2.0;
+		categorias component: true;
+	};
 		
 	static hasMany = [categorias: Categorias,reviews:Review];
 	
@@ -51,7 +57,7 @@ class Profile implements Comparable
     }
 
 	/**
-	 * Compra los perfile para ordenarlos.
+	 * Compara los perfile para ordenarlos.
 	 * Se compara por la cantidad de comentarios que tenga y el rating total que tenga los perfiles
 	 */
 	@Override

@@ -303,7 +303,7 @@ img {
 	text-decoration: underline;
 }
 
-.nav a.home,.nav a.list,.nav a.create,.nav a.contact,.nav a.comments,.nav a.publicar
+.nav a.home,.nav a.list,.nav a.create,.nav a.contact,.nav a.comments,.nav a.publicar,.nav a.quees
 	{
 	background-position: 0.7em center;
 	background-repeat: no-repeat;
@@ -328,6 +328,10 @@ img {
 
 .nav a.publicar {
 	background-image: url(../images/skin/publicar.png);
+}
+
+.nav a.quees {
+	background-image: url(../images/skin/quees.png);
 }
 
 .nav #derecha {
@@ -635,7 +639,7 @@ input:invalid:focus,select:invalid:focus,textarea:invalid:focus {
 
 .post > a:FIRST-CHILD
 {
-	position: fixed;
+	position: absolute;
 	display: block;
 	height: 100px;
 	width: 100%;
@@ -714,7 +718,7 @@ input:invalid:focus,select:invalid:focus,textarea:invalid:focus {
 .olvide {
 	text-align: right;
 	font-size: 14px;
-	padding: 5px 65px 0px 0px;
+	padding: 5px 10px 0px 0px;
 }
 
 /* SEARCH */

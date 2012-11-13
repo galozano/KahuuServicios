@@ -5,6 +5,7 @@ import kahuu.general.PerfilService;
 import kahuu.general.Profile;
 import kahuu.general.Ciudad;
 import kahuu.general.exceptions.KahuuException;
+import org.compass.core.engine.SearchEngineQueryParseException
 
 
 /**
@@ -21,6 +22,8 @@ class PerfilController
 	PerfilService perfilService;
 	
 	AnuncioService anuncioService;
+	
+	def searchableService;
 
 	//------------------------------------------------------------------------------------------
 	// Metodos 
@@ -84,8 +87,8 @@ class PerfilController
 	{	
 		try
 		{
-			Profile profileInstance = perfilService.darPerfilUsuario(params.usuario);
 			def categorias = perfilService.darCategorias( );
+			Profile profileInstance = perfilService.darPerfilUsuario(params.usuario);
 		
 			if(profileInstance == null)
 			{
@@ -131,26 +134,41 @@ class PerfilController
 	def buscar( )
 	{		
 		def categorias = perfilService.darCategorias( );
+//		
+//		try
+//		{
+//			def results = perfilService.buscarPerfil(params.buscador);
+//			
+//			if(results.size() == 0)
+//			{
+//				flash.message = "No se encontro ning&uacute;n resultado.";
+//				redirect(action: "perfiles");
+//			}
+//			else
+//			{
+//				render(view: "perfiles",model:[nombreCategoria:"Busqueda",profileInstanceList: results ,profileInstanceTotal:results.size(), categoriasList: categorias]);
+//			}	
+//		}	
+//		catch(KahuuException e)
+//		{
+//			flash.message = e.message;
+//			redirect(action: "perfiles");
+//		}	
 		
-		try
+		if (!params.q?.trim()) {
+			return [:]
+		}
+		
+		try 
 		{
-			def results = perfilService.buscarPerfil(params.buscador);
-			
-			if(results.size() == 0)
-			{
-				flash.message = "No se encontro ning&uacute;n resultado.";
-				redirect(action: "perfiles");
-			}
-			else
-			{
-				render(view: "perfiles",model:[nombreCategoria:"Busqueda",profileInstanceList: results ,profileInstanceTotal:results.size(), categoriasList: categorias]);
-			}	
-		}	
-		catch(KahuuException e)
+			def searchResults = searchableService.search(params.q);
+			render(view: "perfiles",model:[nombreCategoria:"Busqueda",profileInstanceList: searchResults.results ,profileInstanceTotal:searchResults.results.size(), categoriasList: categorias]);
+		}
+		catch (SearchEngineQueryParseException e)
 		{
 			flash.message = e.message;
 			redirect(action: "perfiles");
-		}	
+		}
 	}
 	
 	/**

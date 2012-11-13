@@ -39,7 +39,13 @@
 				<label for="texto">Descipci&oacute;n</label>
 				<g:textArea name="descripcion"  value="" />
 			</div> 
-					
+			
+			<div class="fieldcontain required">
+				<label for="texto">Ciudad</label>
+				<g:select name="ciudad" from="${['Bogota','Cartagena']}" value="${ciudad}" noSelection="['':'-Escoge una ciudad-']"/>	
+			</div> 
+			
+				
 			<div class="fieldcontain">
 				<g:checkBox name="agree"/>Acepto las <g:link controller="informacion" action="terminos">Pol&iacute;ticas de Privacidad</g:link> y los <g:link controller="informacion" action="privacidad">T&eacute;rminos y Condiciones</g:link> de Kahuu.
 			</div>		

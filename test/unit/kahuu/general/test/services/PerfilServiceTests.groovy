@@ -114,20 +114,13 @@ class PerfilServiceTests {
 	void testDarPerfil( )
 	{
 		setIt();
-		
-		try
-		{
-			Profile result = perfilService.darPerfil(profile.id);
-			
-			assert result.id, profile.id;
-			assert result.nombre, profile.nombre;
-			assert result.email, profile.email;
-			assert result.celular, profile.celular;
-		}
-		catch(KahuuException e)
-		{
-			fail "No debe llegar aca";
-		}
+
+		Profile result = perfilService.darPerfil(profile.id);
+
+		assert result.id, profile.id;
+		assert result.nombre, profile.nombre;
+		assert result.email, profile.email;
+		assert result.celular, profile.celular;
 
 	}
 	
@@ -138,15 +131,9 @@ class PerfilServiceTests {
 	{
 		setIt();
 		
-		try
-		{
-			Profile result = perfilService.darPerfil(123455);
-			assert result == null;
-		}
-		catch(KahuuException e)
-		{
-			fail "No debe llegar aca";
-		}
+		Profile result = perfilService.darPerfil(123455);
+		assert result == null;
+
 	}
 	
 	/**
@@ -156,19 +143,13 @@ class PerfilServiceTests {
 	{
 		setIt();
 		
-		try
-		{
-			Profile result = perfilService.darPerfilUsuario(profile.usuario);
-		
-			assert result.id, profile.id;
-			assert result.nombre, profile.nombre;
-			assert result.email, profile.email;
-			assert result.celular, profile.celular;
-		}
-		catch(KahuuException e)
-		{
-			fail "No debe llegar aca";
-		}	
+		Profile result = perfilService.darPerfilUsuario(profile.usuario);
+
+		assert result.id, profile.id;
+		assert result.nombre, profile.nombre;
+		assert result.email, profile.email;
+		assert result.celular, profile.celular;
+	
 	}
 	
 	/**
@@ -178,15 +159,8 @@ class PerfilServiceTests {
 	{
 		setIt();
 		
-		try
-		{
-			Profile result = perfilService.darPerfilUsuario("Invalido");
-			assert result == null;
-		}
-		catch(KahuuException e)
-		{
-			fail "No debe llegar aca";
-		}
+		Profile result = perfilService.darPerfilUsuario("Invalido");
+		assert result == null;
 	}
 
 	/**
@@ -230,42 +204,28 @@ class PerfilServiceTests {
 	{
 		setIt();
 
-		try
-		{
-			//Buscar por descripcion
-			String buscador = "descripcion1";
-			def results = perfilService.buscarPerfil(buscador);
-			
-			assert results.size(), 1;
-			
-			//Buscar por nombre
-			buscador = "Rafa";
-			results = perfilService.buscarPerfil(buscador);
-			
-			assert results.get(0).nombre, "Rafael";
-		}
-		catch(KahuuException e)
-		{
-			fail "No debe llegar aca";
-		}
+		//Buscar por descripcion
+		String buscador = "descripcion1";
+		def results = perfilService.buscarPerfil(buscador);
+
+		assert results.size(), 1;
+
+		//Buscar por nombre
+		buscador = "Rafa";
+		results = perfilService.buscarPerfil(buscador);
+
+		assert results.get(0).nombre, "Rafael";
+
 	}
 	
 	/**
 	 * 
 	 */
 	void testBuscarInvalido( )
-	{
-		try
-		{
-			String buscador = "NO EXISTE";
-			def results = perfilService.buscarPerfil(buscador);
-			assert results.size()==0;
-			
-		}
-		catch(KahuuException e)
-		{
-			fail "No debe llegar aca";
-		}
+	{	
+		String buscador = "NO EXISTE";
+		def results = perfilService.buscarPerfil(buscador);
+		assert results.size()==0;
 	}
 	
 	/**

@@ -7,8 +7,8 @@ import kahuu.general.PerfilController;
 import kahuu.general.PerfilService;
 import kahuu.general.Profile;
 import kahuu.general.Review;
+import grails.plugin.searchable.SearchableService
 import grails.test.mixin.*
-import groovy.mock.interceptor.MockFor
 import org.junit.*
 
 /**
@@ -55,26 +55,73 @@ class PerfilControllerTests
 //		assert review.save() != null;
 		
 		controller.perfilService = new PerfilService( );
+		controller.searchableService = new SearchableService( );
 	}
 	
 	public void setIt2( )
 	{	
 		categoria = new Categorias(nombre:"Primera");
 		ciudad = new Ciudad(nombre:"Cartagena");
+		
+		assert ciudad.save(flush: true) != null;
+		
 		cert = new Certificado(nombre:"Principal", nivel:1);
 		
-		profile = new Profile(nombre:"Rafael",usuario:"Rafa",estadoUsuario:true,email:"rafa@gmail.com", certificado:cert, celular2:"3135851647",fechaCreado:new Date() ,password:"hola",celular:"3205721687", descripcion:"descripcion2", ciudad:ciudad, image: new byte[1000]);
+		assert categoria.save(flush: true) != null;
+		
+		profile = new Profile(nombre:"Gustavo",usuario:"gus",password:"hola",email:"gus@gmail.com",certificado:cert, celular2:"3135851647", estadoUsuario:false,fechaCreado:new Date() ,celular:"3205721687", descripcion:"descripcion1", ciudad:ciudad, image: new byte[10]);
 		profile.addToCategorias(categoria);
 		
-		//		def perfilService = mockFor(PerfilService);
-		//		perfilService.demand.darPerfil(1..1) { Long id -> return profile};
-		//
-		//		controller.perfilService =  perfilService.createMock( );
+		def mockPerfilServiceFactory = mockFor(PerfilService);
+		
+		mockPerfilServiceFactory.demand.darCiudades(0..2)
+		{
+			return new ArrayList();
+		}
+		
+		mockPerfilServiceFactory.demand.darCategorias(0..30)
+		{
+			return new ArrayList();
+		}
+		
+		mockPerfilServiceFactory.demand.perfilesDestacados(0..30)
+		{
+			return new ArrayList();
+		}
+		
+		mockPerfilServiceFactory.demand.darPerfil(0..2)
+		{
+			def id -> if(id == 12345 ) return null else return profile;
+		}
+		
+		mockPerfilServiceFactory.demand.darPerfilUsuario(0..2)
+		{
+			def usuario -> if(usuario.equals("NOEXISTE")) return null else return profile;
+		}
+		
+		mockPerfilServiceFactory.demand.darReviewsPerfil(0..2)
+		{
+			def perfil -> return new ArrayList();
+		}
+		
+		ArrayList lista = new ArrayList();
+		lista.add(profile);
+				
+		mockPerfilServiceFactory.demand.perfilesCategoria
+		{
+			def id -> if(id == 12345) return null else return lista;
+		}
+		
+		controller.perfilService = mockPerfilServiceFactory.createMock();
 	}
+	
+	//----------------------------------------------------------------------------------------------------
+	// Tests
+	//----------------------------------------------------------------------------------------------------
 	
 	void testIndex( )
 	{
-		setIt();
+		setIt2();
 		
 		controller.index();
 		assert view == "/perfil/index";		
@@ -82,7 +129,7 @@ class PerfilControllerTests
 	
 	void testPrincipal( )
 	{
-		setIt();
+		setIt2();
 		
 		controller.principal();		
 		assert view == "/perfil/principal";
@@ -90,31 +137,22 @@ class PerfilControllerTests
 	
 	void testProfile( )
 	{	
-		setIt();
+		setIt2();
 		
 		//Perfil Existe id
 		controller.profile(profile.id);
 		assert flash.message == null;
-
-		response.reset( );
+		
+		response.reset();
 		
 		//Perfil que no existe
-		controller.profile(12345677);
+		controller.profile(12345);
 		assert flash.message != null;
-
 	}
 	
 	void testProfileUsuario( )
 	{
-		setIt();
-		
-		//Profile que existe
-		params.usuario = "NOEXISTE";
-		controller.profileUsuario();
-		flash.message != null;
-		assert response.redirectedUrl == "/perfil/perfiles";
-		
-		response.reset( );
+		setIt2();
 		
 		//Profile que existe
 		params.usuario = profile.usuario;
@@ -122,31 +160,42 @@ class PerfilControllerTests
 		assert model.profileInstance.nombre == profile.nombre;
 	}
 	
+	void testProfileUsuarioInvalido()
+	{
+		setIt2();
+		
+		//Profile no que existe
+		params.usuario = "NOEXISTE";
+		controller.profileUsuario();
+		flash.message != null;
+		assert response.redirectedUrl == "/perfil/perfiles";
+	}
+	
 	void testUsers( )
 	{		
-		setIt();
-		
+		setIt2();
+	
 		controller.perfiles(categoria.id);
 		
-		assert model.profileInstanceTotal, 2;
+		assert model.profileInstanceTotal, 1;
 		assert model.profileInstanceList.get(0).nombre, "Gustavo";
-		assert model.profileInstanceList.get(1).nombre, "Rafael";
+	}
+	
+	void testUsersInvalido( )
+	{
+		setIt2();
 		
 		//Buscar en categoria que no existe
 		controller.perfiles(12345);
+		
 		assert flash.message != null;
-		
-		response.reset( );
-		
-		controller.perfiles();
-		
 	}
 	
 	void testBuscar( )
 	{
 		setIt();
 		
-		params.buscador = "descripcion1";
+		params.q = "descripcion1";
 		
 		controller.buscar();
 		
@@ -155,13 +204,13 @@ class PerfilControllerTests
 		assert model.profileInstanceTotal, 1;
 		
 		//Buscar por nombre
-		params.buscador = "Rafa";
+		params.q = "Rafa";
 		controller.buscar();
 		
 		assert model.profileInstanceList.get(0).nombre, "Rafael";
 		
 		//Buscar algo que no existe
-		params.buscador = "NO EXISTE";
+		params.q = "NO EXISTE";
 		controller.buscar();
 		
 		assert flash.message != null;

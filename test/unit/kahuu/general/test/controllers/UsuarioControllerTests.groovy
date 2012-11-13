@@ -29,7 +29,21 @@ class UsuarioControllerTests
 		assert user.save() != null;
 		
 		controller.usuarioService = new UsuarioService();
+	}
+	
+	void setIt2()
+	{
+		def mockUserService = mockFor(UsuarioService);
 		
+		String pass = "pass";
+		user = new User(nombre:"Gus",password:pass.encodeAsSHA1(), email:"gus@gus.com",fechaCreado:new Date(), activated:false, keyConfirmar:"HOLA");
+		
+		mockUserService.demand.loginUsuario(0..3)
+		{
+			String usuario, String password -> if(password.equals("invalido")) return null else return user;
+		}
+		
+		controller.usuarioService = mockUserService.createMock();
 	}
 	
 	void testLogin( )
@@ -50,7 +64,7 @@ class UsuarioControllerTests
 	
 	void testHandleLogin()
 	{
-		setIt();
+		setIt2();
 		
 		//Password invalido
 		params.email = "gus@gus.com";

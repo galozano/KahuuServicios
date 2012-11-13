@@ -43,6 +43,15 @@ class InformacionController
 	}
 	
 	/**
+	 * Muestra la pagina de comofunciona kahuu
+	 * @return pagina quees
+	 */
+	def comoFunciona()
+	{
+		render(view:"quees");
+	}
+	
+	/**
 	 * Maneja el formulario de contactenos. Envia un email conla informacion que ingreso el usuario.
 	 * @params nombre - nombre del usuario
 	 * @params asunto - asunto del email
@@ -53,7 +62,7 @@ class InformacionController
 	{
 		if(params.nombre == "" || params.asunto == ""  || params.texto == "" || params.email == "")
 		{
-			flash.message = "Uno o m&aacute;s campos vac&iacute;o."
+			flash.message = "Uno o m&aacute;s campos estan vac&iacute;os."
 			render(view:"contactenos");
 			return;
 		}
@@ -95,13 +104,13 @@ class InformacionController
 			}
 			else if (params.nombre.equals("") || params.celular.equals("") || params.descripcion.equals("") || params.categoria.equals(""))
 			{
-				flash.message = "Uno o m&aacute;s campos estan vacios	"
+				flash.message = "Uno o m&aacute;s campos estan vacios."
 				render(view:"registroServicio");
 			}
 
 			else
 			{
-				String text = "Nombre:" + params.nombre + " Celular:" +params.celular + " Descripcion:"+ params.descripcion + " Email: "+ params.email + " Categorias:";
+				String text = "Nombre:" + params.nombre + " Celular:" +params.celular + " Descripcion:"+ params.descripcion + " Email: "+ params.email + " Ciudad:" + params.ciudad+" Categorias:";
 				
 				StringBuffer textB = new StringBuffer(text);
 				

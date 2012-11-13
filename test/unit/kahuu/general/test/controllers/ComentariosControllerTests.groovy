@@ -72,13 +72,85 @@ class ComentariosControllerTests
 		controller.usuarioService = new UsuarioService();
 	}
 	
+	
+	public setIt2( )
+	{
+		categoria = new Categorias(nombre:"Primera");
+		ciudad = new Ciudad(nombre:"Cartagena");
+		cert = new Certificado(nombre:"Principal", nivel:1);
+		
+		profile = new Profile(nombre:"Gustavo",usuario:"gus",password:"hola",email:"gus@gmail.com",certificado:cert, celular2:"3135851647", estadoUsuario:false,fechaCreado:new Date() ,celular:"3205721687", descripcion:"decripcion", ciudad:ciudad, image: new byte[10]);
+		profile.addToCategorias(categoria);
+		profile.totalRating = 3;
+		assert profile.save() != null;
+		
+		user = new User(nombre:"Gus",password:"pass", email:"gus@gus.com",fechaCreado:new Date(), activated:false, keyConfirmar:"HOLA");
+		assert user.save() != null;
+		
+		//Iniciar la session
+		session.user = user;
+		
+		review = new Review(author:"Gustavo Lozano",titulo:"titulo1 es", texto:"TEXTO 123123" , rating:1, profile:profile,user:user, fechaCreado:new Date());
+		assert review.save() != null;
+		
+		review = new Review(author:"Gustavo Lozano",titulo:"titulo1 es", texto:"TEXTO segundo", rating:5, profile:profile,user:user,fechaCreado:new Date());
+		assert review.save() != null;
+		
+		ArrayList comentarios = new ArrayList();
+		comentarios.add(review);
+		
+		def mockComentario = mockFor(ComentarioService,true);
+		def mockPerfil = mockFor(PerfilService,true);
+		def mockUsuario = mockFor(UsuarioService,true);
+		
+		
+		mockPerfil.demand.darPerfil
+		{
+			def id -> return profile;
+		}
+		
+		mockComentario.demand.crearComentario(0..1)
+		{
+			Profile pPerfiln, User pUser, String titulo, String texto, int rating -> return profile;
+		}
+		
+		mockComentario.demand.darMisComentarios(0..5)
+		{
+			def id -> return comentarios;
+		}
+		
+		mockComentario.demand.deleteComentario
+		{
+			def id -> return;
+		}
+		
+		mockComentario.demand.editarComentario
+		{
+			def id, def titulo, def texto, def rating -> return profile;
+		}
+		
+		mockUsuario.demand.cambiarPassword(2)
+		{
+			String password, Long id -> return user;
+		}
+		
+		mockUsuario.demand.actualizarUsuario
+		{
+			String nombreNuevo, Long id -> return user;
+		}
+		
+		controller.comentarioService = mockComentario.createMock();
+		controller.perfilService = mockPerfil.createMock();
+		controller.usuarioService = mockUsuario.createMock();
+	}
+	
 	//--------------------------------------------------------------------------------------------------
 	// Tests
 	//--------------------------------------------------------------------------------------------------
 	
 	void testMisComentario( )
 	{
-		setIt();
+		setIt2();
 		
 		controller.misComentarios();
 		
@@ -88,13 +160,13 @@ class ComentariosControllerTests
 	
 	void testCrearComentario( )
 	{
-		setIt();
+		setIt2();
 		
 	}
 	
 	void testHandleComentario( )
 	{
-		setIt();
+		setIt2();
 		
 		//test ideal
 		int inicial = profile.totalRating;
@@ -114,7 +186,7 @@ class ComentariosControllerTests
 	
 	void testDeteleComentario( )
 	{
-		setIt();
+		setIt2();
 		
 		params.id = user.id;
 		controller.misComentarios();
@@ -160,7 +232,7 @@ class ComentariosControllerTests
 	
 	void testHandleEditComentario( )
 	{
-		setIt();
+		setIt2();
 		
 		assert profile.totalRating == 3;
 		
@@ -180,7 +252,7 @@ class ComentariosControllerTests
 	
 	void testCambiarPassword( )
 	{
-		setIt();
+		setIt2();
 		
 		//Test condiciones ideales
 		params.password = "nuevapass"
@@ -202,7 +274,7 @@ class ComentariosControllerTests
 	
 	void testActualizarUsuario( )
 	{
-		setIt();
+		setIt2();
 		
 		params.nombre = "Nuevo Nombre";
 		

@@ -18,7 +18,7 @@
 			<div id="tab-1">
 				<g:render template="listaPerfil"  model="['listaPerfiles':profileInstanceList]"/>
 			</div>
-			
+				
 		</div>
 	</div>
 	<!-- end #content -->
