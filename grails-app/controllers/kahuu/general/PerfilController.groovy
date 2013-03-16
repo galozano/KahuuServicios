@@ -1,5 +1,6 @@
 package kahuu.general
 
+import grails.plugin.facebooksdk.FacebookContext;
 import kahuu.general.Categorias;
 import kahuu.general.PerfilService;
 import kahuu.general.Profile;
@@ -11,13 +12,14 @@ import org.compass.core.engine.SearchEngineQueryParseException
 /**
  * Controlador de manejo de perfiles
  * @author gustavolozano
- *
  */
 class PerfilController 
 {
 	//------------------------------------------------------------------------------------------
 	// Servicios
 	//------------------------------------------------------------------------------------------
+	
+	FacebookContext facebookContext;
 	
 	PerfilService perfilService;
 	
@@ -35,7 +37,7 @@ class PerfilController
 	 */
     def index()
 	{				
-		render(view: "index", model:[ciudadesLista: perfilService.darCiudades()]);
+		render(view: "index", model:[ciudadesLista: perfilService.darCiudades(),facebookContext: facebookContext ]);
     }
 	
 	/**

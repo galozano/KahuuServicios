@@ -20,6 +20,8 @@ class User
 	
 	String keyConfirmar;
 	
+	String idFacebook;
+	
 	static hasMany = [reviews:Review];
 	
     static constraints = 

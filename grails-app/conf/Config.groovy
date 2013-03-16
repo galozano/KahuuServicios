@@ -106,6 +106,16 @@ mail {
 			 "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
 			 "mail.smtp.socketFactory.fallback":"false"]
   }
-
 }
 
+grails {
+	plugin {
+		facebooksdk {
+			app = [
+				id: 419788201444870,
+				permissions: ['email'],
+				secret: '8a23f7d3b576c9820ac38700f9e1762b'
+			]
+		}
+	}
+}

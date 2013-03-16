@@ -28,6 +28,7 @@
 	<ga:trackPageview/>
 </head>
 <body>
+	<facebook:initJS appId="${facebookContext.app.id}" xfbml="${true}" />
 	<div class="wrapper">
 	<div class="header">
 		<div class="nav">
@@ -67,7 +68,7 @@
 	
 	<div class="footer" role="contentinfo">
 		<div align="center">Usar este sitio web implica la aceptacion de los <g:link controller="informacion" action="terminos">T&eacute;rminos y Condiciones</g:link> y <g:link controller="informacion" action="privacidad">Politicas de Privacidad</g:link> de Kahuu Servicios</div>
-		<div align="center">COPYRIGHT &copy; 2012 KAHUU.CO. TODOS LOS DERECHOS RESERVADOS</div>
+		<div align="center">COPYRIGHT &copy; 2013 KAHUU.CO. TODOS LOS DERECHOS RESERVADOS</div>
 	</div>
 	<div id="spinner" class="spinner" style="display: none;">
 		<g:message code="spinner.alt" default="Loading&hellip;" />

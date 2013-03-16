@@ -207,4 +207,36 @@ class UsuarioService
 			throw new KahuuException("Error guardadndo usuario", user);
 		}
 	}
+	
+	/**
+	 * 
+	 * @param idFacebook
+	 * @return
+	 */
+	def verificarFacebookUsuario(String idFacebook)
+	{
+		User user = User.findByIdFacebook(idFacebook);
+		return user;
+	}
+	
+	/**
+	 * 
+	 * @param nombre
+	 * @param email
+	 * @param idFacebook
+	 * @return
+	 */
+	def agregarUsuarioFacebook(String nombre, String email, String idFacebook)
+	{
+		User user = new User(nombre:nombre, email:email, password:"none", fechaCreado:new Date(), activated:false, idFacebook:idFacebook, keyConfirmar:"");
+	
+		if(user.save(flush:true))
+		{
+			return user;
+		}
+		else
+		{
+			throw new KahuuException("Error guardadndo usuario", user);
+		}
+	}
 }

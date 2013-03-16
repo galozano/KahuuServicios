@@ -3,6 +3,8 @@ package kahuu.general
 import kahuu.general.User;
 import kahuu.general.UsuarioService;
 import kahuu.general.exceptions.KahuuException;
+import grails.plugin.facebooksdk.FacebookContext;
+import grails.plugin.facebooksdk.FacebookGraphClient
 import grails.validation.ValidationException
 import org.codehaus.groovy.grails.plugins.web.taglib.ApplicationTagLib
 
@@ -19,6 +21,8 @@ class UsuarioController
 	//------------------------------------------------------------------------------------------
 	// Servicios
 	//------------------------------------------------------------------------------------------
+	
+	FacebookContext facebookContext;
 	
 	UsuarioService usuarioService;
 
@@ -40,7 +44,39 @@ class UsuarioController
 		}
 		else
 		{
-			render(view: "login");
+			render(view: "login", model:[facebookContext: facebookContext]);
+		}
+	}
+	
+	def handleFacebook( )
+	{
+		FacebookGraphClient facebookGraphClient = new FacebookGraphClient();
+		
+		if (facebookContext.app.id && facebookContext.authenticated) 
+		{
+			String token = facebookContext.user.token;
+			
+			if(token)
+			{
+				facebookGraphClient = new FacebookGraphClient(token)
+				def usuarioFacebook = facebookGraphClient.fetchObject(facebookContext.user.id.toString());
+				
+				
+				//Verificar con id que el usuario existe
+				User usuario = usuarioService.verificarFacebookUsuario(facebookContext.user.id.toString());
+				
+				if(usuario != null)
+				{
+					session.user = usuario;
+					redirect(controller:'comentarios', action:'misComentarios');
+				}
+				else
+				{
+					User nuevoUsuario = usuarioService.agregarUsuarioFacebook(usuarioFacebook.name, usuarioFacebook.email, facebookContext.user.id.toString())
+					session.user = nuevoUsuario;
+					redirect(controller:'comentarios', action:'misComentarios');
+				}
+			}
 		}
 	}
 

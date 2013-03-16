@@ -5,7 +5,6 @@ import kahuu.anuncios.Vista;
 import org.springframework.transaction.annotation.Transactional;
 
 
-
 class AnuncioService 
 {	
 	/**

@@ -1,6 +1,7 @@
 package kahuu.general
 
 
+import grails.plugin.facebooksdk.FacebookContext;
 import kahuu.general.exceptions.KahuuException;
 
 /**
@@ -22,6 +23,8 @@ class ComentariosController
 	
 	AnuncioService anuncioService;
 	
+	FacebookContext facebookContext;
+	
 	def index() { }
 
 	//------------------------------------------------------------------------------------------
@@ -39,7 +42,7 @@ class ComentariosController
 			if(session.user)
 			{
 				def revs = comentarioService.darMisComentarios(session.user.id);
-				render(view:"miscomentarios", model:[listaComentarios:revs,totalComentarios:revs.size()]);
+				render(view:"miscomentarios", model:[listaComentarios:revs,totalComentarios:revs.size(),facebookContext: facebookContext]);
 			}
 			else
 			{

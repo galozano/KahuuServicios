@@ -25,7 +25,6 @@ class Review
 		texto  blank:false;
 		author blank:false;
 		rating blank:false;
-		
 	}
 	
 	static mapping =

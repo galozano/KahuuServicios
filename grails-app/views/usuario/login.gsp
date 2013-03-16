@@ -29,7 +29,13 @@
 				
 		<div id="cuadroIzq">
 			<div><h2>Login</h2></div>
+
 			<g:form action="handleLogin" class="azul">
+			
+				<facebook:loginLink appPermissions="${facebookContext.app.permissions}" returnUrl="${createLink(controller:'usuario', action:'handleFacebook')}">
+					<img src="${resource(dir: 'images', file: 'loginFacebook.gif')}" />
+				</facebook:loginLink>
+			
 				<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'email', 'error')} required">
 					<label for="email"> <g:message code="user.email.label" default="Email" /></label>
 					<g:field type="email" name="email" value="${userInstance?.email}" />
