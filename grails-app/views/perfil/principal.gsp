@@ -6,7 +6,7 @@
 <title><g:message code="kahuu.kahuu" default="Kahuu" /></title>
 </head>
 <body>
-
+<facebook:initJS appId="${facebookContext.app.id}" xfbml="${true}" />
 <g:render template="sidebar"/>
 <div class="content">
 	<g:if test="${flash.message}">

@@ -6,6 +6,7 @@
 <title>Kahuu</title>
 </head>
 <body>
+	<facebook:initJS appId="${facebookContext.app.id}" xfbml="${true}" />
 	<g:render template="sidebar"/>
 	<div class="content">
 					

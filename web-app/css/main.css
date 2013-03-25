@@ -571,8 +571,7 @@ input:invalid:focus,select:invalid:focus,textarea:invalid:focus {
 /* PROFILE */
 
 .profile-up {
-	overflow-y: hidden;
-	overflow-x: hidden;
+	height: 100px;
 	word-wrap: break-word;
 }
 
@@ -586,19 +585,18 @@ input:invalid:focus,select:invalid:focus,textarea:invalid:focus {
 	border: 3px solid black;
 }
 
-.profile-up #telefono {
+#telefono {
 	margin-top: 20px;
 	font-weight: bold;
 	padding: 12px;
 }
 
 .profile-general {
-	overflow: hidden;
+	margin-bottom: 10px;
 }
 
 .profile-box {
-	overflow-y: auto;
-	overflow-x: hidden;
+
 	word-wrap: break-word;
 }
 
@@ -642,8 +640,7 @@ input:invalid:focus,select:invalid:focus,textarea:invalid:focus {
 	position: absolute;
 	display: block;
 	height: 100px;
-	width: 100%;
-	z-index: 2;
+	width: 50%;
 }
 
 .post input {
@@ -659,12 +656,11 @@ input:invalid:focus,select:invalid:focus,textarea:invalid:focus {
 }
 
 .post .title {
-	margin-left: 0px;
+	margin-left: 80px;
 	padding: 0px 0px 0px 20px;
 	letter-spacing: -.5px;
 	font-size: 18px;
 	font-weight: bold;
-	overflow: hidden;
 	word-wrap: break-word;
 }
 
@@ -678,13 +674,14 @@ input:invalid:focus,select:invalid:focus,textarea:invalid:focus {
 {
 	font-size: 12px;
 	color: gray;
+	margin-bottom: 10px;
 }
 
 .post .rating {
 	position: relative;
-	margin-top: 10px;
 	height: 30px;
 	font-size: 11px;
+	float: right;
 }
 
 #content-users {

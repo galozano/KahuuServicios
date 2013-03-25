@@ -28,9 +28,9 @@
 		
 		<h1>Buscar</h1>
 		
-		<g:form name="searchForm" url="[controller:'perfil',action:'buscar']" class="azul">
+		<g:form name="searchForm" url="[action:'buscar',controller:'perfil']" class="azul">
 			<div>
-				<g:textField  class="input_buscador" name="buscador" value="busca tu servicio..." onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" />
+				<g:textField  class="input_buscador" name="q" value="busca tu servicio..." onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" />
 				<div class="buttons">
 					<g:submitButton name="buscar"  value="Buscar"/>
 				</div>

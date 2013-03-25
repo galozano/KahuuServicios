@@ -6,9 +6,9 @@
 <title><g:fieldValue bean="${profileInstance}" field="nombre"/></title>
 </head>
 <body>
+	<facebook:initJS appId="${facebookContext.app.id}" xfbml="${true}" />
 	<g:render template="sidebar"/>
 	<div class="content">
-
 		<div class="profile-up">	
 			<g:if test="${profileInstance?.image}">
 				<img src="${createLink(controller:'perfil', action:'darFoto', id: profileInstance.id)}"  width="100" height="100"/>
@@ -20,12 +20,13 @@
 			<div class="profile-general">
 				<h1><g:fieldValue bean="${profileInstance}" field="nombre"/></h1>
 				<img src="${resource(dir: 'images/skin', file: 'stars-'+profileInstance.totalRating+'.png')}" />&nbsp;(${reviewsTotal} Comentarios)
-				
-				<!-- Facebook Like Button -->
-				<% String url = "http://" + request.getServerName()  + request.getContextPath() + "/" + profileInstance.usuario %>			
-				<div class="fb-like" data-href="${url}" data-send="false"  data-width="500" data-show-faces="true" data-action="recommend"></div>
-		
-				
+			</div>
+			
+			<!-- Facebook Like Button -->
+			<% String url = "http://" + request.getServerName()  + request.getContextPath() + "/" + profileInstance.usuario %>			
+			<div class="fb-like" data-href="${url}" data-send="false"  data-width="500" data-show-faces="false" data-action="recommend"></div>
+		</div>
+		<div class="profile-box">
 				<g:if test="${session.user}">
 					<div id="telefono" class="azul">
 							Celular:&nbsp;<g:fieldValue bean="${profileInstance}" field="celular"/>
@@ -35,7 +36,6 @@
 				<g:else>
 					<div id="telefono" class="azul">Para ver el tel&eacute;fono <g:link controller="usuario" action="login">Ingresa</g:link> o <g:link controller="usuario" action="login">Registrate</g:link></div>
 				</g:else>	
-			</div>
 		</div>
 		<div class="profile-box">
 			<div class="box-header">

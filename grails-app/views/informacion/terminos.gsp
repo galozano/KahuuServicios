@@ -35,7 +35,8 @@
 					El ingreso y uso del sitio web <strong>Kahuu Servicios</strong> que
 					se encuentra en los dominios<a href="http://kahuuservicios.com">http://kahuuservicios.com</a>,
 					<a href="http://www.kahuuservicios.com">http://www.kahuuservicios.com</a>,
-					<a href="http://kahuuservicios.kelgal.com">http://kahuuservicios.kelgal.com</a>
+					<a href="http://www.kahuu.co">http://www.kahuu.co</a>,
+					<a href="http://www.kahu.co">http://www.kahu.co</a>
 					y de cualquiera de sus p&#225;ginas a las que a trav&#233;s de
 					mismo de pueda acceder, implica que el usuario, entiende y acepta
 					los t&#233;rminos y condiciones de este sitio web. Si el usuario no

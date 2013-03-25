@@ -112,6 +112,8 @@ class InformacionController
 			{
 				String text = "Nombre:" + params.nombre + " Celular:" +params.celular + " Descripcion:"+ params.descripcion + " Email: "+ params.email + " Ciudad:" + params.ciudad+" Categorias:";
 				
+				log.info('Se ingreso el usuario por publicar servicio:' + text);
+				
 				StringBuffer textB = new StringBuffer(text);
 				
 				for(String c: params.categorias)
@@ -123,7 +125,7 @@ class InformacionController
 				//Enviar email a soporte kelgal
 				sendMail
 				{
-					to "gustil@gmail.com"
+					to "soporte@kahuu.co"
 					subject params.nombre
 					body textB.toString()
 				}

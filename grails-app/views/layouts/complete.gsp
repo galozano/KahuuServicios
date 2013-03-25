@@ -28,7 +28,6 @@
 	<ga:trackPageview/>
 </head>
 <body>
-	<facebook:initJS appId="${facebookContext.app.id}" xfbml="${true}" />
 	<div class="wrapper">
 	<div class="header">
 		<div class="nav">
@@ -40,7 +39,7 @@
 				<li><g:link class="contact" controller="informacion" action="contactenos">Cont&aacute;ctenos</g:link></li>
 				<li id="derecha">
 					<g:if test="${session.user}">
-						<g:link controller="usuario" action="logout"> Cerrar Sesi&oacute;n</g:link>
+						<g:link controller="usuario" action="logout">Cerrar Sesi&oacute;n</g:link>
 					</g:if>
 					<g:else>
 						<g:link controller="usuario" action="login">Ingresar/Registrar</g:link>

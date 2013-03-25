@@ -54,7 +54,7 @@ class UsuarioService
 	 */
 	def registration(String nombre, String email, String password) throws KahuuException
 	{
-		User user = new User(nombre:nombre, email:email, password:password.encodeAsSHA1(), fechaCreado:new Date(), activated:false, keyConfirmar:Password.createRandomPass());
+		User user = new User(nombre:nombre, email:email, password:password.encodeAsSHA1(), fechaCreado:new Date(), activated:false, idFacebook:"", keyConfirmar:Password.createRandomPass());
 
 		if (user.save(flush:true))
 		{

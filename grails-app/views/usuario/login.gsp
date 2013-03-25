@@ -6,6 +6,7 @@
 <title>Ingresar</title>
 </head>
 <body>
+<facebook:initJS appId="${facebookContext.app.id}" xfbml="${true}" />
 	<div class="page-bgtop">
 		<g:hasErrors bean="${userInstance}">
 			<ul class="errors" role="alert">
@@ -30,12 +31,13 @@
 		<div id="cuadroIzq">
 			<div><h2>Login</h2></div>
 
-			<g:form action="handleLogin" class="azul">
-			
+			<div class = "azul" align="center">
 				<facebook:loginLink appPermissions="${facebookContext.app.permissions}" returnUrl="${createLink(controller:'usuario', action:'handleFacebook')}">
 					<img src="${resource(dir: 'images', file: 'loginFacebook.gif')}" />
 				</facebook:loginLink>
+			</div>
 			
+			<g:form action="handleLogin" class="azul">
 				<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'email', 'error')} required">
 					<label for="email"> <g:message code="user.email.label" default="Email" /></label>
 					<g:field type="email" name="email" value="${userInstance?.email}" />

@@ -23,8 +23,6 @@ class PerfilController
 	
 	PerfilService perfilService;
 	
-	AnuncioService anuncioService;
-	
 	def searchableService;
 
 	//------------------------------------------------------------------------------------------
@@ -48,6 +46,8 @@ class PerfilController
 	{
 		List listaDestacados = perfilService.perfilesDestacados();
 		List listaCategorias = perfilService.darCategorias( );
+		
+		log.info('Mostrando lista de perfiles destacados')
 		
 		render(view: "principal",model:[listaDestacados:listaDestacados, categoriasList:listaCategorias]);
 	}
@@ -163,7 +163,7 @@ class PerfilController
 		
 		try 
 		{
-			def searchResults = searchableService.search(params.q);
+			def searchResults = searchableService.search("*" + params.q + "*");
 			render(view: "perfiles",model:[nombreCategoria:"Busqueda",profileInstanceList: searchResults.results ,profileInstanceTotal:searchResults.results.size(), categoriasList: categorias]);
 		}
 		catch (SearchEngineQueryParseException e)

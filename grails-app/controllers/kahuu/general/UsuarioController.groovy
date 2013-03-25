@@ -155,9 +155,12 @@ class UsuarioController
 	 */
 	def logout()
 	{
-		log.info "User agent: " + request.getHeader("User-Agent")
-		session.invalidate()
-		redirect(action: "login")
+		log.info "User agent: " + request.getHeader("User-Agent");
+		
+		facebookContext.user.invalidate();
+		session.user = null;
+		session.invalidate();
+		redirect(action: "login");
 	}
 
 	/**
@@ -213,18 +216,18 @@ class UsuarioController
 			if(verificado)
 			{
 				flash.message = "Gracias, ya puedes usar t&uacute; cuenta.";
-				redirect(action: "login");
+				render(view: "verificarEmail");
 			}
 			else
 			{
 				flash.message = "T&uacute; cuenta es invalida y no pudo ser confirmada";
-				redirect(action: "login");
+				render(view: "verificarEmail");
 			}
 		}
 		catch(KahuuException e)
 		{
 			flash.message = e.getMessage();
-			redirect(action: "login");
+			render(view: "verificarEmail");
 		}
 	}
 }

@@ -21,7 +21,6 @@ class ComentariosController
 	
 	PerfilService perfilService;
 	
-	AnuncioService anuncioService;
 	
 	FacebookContext facebookContext;
 	
@@ -278,19 +277,5 @@ class ComentariosController
 		{
 			render(view:"miperfil",model: [userInstance:e.invalido]);
 		}
-	}
-	
-	//------------------------------------------------------------------------------------------
-	// Metodos Anuncios
-	//------------------------------------------------------------------------------------------
-	
-	/**
-	 * Muestra to lo relacionado con el numero de vistas y numero de clicks
-	 * @return- la pagina de la administracion de kahuu anuncios.
-	 */
-	def administradorAnuncios( )
-	{
-		List anuncios = anuncioService.darAnunciosUsuario(session.user);
-		render(view:"misanuncios", model:[listaAnuncios:anuncios])
 	}
 }

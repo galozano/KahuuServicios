@@ -11,8 +11,11 @@
 			<img src="${resource(dir: 'images', file: 'none.jpg')}" width="75" height="75"/>
 		</g:link>
 	</g:else>
-									
+							
 	<div class="title">
+		<div class="rating">
+			<img src="${resource(dir: 'images/skin', file: 'stars-'+profileInstance.totalRating+'.png')}"/><%-- &nbsp;(${profileInstance.reviews.size()} Comentarios)--%>
+		</div>
 		<g:link action="profileUsuario" params="[usuario:profileInstance.usuario]">${fieldValue(bean: profileInstance, field: "nombre")}</g:link>
 		<div class="descripcion">		
 			<g:if test="${profileInstance.descripcion.length() > 90}">
@@ -22,9 +25,10 @@
 				${profileInstance.descripcion}
 			</g:else>
 		</div>
-		<div class="rating">
-			<img src="${resource(dir: 'images/skin', file: 'stars-'+profileInstance.totalRating+'.png')}"/><%-- &nbsp;(${profileInstance.reviews.size()} Comentarios)--%>
-		</div>
+		
+		<!-- Facebook Facepile -->
+		<% String url = "http://" + request.getServerName()  + request.getContextPath() + "/" + profileInstance.usuario %>		
+		<div class="fb-like" data-href="${url}" data-send="false"  data-width="500" data-show-faces="false" data-action="recommend"></div>
 	</div>
 </div>
 </g:each>
