@@ -30,13 +30,13 @@ class PerfilController
 	//------------------------------------------------------------------------------------------
 	
 	/**
-	 * Muestra la pagina principal para elegir la ciudad
+	 * Muestra la pagina 
 	 * @return la pagina index
 	 */
     def index()
 	{				
-		render(view: "index", model:[ciudadesLista: perfilService.darCiudades(),facebookContext: facebookContext ]);
-    }
+    	redirect(action:"principal");
+	}
 	
 	/**
 	 * Muestra la pagina principal con los destacados y los recientes
@@ -44,10 +44,10 @@ class PerfilController
 	 */
 	def principal( )
 	{
-		List listaDestacados = perfilService.perfilesDestacados();
 		List listaCategorias = perfilService.darCategorias( );
+		List listaDestacados = perfilService.perfilesDestacados();
 		
-		log.info('Mostrando lista de perfiles destacados')
+		log.info("Mostrando lista de perfiles destacados")
 		
 		render(view: "principal",model:[listaDestacados:listaDestacados, categoriasList:listaCategorias]);
 	}
@@ -75,6 +75,7 @@ class PerfilController
 		}
 		catch(KahuuException e)
 		{
+			log.warn("Error mostrando perfil:" + e.getMessage());
 			flash.message = e.message;
 			redirect(action: "perfiles");
 		}
@@ -108,6 +109,7 @@ class PerfilController
 		}	
 		catch(KahuuException e)
 		{
+			log.warn("Error mostrando perfil:" + e.getMessage());
 			flash.message = e.message;
 			redirect(action: "perfiles");
 		}
@@ -168,6 +170,7 @@ class PerfilController
 		}
 		catch (SearchEngineQueryParseException e)
 		{
+			log.warn("Error en la busqueda:" + e.getMessage());
 			flash.message = e.message;
 			redirect(action: "perfiles");
 		}

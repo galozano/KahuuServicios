@@ -48,6 +48,10 @@ class UsuarioController
 		}
 	}
 	
+	/**
+	 * Maneja el login cuando se hace click en el boton de facebook
+	 * @return va a la pagina de comentarios
+	 */
 	def handleFacebook( )
 	{
 		FacebookGraphClient facebookGraphClient = new FacebookGraphClient();
@@ -60,7 +64,6 @@ class UsuarioController
 			{
 				facebookGraphClient = new FacebookGraphClient(token)
 				def usuarioFacebook = facebookGraphClient.fetchObject(facebookContext.user.id.toString());
-				
 				
 				//Verificar con id que el usuario existe
 				User usuario = usuarioService.verificarFacebookUsuario(facebookContext.user.id.toString());

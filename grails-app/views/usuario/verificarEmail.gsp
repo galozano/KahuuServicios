@@ -12,7 +12,7 @@
 		</g:if>
   </div>
   
-  <g:link controller="Perfil" action="index">Regresar</g:link>
+  <g:link controller="Perfil" action="principal">Regresar</g:link>
   
 </body>
 </html>

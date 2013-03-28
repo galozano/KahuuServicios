@@ -74,12 +74,25 @@ environments {
 }
 
 // log4j configuration
-log4j = {
-    // Example of changing the log pattern for the default console appender:
-    //
-    appenders {
-        console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
-    }
+log4j = {	
+	appenders {		
+		environments {
+			development { 
+				console name: 'stdout', layout: pattern(conversionPattern: '%d %p %c{3} %m%n')
+			}
+			test { 
+				console name: 'stdout', layout: pattern(conversionPattern: '%d %p %c{3} %m%n')
+			}
+			production {
+				def catalinaBase = System.properties.getProperty('catalina.base')
+				if (!catalinaBase) catalinaBase = '.'
+				def logDirectory = "${catalinaBase}/logs"
+
+				rollingFile name: 'file', file: "${logDirectory}/${appName}.log", layout: pattern(conversionPattern: '%d %p %c{3} %m%n'), maxFileSize:1024
+				rollingFile name: 'StackTrace', file: "${logDirectory}/${appName}-stacktrace.log"
+			}
+		}
+	}
 
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers
            'org.codehaus.groovy.grails.web.pages',          // GSP
@@ -93,7 +106,18 @@ log4j = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 	
-	all    'kahuu'  										// Kahuu
+	environments {
+		development { 
+			//root { info 'stdout' } 
+			info   'grails.app.controllers'										// Kahuu
+		}
+		test { 
+			root { warn 'stdout' } 
+		}
+		production { 
+			root { error 'file' } 
+		}
+	}
 }
 
 

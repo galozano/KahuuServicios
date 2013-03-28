@@ -75,7 +75,7 @@ class PerfilServiceTests {
 		
 		assert profile.save(flush: true) != null;
 		
-		user = new User(nombre:"Gus",password:"pass", email:"gus@gus.com",fechaCreado:new Date(), activated:false, keyConfirmar:"HOLA");
+		user = new User(nombre:"Gus",password:"pass", email:"gus@gus.com",fechaCreado:new Date(), activated:false, keyConfirmar:"HOLA",idFacebook:"");
 		assert user.save(flush: true) != null;
 
 		review = new Review(author:"Gustavo Lozano",titulo:"titulo1 es", texto:"TEXTO segundo", rating:5, profile:profile,user:user,fechaCreado:new Date());

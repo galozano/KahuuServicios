@@ -55,6 +55,10 @@
 				<div class="buttons">
 					<g:submitButton name="create" class="save" value="Iniciar" />
 				</div>
+				
+				<div class="fieldcontain">
+					Iniciando session con t&uacute email o por facebook aceptas las <g:link controller="informacion" action="terminos">Pol&iacute;ticas de Privacidad</g:link> y los <g:link controller="informacion" action="privacidad">T&eacute;rminos y Condiciones</g:link> de Kahuu.
+				</div>
 			</g:form>
 		</div>
 		<div id="cuadroDer">

@@ -25,7 +25,7 @@ class UsuarioControllerTests
 	{
 		String pass = "pass";
 		
-		user = new User(nombre:"Gus",password:pass.encodeAsSHA1(), email:"gus@gus.com",fechaCreado:new Date(), activated:false, keyConfirmar:"HOLA");
+		user = new User(nombre:"Gus",password:pass.encodeAsSHA1(), email:"gus@gus.com",fechaCreado:new Date(), activated:false, keyConfirmar:"HOLA", idFacebook:"");
 		assert user.save() != null;
 		
 		controller.usuarioService = new UsuarioService();

@@ -74,19 +74,24 @@ class PerfilControllerTests
 		
 		def mockPerfilServiceFactory = mockFor(PerfilService);
 		
+		ArrayList lista = new ArrayList();
+		lista.add(profile);
+		
 		mockPerfilServiceFactory.demand.darCiudades(0..2)
 		{
 			return new ArrayList();
 		}
 		
-		mockPerfilServiceFactory.demand.darCategorias(0..30)
+		mockPerfilServiceFactory.demand.darCategorias(0..2)
 		{
-			return new ArrayList();
+			ArrayList listaCat = new ArrayList();
+			listaCat.add(categoria);
+			return listaCat;
 		}
 		
-		mockPerfilServiceFactory.demand.perfilesDestacados(0..30)
+		mockPerfilServiceFactory.demand.perfilesDestacados(0..2)
 		{
-			return new ArrayList();
+			return lista;
 		}
 		
 		mockPerfilServiceFactory.demand.darPerfil(0..2)
@@ -103,9 +108,6 @@ class PerfilControllerTests
 		{
 			def perfil -> return new ArrayList();
 		}
-		
-		ArrayList lista = new ArrayList();
-		lista.add(profile);
 				
 		mockPerfilServiceFactory.demand.perfilesCategoria
 		{
@@ -113,6 +115,7 @@ class PerfilControllerTests
 		}
 		
 		controller.perfilService = mockPerfilServiceFactory.createMock();
+		
 	}
 	
 	//----------------------------------------------------------------------------------------------------

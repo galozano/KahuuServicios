@@ -29,6 +29,7 @@
 		<!-- Facebook Facepile -->
 		<% String url = "http://" + request.getServerName()  + request.getContextPath() + "/" + profileInstance.usuario %>		
 		<div class="fb-like" data-href="${url}" data-send="false"  data-width="500" data-show-faces="false" data-action="recommend"></div>
+	
 	</div>
 </div>
 </g:each>

@@ -54,7 +54,7 @@ class ComentarioServiceTests
 		profile.totalRating = 3;
 		assert profile.save() != null;
 		
-		user = new User(nombre:"Gus",password:"pass", email:"gus@gus.com",fechaCreado:new Date(), activated:false, keyConfirmar:"HOLA");
+		user = new User(nombre:"Gus",password:"pass", email:"gus@gus.com",fechaCreado:new Date(), activated:false, keyConfirmar:"HOLA",idFacebook:"");
 		assert user.save() != null;
 		
 		review = new Review(author:"Gustavo Lozano",titulo:"titulo1 es", texto:"TEXTO 123123" , rating:1, profile:profile,user:user, fechaCreado:new Date());

@@ -34,7 +34,7 @@ class UsuarioServiceTests
 		String pass = "pass";
 		mockCodec(SHA1Codec);
 		
-		usuarioPrueba = new User(nombre:"Gus",password:pass.encodeAsSHA1(), email:"gus@gus.com",fechaCreado:new Date(), activated:false, keyConfirmar:"HOLA");
+		usuarioPrueba = new User(nombre:"Gus",password:pass.encodeAsSHA1(), email:"gus@gus.com",fechaCreado:new Date(), activated:false, keyConfirmar:"HOLA", idFacebook:"");
 		assert usuarioPrueba.save() != null;
 	}
 	

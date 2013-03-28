@@ -22,17 +22,6 @@ class KahuuFilters
 	           }
 		   }
 		   
-//		   loginFacebook(controller: 'usuario', action: 'logout', invert:true)
-//		   {
-//			   before =
-//			   {
-//				   if (facebookContextProxy.authenticated & !session.user)
-//				   {
-//					   session.user = usuarioService.verificarFacebookUsuario(facebookContextProxy.user.id.toString());
-//				   }
-//			   }
-//		   }
-		   
 		   loginCheck(controller: 'comentarios', action: '*')
 		   {
 			   before =

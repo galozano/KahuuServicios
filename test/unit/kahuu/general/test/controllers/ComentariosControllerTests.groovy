@@ -55,7 +55,7 @@ class ComentariosControllerTests
 		profile.totalRating = 3;
 		assert profile.save() != null;
 		
-		user = new User(nombre:"Gus",password:"pass", email:"gus@gus.com",fechaCreado:new Date(), activated:false, keyConfirmar:"HOLA");			
+		user = new User(nombre:"Gus",password:"pass", email:"gus@gus.com",fechaCreado:new Date(), activated:false, keyConfirmar:"HOLA", idFacebook:"");			
 		assert user.save() != null;
 		
 		//Iniciar la session
