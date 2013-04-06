@@ -14,8 +14,16 @@
 			${flash.message}
 		</div>
 	</g:if>
-	
-	<div id="tabs">
+		<script>
+			$(document).ready(function(){
+				//Examples of how to assign the Colorbox event to elements
+				$(".ajax").colorbox();
+				$(".youtube").colorbox({iframe:true, innerWidth:425, innerHeight:344});
+			});
+		</script>
+	<div id="tabs">		
+		<a href="http://www.youtube.com/embed/wjvYouhoLS0?rel=0" class="youtube">play me</a>
+		<div class="fb-like-box" data-href="https://www.facebook.com/pages/Kahuuco/242764315796016" data-width="292" data-height="200" data-show-faces="true" data-stream="false" data-header="true"></div>			
 		<div id="tituloBox">Destacados</div>
 		<div id="tab-1">
 			<g:render template="listaPerfil"  model="['listaPerfiles':listaDestacados]"/>
