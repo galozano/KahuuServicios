@@ -1,11 +1,14 @@
 package kahuu.general
 
 import grails.plugin.facebooksdk.FacebookContext;
+import grails.plugin.facebooksdk.FacebookContextUser
+import grails.plugin.facebooksdk.FacebookGraphClient
 import kahuu.general.Categorias;
 import kahuu.general.PerfilService;
 import kahuu.general.Profile;
 import kahuu.general.Ciudad;
 import kahuu.general.exceptions.KahuuException;
+import org.codehaus.groovy.grails.web.json.JSONObject
 import org.compass.core.engine.SearchEngineQueryParseException
 
 
@@ -22,6 +25,8 @@ class PerfilController
 	FacebookContext facebookContext;
 	
 	PerfilService perfilService;
+	
+	RecomendadosService recomendadosService;
 	
 	def searchableService;
 
@@ -47,7 +52,7 @@ class PerfilController
 		List listaCategorias = perfilService.darCategorias( );
 		List listaDestacados = perfilService.perfilesDestacados();
 		
-		log.info("Mostrando lista de perfiles destacados")
+		log.debug("Mostrando lista de perfiles destacados")
 		
 		render(view: "principal",model:[listaDestacados:listaDestacados, categoriasList:listaCategorias]);
 	}
@@ -90,9 +95,11 @@ class PerfilController
 	{	
 		try
 		{
+			boolean loRecomende = false; //Si el usuario en session recomendo o no el perfil
+			
 			def categorias = perfilService.darCategorias( );
 			Profile profileInstance = perfilService.darPerfilUsuario(params.usuario);
-		
+			
 			if(profileInstance == null)
 			{
 				flash.message = "No existe el perfil buscado";
@@ -104,7 +111,16 @@ class PerfilController
 				List revs = perfilService.darReviewsPerfil(profileInstance);
 				int total =  revs ? revs.size():0;
 				
-				render(view: "profile", model:	[profileInstance: profileInstance, reviewsList: revs,categoriasList:categorias, reviewsTotal:total] );
+				//Averiguar si el perfil esta recomendado por el usuario en session
+				if(session.user)
+				{
+					Recomendados rec = recomendadosService.estaRecomendado(profileInstance, session.user);
+					loRecomende = rec==null? false:true;		
+				}
+				
+				log.debug("Perfil-Estado de la recomendacion: " + loRecomende);
+				
+				render(view: "profile", model:	[loRecomende:loRecomende,profileInstance: profileInstance, reviewsList: revs,categoriasList:categorias, reviewsTotal:total] );
 			}
 		}	
 		catch(KahuuException e)
@@ -212,13 +228,13 @@ class PerfilController
 	 * @param - nombreCategoria nombre de la categoria
 	 * @return- la pagina perfiles con los perfiles que coinciden con la categoria dada
 	 */
-	def categoria( )
+	def categoria(String nombreCategoria)
 	{
 		def categorias = perfilService.darCategorias( );
 		
 		try
 		{
-			def results = perfilService.perfilesCategoriasNombre(params.nombreCategoria);
+			def results = perfilService.perfilesCategoriasNombre(nombreCategoria);
 			
 			if(results == null || results.size() == 0)
 			{
@@ -227,7 +243,7 @@ class PerfilController
 			}
 			else
 			{
-				render(view: "perfiles",model:[nombreCategoria:params.nombreCategoria ,profileInstanceList: results ,profileInstanceTotal:results.size(), categoriasList: categorias]);
+				render(view: "perfiles",model:[nombreCategoria:nombreCategoria ,profileInstanceList: results ,profileInstanceTotal:results.size(), categoriasList: categorias]);
 			}
 			
 		}
@@ -236,5 +252,81 @@ class PerfilController
 			flash.message = e.message;
 			render(view: "perfiles",model:[categoriasList: categorias]);
 		}
+	}
+	
+	/**
+	 * Metodo para recomendar a un profesional el especifico
+	 * @param idPerfil - el perfil que se recomendo
+	 * @param idUsuario - el id del usuario que recomendo
+	 * @return
+	 */
+	def recomendarPerfil(Long idPerfil, Long idUsuario)
+	{
+		log.debug("Recomendado perfil a:" + idPerfil + " usuario:" + idUsuario);
+
+		try
+		{
+			recomendadosService.recomendarPerfil(idPerfil, idUsuario);
+			render "recomendado";
+		}
+		catch(Exception e)
+		{
+			flash.message = e.message;
+		}
+		
+		render "recomendado";
+	}
+	
+	/**
+	 * Elimina la recomendacion del perfil dado del usuario registrado
+	 * @return
+	 */
+	def eliminarRecomendacion(Long idPerfil)
+	{
+		
+	}
+	
+	/**
+	 * Retorna la lista de amigos del usuario que recomendaron el perfil
+	 * @return lista de amigos recomendados
+	 */
+	def darAmigosRecomendaron(Long idPerfil)
+	{
+		log.debug("AJAX-Id del Perdil a buscar recomendaciones es:" + idPerfil);
+		
+		//Map<String,Perfil> hashTable = new Map<String,Perfil>();
+		//Lista de recomendaciones que recomendaron este perfil
+		List recomendaciones = recomendadosService.darRecomendaron(idPerfil);
+		
+		int totalAmigos = recomendaciones.size();
+		int cuantosAmigos = 0;
+		def mapaRecomendados = [:]
+		
+		if (facebookContext.authenticated && session.user)
+		{
+			// User is authenticated
+			def facebookClient = new FacebookGraphClient(facebookContext.user.token);
+			//Get el perfil del usuario
+			List myFriends = facebookClient.fetchConnection("me/friends");
+			
+			//Guarda toda la lista de recomendados en un mapa
+			for(Recomendados rec: recomendaciones)
+			{
+				mapaRecomendados.put(rec.user.idFacebook, true);
+			}
+			
+			for(String usuario : myFriends)
+			{
+				JSONObject userJson = new JSONObject(usuario);
+					
+				if(mapaRecomendados.get(userJson.getString("id")))
+				{
+					cuantosAmigos++;
+					totalAmigos--;
+				}
+			}
+		}
+		
+		render "<a>" + cuantosAmigos +" de tus amigos </a> lo recomendaron y otros " + totalAmigos + " lo recomiendan";
 	}
 }

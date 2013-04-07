@@ -66,12 +66,29 @@ environments {
     development 
 	{
         grails.logging.jul.usebridge = true
+		
+		//Facebook Desarrollo
+		grails.plugin.facebooksdk.app.id = 389473204484178
+		grails.plugin.facebooksdk.app.permissions = ['email']
+		grails.plugin.facebooksdk.app.secret = 'a68c2ca8fdb37ef1c83a7991052559ab'
     }
+	test {
+		//Facebook Test
+		grails.plugin.facebooksdk.app.id = 389473204484178
+		grails.plugin.facebooksdk.app.permissions = ['email']
+		grails.plugin.facebooksdk.app.secret = 'a68c2ca8fdb37ef1c83a7991052559ab'
+	}
     production {
         grails.logging.jul.usebridge = false
+		
+		//Facebook Production
+		grails.plugin.facebooksdk.app.id = 419788201444870
+		grails.plugin.facebooksdk.app.permissions = ['email']
+		grails.plugin.facebooksdk.app.secret = '8a23f7d3b576c9820ac38700f9e1762b'
         // TODO: grails.serverURL = "http://www.changeme.com"
     }
 }
+
 
 // log4j configuration
 log4j = {	
@@ -109,7 +126,9 @@ log4j = {
 	environments {
 		development { 
 			//root { info 'stdout' } 
-			info   'grails.app.controllers'										// Kahuu
+			debug   'grails.app.controllers'
+			debug   'grails.app.domain'
+			debug   'grails.app.services'										
 		}
 		test { 
 			root { warn 'stdout' } 
@@ -134,14 +153,3 @@ mail {
   }
 }
 
-grails {
-	plugin {
-		facebooksdk {
-			app = [
-				id: 419788201444870,
-				permissions: ['email'],
-				secret: '8a23f7d3b576c9820ac38700f9e1762b'
-			]
-		}
-	}
-}

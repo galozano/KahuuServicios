@@ -21,11 +21,41 @@
 				<h1><g:fieldValue bean="${profileInstance}" field="nombre"/></h1>
 				<img src="${resource(dir: 'images/skin', file: 'stars-'+profileInstance.totalRating+'.png')}" />&nbsp;(${reviewsTotal} Comentarios)
 			</div>
+					
+			<div id="errores"></div>	
+			<g:formRemote name="recomendarPerfil" onSuccess="disableRecommend()" onFailure="error()" url="[controller: 'perfil', action: 'recomendarPerfil']"  update="[success: 'message', failure: 'errores']">
+    			<input type="hidden" name="idPerfil" value="${profileInstance.id}" />
+    			
+    			<g:if test="${session.user}">
+    				<input type="hidden" name="idUsuario" value="${session.user.id}" />
+    				<g:if test="${loRecomende}">
+    					<input type="submit" class="botton-recomendar" value="Recomendar" disabled/> 
+    				</g:if>
+    				<g:else>
+    					<input type="submit" class="botton-recomendar" value="Recomendar"/>
+    				</g:else>
+    			</g:if>
+    			<g:else>
+    				Para recomendar <g:link controller="usuario" action="login">Ingresa</g:link> o <g:link controller="usuario" action="login">Registrate</g:link>
+    			</g:else>
+			</g:formRemote >
 			
-			<!-- Facebook Like Button -->
+			<div id="textRecomendados"></div>
+			<script type="text/javascript">
+				$.ajax(
+				{
+				  url: "${g.createLink(controller:'perfil',action:'darAmigosRecomendaron')}",
+				  data: {idPerfil: "${profileInstance.id}"},
+				  context: document.body
+				}).done(function(data) { 
+				  $("#textRecomendados").html(data)
+				});
+			</script>
+			
+			<!-- Facebook Like Button --><%--
 			<% String url = "http://" + request.getServerName()  + request.getContextPath() + "/" + profileInstance.usuario %>			
 			<div class="fb-like" data-href="${url}" data-send="false"  data-width="500" data-show-faces="false" data-action="recommend"></div>
-		</div>
+		--%></div>
 		<div class="profile-box">
 				<g:if test="${session.user}">
 					<div id="telefono" class="azul">
@@ -47,7 +77,7 @@
 		</div>
 		<div class="profile-box">
 					<div class="box-header">
-						Categor&iacuteas 
+						Categor&iacute;as 
 					</div>
 					<div class="box-content azul">
 						<g:each in="${profileInstance.categorias}" var="c">					
@@ -85,6 +115,5 @@
 			</div>
 			<!-- end #content -->
 			<div style="clear: both;">&nbsp;</div>
-
 </body>
 </html>

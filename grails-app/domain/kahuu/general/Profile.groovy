@@ -41,7 +41,7 @@ class Profile implements Comparable
 		categorias component: true;
 	};
 		
-	static hasMany = [categorias: Categorias,reviews:Review];
+	static hasMany = [categorias: Categorias,reviews:Review, recomendaciones:Recomendados];
 	
     static constraints = 
 	{
@@ -51,6 +51,7 @@ class Profile implements Comparable
 		image maxSize:1000000;
 		email email:true
 		nombre blank:false, size:2..45;
+		
 		celular blank:false, validator:{
 			return it.matches("[0-9]{10}")
 		};

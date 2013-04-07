@@ -32,7 +32,6 @@ class PerfilService
 		return Categorias.list(sort:'nombre');
 	}
 	
-	
 	/**
 	 * Retrona los comentarios de un perfil en especifico
 	 * @param profile el perfil - perfil != null & perfil existe
@@ -140,7 +139,6 @@ class PerfilService
 		}
 		return results.sort();
 	}
-	
 	
 	/**
 	 * Retorna una lista de 3 perfiles con lo mas destacados 

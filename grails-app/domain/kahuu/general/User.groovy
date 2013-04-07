@@ -22,7 +22,7 @@ class User
 	
 	String idFacebook;
 	
-	static hasMany = [reviews:Review];
+	static hasMany = [reviews:Review,recomendados:Recomendados];
 	
     static constraints = 
 	{

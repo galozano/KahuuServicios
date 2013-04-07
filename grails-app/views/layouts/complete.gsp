@@ -20,8 +20,9 @@
 	<link rel="stylesheet" href="${resource(dir: 'css', file: 'colorbox.css')}" type="text/css">
 	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/themes/smoothness/jquery-ui.css" type="text/css" media="all" />
 	<link rel="stylesheet" href="${resource(dir: 'css', file: 'jquery.css')}" type="text/css">
-	<link rel="image_src" href="${resource(dir: 'images', file: 'apple-touch-icon.png')}" /> 
+	<link rel="image_src" href="${resource(dir: 'images', file: 'apple-touch-icon.png')}" /><%-- 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	--%><g:javascript library="jquery" />
 	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
 	<script src="${resource(dir: 'js', file: 'application.js')}" type="text/javascript"></script>
 	<script src="${resource(dir: 'js', file: 'jquery.colorbox-min.js')}"></script>

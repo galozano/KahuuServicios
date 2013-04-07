@@ -19,17 +19,23 @@
 		<g:link action="profileUsuario" params="[usuario:profileInstance.usuario]">${fieldValue(bean: profileInstance, field: "nombre")}</g:link>
 		<div class="descripcion">		
 			<g:if test="${profileInstance.descripcion.length() > 90}">
-				${profileInstance.descripcion.substring(0,89)}...
+				${profileInstance.descripcion.substring(0,70)}...
 			</g:if>
 			<g:else>
 				${profileInstance.descripcion}
 			</g:else>
 		</div>
-		
-		<!-- Facebook Facepile -->
-		<% String url = "http://" + request.getServerName()  + request.getContextPath() + "/" + profileInstance.usuario %>		
-		<div class="fb-like" data-href="${url}" data-send="false"  data-width="500" data-show-faces="false" data-action="recommend"></div>
-	
-	</div>
+		<div id="textRecomendados${profileInstance.id}"></div>
+		<script type="text/javascript">
+				$.ajax(
+				{
+				  url: "${g.createLink(controller:'perfil',action:'darAmigosRecomendaron')}",
+				  data: {idPerfil: "${profileInstance.id}"},
+				  context: document.body
+				}).done(function(data) { 
+				  $("#textRecomendados"+${profileInstance.id}).html(data)
+				});
+		</script>
+		</div>
 </div>
 </g:each>

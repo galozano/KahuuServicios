@@ -21,7 +21,6 @@ class ComentariosController
 	
 	PerfilService perfilService;
 	
-	
 	FacebookContext facebookContext;
 	
 	def index() { }

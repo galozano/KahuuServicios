@@ -13,5 +13,15 @@ if (typeof jQuery !== 'undefined') {
 	})(jQuery);
 }
 
+function disableRecommend( )
+{
+	$(".botton-recomendar").prop('disabled', true);
+}
+
+function error( )
+{
+	alert("No se pudo guardar la recomendacion");
+}
+
 
 

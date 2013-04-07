@@ -228,7 +228,7 @@ class UsuarioService
 	 */
 	def agregarUsuarioFacebook(String nombre, String email, String idFacebook)
 	{
-		User user = new User(nombre:nombre, email:email, password:"none", fechaCreado:new Date(), activated:false, idFacebook:idFacebook, keyConfirmar:"");
+		User user = new User(nombre:nombre, email:email, password:"none", fechaCreado:new Date(), activated:true, idFacebook:idFacebook, keyConfirmar:"");
 	
 		if(user.save(flush:true))
 		{
