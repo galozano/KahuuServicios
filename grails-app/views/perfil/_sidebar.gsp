@@ -1,7 +1,7 @@
 
 <div class="sidebar">
 	<div class="box">
-		<div id="tituloBox">Categor&iacute;as</div>
+		<div class="tituloBox">Categor&iacute;as</div>
 		<ul>
 			<g:each in="${categoriasList}" var="categoriaInstance">
 				<li>

@@ -7,7 +7,7 @@
 </head>
 <body>
   	<div class="page-bgtop">
-  		<h2>Registro</h2>		
+  		<div class="tituloBox"><h2>Registro</h2></div>	
   		 <g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 		</g:if>

@@ -1,7 +1,6 @@
-//$(document).ready(function(){
-//    $( "#tabs" ).tabs();
-//});
-
+$(document).ready(function(){
+	
+});
 
 if (typeof jQuery !== 'undefined') {
 	(function($) {
@@ -13,15 +12,25 @@ if (typeof jQuery !== 'undefined') {
 	})(jQuery);
 }
 
-function disableRecommend( )
+function disableRecommend(data)
 {
-	$(".botton-recomendar").prop('disabled', true);
+	if(data == 'agregado')
+	{
+		$("#botton-recomendar").attr('class', 'botton-recomendar-disabled');
+	}
+	else if(data == 'eliminado')
+	{
+		$("#botton-recomendar").attr('class', 'botton-recomendar-enable');
+	}
+	fetchInfoRecomendados();
 }
 
 function error( )
 {
 	alert("No se pudo guardar la recomendacion");
 }
+
+
 
 
 

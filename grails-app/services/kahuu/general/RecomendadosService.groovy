@@ -15,22 +15,34 @@ class RecomendadosService
 	 */
 	def recomendarPerfil(Long idPefil, Long idUsuario)
 	{
-		log.debug("---Recomendando Perfil---")
+		log.debug("---------Recomendando Perfil------------")
 		Profile perfil = Profile.get(idPefil);
 		User usuario = User.get(idUsuario);
 		
-		Recomendados recomendados = new Recomendados(profile:perfil,user:usuario);
+		Recomendados rec = Recomendados.findByProfileAndUser(perfil,usuario);
 		
-		log.debug("Guardado la recomendacion de:" + recomendados.toString());
-		
-		if(recomendados.save())
+		//No existe y se agrega
+		if(rec == null)
 		{
-			return true;
+			Recomendados recomendados = new Recomendados(profile:perfil,user:usuario);
+			
+			log.debug("Guardado la recomendacion de:" + recomendados.toString());
+			
+			if(recomendados.save())
+			{
+				return "agregado";
+			}
+			else
+			{
+				log.error("No se pudo guardar la recomendacion");
+				throw new KahuuException("Error guardadndo la recomendacion", recomendados);
+			}
 		}
+		//Existe y se elimina
 		else
 		{
-			log.error("No se pudo guardar la recomendacion");
-			throw new KahuuException("Error guardadndo la recomendacion", recomendados);
+			rec.delete(flush: true);
+			return "eliminado";
 		}
 	}
 	

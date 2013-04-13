@@ -15,7 +15,7 @@
 		</g:if>
 		
 		<div id="tabs">
-			<div id="tituloBox">${nombreCategoria}</div>
+			<div class="tituloBox">${nombreCategoria}</div>
 			<div id="tab-1">
 				<g:render template="listaPerfil"  model="['listaPerfiles':profileInstanceList]"/>
 			</div>

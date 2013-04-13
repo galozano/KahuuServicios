@@ -28,8 +28,8 @@
 			<div class="message" role="status">${flash.message}</div>
 		</g:if>
 				
-		<div id="cuadroIzq">
-			<div><h2>Login</h2></div>
+		<div class="cuadroIzq">
+			<div class="tituloBox"><h2>Login</h2></div>
 
 			<div class = "azul" align="center">
 				<facebook:loginLink appPermissions="${facebookContext.app.permissions}" returnUrl="${createLink(controller:'usuario', action:'handleFacebook')}">
@@ -61,8 +61,8 @@
 				</div>
 			</g:form>
 		</div>
-		<div id="cuadroDer">
-			<div><h2>Inscr&iacute;bete</h2></div>
+		<div class="cuadroDer">
+			<div class="tituloBox"><h2>Inscr&iacute;bete</h2></div>
 			<g:form action="handleRegistration" useToken="true" class="azul">
 				<div class="fieldcontain ${hasErrors(bean: userRegist, field: 'nombre', 'error')} required">
 					<label for="nombre"> <g:message code="user.nombre.label" default="Nombre" /></label>

@@ -1,7 +1,8 @@
-package kahuu.general
+package kahuu.general.test.domain
 
 
 
+import kahuu.general.Recomendados;
 import grails.test.mixin.*
 import org.junit.*
 

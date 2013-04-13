@@ -41,7 +41,7 @@ class Profile implements Comparable
 		categorias component: true;
 	};
 		
-	static hasMany = [categorias: Categorias,reviews:Review, recomendaciones:Recomendados];
+	static hasMany = [categorias: Categorias,reviews:Review];
 	
     static constraints = 
 	{

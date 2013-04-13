@@ -25,7 +25,7 @@
 				${profileInstance.descripcion}
 			</g:else>
 		</div>
-		<div id="textRecomendados${profileInstance.id}"></div>
+		<div id="textRecomendados${profileInstance.id}" class="textoRecomendacion"></div>
 		<script type="text/javascript">
 				$.ajax(
 				{
@@ -33,7 +33,8 @@
 				  data: {idPerfil: "${profileInstance.id}"},
 				  context: document.body
 				}).done(function(data) { 
-				  $("#textRecomendados"+${profileInstance.id}).html(data)
+				  $("#textRecomendados"+${profileInstance.id}).html(data);
+				  $(".inline").colorbox({inline:true, width:"30%"});
 				});
 		</script>
 		</div>

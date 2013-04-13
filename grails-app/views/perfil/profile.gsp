@@ -23,16 +23,15 @@
 			</div>
 					
 			<div id="errores"></div>	
-			<g:formRemote name="recomendarPerfil" onSuccess="disableRecommend()" onFailure="error()" url="[controller: 'perfil', action: 'recomendarPerfil']"  update="[success: 'message', failure: 'errores']">
+			<g:formRemote name="recomendarPerfil" onSuccess="disableRecommend(data)" onFailure="error()" url="[controller: 'perfil', action: 'recomendarPerfil']"  update="[success: 'message', failure: 'errores']">
     			<input type="hidden" name="idPerfil" value="${profileInstance.id}" />
-    			
     			<g:if test="${session.user}">
     				<input type="hidden" name="idUsuario" value="${session.user.id}" />
     				<g:if test="${loRecomende}">
-    					<input type="submit" class="botton-recomendar" value="Recomendar" disabled/> 
+    					<input type="submit" id="botton-recomendar" class="botton-recomendar-disabled" value="Recomendar"/> 
     				</g:if>
     				<g:else>
-    					<input type="submit" class="botton-recomendar" value="Recomendar"/>
+    					<input type="submit" id="botton-recomendar" class="botton-recomendar-enable" value="Recomendar"/>
     				</g:else>
     			</g:if>
     			<g:else>
@@ -40,16 +39,22 @@
     			</g:else>
 			</g:formRemote >
 			
-			<div id="textRecomendados"></div>
+			<div id="textRecomendados" class="textoRecomendacion"></div>
 			<script type="text/javascript">
-				$.ajax(
+				function fetchInfoRecomendados()
 				{
-				  url: "${g.createLink(controller:'perfil',action:'darAmigosRecomendaron')}",
-				  data: {idPerfil: "${profileInstance.id}"},
-				  context: document.body
-				}).done(function(data) { 
-				  $("#textRecomendados").html(data)
-				});
+					$.ajax(
+					{
+						url: "${g.createLink(controller:'perfil',action:'darAmigosRecomendaron')}",
+						data: {idPerfil: "${profileInstance.id}"},
+						context: document.body
+					}).done(function(data) { 
+						$("#textRecomendados").html(data);
+						$(".inline").colorbox({inline:true, width:"30%"});
+					});
+				}	
+
+				fetchInfoRecomendados();	
 			</script>
 			
 			<!-- Facebook Like Button --><%--

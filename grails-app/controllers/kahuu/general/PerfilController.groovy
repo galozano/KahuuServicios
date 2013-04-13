@@ -266,24 +266,13 @@ class PerfilController
 
 		try
 		{
-			recomendadosService.recomendarPerfil(idPerfil, idUsuario);
-			render "recomendado";
+			String respuesta = recomendadosService.recomendarPerfil(idPerfil, idUsuario);
+			render respuesta;
 		}
 		catch(Exception e)
 		{
 			flash.message = e.message;
 		}
-		
-		render "recomendado";
-	}
-	
-	/**
-	 * Elimina la recomendacion del perfil dado del usuario registrado
-	 * @return
-	 */
-	def eliminarRecomendacion(Long idPerfil)
-	{
-		
 	}
 	
 	/**
@@ -292,15 +281,18 @@ class PerfilController
 	 */
 	def darAmigosRecomendaron(Long idPerfil)
 	{
-		log.debug("AJAX-Id del Perdil a buscar recomendaciones es:" + idPerfil);
+		log.debug("AJAX-Id del Perfil a buscar recomendaciones es:" + idPerfil);
 		
-		//Map<String,Perfil> hashTable = new Map<String,Perfil>();
 		//Lista de recomendaciones que recomendaron este perfil
 		List recomendaciones = recomendadosService.darRecomendaron(idPerfil);
 		
-		int totalAmigos = recomendaciones.size();
+		int totalRecomendados = recomendaciones.size(); //Total de recomendados desconocidos
 		int cuantosAmigos = 0;
+		boolean recomendadoPorMi = false;
+		
 		def mapaRecomendados = [:]
+		String listaDeNombres = "";
+		String html = "";
 		
 		if (facebookContext.authenticated && session.user)
 		{
@@ -312,6 +304,14 @@ class PerfilController
 			//Guarda toda la lista de recomendados en un mapa
 			for(Recomendados rec: recomendaciones)
 			{
+				if(rec.user.id == session.user.id)
+				{
+					recomendadoPorMi = true;
+					
+					//quitarse a si mismo de la lista
+					totalRecomendados--;
+				}
+				
 				mapaRecomendados.put(rec.user.idFacebook, true);
 			}
 			
@@ -319,14 +319,54 @@ class PerfilController
 			{
 				JSONObject userJson = new JSONObject(usuario);
 					
-				if(mapaRecomendados.get(userJson.getString("id")))
+				if(mapaRecomendados.get(userJson.getString("id")) && !(userJson.getString("id").equals(facebookContext.user.id.toString())))
 				{
 					cuantosAmigos++;
-					totalAmigos--;
+					totalRecomendados--;
+					listaDeNombres += "<img src='https://graph.facebook.com/" + userJson.getString("id") + "/picture'/>" + userJson.getString("name") + "</br>";
 				}
 			}
 		}
 		
-		render "<a>" + cuantosAmigos +" de tus amigos </a> lo recomendaron y otros " + totalAmigos + " lo recomiendan";
+		html = "<div style='display:none'>"
+		html += "<div id='inline_content' style='padding:10px; background:#fff;overflow:visible;height:200px'>"
+		html +=  listaDeNombres
+		html +=	"</div>"
+		html += "</div>"
+		
+		if(cuantosAmigos == 0 && totalRecomendados > 0 && recomendadoPorMi)
+		{
+			html +=  "T&uacute; y otras " + totalRecomendados + " personas lo recomiendan en facebook";
+		}
+		else if(cuantosAmigos == 0 && totalRecomendados > 0 && !recomendadoPorMi)
+		{
+			html +=  totalRecomendados + " personas lo recomiendan en facebook";
+		}
+		else if(totalRecomendados == 0 && cuantosAmigos == 0 && !recomendadoPorMi)
+		{
+			html +=  "Se el primero de tus amigos en facebook en recomendar a esta persona ";
+		}
+		else if(totalRecomendados == 0 && cuantosAmigos == 0 && recomendadoPorMi)
+		{
+			html +=  "T&uacute; lo recomiendas en facebook";
+		}
+		else if(cuantosAmigos > 0 && totalRecomendados > 0 && recomendadoPorMi)
+		{
+			html +=  "T&uacute;, <a class='inline' href='#inline_content''>" + cuantosAmigos +" amigos en facebook </a> y otras " + totalRecomendados + " personas lo recomiendan";
+		}
+		else if(cuantosAmigos > 0 && totalRecomendados > 0 && !recomendadoPorMi)
+		{
+			html +=  "<a class='inline' href='#inline_content''>" + cuantosAmigos +" de tus amigos en facebook </a> lo recomiendan y otras " + totalRecomendados + " personas";
+		}
+		else if(cuantosAmigos > 0 && totalRecomendados == 0 && recomendadoPorMi)
+		{
+			html +=  "T&uacute;,<a class='inline' href='#inline_content''>" + cuantosAmigos +" de tus amigos en facebook </a> lo recomiendan";
+		}
+		else if(cuantosAmigos > 0 && totalRecomendados == 0 && !recomendadoPorMi)
+		{
+			html +=  "<a class='inline' href='#inline_content''>" + cuantosAmigos +" de tus amigos en facebook </a> lo recomiendan";
+		}
+		
+		render html;
 	}
 }
