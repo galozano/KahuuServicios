@@ -8,6 +8,8 @@ package kahuu.general
 class Categorias 
 {	
 	String nombre;
+	
+	boolean activado;
 
 	static searchable = 
 	{

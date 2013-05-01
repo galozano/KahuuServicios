@@ -1,5 +1,6 @@
+
 <%@ page import="kahuu.general.Categorias" %>
-<!doctype html>
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta name="layout" content="main">
@@ -25,6 +26,8 @@
 					
 						<g:sortableColumn property="nombre" title="${message(code: 'categorias.nombre.label', default: 'Nombre')}" />
 					
+						<g:sortableColumn property="activado" title="${message(code: 'categorias.activado.label', default: 'Activado')}" />
+					
 					</tr>
 				</thead>
 				<tbody>
@@ -32,6 +35,8 @@
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
 						<td><g:link action="show" id="${categoriasInstance.id}">${fieldValue(bean: categoriasInstance, field: "nombre")}</g:link></td>
+					
+						<td><g:formatBoolean boolean="${categoriasInstance.activado}" /></td>
 					
 					</tr>
 				</g:each>

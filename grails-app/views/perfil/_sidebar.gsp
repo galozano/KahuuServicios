@@ -1,5 +1,18 @@
-
+	
 <div class="sidebar">
+	<div class="box">
+		<div class="tituloBox">Ciudades</div>	
+		<ul>
+			<g:each in="${ciudadesList}" var="ciudadInstance">
+				<li>
+					<g:if test="${ciudadInstance.nombre.equals(nombreCiudad)}">
+						<div id="elegido"></div>
+					</g:if>
+					<g:link action="categoriasCiudad" params="[nombreCategoria: nombreCategoria,nombreCiudad:ciudadInstance.nombre]"> ${fieldValue(bean: ciudadInstance, field: "nombre")}</g:link>
+				</li>
+			</g:each>
+		</ul>
+	</div>
 	<div class="box">
 		<div class="tituloBox">Categor&iacute;as</div>
 		<ul>
@@ -8,16 +21,9 @@
 					<g:if test="${categoriaInstance.nombre.equals(nombreCategoria)}">
 						<div id="elegido"></div>
 					</g:if>
-					<g:link action="categoria" params="[nombreCategoria: categoriaInstance.nombre]"> ${fieldValue(bean: categoriaInstance, field: "nombre")}</g:link>
+					<g:link action="categoriasCiudad" params="[nombreCategoria: categoriaInstance.nombre,nombreCiudad:nombreCiudad]"> ${fieldValue(bean: categoriaInstance, field: "nombre")}</g:link>
 				</li>
 			</g:each>
-		</ul>
-	</div>
-	
-	<div class="box">
-		<div id="tituloBox">Ciudades</div>	
-		<ul>
-			<li><div id="elegido"></div>Cartagena</li>
 		</ul>
 	</div>
 		

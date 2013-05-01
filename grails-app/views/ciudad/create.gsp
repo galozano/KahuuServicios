@@ -1,5 +1,5 @@
 <%@ page import="kahuu.general.Ciudad" %>
-<!doctype html>
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta name="layout" content="main">

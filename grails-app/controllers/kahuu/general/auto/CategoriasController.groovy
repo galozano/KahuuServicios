@@ -4,8 +4,6 @@ import kahuu.general.Categorias;
 
 import org.springframework.dao.DataIntegrityViolationException
 
-
-
 class CategoriasController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]

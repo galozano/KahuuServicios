@@ -47,17 +47,24 @@ class PerfilController
 	 * Muestra la pagina principal con los destacados y los recientes
 	 * @return render de la pagina principal 
 	 */
-	def principal( )
+	def principal(String ciudad)
 	{
 		List listaCategorias = perfilService.darCategorias( );
+		List listaCiudades = perfilService.darCiudades();
 		List listaDestacados = perfilService.perfilesDestacados();
+		
+		if(ciudad == null || ciudad.equals(""))
+		{
+			ciudad = "Cartagena";
+		}
 		
 		log.debug("Mostrando lista de perfiles destacados")
 		
-		render(view: "principal",model:[listaDestacados:listaDestacados, categoriasList:listaCategorias]);
+		render(view: "principal",model:[nombreCiudad:ciudad ,listaDestacados:listaDestacados, categoriasList:listaCategorias,ciudadesList:listaCiudades]);
 	}
 		
 	/**
+	 * (deprecated) Ahora se ultiliza el profileUsuario 
 	 * Buscar un perfil por su id y lo redirecta al el perfil por usuario (deprecated)
 	 * @param id id del usuario
 	 * @return redirige a la actio profileUsuario
@@ -95,9 +102,17 @@ class PerfilController
 	{	
 		try
 		{
+		
+			//Saca la ciudad de donde es la persona
+			def nombreCiudad = params.ciudad;
+			
+			log.debug("Ciudad de persona es:" + nombreCiudad);
+			
 			boolean loRecomende = false; //Si el usuario en session recomendo o no el perfil
 			
 			def categorias = perfilService.darCategorias( );
+			List listaCiudades = perfilService.darCiudades();
+			
 			Profile profileInstance = perfilService.darPerfilUsuario(params.usuario);
 			
 			if(profileInstance == null)
@@ -120,7 +135,7 @@ class PerfilController
 				
 				log.debug("Perfil-Estado de la recomendacion: " + loRecomende);
 				
-				render(view: "profile", model:	[loRecomende:loRecomende,profileInstance: profileInstance, reviewsList: revs,categoriasList:categorias, reviewsTotal:total] );
+				render(view: "profile", model:	[loRecomende:loRecomende,profileInstance: profileInstance, reviewsList: revs,categoriasList:categorias, reviewsTotal:total, ciudadesList:listaCiudades, nombreCiudad:nombreCiudad] );
 			}
 		}	
 		catch(KahuuException e)
@@ -154,6 +169,7 @@ class PerfilController
 	def buscar( )
 	{		
 		def categorias = perfilService.darCategorias( );
+		List listaCiudades = perfilService.darCiudades();
 //		
 //		try
 //		{
@@ -182,7 +198,7 @@ class PerfilController
 		try 
 		{
 			def searchResults = searchableService.search("*" + params.q + "*");
-			render(view: "perfiles",model:[nombreCategoria:"Busqueda",profileInstanceList: searchResults.results ,profileInstanceTotal:searchResults.results.size(), categoriasList: categorias]);
+			render(view: "perfiles",model:[nombreCategoria:"Busqueda",profileInstanceList: searchResults.results ,profileInstanceTotal:searchResults.results.size(), categoriasList: categorias, ciudadesList:listaCiudades]);
 		}
 		catch (SearchEngineQueryParseException e)
 		{
@@ -193,7 +209,7 @@ class PerfilController
 	}
 	
 	/**
-	 * Muestra los perfiles dado una id de una categoria
+	 * Muestra los perfiles dado una id de una categoria (deprecated)
 	 * @param id-id de la categoria
 	 * @return- la vista perfiles con la lista de los perfiles de la categoria
 	 */
@@ -224,6 +240,7 @@ class PerfilController
 	}
 	
 	/**
+	 * (deprecated) ahora se comenzara a ultilizar categoriasCiudad
 	 * Muestra los perfiles de una categoria dada con nombre
 	 * @param - nombreCategoria nombre de la categoria
 	 * @return- la pagina perfiles con los perfiles que coinciden con la categoria dada
@@ -245,7 +262,6 @@ class PerfilController
 			{
 				render(view: "perfiles",model:[nombreCategoria:nombreCategoria ,profileInstanceList: results ,profileInstanceTotal:results.size(), categoriasList: categorias]);
 			}
-			
 		}
 		catch(Exception e)
 		{
@@ -253,6 +269,44 @@ class PerfilController
 			render(view: "perfiles",model:[categoriasList: categorias]);
 		}
 	}
+	
+	/**
+	 * Mustra los perfiles de una ciudad y categoria particular
+	 * @param nombreCiudad - el nombre de la ciudad de los perfiles
+	 * @param nombreCategoria - el nombre de la categoria de los perfiles
+	 * @return lista de perfiles
+	 */
+	def categoriasCiudad(String nombreCiudad, String nombreCategoria)
+	{
+		def categorias = perfilService.darCategorias( );
+		def ciudades = perfilService.darCiudades();
+		
+		log.debug("Numero de Ciudades a imprimir:" + ciudades.size());
+		
+		try
+		{
+			def results = perfilService.perfilesCategoriasCiudad(nombreCategoria, nombreCiudad);
+			
+			if(results == null || results.size() == 0)
+			{
+				flash.message = "No se encontro ning&uacute;n resultado.";
+				render(view: "perfiles",model:[nombreCategoria:nombreCategoria, nombreCiudad:nombreCiudad,categoriasList: categorias,ciudadesList:ciudades]);
+			}
+			else
+			{
+				render(view: "perfiles",model:[nombreCategoria:nombreCategoria, nombreCiudad:nombreCiudad, profileInstanceList:results ,profileInstanceTotal:results.size(), categoriasList:categorias, ciudadesList:ciudades]);
+			}
+		}
+		catch(Exception e)
+		{
+			flash.message = e.message;
+			render(view: "perfiles",model:[categoriasList: categorias]);
+		}
+	}
+	
+	//------------------------------------------------------------------------------------------
+	// Metodos AJAX
+	//------------------------------------------------------------------------------------------
 	
 	/**
 	 * Metodo para recomendar a un profesional el especifico

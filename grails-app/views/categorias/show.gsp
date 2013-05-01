@@ -1,5 +1,6 @@
+
 <%@ page import="kahuu.general.Categorias" %>
-<!doctype html>
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta name="layout" content="main">
@@ -27,6 +28,15 @@
 					<span id="nombre-label" class="property-label"><g:message code="categorias.nombre.label" default="Nombre" /></span>
 					
 						<span class="property-value" aria-labelledby="nombre-label"><g:fieldValue bean="${categoriasInstance}" field="nombre"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${categoriasInstance?.activado}">
+				<li class="fieldcontain">
+					<span id="activado-label" class="property-label"><g:message code="categorias.activado.label" default="Activado" /></span>
+					
+						<span class="property-value" aria-labelledby="activado-label"><g:formatBoolean boolean="${categoriasInstance?.activado}" /></span>
 					
 				</li>
 				</g:if>

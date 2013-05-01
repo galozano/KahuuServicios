@@ -25,7 +25,8 @@
 		<div class="tituloBox">&iquest;Qu&eacute; es Kahuu?</div>
 		<div id="tab-1">
 			<a href="http://www.youtube.com/embed/vD7LkpPxwhE?rel=0" class="youtube"><img width="350px" height="200px" src="${resource(dir: 'images', file: 'video_principal.jpg')}" /></a>		
-			<div class="fb-like-box" data-href="https://www.facebook.com/pages/Kahuuco/242764315796016" data-width="320px" data-height="200" data-show-faces="true" data-stream="false" data-header="true"></div>	
+			<div class="fb-like-box" data-href="https://www.facebook.com/pages/Kahuuco/242764315796016" data-width="320" data-height="200" data-show-faces="true" data-stream="false" data-header="true"></div>	
+			<%--<fb:like-box href="https://www.facebook.com/pages/Kahuuco/242764315796016" width="320" height="200" show_faces="true" stream="false" header="true"></fb:like-box>--%>
 		</div>
 		<div class="tituloBox">Destacados</div>
 		<div id="tab-1">

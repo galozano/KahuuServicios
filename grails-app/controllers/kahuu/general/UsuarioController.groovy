@@ -54,32 +54,39 @@ class UsuarioController
 	 */
 	def handleFacebook( )
 	{
-		FacebookGraphClient facebookGraphClient = new FacebookGraphClient();
-		
-		if (facebookContext.app.id && facebookContext.authenticated) 
+		try
 		{
-			String token = facebookContext.user.token;
+			FacebookGraphClient facebookGraphClient = new FacebookGraphClient();
 			
-			if(token)
+			if (facebookContext.app.id && facebookContext.authenticated)
 			{
-				facebookGraphClient = new FacebookGraphClient(token)
-				def usuarioFacebook = facebookGraphClient.fetchObject(facebookContext.user.id.toString());
+				String token = facebookContext.user.token;
 				
-				//Verificar con id que el usuario existe
-				User usuario = usuarioService.verificarFacebookUsuario(facebookContext.user.id.toString());
-				
-				if(usuario != null)
+				if(token)
 				{
-					session.user = usuario;
-					redirect(controller:'comentarios', action:'misComentarios');
-				}
-				else
-				{
-					User nuevoUsuario = usuarioService.agregarUsuarioFacebook(usuarioFacebook.name, usuarioFacebook.email, facebookContext.user.id.toString())
-					session.user = nuevoUsuario;
-					redirect(controller:'comentarios', action:'misComentarios');
+					facebookGraphClient = new FacebookGraphClient(token)
+					def usuarioFacebook = facebookGraphClient.fetchObject(facebookContext.user.id.toString());
+					
+					//Verificar con id que el usuario existe
+					User usuario = usuarioService.verificarFacebookUsuario(facebookContext.user.id.toString());
+					
+					if(usuario != null)
+					{
+						session.user = usuario;
+						redirect(controller:'comentarios', action:'misComentarios');
+					}
+					else
+					{
+						User nuevoUsuario = usuarioService.agregarUsuarioFacebook(usuarioFacebook.name, usuarioFacebook.email, facebookContext.user.id.toString())
+						session.user = nuevoUsuario;
+						redirect(controller:'comentarios', action:'misComentarios');
+					}
 				}
 			}
+		}
+		catch(KahuuException e)
+		{
+			render(view: "login", model:[userRegist:e.invalido]);
 		}
 	}
 

@@ -46,7 +46,7 @@ class PerfilServiceTests {
 	public void setIt()
 	{
 		categoria = new Categorias(nombre:"Primera");
-		ciudad = new Ciudad(nombre:"Cartagena");
+		ciudad = new Ciudad(nombre:"Cartagena",activado:true);
 		
 		assert ciudad.save(flush: true) != null;
 		
@@ -254,5 +254,19 @@ class PerfilServiceTests {
 		
 		assert lista.get(0).fechaCreado.compareTo(profile.fechaCreado) == 0;
 		assert lista.get(1).fechaCreado.compareTo(profile.fechaCreado) == -1;
+	}
+	
+	/**
+	 * 
+	 */
+	void testPerfilesCategoriasCiudad( )
+	{
+		setIt();
+		
+		List lista = perfilService.perfilesCategoriasCiudad(categoria.nombre, ciudad.nombre);
+		
+		assert lista.size( ) == 21;
+		assert lista.get(0).ciudad.nombre.compareTo(ciudad.nombre) == 0;
+		
 	}
 }

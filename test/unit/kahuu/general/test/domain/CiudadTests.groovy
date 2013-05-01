@@ -10,7 +10,7 @@ class CiudadTests
 {
 	void testConstraint( )
 	{
-		Ciudad ciudad = new Ciudad(nombre:"Cartagena");
+		Ciudad ciudad = new Ciudad(nombre:"Cartagena",activado:true);
 		
 		mockForConstraintsTests(Ciudad, [ciudad]);
 		

@@ -1,5 +1,7 @@
 package kahuu.general
 
+import org.springframework.web.multipart.MultipartFile;
+
 /**
  * Controlados de las paginas de informacion
  * @author gustavolozano
@@ -7,12 +9,17 @@ package kahuu.general
  */
 class InformacionController
  {
-
-    def index() { }
-	
+	 //------------------------------------------------------------------------------------------
+	 // Servicios
+	 //------------------------------------------------------------------------------------------
+	 
+	PerfilService perfilService;
+	 
 	//------------------------------------------------------------------------------------------
 	// Metodos Informacion
 	//------------------------------------------------------------------------------------------
+	
+	def index() { }
 	
 	/**
 	 * Muestra la pagina de terminos y condiciones 
@@ -84,8 +91,11 @@ class InformacionController
 	 * @return - pagina de registro de servicio
 	 */
 	def publicarServicio( )
-	{
-		render(view:"registroServicio");
+	{		
+		def listaCiudades = perfilService.darCiudadesCompletas();
+		def listaCategorias = perfilService.darCategoriasCompletas();
+		
+		render(view:"registroServicio", model:[listaCiudades:listaCiudades, listaCategorias:listaCategorias]);
 	}
 	
 	/**
@@ -94,50 +104,75 @@ class InformacionController
 	 */
 	def handlePublicarServicio( )
 	{
+		def listaCiudades = perfilService.darCiudadesCompletas();
+		def listaCategorias = perfilService.darCategoriasCompletas();
+		
 		withForm
 		{
+			MultipartFile fotoPerfil = request.getFile('fotoPerfil');
+			MultipartFile fotoCedula = request.getFile('fotoCedula');
+			
 			if(!params.agree)
 			{
 				flash.message = "Debe aceptar los t&eacute;rminos y condiciones.";
-				render(view:"registroServicio");
+				render(view:"registroServicio", model:[listaCiudades:listaCiudades, listaCategorias:listaCategorias]);
+
 				return;
 			}
 			else if (params.nombre.equals("") || params.celular.equals("") || params.descripcion.equals("") || params.categoria.equals(""))
 			{
 				flash.message = "Uno o m&aacute;s campos estan vacios."
-				render(view:"registroServicio");
+				render(view:"registroServicio", model:[listaCiudades:listaCiudades, listaCategorias:listaCategorias]);
+				return;
 			}
-
+			else if(!fotoPerfil.contentType.equals('image/gif') && !fotoPerfil.contentType.equals('image/jpg') && !fotoPerfil.contentType.equals('image/jpeg') && !fotoPerfil.contentType.equals('image/png') && !fotoPerfil.contentType.equals('application/pdf'))
+			{
+				flash.message = "La foto de perfil debe ser un gif, jpg, pdf o png"
+				render(view:"registroServicio", model:[listaCiudades:listaCiudades, listaCategorias:listaCategorias]);
+				return;
+			}
+			else if(fotoPerfil.size > (1024 * 1024 * 3) || fotoCedula.size > (1024 * 1024 * 3))
+			{
+				flash.message = "La foto tiene que ser menor a 3 MB"
+				render(view:"registroServicio", model:[listaCiudades:listaCiudades, listaCategorias:listaCategorias]);
+				return;
+			}
+			else if(!fotoCedula.contentType.equals('image/gif') && !fotoCedula.contentType.equals('image/jpg') && !fotoCedula.contentType.equals('image/jpeg') && !fotoCedula.contentType.equals('image/png') && !fotoCedula.contentType.equals('application/pdf'))
+			{
+				flash.message = "La foto de la cedula debe ser un gif, jpg, pdf o png"
+				render(view:"registroServicio", model:[listaCiudades:listaCiudades, listaCategorias:listaCategorias]);
+				return;
+			}
 			else
 			{
-				String text = "Nombre:" + params.nombre + " Celular:" +params.celular + " Descripcion:"+ params.descripcion + " Email: "+ params.email + " Ciudad:" + params.ciudad+" Categorias:";
+				String text = "Nombre:" + params.nombre + " \n Celular:" +params.celular + " \n Descripcion:"+ params.descripcion + " \n Email: "+ params.email + " \n Ciudad:" + params.ciudad+" \n Categorias:";
 				
 				log.info('Se ingreso el usuario por publicar servicio:' + text);
 				
 				StringBuffer textB = new StringBuffer(text);
-				
-				for(String c: params.categorias)
-				{
-					textB.append(c);
-					textB.append(",");
-				}
+				textB.append(params.categoria1);
+				textB.append(",");
+				textB.append(params.categoria2);
 				
 				//Enviar email a soporte kelgal
 				sendMail
 				{
+					multipart true
 					to "soporte@kahuu.co"
-					subject params.nombre
+					subject 'PRUEBA'
 					body textB.toString()
+					attachBytes fotoPerfil.name,fotoPerfil.contentType, fotoPerfil.getBytes();
+					attachBytes fotoCedula.name,fotoCedula.contentType, fotoCedula.getBytes();
 				}
 				
 				flash.message = "Solicitud enviada con exito. La analizaremos y te llamaremos para confirmar. Muchas Gracias.";
-				render(view:"registroServicio");
+				render(view:"registroServicio", model:[listaCiudades:listaCiudades, listaCategorias:listaCategorias]);
 			}
 		}
 		.invalidToken
 		{
 			flash.message = "No unda tanta veces.";
-			render(view:"registroServicio");
+			render(view:"registroServicio", model:[listaCiudades:listaCiudades, listaCategorias:listaCategorias]);
 		}
 	}
 

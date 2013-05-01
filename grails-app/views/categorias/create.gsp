@@ -1,5 +1,5 @@
 <%@ page import="kahuu.general.Categorias" %>
-<!doctype html>
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta name="layout" content="main">

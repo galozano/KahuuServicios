@@ -24,7 +24,7 @@ class RecomendadosService
 		//No existe y se agrega
 		if(rec == null)
 		{
-			Recomendados recomendados = new Recomendados(profile:perfil,user:usuario);
+			Recomendados recomendados = new Recomendados(profile:perfil,user:usuario, fechaCreado:new Date());
 			
 			log.debug("Guardado la recomendacion de:" + recomendados.toString());
 			

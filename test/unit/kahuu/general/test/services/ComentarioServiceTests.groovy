@@ -46,7 +46,7 @@ class ComentarioServiceTests
 	public setIt()
 	{
 		categoria = new Categorias(nombre:"Primera");
-		ciudad = new Ciudad(nombre:"Cartagena");
+		ciudad = new Ciudad(nombre:"Cartagena",activado:true);
 		cert = new Certificado(nombre:"Principal", nivel:1);
 
 		profile = new Profile(nombre:"Gustavo",usuario:"gus",password:"hola",email:"gus@gmail.com",certificado:cert, celular2:"3135851647", estadoUsuario:false,fechaCreado:new Date() ,celular:"3205721687", descripcion:"decripcion", ciudad:ciudad, image: new byte[10]);

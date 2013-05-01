@@ -18,18 +18,44 @@ class PerfilService
 	 * Retorna todas la ciudad que existan
 	 * @return lista de ciudades
 	 */
-	def darCiudades( )
+	def darCiudadesCompletas( )
 	{
-		return Ciudad.list( );
+		return Ciudad.list();
 	}
 	
 	/**
-	 * Retorna todas las categorias
+	 * Retorna todas las categorias 
+	 * @return lista de categorias
+	 */
+	def darCategoriasCompletas( )
+	{
+		return Categorias.list();
+	}
+	
+	/**
+	 * Retorna todas la ciudad que solo esten activadas
+	 * @return lista de ciudades
+	 */
+	def darCiudades( )
+	{
+		def query = Ciudad.where {
+			activado == true
+		}
+		
+		def results = query.list(sort:'nombre');
+	}
+	
+	/**
+	 * Retorna todas las categorias que solo esten activadas
 	 * @return lista de categorias
 	 */
 	def darCategorias( )
-	{
-		return Categorias.list(sort:'nombre');
+	{		
+		def query = Categorias.where {
+			activado == true
+		}
+		
+		def results = query.list(sort:'nombre')
 	}
 	
 	/**
@@ -105,7 +131,8 @@ class PerfilService
 	}
 	
 	/**
-	 * Retorna una lista con los perfiles de una categoria
+	 * (deprecated)
+	 * Retorna una lista con los perfiles de una categoria 
 	 * @param id id de la categoria, id != null
 	 * @return	retorna una lista de perfiles ordenados(numero de reviews), si la categoria no existe retorna null
 	 */
@@ -133,6 +160,27 @@ class PerfilService
 		def c = Profile.createCriteria();
 		
 		def results = c.list( ) {
+			categorias {
+					eq("nombre",nombreCategoria);
+			}
+		}
+		return results.sort();
+	}
+	
+	/**
+	 * Retorna la lista de usuario dado el nombre de una categoria y la ciudad
+	 * @param nombreCategoria- nombre de la categoria - nombreCategoria != null
+	 * @param nombreCiudad - nombre de la ciudad - nombreCiudad != null
+	 * @return retorna una lista con los perfiles de la categoria y de la ciudad
+	 */
+	def perfilesCategoriasCiudad(String nombreCategoria, String nombreCiudad)
+	{
+		def c = Profile.createCriteria();
+		
+		def results = c.list( ) {
+			ciudad{
+				eq("nombre",nombreCiudad);
+			}
 			categorias {
 					eq("nombre",nombreCategoria);
 			}

@@ -6,8 +6,10 @@ class Recomendados
 	
 	User user;
 	
+	Date fechaCreado;
+	
     static constraints = 
 	{
-		//TODO:Falta ponel el unique
+		profile unique:'user';
     }
 }

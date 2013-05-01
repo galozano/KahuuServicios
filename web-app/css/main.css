@@ -378,7 +378,6 @@ fieldset,.property-list {
 
 .fieldcontain label,.fieldcontain .property-label {
 	color: #666666;
-	width: 45%;
 }
 
 .fieldcontain .property-label {
@@ -444,8 +443,6 @@ input:focus,select:focus,textarea:focus {
 	color: red;
 	display: inline-block;
 	font-weight: bold;
-	margin-left: 0.3em;
-	position: relative;
 	top: 0.1em;
 }
 
@@ -717,7 +714,7 @@ input:invalid:focus,select:invalid:focus,textarea:invalid:focus {
 
 .arriba
 {
-	height: 320px;
+	height: 380px;
 }
 
 .cuadroIzq {

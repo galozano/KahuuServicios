@@ -9,6 +9,8 @@ class Ciudad
 {
 	String nombre;
 	
+	boolean activado;
+	
     static constraints = 
 	{
 		nombre unique:true;
