@@ -45,11 +45,10 @@ class RecomendadosServiceTests {
 	
 	public void setIt()
 	{
-		categoria = new Categorias(nombre:"Primera");
+		categoria = new Categorias(nombre:"Primera",activado:true);
 		ciudad = new Ciudad(nombre:"Cartagena",activado:true);
 		
 		cert = new Certificado(nombre:"Principal", nivel:1);
-		
 		
 		assert ciudad.save(flush: true) != null;
 		assert categoria.save(flush: true) != null;
@@ -97,20 +96,18 @@ class RecomendadosServiceTests {
 	{
 		setIt();
 		
-		Recomendados rec = new Recomendados(profile:profile, user:user);
+		Recomendados rec = new Recomendados(profile:profile, user:user, fechaCreado:new Date());
 		assert rec.save(flush: true) != null;
 		
 		assert recomendadosService.estaRecomendado(profile, user).profile.compareTo(profile) == 0;
 	
-		//Perfil invalido
-		assert recomendadosService.estaRecomendado(1234, user).profile;
 	}
 	
 	void testDarRecomendaron( )
 	{
 		setIt();
 		
-		Recomendados rec = new Recomendados(profile:profile, user:user);
+		Recomendados rec = new Recomendados(profile:profile, user:user,fechaCreado:new Date());
 		assert rec.save(flush: true) != null;
 		
 		assert recomendadosService.darRecomendaron(profile.id).size() == 1;

@@ -45,7 +45,7 @@ class PerfilServiceTests {
 	
 	public void setIt()
 	{
-		categoria = new Categorias(nombre:"Primera");
+		categoria = new Categorias(nombre:"Primera",activado:true);
 		ciudad = new Ciudad(nombre:"Cartagena",activado:true);
 		
 		assert ciudad.save(flush: true) != null;

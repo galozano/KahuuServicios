@@ -10,6 +10,6 @@ class Recomendados
 	
     static constraints = 
 	{
-		profile unique:'user';
+		
     }
 }
