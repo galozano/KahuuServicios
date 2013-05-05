@@ -15,7 +15,7 @@
   		<g:uploadForm name="publicarServicio" action="handlePublicarServicio" class="azul" useToken="true">
   			<div class="fieldcontain required">
 				<label for="asunto">Nombre Completo</label><div class="required-indicator">*</div>
-				<g:textField name="nombre"  value="" />
+				<g:textField name="nombre"  onfocus="this.value=''" value="" />
 			</div>
   		 		
   			<div class="fieldcontain">
@@ -36,6 +36,11 @@
 				</label>
 				<g:select name="categoria2" from="${listaCategorias}" optionKey="nombre" optionValue="nombre" value="nombre" noSelection="['':'-Escoge una Categoria-']"/>
 			</div>
+			
+			<div class="fieldcontain required">
+				<label for="otra">Otra Categor&iacute;a (En caso de que su trabajo no entre dentro de las categor&iacute;as listadas anteriormente)</label>
+				<g:textField name="otraCategoria"  value="" />
+			</div> 
 		
 			<div class="fieldcontain required">
 				<label for="asunto">Celular</label><div class="required-indicator">*</div>
@@ -44,7 +49,7 @@
 			
 			<div class="fieldcontain required">
 				<label for="texto">Descipci&oacute;n</label><div class="required-indicator">*</div>
-				<g:textArea name="descripcion"  value="" />
+				<g:textArea name="descripcion"  value="Coloque aqui informacion de su actividad profesional como: \n - Trabajos que realiza \n - Barrios de la ciudad donde trabaja \n - Experiencia laboral \n - Horario de trabajo \n - Trabaja a domicilio o tiene su local?" />
 			</div> 
 			
 			<div class="fieldcontain required">
@@ -53,12 +58,12 @@
 			</div>
 			
 			<div class="fieldcontain required">
-				<label for="texto">Adjunta Fotocopia de tu cedula (Max. 3 MB)</label><div class="required-indicator">*</div>
+				<label for="texto">Adjunta imagen de tu cedula* (Documento escaneado, Max. 3 MB)</label><div class="required-indicator">*</div>
 				 <input type="file" name="fotoCedula" id="fotoCedula"/>
 			</div> 
 			
 			<div class="fieldcontain required">
-				<label for="texto">Adjunta Foto de Perfil (Max. 3 MB)</label>
+				<label for="texto">Adjunta foto de perfil (Recomendamos utilizar foto tomada desde un celular, Max. 3 MB)</label>
 				<input type="file" name="fotoPerfil" id="fotoPerfil" />
 			</div> 
 			

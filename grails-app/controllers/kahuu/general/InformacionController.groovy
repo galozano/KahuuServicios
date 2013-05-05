@@ -153,13 +153,15 @@ class InformacionController
 				textB.append(params.categoria1);
 				textB.append(",");
 				textB.append(params.categoria2);
+				textB.append(",");
+				textB.append(params.otraCategoria);
 				
 				//Enviar email a soporte kelgal
 				sendMail
 				{
 					multipart true
 					to "soporte@kahuu.co"
-					subject 'PRUEBA'
+					subject params.nombre
 					body textB.toString()
 					attachBytes fotoPerfil.name,fotoPerfil.contentType, fotoPerfil.getBytes();
 					attachBytes fotoCedula.name,fotoCedula.contentType, fotoCedula.getBytes();
