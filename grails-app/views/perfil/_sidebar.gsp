@@ -5,10 +5,10 @@
 		<ul>
 			<g:each in="${ciudadesList}" var="ciudadInstance">
 				<li>
-					<g:if test="${ciudadInstance.nombre.equals(nombreCiudad)}">
+					<g:if test="${ciudadInstance.id == idCiudad}">
 						<div id="elegido"></div>
 					</g:if>
-					<g:link action="categoriasCiudad" params="[nombreCategoria: nombreCategoria,nombreCiudad:ciudadInstance.nombre]"> ${fieldValue(bean: ciudadInstance, field: "nombre")}</g:link>
+					<g:link action="categoriasCiudadId" params="[idCategoria: idCategoria,idCiudad:ciudadInstance.id]"> ${fieldValue(bean: ciudadInstance, field: "nombre")}</g:link>
 				</li>
 			</g:each>
 		</ul>
@@ -18,10 +18,10 @@
 		<ul>
 			<g:each in="${categoriasList}" var="categoriaInstance">
 				<li>
-					<g:if test="${categoriaInstance.nombre.equals(nombreCategoria)}">
+					<g:if test="${categoriaInstance.id == idCategoria}">
 						<div id="elegido"></div>
 					</g:if>
-					<g:link action="categoriasCiudad" params="[nombreCategoria: categoriaInstance.nombre,nombreCiudad:nombreCiudad]"> ${fieldValue(bean: categoriaInstance, field: "nombre")}</g:link>
+					<g:link action="categoriasCiudadId" params="[idCategoria: categoriaInstance.id,idCiudad:idCiudad]"> ${fieldValue(bean: categoriaInstance, field: "nombre")}</g:link>
 				</li>
 			</g:each>
 		</ul>

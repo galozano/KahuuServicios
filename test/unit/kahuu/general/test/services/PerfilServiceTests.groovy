@@ -269,4 +269,15 @@ class PerfilServiceTests {
 		assert lista.get(0).ciudad.nombre.compareTo(ciudad.nombre) == 0;
 		
 	}
+	
+	void testPerfilesCategoriasCiudadId( )
+	{
+		setIt();
+		
+		List lista = perfilService.perfilesCategoriasCiudadId(categoria.id, ciudad.id);
+		
+		assert lista.size( ) == 21;
+		assert lista.get(0).ciudad.nombre.compareTo(ciudad.nombre) == 0;
+		
+	}
 }

@@ -20,7 +20,7 @@ class PerfilService
 	 */
 	def darCiudadesCompletas( )
 	{
-		return Ciudad.list();
+		return Ciudad.list(sort:'nombre');
 	}
 	
 	/**
@@ -29,7 +29,7 @@ class PerfilService
 	 */
 	def darCategoriasCompletas( )
 	{
-		return Categorias.list();
+		return Categorias.list(sort:'nombre');
 	}
 	
 	/**
@@ -56,6 +56,16 @@ class PerfilService
 		}
 		
 		def results = query.list(sort:'nombre')
+	}
+	
+	/**
+	 * Retorna la categoria dada una id
+	 * @param idCategoria id de la categoria
+	 * @return categoria de la id dada
+	 */
+	def darCategoriaPorId(Long idCategoria)
+	{
+		return Categorias.get(idCategoria);
 	}
 	
 	/**
@@ -187,6 +197,24 @@ class PerfilService
 		}
 		return results.sort();
 	}
+	
+	
+	def perfilesCategoriasCiudadId(Long idCategoria, Long idCiudad)
+	{
+		def c = Profile.createCriteria();
+		
+		def results = c.list( ) {
+			ciudad{
+				eq("id",idCiudad)	
+			}
+			categorias{
+				eq("id",idCategoria)
+			}
+				
+		}
+		return results.sort();
+	}
+	
 	
 	/**
 	 * Retorna una lista de 3 perfiles con lo mas destacados 

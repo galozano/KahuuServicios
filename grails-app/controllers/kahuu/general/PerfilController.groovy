@@ -47,7 +47,7 @@ class PerfilController
 	 * Muestra la pagina principal con los destacados y los recientes
 	 * @return render de la pagina principal 
 	 */
-	def principal(String ciudad)
+	def principal(Long ciudad)
 	{
 		List listaCategorias = perfilService.darCategorias( );
 		List listaCiudades = perfilService.darCiudades();
@@ -55,12 +55,13 @@ class PerfilController
 		
 		if(ciudad == null || ciudad.equals(""))
 		{
-			ciudad = "Cartagena";
+			//TODO:Arreglar esto
+			ciudad = 1;
 		}
 		
 		log.debug("Mostrando lista de perfiles destacados")
 		
-		render(view: "principal",model:[nombreCiudad:ciudad ,listaDestacados:listaDestacados, categoriasList:listaCategorias,ciudadesList:listaCiudades]);
+		render(view: "principal",model:[idCiudad:ciudad ,listaDestacados:listaDestacados, categoriasList:listaCategorias,ciudadesList:listaCiudades]);
 	}
 		
 	/**
@@ -102,11 +103,10 @@ class PerfilController
 	{	
 		try
 		{
-		
 			//Saca la ciudad de donde es la persona
-			def nombreCiudad = params.ciudad;
+			Long idCiudad = params.long('idCiudad');
 			
-			log.debug("Ciudad de persona es:" + nombreCiudad);
+			log.debug("Ciudad de persona es:" + idCiudad);
 			
 			boolean loRecomende = false; //Si el usuario en session recomendo o no el perfil
 			
@@ -135,7 +135,7 @@ class PerfilController
 				
 				log.debug("Perfil-Estado de la recomendacion: " + loRecomende);
 				
-				render(view: "profile", model:	[loRecomende:loRecomende,profileInstance: profileInstance, reviewsList: revs,categoriasList:categorias, reviewsTotal:total, ciudadesList:listaCiudades, nombreCiudad:nombreCiudad] );
+				render(view: "profile", model:	[loRecomende:loRecomende,profileInstance: profileInstance, reviewsList: revs,categoriasList:categorias, reviewsTotal:total, ciudadesList:listaCiudades, idCiudad:idCiudad] );
 			}
 		}	
 		catch(KahuuException e)
@@ -198,7 +198,7 @@ class PerfilController
 		try 
 		{
 			def searchResults = searchableService.search("*" + params.q + "*");
-			render(view: "perfiles",model:[nombreCategoria:"Busqueda",profileInstanceList: searchResults.results ,profileInstanceTotal:searchResults.results.size(), categoriasList: categorias, ciudadesList:listaCiudades]);
+			render(view: "perfiles",model:[idCategoria:-1,profileInstanceList: searchResults.results ,profileInstanceTotal:searchResults.results.size(), categoriasList: categorias, ciudadesList:listaCiudades]);
 		}
 		catch (SearchEngineQueryParseException e)
 		{
@@ -209,7 +209,8 @@ class PerfilController
 	}
 	
 	/**
-	 * Muestra los perfiles dado una id de una categoria (deprecated)
+	 *  (deprecated)
+	 * Muestra los perfiles dado una id de una categoria
 	 * @param id-id de la categoria
 	 * @return- la vista perfiles con la lista de los perfiles de la categoria
 	 */
@@ -271,12 +272,13 @@ class PerfilController
 	}
 	
 	/**
+	 *  (deprecated)
 	 * Mustra los perfiles de una ciudad y categoria particular
 	 * @param nombreCiudad - el nombre de la ciudad de los perfiles
 	 * @param nombreCategoria - el nombre de la categoria de los perfiles
 	 * @return lista de perfiles
 	 */
-	def categoriasCiudad(String nombreCiudad, String nombreCategoria)
+	def categoriasCiudad(String nombreCategoria, String nombreCiudad)
 	{
 		def categorias = perfilService.darCategorias( );
 		def ciudades = perfilService.darCiudades();
@@ -295,6 +297,41 @@ class PerfilController
 			else
 			{
 				render(view: "perfiles",model:[nombreCategoria:nombreCategoria, nombreCiudad:nombreCiudad, profileInstanceList:results ,profileInstanceTotal:results.size(), categoriasList:categorias, ciudadesList:ciudades]);
+			}
+		}
+		catch(Exception e)
+		{
+			flash.message = e.message;
+			render(view: "perfiles",model:[categoriasList: categorias]);
+		}
+	}
+	
+	/**
+	 * Mustra los perfiles de una ciudad y categoria particular
+	 * @param nombreCiudad - el nombre de la ciudad de los perfiles
+	 * @param nombreCategoria - el nombre de la categoria de los perfiles
+	 * @return lista de perfiles
+	 */
+	def categoriasCiudadId(Long idCiudad, Long idCategoria)
+	{
+		def categorias = perfilService.darCategorias( );
+		def ciudades = perfilService.darCiudades();
+		def categoria = perfilService.darCategoriaPorId(idCategoria);
+		
+		log.debug("Numero de Ciudades a imprimir:" + ciudades.size());
+		
+		try
+		{
+			def results = perfilService.perfilesCategoriasCiudadId(idCategoria, idCiudad);
+			
+			if(results == null || results.size() == 0)
+			{
+				flash.message = "No se encontro ning&uacute;n resultado.";
+				render(view: "perfiles",model:[idCategoria:idCategoria, idCiudad:idCiudad,categoriasList: categorias,ciudadesList:ciudades]);
+			}
+			else
+			{
+				render(view: "perfiles",model:[nombreCategoria:categoria.nombre,idCategoria:idCategoria, idCiudad:idCiudad, profileInstanceList:results ,profileInstanceTotal:results.size(), categoriasList:categorias, ciudadesList:ciudades]);
 			}
 		}
 		catch(Exception e)
