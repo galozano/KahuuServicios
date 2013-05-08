@@ -1,13 +1,13 @@
 <g:each in="${listaPerfiles}" status="i" var="profileInstance">
 <div class="post azul">
-	<g:link action="profileUsuario" params="[usuario:profileInstance.usuario,idCiudad:profileInstance.ciudad.id]"></g:link>
+	<g:link action="profileUsuario" params="[usuario:profileInstance.usuario,idCiudad:idCiudad]"></g:link>
 	<g:if test="${profileInstance?.image}">
-		<g:link action="profileUsuario" params="[usuario:profileInstance.usuario,idCiudad:profileInstance.ciudad.id]">
+		<g:link action="profileUsuario" params="[usuario:profileInstance.usuario,idCiudad:idCiudad]">
 			<img src="${createLink(controller:'perfil', action:'darFoto', id: profileInstance.id)}" width="75" height="75"/>
 		</g:link>
 	</g:if>
 	<g:else>
-		<g:link action="profileUsuario" params="[usuario:profileInstance.usuario,idCiudad:profileInstance.ciudad.id]">
+		<g:link action="profileUsuario" params="[usuario:profileInstance.usuario,idCiudad:idCiudad]">
 			<img src="${resource(dir: 'images', file: 'none.jpg')}" width="75" height="75"/>
 		</g:link>
 	</g:else>
@@ -16,7 +16,7 @@
 		<div class="rating">
 			<img src="${resource(dir: 'images/skin', file: 'stars-'+profileInstance.totalRating+'.png')}"/><%-- &nbsp;(${profileInstance.reviews.size()} Comentarios)--%>
 		</div>
-		<g:link action="profileUsuario" params="[usuario:profileInstance.usuario,idCiudad:profileInstance.ciudad.id]">${fieldValue(bean: profileInstance, field: "nombre")}</g:link>
+		<g:link action="profileUsuario" params="[usuario:profileInstance.usuario,idCiudad:idCiudad]">${fieldValue(bean: profileInstance, field: "nombre")}</g:link>
 		<div class="descripcion">		
 			<g:if test="${profileInstance.descripcion.length() > 90}">
 				${profileInstance.descripcion.substring(0,70)}...

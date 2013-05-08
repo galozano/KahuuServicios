@@ -198,7 +198,7 @@ class PerfilController
 		try 
 		{
 			def searchResults = searchableService.search("*" + params.q + "*");
-			render(view: "perfiles",model:[idCategoria:-1,profileInstanceList: searchResults.results ,profileInstanceTotal:searchResults.results.size(), categoriasList: categorias, ciudadesList:listaCiudades]);
+			render(view: "perfiles",model:[nombreCategoria:"Buscador",profileInstanceList: searchResults.results ,profileInstanceTotal:searchResults.results.size(), categoriasList: categorias, ciudadesList:listaCiudades]);			
 		}
 		catch (SearchEngineQueryParseException e)
 		{
@@ -327,7 +327,7 @@ class PerfilController
 			if(results == null || results.size() == 0)
 			{
 				flash.message = "No se encontro ning&uacute;n resultado.";
-				render(view: "perfiles",model:[idCategoria:idCategoria, idCiudad:idCiudad,categoriasList: categorias,ciudadesList:ciudades]);
+				render(view: "perfiles",model:[nombreCategoria:categoria.nombre,idCategoria:idCategoria, idCiudad:idCiudad,categoriasList: categorias,ciudadesList:ciudades]);
 			}
 			else
 			{
