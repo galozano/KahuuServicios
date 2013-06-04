@@ -131,7 +131,7 @@ log4j = {
 			debug   'grails.app.services'										
 		}
 		test { 
-			root { warn 'stdout' } 
+			root { debug 'stdout' } 
 		}
 		production { 
 			root { error 'file' } 
@@ -152,4 +152,7 @@ mail {
 			 "mail.smtp.socketFactory.fallback":"false"]
   }
 }
+
+//Constates de la base de datos
+comun.perfiles.normal = "Normal"
 

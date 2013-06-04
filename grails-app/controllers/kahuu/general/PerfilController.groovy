@@ -28,6 +28,8 @@ class PerfilController
 	
 	RecomendadosService recomendadosService;
 	
+	UsuarioService usuarioService;
+	
 	def searchableService;
 
 	//------------------------------------------------------------------------------------------
@@ -103,6 +105,9 @@ class PerfilController
 	{	
 		try
 		{
+			def categorias = perfilService.darCategorias( );
+			List listaCiudades = perfilService.darCiudades();
+			
 			//Saca la ciudad de donde es la persona
 			Long idCiudad = params.long('idCiudad');
 			
@@ -110,15 +115,13 @@ class PerfilController
 			
 			boolean loRecomende = false; //Si el usuario en session recomendo o no el perfil
 			
-			def categorias = perfilService.darCategorias( );
-			List listaCiudades = perfilService.darCiudades();
-			
 			Profile profileInstance = perfilService.darPerfilUsuario(params.usuario);
 			
 			if(profileInstance == null)
 			{
 				flash.message = "No existe el perfil buscado";
 				redirect(action: "perfiles");
+				return;
 			}
 			else
 			{			
@@ -314,11 +317,27 @@ class PerfilController
 	 */
 	def categoriasCiudadId(Long idCiudad, Long idCategoria)
 	{
+		log.debug("Metodo:categoriasCiudadId");
+		
 		def categorias = perfilService.darCategorias( );
 		def ciudades = perfilService.darCiudades();
-		def categoria = perfilService.darCategoriaPorId(idCategoria);
 		
 		log.debug("Numero de Ciudades a imprimir:" + ciudades.size());
+		log.debug("Categoria:" + idCategoria)
+		
+		if(idCiudad == null && idCategoria != null)
+		{
+			redirect(action: "principal", params:[ciudad:1]);
+			return;
+		}
+		
+		if(idCiudad != null && idCategoria == null)
+		{
+			redirect(action: "principal", params:[ciudad:idCiudad]);
+			return;
+		}
+			
+		def categoria = perfilService.darCategoriaPorId(idCategoria);
 		
 		try
 		{
@@ -353,8 +372,6 @@ class PerfilController
 	 */
 	def recomendarPerfil(Long idPerfil, Long idUsuario)
 	{
-		log.debug("Recomendado perfil a:" + idPerfil + " usuario:" + idUsuario);
-
 		try
 		{
 			String respuesta = recomendadosService.recomendarPerfil(idPerfil, idUsuario);
@@ -371,9 +388,7 @@ class PerfilController
 	 * @return lista de amigos recomendados
 	 */
 	def darAmigosRecomendaron(Long idPerfil)
-	{
-		log.debug("AJAX-Id del Perfil a buscar recomendaciones es:" + idPerfil);
-		
+	{	
 		//Lista de recomendaciones que recomendaron este perfil
 		List recomendaciones = recomendadosService.darRecomendaron(idPerfil);
 		
@@ -459,5 +474,31 @@ class PerfilController
 		}
 		
 		render html;
+	}
+	
+	/**
+	 * 
+	 * @param idPerfil
+	 * @return
+	 */
+	def envioEmailPerfil(Long idPerfil,String mensaje,String email)
+	{
+		User usuario = session.user;
+		Profile perfil = perfilService.darPerfil(idPerfil);
+		
+		String emailMensaje = "Estan solicitando el servicio que ofreces:";
+		emailMensaje += mensaje;
+		emailMensaje += "\n\n Para contactar el usuario escribele a: " + email;
+		
+		//Enviar Email a perfil con info del usuario
+		sendMail
+		{
+			to perfil.email
+			subject "Solicitud de Servicio"
+			body emailMensaje;
+		}
+		
+		flash.message = "Se envio el mensaje satisfactoriamente."
+		redirect(action:"profileUsuario", params:[usuario:perfil.usuario]);
 	}
 }

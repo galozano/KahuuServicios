@@ -148,6 +148,9 @@ class ComentariosControllerTests
 	// Tests
 	//--------------------------------------------------------------------------------------------------
 	
+	/**
+	 * 
+	 */
 	void testMisComentario( )
 	{
 		setIt2();
@@ -158,12 +161,18 @@ class ComentariosControllerTests
 		assert view == "/comentarios/miscomentarios";
 	}
 	
+	/**
+	 * 
+	 */
 	void testCrearComentario( )
 	{
 		setIt2();
 		
 	}
 	
+	/**
+	 * 
+	 */
 	void testHandleComentario( )
 	{
 		setIt2();
@@ -184,6 +193,9 @@ class ComentariosControllerTests
 		//Test titulo muy largo	
 	}
 	
+	/**
+	 * 
+	 */
 	void testDeteleComentario( )
 	{
 		setIt2();
@@ -212,6 +224,9 @@ class ComentariosControllerTests
 		
 	}
 	
+	/**
+	 * 
+	 */
 	void testEditComentario( )
 	{
 		setIt();
@@ -230,6 +245,9 @@ class ComentariosControllerTests
 		assert model.comentarioInstance, review;
 	}
 	
+	/**
+	 * 
+	 */
 	void testHandleEditComentario( )
 	{
 		setIt2();
@@ -250,6 +268,9 @@ class ComentariosControllerTests
 		
 	}
 	
+	/**
+	 * 
+	 */
 	void testCambiarPassword( )
 	{
 		setIt2();
@@ -272,6 +293,9 @@ class ComentariosControllerTests
 			
 	}
 	
+	/**
+	 * 
+	 */
 	void testActualizarUsuario( )
 	{
 		setIt2();

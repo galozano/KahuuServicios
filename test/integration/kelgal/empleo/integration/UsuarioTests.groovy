@@ -8,7 +8,8 @@ class UsuarioTests
 {
 
     @Before
-    void setUp() {
+    void setUp() 
+	{
         // Setup logic here
     }
 
@@ -18,7 +19,7 @@ class UsuarioTests
     }
 
     @Test
-    void testSomething() {
+    void testLogin() {
         fail "Implement me"
     }
 }

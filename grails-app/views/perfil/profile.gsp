@@ -9,6 +9,11 @@
 	<facebook:initJS appId="${facebookContext.app.id}" xfbml="${true}" />
 	<g:render template="sidebar"/>
 	<div class="content">
+		<g:if test="${flash.message}">
+			<div class="message" role="status">
+				${flash.message}
+			</div>
+		</g:if>
 		<div class="profile-up">	
 			<g:if test="${profileInstance?.image}">
 				<img src="${createLink(controller:'perfil', action:'darFoto', id: profileInstance.id)}"  width="100" height="100"/>
@@ -56,20 +61,35 @@
 
 				fetchInfoRecomendados();	
 			</script>
-			
-			<!-- Facebook Like Button --><%--
-			<% String url = "http://" + request.getServerName()  + request.getContextPath() + "/" + profileInstance.usuario %>			
-			<div class="fb-like" data-href="${url}" data-send="false"  data-width="500" data-show-faces="false" data-action="recommend"></div>
-		--%></div>
+
+		</div>
 		<div class="profile-box">
 				<g:if test="${session.user}">
-					<div id="telefono" class="azul">
+					<g:if test="${profileInstance?.tipoPerfil?.nombre.equals(grailsApplication.config.comun.perfiles.normal)}">
+						<div id="telefono" class="azul">
 							Celular:&nbsp;<g:fieldValue bean="${profileInstance}" field="celular"/>
 							<g:if test="${profileInstance.celular2}">,<g:fieldValue bean="${profileInstance}" field="celular2"/></g:if>
-					</div>
+						</div>
+					</g:if>
+					<g:else>
+						<div id="formularioHtml" class="formularioHtml" style='display:none'>
+							<h1>Contactar Profesional</h1>
+							<g:form name="contactoProfesional" url="[action:'envioEmailPerfil',controller:'perfil']">
+								Email: <input type="text" name="email" value="${session.user.email}">
+								Mensaje: <textarea rows="5" cols="5" name="mensaje"></textarea>
+								<input type="hidden" name="idPerfil" value="${profileInstance.id}"/>
+					
+								<div class="buttons">
+									<g:submitButton name="enviar" class="save" value="Enviar" />
+								</div>
+							</g:form>
+						</div>
+						<div id="telefono" class="azul"><a class='formularioContacto' href='#formularioContacto_content'>Contactar Profesional</a></div>
+						<div class="formularioContacto_content"></div>
+					</g:else>
 				</g:if>
 				<g:else>
-					<div id="telefono" class="azul">Para ver el tel&eacute;fono <g:link controller="usuario" action="login">Ingresa</g:link> o <g:link controller="usuario" action="login">Registrate</g:link></div>
+					<div id="telefono" class="azul">Para contactarlo <g:link controller="usuario" action="login">Ingresa</g:link> o <g:link controller="usuario" action="login">Registrate</g:link></div>
 				</g:else>	
 		</div>
 		<div class="profile-box">

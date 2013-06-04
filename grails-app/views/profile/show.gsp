@@ -1,9 +1,9 @@
 
 <%@ page import="kahuu.general.Profile" %>
-<!doctype html>
+<!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="complete">
+		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'profile.label', default: 'Profile')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
@@ -30,6 +30,26 @@
 						<g:each in="${profileInstance.categorias}" var="c">
 						<span class="property-value" aria-labelledby="categorias-label"><g:link controller="categorias" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>
 						</g:each>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${profileInstance?.reviews}">
+				<li class="fieldcontain">
+					<span id="reviews-label" class="property-label"><g:message code="profile.reviews.label" default="Reviews" /></span>
+					
+						<g:each in="${profileInstance.reviews}" var="r">
+						<span class="property-value" aria-labelledby="reviews-label"><g:link controller="review" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${profileInstance?.tipoPerfil}">
+				<li class="fieldcontain">
+					<span id="tipoPerfil-label" class="property-label"><g:message code="profile.tipoPerfil.label" default="Tipo Perfil" /></span>
+					
+						<span class="property-value" aria-labelledby="tipoPerfil-label"><g:link controller="tipoPerfil" action="show" id="${profileInstance?.tipoPerfil?.id}">${profileInstance?.tipoPerfil?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
@@ -77,15 +97,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${profileInstance?.descripcion}">
-				<li class="fieldcontain">
-					<span id="descripcion-label" class="property-label"><g:message code="profile.descripcion.label" default="Descripcion" /></span>
-					
-						<span class="property-value" aria-labelledby="descripcion-label"><g:fieldValue bean="${profileInstance}" field="descripcion"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${profileInstance?.celular2}">
 				<li class="fieldcontain">
 					<span id="celular2-label" class="property-label"><g:message code="profile.celular2.label" default="Celular2" /></span>
@@ -113,6 +124,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${profileInstance?.descripcion}">
+				<li class="fieldcontain">
+					<span id="descripcion-label" class="property-label"><g:message code="profile.descripcion.label" default="Descripcion" /></span>
+					
+						<span class="property-value" aria-labelledby="descripcion-label"><g:fieldValue bean="${profileInstance}" field="descripcion"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${profileInstance?.estadoUsuario}">
 				<li class="fieldcontain">
 					<span id="estadoUsuario-label" class="property-label"><g:message code="profile.estadoUsuario.label" default="Estado Usuario" /></span>
@@ -136,17 +156,6 @@
 					<span id="password-label" class="property-label"><g:message code="profile.password.label" default="Password" /></span>
 					
 						<span class="property-value" aria-labelledby="password-label"><g:fieldValue bean="${profileInstance}" field="password"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${profileInstance?.reviews}">
-				<li class="fieldcontain">
-					<span id="reviews-label" class="property-label"><g:message code="profile.reviews.label" default="Reviews" /></span>
-					
-						<g:each in="${profileInstance.reviews}" var="r">
-						<span class="property-value" aria-labelledby="reviews-label"><g:link controller="review" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
-						</g:each>
 					
 				</li>
 				</g:if>

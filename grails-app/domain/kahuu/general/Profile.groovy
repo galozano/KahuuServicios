@@ -29,6 +29,8 @@ class Profile implements Comparable
 	
 	Ciudad ciudad;
 	
+	TipoPerfil tipoPerfil;
+	
 	byte[] image;
 	
 	int totalRating;
@@ -47,6 +49,7 @@ class Profile implements Comparable
 	{
 		categorias  lazy:false;
 		reviews lazy:false;
+		tipoPerfil lazy:false;
 		usuario unique:true, blank:false;
 		image maxSize:1000000;
 		email email:true

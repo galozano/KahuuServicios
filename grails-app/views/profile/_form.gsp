@@ -1,21 +1,45 @@
 <%@ page import="kahuu.general.Profile" %>
 
 
-
 <div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'categorias', 'error')} ">
 	<label for="categorias">
 		<g:message code="profile.categorias.label" default="Categorias" />
 		
 	</label>
-	<g:select name="categorias" from="${kahuu.general.Categorias.list()}" multiple="multiple" optionKey="id" optionValue="nombre" size="5" value="${profileInstance?.categorias*.id}" class="many-to-many"/>
+	<g:select name="categorias" from="${kahuu.general.Categorias.list()}" multiple="multiple" optionKey="id" size="5" optionValue="nombre" value="${profileInstance?.categorias*.id}" class="many-to-many"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'usuario', 'error')} ">
-	<label for="usuario">
-		<g:message code="profile.usuario.label" default="Usuario" />
+<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'reviews', 'error')} ">
+	<label for="reviews">
+		<g:message code="profile.reviews.label" default="Reviews" />
 		
 	</label>
-	<g:textField name="usuario" value="${profileInstance?.usuario}"/>
+	
+<ul class="one-to-many">
+<g:each in="${profileInstance?.reviews?}" var="r">
+    <li><g:link controller="review" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
+</g:each>
+<li class="add">
+<g:link controller="review" action="create" params="['profile.id': profileInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'review.label', default: 'Review')])}</g:link>
+</li>
+</ul>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'tipoPerfil', 'error')} required">
+	<label for="tipoPerfil">
+		<g:message code="profile.tipoPerfil.label" default="Tipo Perfil" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="tipoPerfil" name="tipoPerfil.id" from="${kahuu.general.TipoPerfil.list()}" optionValue="nombre" optionKey="id" required="" value="${profileInstance?.tipoPerfil?.id}" class="many-to-one"/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'usuario', 'error')} required">
+	<label for="usuario">
+		<g:message code="profile.usuario.label" default="Usuario" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="usuario" required="" value="${profileInstance?.usuario}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'image', 'error')} required">
@@ -39,7 +63,7 @@
 		<g:message code="profile.nombre.label" default="Nombre" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="nombre" required="" value="${profileInstance?.nombre}"/>
+	<g:textField name="nombre" maxlength="45" required="" value="${profileInstance?.nombre}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'celular', 'error')} required">
@@ -48,14 +72,6 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="celular" required="" value="${profileInstance?.celular}"/>
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'descripcion', 'error')} required">
-	<label for="descripcion">
-		<g:message code="profile.descripcion.label" default="Descripcion" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textArea name="descripcion" required="" value="${profileInstance?.descripcion}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'celular2', 'error')} ">
@@ -71,7 +87,7 @@
 		<g:message code="profile.certificado.label" default="Certificado" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="certificado" name="certificado.id" from="${kahuu.general.Certificado.list()}" optionKey="id" optionValue="nombre" required="" value="${profileInstance?.certificado?.id}" class="many-to-one"/>
+	<g:select id="certificado" name="certificado.id" from="${kahuu.general.Certificado.list()}" optionValue="nombre" optionKey="id" required="" value="${profileInstance?.certificado?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'ciudad', 'error')} required">
@@ -79,7 +95,15 @@
 		<g:message code="profile.ciudad.label" default="Ciudad" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="ciudad" name="ciudad.id" from="${kahuu.general.Ciudad.list()}" optionKey="id" optionValue="nombre" required="" value="${profileInstance?.ciudad?.id}" class="many-to-one"/>
+	<g:select id="ciudad" name="ciudad.id" from="${kahuu.general.Ciudad.list()}" optionKey="id" optionValue="nombre" required="" value="${profileInstance?.ciudad?.id}"  class="many-to-one"/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'descripcion', 'error')} ">
+	<label for="descripcion">
+		<g:message code="profile.descripcion.label" default="Descripcion" />
+		
+	</label>
+	<g:textField name="descripcion" value="${profileInstance?.descripcion}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'estadoUsuario', 'error')} ">
@@ -104,23 +128,6 @@
 		
 	</label>
 	<g:textField name="password" value="${profileInstance?.password}"/>
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'reviews', 'error')} ">
-	<label for="reviews">
-		<g:message code="profile.reviews.label" default="Reviews" />
-		
-	</label>
-	
-<ul class="one-to-many">
-<g:each in="${profileInstance?.reviews?}" var="r">
-    <li><g:link controller="review" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
-</g:each>
-<li class="add">
-<g:link controller="review" action="create" params="['profile.id': profileInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'review.label', default: 'Review')])}</g:link>
-</li>
-</ul>
-
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'totalRating', 'error')} required">

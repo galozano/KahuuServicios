@@ -1,8 +1,8 @@
 <%@ page import="kahuu.general.Profile" %>
-<!doctype html>
+<!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="complete">
+		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'profile.label', default: 'Profile')}" />
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
 	</head>
@@ -14,7 +14,7 @@
 				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
-		<div id="create-profile" role="main">
+		<div id="create-profile" class="content scaffold-create" role="main">
 			<h1><g:message code="default.create.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>

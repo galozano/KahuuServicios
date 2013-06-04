@@ -1,5 +1,11 @@
 $(document).ready(function(){
-	
+	$(".formularioContacto").colorbox({inline:true, href:"#formularioHtml",onLoad:function()
+		{
+			$("#formularioHtml").css('display','inline');
+		}, onCleanup: function()
+		{
+			$("#formularioHtml").css('display','none');
+		}});
 });
 
 if (typeof jQuery !== 'undefined') {

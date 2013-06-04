@@ -13,8 +13,7 @@ import org.codehaus.groovy.grails.plugins.web.taglib.ApplicationTagLib
  * @author gustavolozano
  */
 class UsuarioService
-{
-	
+{	
 	/**
 	 * Verifica que el usuario que esta haciendo login existe y es valido
 	 * @param email email del usuario tratando de registrarse, email != null
@@ -75,6 +74,28 @@ class UsuarioService
 		{
 			user.password = "";
 			throw new KahuuException("No se pudo guardar", user);
+		}
+	}
+
+
+	/**
+	 * 
+	 * @param nombre
+	 * @param email
+	 * @param idFacebook
+	 * @return
+	 */
+	def agregarUsuarioFacebook(String nombre, String email, String idFacebook)
+	{	
+		User user = new User(nombre:nombre, email:email, password:"none", fechaCreado:new Date(), activated:true, idFacebook:idFacebook, keyConfirmar:"");
+	
+		if(user.save(flush:true))
+		{
+			return user;
+		}
+		else
+		{
+			throw new KahuuException("Error guardadndo usuario", user);
 		}
 	}
 
@@ -220,23 +241,16 @@ class UsuarioService
 	}
 	
 	/**
-	 * 
-	 * @param nombre
-	 * @param email
-	 * @param idFacebook
-	 * @return
+	 * Retorna el usuario con la id dada
+	 * @param idUsuario != null
+	 * @return usuario de esa id
 	 */
-	def agregarUsuarioFacebook(String nombre, String email, String idFacebook)
-	{	
-		User user = new User(nombre:nombre, email:email, password:"none", fechaCreado:new Date(), activated:true, idFacebook:idFacebook, keyConfirmar:"");
-	
-		if(user.save(flush:true))
-		{
-			return user;
-		}
-		else
-		{
-			throw new KahuuException("Error guardadndo usuario", user);
-		}
+	def darUsuarioId(Long idUsuario)
+	{
+		if(idUsuario == null)
+			throw new KahuuException("Usuario que se busca es desconocido");
+		
+		return User.get(idUsuario);
 	}
+	
 }

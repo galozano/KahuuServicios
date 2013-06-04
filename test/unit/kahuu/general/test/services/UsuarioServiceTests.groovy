@@ -29,7 +29,7 @@ class UsuarioServiceTests
 	// Escenarios
 	//--------------------------------------------------------------------------------------------------
 	
-	void setIt()
+	void setUp()
 	{
 		String pass = "pass";
 		mockCodec(SHA1Codec);
@@ -42,36 +42,32 @@ class UsuarioServiceTests
 	// Tests
 	//--------------------------------------------------------------------------------------------------
 	
+	@Test
 	void testLoginPasswordInvalido()
-	{
-		setIt();
-		
+	{	
 		//Password Invalido
 		User usuarioPrueba =	usuarioService.loginUsuario("gus@gus.com","invalido")
 		assert usuarioPrueba == null;
 	}
 	
+	@Test
 	void testLoginEmailInvalido()
 	{
-		setIt();
-		
 		User usuarioPrueba = usuarioService.loginUsuario("gus@gu2s.com","invalido")
 		assert usuarioPrueba == null;
 	}
 	
+	@Test
 	void testLoginPassword()
 	{
-		setIt();
-		
 		//Usuario registrado con todo bien
 		User usuarioPrueba = 	usuarioService.loginUsuario("gus@gus.com","pass")
 		assert usuarioPrueba.nombre, this.usuarioPrueba.nombre;
 	}
 	
+	@Test
 	void testRegist( )
 	{
-		setIt();
-		
 		//Password no son iguales
 		String nombre = "Rafa";
 		String email = "raf@gmail.com";
@@ -82,30 +78,27 @@ class UsuarioServiceTests
 	
 	}
 	
+	@Test
 	void testCambiarPassword( )
 	{
-		setIt();
-		
 		String nuevo = "nuevaPass";	
 	
 		usuarioService.cambiarPassword(nuevo, usuarioPrueba.id);		
 		assert nuevo.encodeAsSHA1(), usuarioPrueba.password;	
 	}
 	
+	@Test
 	void testActualizarUsuario( )
 	{
-		setIt();
-		
 		String nuevoNombre = "Nuevo Nombre";
 		
 		usuarioService.actualizarUsuario(nuevoNombre, usuarioPrueba.id);
 		assert nuevoNombre, usuarioPrueba.nombre;
 	}
 	
+	@Test
 	void testVerificarEmail( )
-	{
-		setIt();
-		
+	{	
 		def verificar = usuarioService.verificarEmail(usuarioPrueba.id, usuarioPrueba.keyConfirmar);
 		
 		assert verificar == true;	
@@ -114,12 +107,18 @@ class UsuarioServiceTests
 
 	}
 	
+	@Test
 	void testVerificarInvalido( )
 	{
-		setIt();
-		
 		def verificar = usuarioService.verificarEmail(usuarioPrueba.id, "INVALIDO");
 		assert verificar == false;
+	}
+	
+	@Test
+	void testdarUsuarioId( )
+	{
+		def usuario = usuarioService.darUsuarioId(usuarioPrueba.id);
+		assert usuario.id == usuarioPrueba.id;
 	}
 
 	/**	
