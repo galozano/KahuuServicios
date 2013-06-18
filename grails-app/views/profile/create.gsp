@@ -14,7 +14,7 @@
 				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
-		<div id="create-profile" class="content scaffold-create" role="main">
+		<div id="create-profile" role="main">
 			<h1><g:message code="default.create.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
