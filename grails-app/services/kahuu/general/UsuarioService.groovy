@@ -29,6 +29,13 @@ class UsuarioService
 		{
 			if (user.password == password.encodeAsSHA1())
 			{
+				user.ultimoLogin = new Date();
+				
+				if(!user.save(flush:true))
+				{
+					throw new KahuuException("No se pudo guardar", user);
+				}
+				
 				return user;
 			}
 			else
@@ -237,6 +244,14 @@ class UsuarioService
 	def verificarFacebookUsuario(String idFacebook)
 	{
 		User user = User.findByIdFacebook(idFacebook);
+		
+		user.ultimoLogin = new Date();
+		
+		if(!user.save(flush:true))
+		{
+			throw new KahuuException("No se pudo guardar", user);
+		}
+		
 		return user;
 	}
 	

@@ -22,6 +22,8 @@ class User
 	
 	String idFacebook;
 	
+	Date ultimoLogin;
+	
 	static hasMany = [reviews:Review];
 	
     static constraints = 

@@ -34,7 +34,7 @@ class UsuarioServiceTests
 		String pass = "pass";
 		mockCodec(SHA1Codec);
 		
-		usuarioPrueba = new User(nombre:"Gus",password:pass.encodeAsSHA1(), email:"gus@gus.com",fechaCreado:new Date(), activated:false, keyConfirmar:"HOLA", idFacebook:"");
+		usuarioPrueba = new User(nombre:"Gus",password:pass.encodeAsSHA1(), email:"gus@gus.com",fechaCreado:new Date(), activated:false, keyConfirmar:"HOLA", idFacebook:"",ultimoLogin:new Date());
 		assert usuarioPrueba.save() != null;
 	}
 	
@@ -62,7 +62,10 @@ class UsuarioServiceTests
 	{
 		//Usuario registrado con todo bien
 		User usuarioPrueba = 	usuarioService.loginUsuario("gus@gus.com","pass")
+		
 		assert usuarioPrueba.nombre, this.usuarioPrueba.nombre;
+		assert usuarioPrueba.ultimoLogin, new Date();
+		
 	}
 	
 	@Test
