@@ -3,7 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="layout" content="main"/>
-<title>Kahuu</title>
+<title>Kahuu - ${categoria?.nombre}</title>
+<meta name="description" content="${categoria?.descripcion}" />
 </head>
 <body>
 	<facebook:initJS appId="${facebookContext.app.id}" xfbml="${true}" />
@@ -15,7 +16,8 @@
 		</g:if>
 		
 		<div id="tabs">
-			<div class="tituloBox">${nombreCategoria}</div>
+			<div class="tituloBox">${categoria?.nombre}</div>
+			<div class="descripcionBox">${categoria?.descripcion}</div>
 			<div id="tab-1">
 				<g:render template="listaPerfil"  model="['listaPerfiles':profileInstanceList]"/>
 			</div>

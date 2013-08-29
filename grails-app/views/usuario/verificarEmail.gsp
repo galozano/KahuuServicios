@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII"/>
 <meta name="layout" content="main"/>
-<title>Verifiar Email</title>
+<title>Kahuu - Verifiar Email</title>
 </head>
 <body>
   <div class="body">

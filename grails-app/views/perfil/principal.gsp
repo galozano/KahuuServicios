@@ -3,7 +3,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="layout" content="main" />
-<title><g:message code="kahuu.kahuu" default="Kahuu" /></title>
 </head>
 <body>
 <facebook:initJS appId="${facebookContext.app.id}" xfbml="${true}" />

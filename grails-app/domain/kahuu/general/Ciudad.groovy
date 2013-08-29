@@ -11,6 +11,12 @@ class Ciudad
 	
 	boolean activado;
 	
+	static searchable =
+	{
+		root false;
+	}
+	
+	
     static constraints = 
 	{
 		nombre unique:true;

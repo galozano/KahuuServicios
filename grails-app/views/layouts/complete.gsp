@@ -9,7 +9,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title><g:layoutTitle default="Kahuu-Guia Profesional Para El Hogar" /></title>
+	<title><g:layoutTitle default="Kahuu-Guia de Profesional para el Hogar" /></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Portal web para buscar servicios (electricista, plomeros, pintores, etc.) en Colombia" />
 	<link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon">
@@ -28,6 +28,15 @@
 	<g:layoutHead />
 	<r:layoutResources/>
 	<ga:trackPageview/>
+	<!--Start of Zopim Live Chat Script-->
+	<script type="text/javascript">
+		window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+		d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+		_.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute('charset','utf-8');
+		$.src='//v2.zopim.com/?1OLCwksxjIgwwYz7HuNBu5qEonwbHNVB';z.t=+new Date;$.
+		type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
+	</script>
+	<!--End of Zopim Live Chat Script-->
 </head>
 <body>
 	<div class="wrapper">
@@ -58,7 +67,8 @@
 				<g:form name="searchForm" url="[controller:'perfil',action:'buscar']" method="get">
 					<div>
 						<g:textField  class="input_buscador" name="q" value="Estas buscando por un..." onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" />
-						<g:submitButton name="buscar" value="" />
+						<input type="hidden" name="ciudad" value="${idCiudad}">
+						<g:submitButton name="buscar" value=""/>
 					</div>
 				</g:form>
 			</div>

@@ -103,7 +103,7 @@
 		<g:message code="profile.descripcion.label" default="Descripcion" />
 		
 	</label>
-	<g:textField name="descripcion" value="${profileInstance?.descripcion}"/>
+	<g:textArea name="descripcion" value="${profileInstance?.descripcion}"></g:textArea>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'estadoUsuario', 'error')} ">

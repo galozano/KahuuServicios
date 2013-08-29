@@ -41,6 +41,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${categoriasInstance?.descripcion}">
+				<li class="fieldcontain">
+					<span id="descripcion-label" class="property-label"><g:message code="categorias.descripcion.label" default="Descripcion" /></span>
+					
+						<span class="property-value" aria-labelledby="descripcion-label"><g:fieldValue bean="${categoriasInstance}" field="descripcion"/></span>
+					
+				</li>
+				</g:if>
+			
 			</ol>
 			<g:form>
 				<fieldset class="buttons">

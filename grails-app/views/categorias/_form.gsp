@@ -18,3 +18,11 @@
 	<g:checkBox name="activado" value="${categoriasInstance?.activado}" />
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: categoriasInstance, field: 'descripcion', 'error')} ">
+	<label for="descripcion">
+		<g:message code="categorias.descripcion.label" default="Descripcion" />
+		
+	</label>
+	<g:textField name="descripcion" value="${categoriasInstance?.descripcion}"/>
+</div>
+

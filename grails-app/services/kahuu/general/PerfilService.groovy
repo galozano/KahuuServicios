@@ -1,5 +1,7 @@
 package kahuu.general
 
+import java.util.logging.Logger;
+
 import kahuu.general.Categorias;
 import kahuu.general.Ciudad;
 import kahuu.general.Profile;
@@ -233,5 +235,21 @@ class PerfilService
 	def perfilesRecientes( )
 	{
 		return Profile.list(max: 5, sort: "fechaCreado", order: "desc");
+	}
+	
+	/**
+	 * Retorna una ciudad dada la id de la ciudad
+	 * @param idCiudad - id de ciudad
+	 * @return objeto ciudad
+	 */
+	def darCiudad(Long idCiudad)
+	{
+		if(idCiudad == null || idCiudad < 0)
+		{
+			log.error("LLego una ciudad invalida a dar ciudad");
+			throw new KahuuException("Ciudad invalilda");
+		}
+		
+		return Ciudad.get(idCiudad);
 	}
 }

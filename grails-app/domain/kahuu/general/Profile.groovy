@@ -41,6 +41,7 @@ class Profile implements Comparable
 	{
 		nombre boost: 2.0;
 		categorias component: true;
+		ciudad component:true;
 	};
 		
 	static hasMany = [categorias: Categorias,reviews:Review];

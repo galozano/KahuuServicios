@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="layout" content="main" />
-<title>Terminos y Condiciones</title>
+<title>Kahuu - Terminos y Condiciones</title>
 </head>
 <body>
 			<div class="page-bgtop">

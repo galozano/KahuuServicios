@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII"/>
 <meta name="layout" content="main"/>
-<title>C&oacute;mo funciona?</title>
+<title>Kahuu - C&oacute;mo funciona?</title>
 </head>
 <body>
 		<script>

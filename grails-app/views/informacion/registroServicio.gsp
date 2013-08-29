@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII"/>
 <meta name="layout" content="main"/>
-<title>Ofrecer Servicio</title>
+<title>Kahuu - Ofrecer Servicio</title>
 </head>
 <body>
   	<div class="page-bgtop">
@@ -58,7 +58,7 @@
 			</div>
 			
 			<div class="fieldcontain required">
-				<label for="texto">Adjunta imagen de tu cedula* (Documento escaneado, Max. 3 MB)</label><div class="required-indicator">*</div>
+				<label for="texto">Adjunta imagen de tu cedula* (Documento escaneado, Max. 3 MB) La imagen ser&aacute; usada solo para fines administrativos</label><div class="required-indicator">*</div>
 				 <input type="file" name="fotoCedula" id="fotoCedula"/>
 			</div> 
 			

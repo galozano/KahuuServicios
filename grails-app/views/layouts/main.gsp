@@ -1,8 +1,8 @@
 <g:applyLayout name="complete">
 <html>
 <head>
-	<title><g:layoutTitle default="Kahuu Servicios" /></title>
 	<g:layoutHead/>
+	<title><g:layoutTitle default="Kahuu-Guia de Profesional para el Hogar" /></title>
 </head>	
 <body>	
 	<div class="page">

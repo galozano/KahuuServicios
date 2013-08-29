@@ -169,10 +169,12 @@ class PerfilController
 	 * Se busca los perfiles que tengan las palabras buscada en la descripcion
 	 * @return- la vista perfiles con el resultado de la busqueda
 	 */
-	def buscar( )
+	def buscar(Long ciudad)
 	{		
 		def categorias = perfilService.darCategorias( );
 		List listaCiudades = perfilService.darCiudades();
+		Ciudad ciudadEncontrada = perfilService.darCiudad(ciudad);
+		
 //		
 //		try
 //		{
@@ -200,8 +202,10 @@ class PerfilController
 		
 		try 
 		{
-			def searchResults = searchableService.search("*" + params.q + "*");
-			render(view: "perfiles",model:[nombreCategoria:"Buscador",profileInstanceList: searchResults.results ,profileInstanceTotal:searchResults.results.size(), categoriasList: categorias, ciudadesList:listaCiudades]);			
+		
+			//Falta que me del el nombre de la ciudad
+			def searchResults = searchableService.search("*" + params.q + "* +"+ ciudadEncontrada.nombre + " *");
+			render(view: "perfiles",model:[idCiudad:ciudad, nombreCategoria:"Buscador",profileInstanceList: searchResults.results ,profileInstanceTotal:searchResults.results.size(), categoriasList: categorias, ciudadesList:listaCiudades]);			
 		}
 		catch (SearchEngineQueryParseException e)
 		{
@@ -346,11 +350,11 @@ class PerfilController
 			if(results == null || results.size() == 0)
 			{
 				flash.message = "No se encontro ning&uacute;n resultado.";
-				render(view: "perfiles",model:[nombreCategoria:categoria.nombre,idCategoria:idCategoria, idCiudad:idCiudad,categoriasList: categorias,ciudadesList:ciudades]);
+				render(view: "perfiles",model:[categoria:categoria,idCategoria:idCategoria, idCiudad:idCiudad,categoriasList: categorias,ciudadesList:ciudades]);
 			}
 			else
 			{
-				render(view: "perfiles",model:[nombreCategoria:categoria.nombre,idCategoria:idCategoria, idCiudad:idCiudad, profileInstanceList:results ,profileInstanceTotal:results.size(), categoriasList:categorias, ciudadesList:ciudades]);
+				render(view: "perfiles",model:[categoria:categoria,idCategoria:idCategoria, idCiudad:idCiudad, profileInstanceList:results ,profileInstanceTotal:results.size(), categoriasList:categorias, ciudadesList:ciudades]);
 			}
 		}
 		catch(Exception e)

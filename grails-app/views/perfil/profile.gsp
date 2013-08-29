@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="layout" content="main" />
-<title><g:fieldValue bean="${profileInstance}" field="nombre"/></title>
+<title>Kahuu - <g:fieldValue bean="${profileInstance}" field="nombre"/></title>
 </head>
 <body>
 	<facebook:initJS appId="${facebookContext.app.id}" xfbml="${true}" />
@@ -24,7 +24,7 @@
 
 			<div class="profile-general">
 				<h1><g:fieldValue bean="${profileInstance}" field="nombre"/></h1>
-				<img src="${resource(dir: 'images/skin', file: 'stars-'+profileInstance.totalRating+'.png')}" />&nbsp;(${reviewsTotal} Comentarios)
+				<img src="${resource(dir: 'images/skin', file: 'stars-'+profileInstance.totalRating+'.png')}" />&nbsp;(${reviewsTotal})
 			</div>
 					
 			<div id="errores"></div>	

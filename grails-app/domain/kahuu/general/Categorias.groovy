@@ -9,6 +9,8 @@ class Categorias
 {	
 	String nombre;
 	
+	String descripcion;
+	
 	boolean activado;
 
 	static searchable = 

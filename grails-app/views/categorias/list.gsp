@@ -28,6 +28,8 @@
 					
 						<g:sortableColumn property="activado" title="${message(code: 'categorias.activado.label', default: 'Activado')}" />
 					
+						<g:sortableColumn property="descripcion" title="${message(code: 'categorias.descripcion.label', default: 'Descripcion')}" />
+					
 					</tr>
 				</thead>
 				<tbody>
@@ -37,6 +39,8 @@
 						<td><g:link action="show" id="${categoriasInstance.id}">${fieldValue(bean: categoriasInstance, field: "nombre")}</g:link></td>
 					
 						<td><g:formatBoolean boolean="${categoriasInstance.activado}" /></td>
+					
+						<td>${fieldValue(bean: categoriasInstance, field: "descripcion")}</td>
 					
 					</tr>
 				</g:each>

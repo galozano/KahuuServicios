@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="layout" content="main" />
-<title>Ingresar</title>
+<title>Kahuu - Ingresar</title>
 </head>
 <body>
 <facebook:initJS appId="${facebookContext.app.id}" xfbml="${true}" />
