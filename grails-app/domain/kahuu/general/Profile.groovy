@@ -42,9 +42,10 @@ class Profile implements Comparable
 		nombre boost: 2.0;
 		categorias component: true;
 		ciudad component:true;
+		tags component:true;
 	};
 		
-	static hasMany = [categorias: Categorias,reviews:Review];
+	static hasMany = [categorias: Categorias,reviews:Review,tags:Tag];
 	
     static constraints = 
 	{
