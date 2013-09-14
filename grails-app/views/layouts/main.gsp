@@ -5,9 +5,9 @@
 	<title><g:layoutTitle default="Kahuu-Guia de Profesional para el Hogar" /></title>
 </head>	
 <body>	
-	<div class="page">
+	<div class="container">
 		<g:layoutBody/>
-	</div>
+	</div>	
 </body>
 </html>
 </g:applyLayout>
