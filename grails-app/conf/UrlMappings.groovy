@@ -11,5 +11,6 @@ class UrlMappings {
 		"/$usuario"(controller:"perfil", action:"profileUsuario");
 		"/" (controller: "perfil", action:"principal")
 		"500"(view:'/error')
+		"/prueba"(controller: "perfil", action:"principal2")
 	}
 }

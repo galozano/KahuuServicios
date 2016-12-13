@@ -1,5 +1,10 @@
 package kahuu.general
 
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+
+import javax.imageio.ImageIO;
+
 import grails.plugin.facebooksdk.FacebookContext;
 import grails.plugin.facebooksdk.FacebookContextUser
 import grails.plugin.facebooksdk.FacebookGraphClient
@@ -8,8 +13,9 @@ import kahuu.general.PerfilService;
 import kahuu.general.Profile;
 import kahuu.general.Ciudad;
 import kahuu.general.exceptions.KahuuException;
-import org.codehaus.groovy.grails.web.json.JSONObject
-import org.compass.core.engine.SearchEngineQueryParseException
+import org.codehaus.groovy.grails.web.json.JSONObject;
+import org.compass.core.engine.SearchEngineQueryParseException;
+import org.imgscalr.Scalr;
 
 
 /**
@@ -43,6 +49,11 @@ class PerfilController
     def index()
 	{				
     	redirect(action:"principal");
+	}
+	
+	def principal2()
+	{
+		render(view: "index1")
 	}
 	
 	/**
@@ -160,7 +171,38 @@ class PerfilController
 			
 		if(perfil != null)
 		{
+			//Convierte la foto de imagen a un tamano de 100 pixeles
 			byte[] image = perfil.image;
+			InputStream inInput = new ByteArrayInputStream(image);
+			BufferedImage imageBuff = ImageIO.read(inInput);
+			BufferedImage imageThumbnail = Scalr.resize(imageBuff,100);
+			inInput.close();
+			
+			//La convierte otra vez a bytes para poder enviarla 
+			byte[] imageInByte;
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			ImageIO.write(imageThumbnail, "jpg", baos);
+			baos.flush();
+			imageInByte = baos.toByteArray();
+			baos.close();
+			
+			response.outputStream << imageInByte;
+		}
+	}
+	
+	/**
+	 * Retorna un stream de la foto de con la id de un perfil
+	 * @param id - id del perfil
+	 * @return- stream de la foto
+	 */
+	def darFotoOriginal(Long id)
+	{
+		def perfil = perfilService.darPerfil(id);
+			
+		if(perfil != null)
+		{
+			//Retorna la foto original
+			byte[] image = perfil.image;			
 			response.outputStream << image;
 		}
 	}
@@ -389,6 +431,7 @@ class PerfilController
 	
 	/**
 	 * Retorna la lista de amigos del usuario que recomendaron el perfil
+	 * @param idPerfil - el id del perfil que se quier buscar los amigos
 	 * @return lista de amigos recomendados
 	 */
 	def darAmigosRecomendaron(Long idPerfil)

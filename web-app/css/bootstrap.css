@@ -223,7 +223,7 @@ textarea {
 
 body {
   margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 14px;
   line-height: 20px;
   color: #333333;
@@ -4367,6 +4367,8 @@ input[type="submit"].btn.btn-mini {
   *z-index: 2;
   margin-bottom: 20px;
   overflow: visible;
+  
+
 }
 
 .navbar-inner {
@@ -4380,7 +4382,7 @@ input[type="submit"].btn.btn-mini {
   background-image: -o-linear-gradient(top, #ffffff, #f2f2f2);
   background-image: linear-gradient(to bottom, #ffffff, #f2f2f2); */
   background-repeat: repeat-x;
-  border: 1px solid #d4d4d4;
+
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
           border-radius: 4px;
@@ -4389,6 +4391,11 @@ input[type="submit"].btn.btn-mini {
   -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
      -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
           box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+  
+  -webkit-box-shadow: 0 0 3px 1px #aaaaaa;
+	box-shadow: 0 0 3px 1px #aaaaaa;
+	zoom: 1;
+
 }
 
 .navbar-inner:before,
@@ -4613,7 +4620,7 @@ input[type="submit"].btn.btn-mini {
 .navbar .nav > li > a {
   float: none;
   padding: 10px 15px 10px;
-  color: #777777;
+  color: #FFFFFF;
   text-decoration: none;
   text-shadow: 0 1px 0 #ffffff;
 }
@@ -4799,8 +4806,8 @@ input[type="submit"].btn.btn-mini {
 
 .navbar-inverse .brand,
 .navbar-inverse .nav > li > a {
-  color: #999999;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  color: #FFFFFF;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
 }
 
 .navbar-inverse .brand:hover,
@@ -6114,7 +6121,6 @@ a.badge:focus {
 
 .hero-unit {
 
-
   padding: 60px;
   margin-bottom: 30px;
   font-size: 18px;
@@ -6122,7 +6128,11 @@ a.badge:focus {
   line-height: 30px;
   color: inherit;
   background-color: whitesmoke;
-  border-bottom: 2px solid #179BC9
+  border-bottom: 2px solid #179BC9;
+  
+  box-shadow: 0 0 2px 2px #AAA;
+-moz-box-shadow: 0 0 2px 2px #AAA;
+-webkit-box-shadow: 0 0 2px 2px #AAA;
 }
 
 .hero-unit h1 {

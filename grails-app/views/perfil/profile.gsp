@@ -4,6 +4,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="layout" content="main" />
 <title>Kahuu - <g:fieldValue bean="${profileInstance}" field="nombre"/></title>
+<script  type="text/javascript">
+	$(document).ready(function(){
+		$(".inline").colorbox({inline:true, width:"max-width: 500px"});
+	});
+</script>
 </head>
 <body>
 	<facebook:initJS appId="${facebookContext.app.id}" xfbml="${true}" />
@@ -16,12 +21,18 @@
 		</g:if>
 		<div class="profile-up">	
 			<g:if test="${profileInstance?.image}">
-				<img src="${createLink(controller:'perfil', action:'darFoto', id: profileInstance.id)}"  width="100" height="100"/>
+				<a class='inline' href="#inline_content"><img src="${createLink(controller:'perfil', action:'darFoto', id: profileInstance.id)}"  width="100" height="100"/></a>
+				<!-- This contains the hidden content for inline calls -->
+				<div style='display:none'>
+					<div id='inline_content' style='padding:10px; background:#fff;'>
+						<img src="${createLink(controller:'perfil', action:'darFotoOriginal', id: profileInstance.id)}" />
+					</div>
+				</div>
 			</g:if>
 			<g:else>
 				<img src="${resource(dir: 'images', file: 'none.jpg')}" width="100" height="100"/>
 			</g:else>
-
+			
 			<div class="profile-general">
 				<h1><g:fieldValue bean="${profileInstance}" field="nombre"/></h1>
 				<img src="${resource(dir: 'images/skin', file: 'stars-'+profileInstance.totalRating+'.png')}" />&nbsp;(${reviewsTotal})

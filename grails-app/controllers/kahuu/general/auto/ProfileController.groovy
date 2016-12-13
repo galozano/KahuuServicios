@@ -45,6 +45,7 @@ class ProfileController {
 
     def edit(Long id) {
         def profileInstance = Profile.get(id)
+		
         if (!profileInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'profile.label', default: 'Profile'), id])
             redirect(action: "list")
@@ -56,7 +57,8 @@ class ProfileController {
 
     def update(Long id, Long version) {
         def profileInstance = Profile.get(id)
-        if (!profileInstance) {
+     
+		   if (!profileInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'profile.label', default: 'Profile'), id])
             redirect(action: "list")
             return
@@ -72,8 +74,20 @@ class ProfileController {
             }
         }
 
-        profileInstance.properties = params
-
+		//------------------Codigo mio------------------------
+		// Se agrego para que la foto no se borre cada vez
+		byte[] imageTemp = profileInstance.image;
+		
+		profileInstance.properties = params
+		
+		if(!params.image || params.image == null || params.image.isEmpty() )
+		{
+			log.debug("Poniendo la imagen vieja");
+			profileInstance.image = imageTemp;
+		}
+		//------------------Codigo mio------------------------
+		
+		
         if (!profileInstance.save(flush: true)) {
             render(view: "edit", model: [profileInstance: profileInstance])
             return
